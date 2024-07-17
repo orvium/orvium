@@ -1,0 +1,7 @@
+<div class="p-8" [ngClass]="'benefit-' + colorClass">
+  <div class="h-56 flex justify-center items-center mb-6 image">
+    <mat-icon class="text-2xl h-fit w-fit icon"> {{ benefit.icon }} </mat-icon>
+  </div>
+  <div class="mat-subtitle-2 mb-4">{{ benefit.title }}</div>
+  <div class="grey" [innerHTML]="benefit.description"></div>
+</div>

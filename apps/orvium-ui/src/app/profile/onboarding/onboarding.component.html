@@ -1,0 +1,174 @@
+@if (profile) {
+  <mat-stepper #stepper class="h-full" linear>
+    <mat-step [stepControl]="userProfileFormGroup">
+      <form class="flex flex-col text-center items-center" [formGroup]="userProfileFormGroup">
+        <ng-template matStepLabel>Fill out your personal data</ng-template>
+        <img
+          appAvatar
+          alt="User Avatar"
+          class="!h-32 !w-32 !mb-4"
+          [src]="avatar"
+          [gravatar]="gravatar"
+        />
+        <mat-form-field class="w-full" appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            id="firstNameInput"
+            placeholder="First name"
+            data-lpignore="true"
+            [formControl]="userProfileFormGroup.controls.firstName"
+          />
+        </mat-form-field>
+        <mat-form-field class="w-full" appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            id="lastNameInput"
+            placeholder="Last name"
+            data-lpignore="true"
+            [formControl]="userProfileFormGroup.controls.lastName"
+          />
+        </mat-form-field>
+        <mat-form-field class="w-full" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            id="emailInput"
+            placeholder="Email"
+            type="email"
+            email="true"
+            data-lpignore="true"
+            [formControl]="userProfileFormGroup.controls.emailPendingConfirmation"
+          />
+          @if (userProfileFormGroup.controls.emailPendingConfirmation.errors?.['invalidDomain']) {
+            <mat-error> This email domain is not allowed, please use a different email </mat-error>
+          }
+          @if (userProfileFormGroup.controls.emailPendingConfirmation.errors?.['required']) {
+            <mat-error>An email must be inserted </mat-error>
+          }
+          @if (userProfileFormGroup.controls.emailPendingConfirmation.errors?.['invalidEmail']) {
+            <mat-error>This email does not have a proper format </mat-error>
+          }
+        </mat-form-field>
+        <div class="mt-0.5 self-start">
+          <mat-checkbox
+            id="tcCheckbox"
+            class="grey"
+            color="primary"
+            [formControl]="userProfileFormGroup.controls.acceptedTC"
+          >
+            I have read and agree to the
+            <a class="primary" href="https://help.orvium.io/privacy/" target="_blank"
+              >Privacy Policy</a
+            >
+          </mat-checkbox>
+        </div>
+        @if (onboardingError) {
+          <app-alert class="mt-4" type="error" [icon]="'error'">{{ onboardingError }}</app-alert>
+        }
+        <div class="mt-10">
+          <button
+            mat-flat-button
+            color="primary"
+            type="button"
+            [disabled]="!userProfileFormGroup.valid"
+            (click)="save()"
+          >
+            Next
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <div class="text-center items-center">
+        <ng-template matStepLabel>Confirm email</ng-template>
+        <!--  This content will appear if the user needs to confirm email with code    -->
+        @if (profile.emailPendingConfirmation || linkingAccountsProcessEnabled) {
+          @if (linkingAccountsProcessEnabled) {
+            <app-alert class="mt-4" type="info" [icon]="'info'">{{
+              linkAccountsMessage
+            }}</app-alert>
+          }
+          <p
+            >We've just sent you a confirmation email. Please, check your inbox or spam folder and
+            follow the instructions to confirm your email.</p
+          >
+          <form class="flex justify-center items-center" [formGroup]="userCodeFormGroup">
+            <mat-form-field appearance="outline" class="w-48">
+              <mat-label>Confirmation code</mat-label>
+              <input
+                matInput
+                placeholder="Confirmation code"
+                [formControl]="userCodeFormGroup.controls.code"
+              />
+            </mat-form-field>
+            <button
+              mat-flat-button
+              class="m-4 mt-0"
+              color="primary"
+              type="button"
+              [disabled]="!userCodeFormGroup.valid"
+              (click)="confirmEmail()"
+            >
+              Confirm
+            </button>
+          </form>
+          @if (
+            userCodeFormGroup.controls.code.errors?.['minlength'] ||
+            userCodeFormGroup.controls.code.errors?.['maxlength']
+          ) {
+            <mat-error> The code must be a 6 number combination. </mat-error>
+          }
+          @if (userCodeFormGroup.controls.code.errors?.['pattern']) {
+            <mat-error>Only numbers accepted. </mat-error>
+          }
+          <p
+            >If you didn't receive any email you can try to get another using the "Resend Email"
+            button.
+            <button
+              mat-button
+              matSuffix
+              class="primary"
+              type="button"
+              matTooltip="Resend confirmation email"
+              [disabled]="this.resendButtonWait > 0"
+              (click)="sendConfirmationEmail()"
+              >Resend email
+              <mat-icon>forward_to_inbox</mat-icon>
+            </button>
+          </p>
+          @if (this.resendButtonWait > 0) {
+            <p class="accent"
+              >Email sent. Please wait {{ this.resendButtonWait }}
+              seconds to resend.
+            </p>
+          }
+          <p
+            >If you need some help please check our
+            <a
+              href="https://help.orvium.io/getting-started/onboarding/"
+              target="_blank"
+              class="primary"
+              >user's manual</a
+            >.
+          </p>
+        }
+        @if (!profile.emailPendingConfirmation && !linkingAccountsProcessEnabled) {
+          <p>Your email is already confirmed. You can go ahead!.</p>
+        }
+        <div class="mt-8 flex gap-4 justify-center">
+          <button mat-button matStepperPrevious color="primary" type="button">Back</button>
+          <button
+            mat-flat-button
+            color="primary"
+            type="button"
+            [disabled]="!!profile.emailPendingConfirmation || linkingAccountsProcessEnabled"
+            (click)="completeOnboarding()"
+            >Next
+          </button>
+        </div>
+      </div>
+    </mat-step>
+  </mat-stepper>
+}

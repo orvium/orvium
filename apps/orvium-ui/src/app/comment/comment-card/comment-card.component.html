@@ -1,0 +1,79 @@
+<div class="flex">
+  <img
+    class="mr-1 cursor-pointer"
+    appAvatar
+    alt="User avatar"
+    [src]="comment.user.avatar"
+    [gravatar]="comment.user.gravatar"
+    [routerLink]="['/profile', comment.user.nickname]"
+  />
+  <div class="min-w-0">
+    <div class="flex justify-between mb-2 md:mb-auto">
+      <div class="flex flex-[1_1_100%] md:flex-initial md:items-center flex-wrap items-start">
+        <div class="order-1 md:order-none mr-3 whitespace-nowrap mat-subtitle-2"
+          >{{ comment.user.firstName }} {{ comment.user.lastName }}</div
+        >
+        <div
+          class="w-full md:w-auto order-3 md:order-none tracking-wider mr-3 whitespace-nowrap grey mat-body-2"
+          >{{ comment.createdAt | date: 'dd/MM/yyyy' }}</div
+        >
+        @for (tag of comment.tags; track tag) {
+          <div>
+            <div
+              class="hidden md:block text-blue-500 tracking-wider uppercase font-bold whitespace-nowrap mr-4 mat-body-2"
+              >{{ tag }}</div
+            >
+          </div>
+        }
+        <div class="flex order-2 md:order-none">
+          <ng-content select="[actions]" />
+        </div>
+      </div>
+    </div>
+    <div class="tracking-wider mat-body-2" [innerHTML]="comment.content"> </div>
+    @if (showReplyInput) {
+      <div class="flex my-2 relative items-center">
+        <input
+          #commentInput
+          type="text"
+          class="w-full rounded border border-solid border-gray-400 pl-4 pr-12 text-gray-400 bg-transparent focus:outline-none"
+          placeholder="Add a public reply..."
+          (keyup.enter)="send(commentInput.value)"
+        />
+        <mat-icon
+          class="grey absolute flex items-center right-2 text-xl cursor-pointer"
+          (click)="send(commentInput.value)"
+          >send</mat-icon
+        >
+      </div>
+    }
+    <div class="flex">
+      <!--        TODO: likes implementation-->
+      <!--        <div class="flex items-center mr-4 grey">-->
+      <!--          <mat-icon class="grey text-base flex items-center">thumb_up</mat-icon>-->
+      <!--          {{ comment.likes }} Likes-->
+      <!--        </div>-->
+      @if (comment.hasReplies) {
+        <div
+          class="flex items-center cursor-pointer font-normal grey"
+          tabindex="0"
+          (click)="toggleResponses()"
+          (keyup)="toggleResponses()"
+        >
+          @if (!showReplies) {
+            <div class="underline"
+              >View replies
+              <mat-icon class="grey align-bottom mx-4">arrow_drop_down</mat-icon>
+            </div>
+          }
+          @if (showReplies) {
+            <div class="text"
+              >Hide replies
+              <mat-icon class="grey text-base cursor-pointer mx-4">arrow_drop_up</mat-icon>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</div>

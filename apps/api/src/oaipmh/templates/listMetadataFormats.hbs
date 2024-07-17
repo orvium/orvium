@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>{{date}}</responseDate>
+  <request verb="ListMetadataFormats">{{endpoint}}/api/v1/oai</request>
+  <ListMetadataFormats>
+    <metadataFormat>
+      <metadataPrefix>oai_openaire</metadataPrefix>
+      <schema>https://www.openaire.eu/schema/repo-lit/4.0/openaire.xsd</schema>
+      <metadataNamespace>http://namespace.openaire.eu/schema/oaire/</metadataNamespace>
+    </metadataFormat>
+  </ListMetadataFormats>
+</OAI-PMH>

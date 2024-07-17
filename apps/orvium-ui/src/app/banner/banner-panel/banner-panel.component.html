@@ -1,0 +1,24 @@
+@if (bannerInfo) {
+  <mat-toolbar
+    class="flex justify-between flex-wrap h-fit p-4 border-b border-solid border-gray-600 mat-elevation-z6"
+  >
+    <div class="m-0 mat-h3 primary">{{ bannerInfo.text }}</div>
+    <div class="flex grow justify-end">
+      <button
+        class="uppercase font-medium mat-subtitle-2"
+        mat-button
+        type="button"
+        (click)="bannerService.dismissBanner()"
+        >Dismiss
+      </button>
+      <button
+        class="uppercase font-medium mat-subtitle-2"
+        color="primary"
+        mat-button
+        type="button"
+        (click)="bannerService.onAction()"
+        >{{ bannerInfo.buttonText }}</button
+      >
+    </div>
+  </mat-toolbar>
+}

@@ -1,0 +1,7 @@
+{
+  "generatorName": "typescript-axios",
+  "inputSpec": "openapi.yaml",
+  "supportsES6": true,
+  "npmVersion": "1.0.0",
+  "npmName": "datacite-client"
+}

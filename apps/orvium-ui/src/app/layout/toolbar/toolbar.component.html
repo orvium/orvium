@@ -1,0 +1,294 @@
+<mat-toolbar class="mat-elevation-z6 flex items-center justify-end z-10">
+  <div class="flex items-center gap-1 mr-auto">
+    @if (profile) {
+      <button
+        data-test="togglesidenav-toolbar"
+        mat-icon-button
+        type="button"
+        (click)="toggleSidenav()"
+      >
+        <mat-icon class="grey">menu</mat-icon>
+      </button>
+    }
+    @if (!isMobile) {
+      <a data-test="orvium-logo-toolbar" class="flex" [routerLink]="['/']">
+        <img
+          alt="Platform logo"
+          class="w-auto h-10"
+          [src]="this.environment.publicS3 + '/platform/media/logo'"
+        />
+      </a>
+    }
+    @if (isMobile) {
+      <a data-test="orvium-logo-smallscreen-toolbar" class="flex" [routerLink]="['/']">
+        <img
+          alt="Platform logo"
+          class="w-8 h-8"
+          [src]="this.environment.publicS3 + '/platform/media/logo-icon'"
+        />
+      </a>
+    }
+    @if (!isMobile && environmentName !== 'production') {
+      <mat-chip-set aria-label="Environment type" class="chips">
+        <mat-chip [disableRipple]="true">{{ environmentName | slice: 0 : 3 }}</mat-chip>
+      </mat-chip-set>
+    }
+    @if (isImpersonating) {
+      <button
+        data-test="stop-impersonation-button"
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="stopImpersonation()"
+      >
+        <mat-icon>close</mat-icon>
+        <ng-container i18n>Stop Impersonate</ng-container>
+      </button>
+    }
+  </div>
+  @if (!isTablet) {
+    <div class="flex justify-end grow mr-4">
+      <app-search-bar (search)="searchPapers($event)" />
+    </div>
+  }
+
+  @if (isTablet) {
+    <button
+      data-test="search-mobile-button"
+      mat-icon-button
+      type="button"
+      (click)="openSearch(searchBarMobile)"
+    >
+      <mat-icon class="grey">search</mat-icon>
+    </button>
+  }
+
+  <a
+    data-test="communities-toolbar"
+    mat-button
+    type="button"
+    class="md:mr-4"
+    matTooltip="Explore Communities"
+    [routerLink]="['communities']"
+  >
+    @if (!isMobile) {
+      <mat-icon>bubble_chart</mat-icon>
+    }
+    @if (!isMobile) {
+      <ng-container i18n>Explore Communities</ng-container>
+    }
+    @if (isMobile) {
+      <ng-container i18n>Explore</ng-container>
+    }
+  </a>
+
+  <ng-template #searchBarMobile>
+    <app-search-bar [fullwidth]="true" (search)="searchPapers($event)" />
+  </ng-template>
+
+  @if (profile) {
+    <div class="flex items-center gap-1">
+      @if (!isMobile && !router.url.endsWith('/edit') && !router.url.endsWith('/integrations')) {
+        <button
+          data-test="upload-toolbar"
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="create()"
+        >
+          <mat-icon>upload_file</mat-icon>
+          <ng-container i18n>New Publication</ng-container>
+        </button>
+      }
+      <button
+        data-test="notifications-toolbar"
+        mat-icon-button
+        type="button"
+        (click)="openNotifications()"
+      >
+        <mat-icon
+          class="primary-icon"
+          matBadgeColor="primary"
+          matBadgeSize="small"
+          matBadge="{{ notifications.length }}"
+          [ngClass]="{ 'animate-bounce-short': notifications.length > 0 }"
+          [matBadgeHidden]="notifications.length === 0"
+        >
+          notifications
+        </mat-icon>
+      </button>
+      <button data-test="chats-toolbar" mat-icon-button type="button" [routerLink]="['chat']">
+        <mat-icon class="primary-icon" matBadgeColor="primary">chat</mat-icon>
+      </button>
+    </div>
+  }
+  @if (profile) {
+    <div class="flex items-center">
+      <div [matMenuTriggerFor]="profileMenu">
+        <button data-test="avatar-toolbar" mat-button type="button" class="flex-row-reverse">
+          <mat-icon>keyboard_arrow_down</mat-icon>
+          <img
+            appAvatar
+            alt="Profile Avatar"
+            class="align-bottom"
+            [gravatar]="profile.gravatar"
+            [src]="profile.avatar"
+          />
+        </button>
+      </div>
+      <mat-menu #profileMenu="matMenu" xPosition="before" class="orv-menu" [overlapTrigger]="false">
+        <div class="flex justify-center">
+          @if (isAdmin) {
+            <mat-chip-set aria-label="Is admin">
+              <mat-chip [disableRipple]="true">admin</mat-chip>
+            </mat-chip-set>
+          }
+        </div>
+        <app-profile-menu [user]="profile" [profileMenuRouterLink]="['profile', profile.nickname]">
+          <ng-container action-buttons>
+            <button
+              data-test="bookmarkedpublications-toolbar"
+              mat-menu-item
+              type="button"
+              [routerLinkActive]="'active-sub-link'"
+              [routerLink]="['bookmarked']"
+            >
+              <mat-icon>bookmark</mat-icon>
+              <ng-container i18n>Bookmarked publications</ng-container>
+            </button>
+            <button
+              data-test="profile-toolbar"
+              mat-menu-item
+              type="button"
+              [routerLinkActive]="'active-sub-link'"
+              [routerLink]="['profile', profile.nickname]"
+            >
+              <mat-icon>account_box</mat-icon>
+              <ng-container i18n>Profile</ng-container>
+            </button>
+            @if (isAdmin) {
+              <button
+                mat-menu-item
+                routerLinkActive="active-sub-link"
+                type="button"
+                [routerLink]="['templates']"
+              >
+                <mat-icon>dashboard</mat-icon>
+                <ng-container i18n>Email templates</ng-container>
+              </button>
+            }
+            <button
+              class="nav-button"
+              mat-menu-item
+              routerLinkActive="active-sub-link"
+              type="button"
+              [routerLink]="['/payments']"
+            >
+              <mat-icon>shopping_cart</mat-icon>
+              <ng-container i18n>My payments</ng-container>
+            </button>
+            @if (isAdmin) {
+              <button mat-menu-item type="button" (click)="openImpersonateDialog()">
+                <mat-icon>supervisor_account</mat-icon>
+                <ng-container i18n>Impersonate Profile</ng-container>
+              </button>
+            }
+            <button type="button" mat-menu-item (click)="changeTheme()">
+              @if (themeService.theme() === THEMES.dark) {
+                <mat-icon class="grey">brightness_6</mat-icon>
+              }
+              @if (themeService.theme() === THEMES.light) {
+                <mat-icon class="grey">brightness_5</mat-icon>
+              }
+              <span class="whitespace-pre"
+                >{{ themeService.theme() === THEMES.dark ? 'Light' : 'Dark' }}
+                <span i18n>mode</span></span
+              >
+            </button>
+            @if (environment.name === 'development') {
+              <button mat-menu-item type="button" [routerLink]="['demo']">
+                <mat-icon>bug_report</mat-icon>
+                <ng-container i18n>Demo Components</ng-container>
+              </button>
+            }
+            <div class="flex items-center">
+              <button
+                type="button"
+                mat-menu-item
+                [disableRipple]="true"
+                [routerLink]="['blockchain']"
+              >
+                <mat-icon>
+                  <fa-icon class="pl-0.5" [icon]="['fab', 'ethereum']" />
+                </mat-icon>
+                <span class="whitespace-pre" i18n>Blockchain </span>
+                @if (ethereumIsEnabled) {
+                  <div> - {{ this.ethereumService.currentNetwork.value?.displayName || '' }}</div>
+                }
+              </button>
+              <mat-slide-toggle
+                color="primary"
+                class="mr-2"
+                [checked]="ethereumIsEnabled"
+                (click)="$event.stopPropagation()"
+                (change)="switchBlockchain($event)"
+              />
+            </div>
+            <ng-template #installMetaMaskDialogTemplate>
+              <h1 class="mat-headline-6 grey" i18n
+                >We couldn't find <strong>Metamask</strong> extension installed in your browser.
+                Please, install the <a class="primary" href="https://metamask.io/">extension</a> and
+                try again. If you have any questions please feel free to check our
+                <a class="primary" href="https://help.orvium.io/tech/blockchain/">user guide</a>
+                or contact us through the <strong>feedback</strong> button bellow.
+              </h1>
+            </ng-template>
+          </ng-container>
+          <ng-container last-action-button>
+            @if (isMobile) {
+              <a
+                data-test="help-smallscreen-toolbar"
+                mat-menu-item
+                href="https://help.orvium.io/"
+                target="_blank"
+              >
+                <mat-icon>help</mat-icon>
+                <ng-container i18n>Help</ng-container>
+              </a>
+            }
+            <button
+              data-test="logout-toolbar"
+              mat-menu-item
+              type="button"
+              (click)="authenticationService.logoff()"
+            >
+              <mat-icon>logout</mat-icon>
+              <ng-container i18n>Logout</ng-container>
+            </button>
+          </ng-container>
+        </app-profile-menu>
+      </mat-menu>
+    </div>
+  }
+  @if (!profile) {
+    <button
+      data-test="login-toolbar"
+      mat-flat-button
+      type="button"
+      color="primary"
+      (click)="handleLogin()"
+    >
+      <mat-icon>person</mat-icon>
+      {{ isMobile ? 'Log In' : 'Log In / Register' }}
+    </button>
+  }
+  @if (!isMobile || !profile) {
+    <a data-test="help-toolbar" mat-icon-button href="https://help.orvium.io/" target="_blank">
+      <mat-icon class="grey">help</mat-icon>
+    </a>
+  }
+</mat-toolbar>
+
+<ng-template #notificationsPanel>
+  <app-notifications-panel />
+</ng-template>

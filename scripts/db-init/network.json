@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "5c8c35171c9d440000f3bc24"
+  },
+  "name": "mainnet",
+  "appAddress": "0x6DBA6e75Ae8a7c342144380f0A5FbFc2Eee8D8ab",
+  "displayName": "Mainnet",
+  "escrowAddress": "0xd1eBDEF716CE17Cc24A6B207b4dA49729f74202a",
+  "explorerUrl": "https://etherscan.io/",
+  "networkId": 1,
+  "tokenAddress": "0x470562a0DAb25092310eC8F58503aF053A54250E",
+  "createdAt": {
+    "$date": "2021-06-21T10:38:12.194Z"
+  },
+  "updatedAt": {
+    "$date": "2021-06-21T10:38:12.194Z"
+  }
+}]

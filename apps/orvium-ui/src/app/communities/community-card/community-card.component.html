@@ -1,0 +1,29 @@
+<mat-card
+  class="box-border h-full min-h-[16rem] min-w-[16rem] flex justify-between flex-col text-white p-6 bg-cover bg-no-repeat bg-center cursor-pointer"
+>
+  <mat-card-content>
+    <div class="flex flex-row">
+      <div class="flex items-center gap-1 mr-4">
+        <mat-icon inline>visibility</mat-icon>
+        {{ community.views | thousandConversor }} <span i18n>Views</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <mat-icon inline>person</mat-icon>
+        {{ community.followersCount | thousandConversor }} <span i18n>Members</span>
+      </div>
+    </div>
+
+    <p class="mat-headline-3 mb-2">{{ community.name }}</p>
+    <div class="flex items-center">
+      <img appAvatar class="h-8 w-8 mr-2 bg-white" alt="Community Logo" [src]="community.logoURL" />
+      <mat-chip-set>
+        <mat-chip [disableRipple]="true">{{ community.type | titlecase }}</mat-chip>
+      </mat-chip-set>
+    </div>
+  </mat-card-content>
+  <img
+    class="object-cover h-full w-full absolute rounded top-0 left-0"
+    alt="Community Image"
+    [src]="community.cardImageUrl"
+  />
+</mat-card>

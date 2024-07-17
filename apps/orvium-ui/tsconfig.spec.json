@@ -1,0 +1,16 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/spec",
+    "resolveJsonModule": true,
+    "module": "commonjs",
+    "target": "es2016",
+    "types": ["jest", "jsdom", "@angular/localize"]
+  },
+  "include": [
+    "src/**/*.spec.ts",
+    "src/**/*.d.ts",
+    "src/environments/*" // Add this to force the ts compiler to include environments otherwise eslint complains
+  ]
+}

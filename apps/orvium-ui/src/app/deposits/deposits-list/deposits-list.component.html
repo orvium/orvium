@@ -1,0 +1,15 @@
+@for (deposit of deposits; track deposit) {
+  <div class="mb-4">
+    <app-deposit-card
+      [deposit]="deposit"
+      [reducedCard]="isReducedCard"
+      [depositRouterLink]="['/deposits', deposit._id, 'view']"
+      [communityRouterLink]="['/communities', deposit.communityPopulated._id, 'view']"
+      [isStarred]="isStarred(deposit)"
+      [showCreateReview]="depositService.canReviewDeposit(deposit)"
+      [showBookmark]="showBookmark"
+      (starDeposit)="star($event)"
+      (createReview)="createReview($event)"
+    />
+  </div>
+}

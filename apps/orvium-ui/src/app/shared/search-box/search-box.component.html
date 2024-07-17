@@ -1,0 +1,149 @@
+<div
+  class="flex flex-wrap md:flex-nowrap mt-4 gap-2 justify-center"
+  [ngClass]="{ 'flex-col items-center': columnLayout }"
+  [formGroup]="searchFormGroup"
+>
+  @if (customControls?.query) {
+    <mat-form-field appearance="outline">
+      <mat-label i18n>{{ searchPlaceholder }}</mat-label>
+      <input matInput placeholder="{{ searchPlaceholder }}" [formControl]="queryFormControl" />
+      @if (searchInfo) {
+        <mat-hint
+          ><strong>
+            <a href="https://help.orvium.io/publication/search-a-publication/" target="_blank" i18n
+              >Help about article search</a
+            >
+          </strong></mat-hint
+        >
+      }
+    </mat-form-field>
+  }
+  @if (customControls?.status) {
+    <mat-form-field appearance="outline">
+      <mat-label i18n>Publications Status</mat-label>
+      <mat-select
+        data-test="select-publication-status"
+        [formControl]="searchFormGroup.controls.status"
+      >
+        <mat-option [value]="null" i18n>All publications</mat-option>
+        @for (depositStatus of _DepositStatus_LOV; track depositStatus) {
+          <mat-option [value]="depositStatus.value">
+            {{ depositStatus.viewValue }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  }
+  @if (customControls?.reviewStatus) {
+    <mat-form-field appearance="outline">
+      <mat-label i18n>Review Status</mat-label>
+      <mat-select
+        data-test="select-review-status"
+        [formControl]="searchFormGroup.controls.reviewStatus"
+      >
+        <mat-option [value]="null" i18n>All reviews</mat-option>
+        @for (reviewStatus of _ReviewStatus_LOV; track reviewStatus) {
+          <mat-option [value]="reviewStatus.value">
+            {{ reviewStatus.viewValue }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  }
+  @if (customControls?.reviewKind) {
+    <mat-form-field appearance="outline">
+      <mat-label i18n>Review Type</mat-label>
+      <mat-select [formControl]="searchFormGroup.controls.reviewKind">
+        <mat-option [value]="null">All reviews</mat-option>
+        @for (reviewKind of _ReviewKind_LOV; track reviewKind) {
+          <mat-option [value]="reviewKind.value">
+            {{ reviewKind.viewValue }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  }
+  @if (customControls?.acceptedFor && _community?.type === _CommunityType_LOV.Conference) {
+    <mat-form-field appearance="outline">
+      <mat-label i18n>Decision</mat-label>
+      <mat-select [formControl]="searchFormGroup.controls.acceptedFor">
+        <mat-option [value]="null" i18n>All decisions</mat-option>
+        @for (decision of _DepositDecision_LOV; track decision) {
+          <mat-option [value]="decision.value">
+            {{ decision.viewValue }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  }
+  @if (customControls?.moderator && _community) {
+    <mat-form-field appearance="outline">
+      <mat-label i18n>Moderator</mat-label>
+      <mat-select [formControl]="searchFormGroup.controls.moderator">
+        <mat-option [value]="null" i18n>All moderators</mat-option>
+        @for (moderator of _community.moderatorsPopulated; track moderator) {
+          <mat-option [value]="moderator.user._id">
+            {{ moderator.user.firstName }} {{ moderator.user.lastName }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  }
+  @if (customControls?.newTrackTimestamp && _community) {
+    <mat-form-field appearance="outline">
+      <mat-label i18n>Track</mat-label>
+      <mat-select
+        data-test="select-track"
+        [formControl]="searchFormGroup.controls.newTrackTimestamp"
+      >
+        <mat-option [value]="null" i18n>All publications</mat-option>
+        @for (track of _community.newTracks; track track) {
+          <mat-option [value]="track.timestamp">{{ track.title }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  }
+  @if (customControls?.inviteStatus) {
+    <mat-form-field appearance="outline">
+      <mat-label i18n>Invitation Status</mat-label>
+      <mat-select [formControl]="searchFormGroup.controls.inviteStatus">
+        <mat-option [value]="null" i18n>All invitations</mat-option>
+        @for (inviteStatus of _InviteStatus_LOV; track inviteStatus) {
+          <mat-option [value]="inviteStatus.value">
+            {{ inviteStatus.viewValue }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  }
+  @if (customControls?.paymentStatus) {
+    <mat-form-field appearance="outline">
+      <mat-label i18n>Payment Status</mat-label>
+      <mat-select [formControl]="searchFormGroup.controls.paymentStatus">
+        <mat-option [value]="null">All payments</mat-option>
+        @for (paymentStatus of _PaymentStatus_LOV; track paymentStatus) {
+          <mat-option [value]="paymentStatus.value">
+            {{ paymentStatus.viewValue }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  }
+  @if (customControls?.sort) {
+    <mat-form-field appearance="outline">
+      <mat-label i18n>Sort by</mat-label>
+      <mat-select [formControl]="searchFormGroup.controls.sort">
+        <mat-option [value]="'recent'" i18n>Most recent</mat-option>
+        <mat-option [value]="'popular'" i18n>Most popular</mat-option>
+      </mat-select>
+    </mat-form-field>
+  }
+  <button
+    type="button"
+    mat-icon-button
+    [disabled]="searchFormGroup.pristine"
+    (click)="searchFormGroup.reset()"
+  >
+    <mat-icon>filter_alt_off</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,114 @@
+<div mat-dialog-content class="max-w-3xl">
+  <h2 class="primary mat-headline-6">New Publication</h2>
+  <div class="mat-body-2"
+    >You can create a new publication from scratch or import it using a DOI.
+    <a href="https://help.orvium.io/publication/create-a-publication/" target="_blank">Get help</a
+    ><br />
+    Under the "Create" tab you can create a new publication from scratch or import it using a DOI in
+    the "Import" tab. Once created, your publication will show under "My publications" on the left
+    menu.
+    <app-alert [icon]="'play_circle'">
+      <span
+        class="decorate-as-link"
+        tabindex="0"
+        (click)="openVideo()"
+        (keydown)="$event.key !== 'Tab' ? openVideo() : ''"
+      >
+        If you want to know more, please watch our explainer video here.</span
+      >
+    </app-alert>
+  </div>
+  <ng-template #communitySelect>
+    <p
+      >1. Please verify that you have selected the right community where you want to submit your
+      publication.</p
+    >
+    <div class="flex flex-wrap justify-center">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-select placeholder="Community" [formControl]="communityFormControl">
+          @for (community of communities; track community) {
+            <mat-option class="my-2" [value]="community._id">
+              <div class="flex items-center cursor-pointer">
+                <img
+                  appAvatar
+                  [src]="community.logoURL"
+                  [alt]="community.name + ' logo'"
+                  [matTooltip]="community.name"
+                />
+                <div class="grid ml-2">
+                  <p class="mat-subtitle-2">{{ community.name }}</p>
+                </div>
+              </div>
+            </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      @if (selectedCommunity) {
+        <div class="flex flex-col lg:flex-row gap-2 items-center community-details">
+          <img
+            alt="Community logo"
+            class="w-16 h-16 rounded-full object-cover"
+            [src]="selectedCommunity.logoURL"
+          />
+          @if (selectedCommunity.description) {
+            <p class="mat-body-2 line-clamp-4">{{ selectedCommunity.description }}</p>
+          }
+        </div>
+      }
+    </div>
+  </ng-template>
+  <mat-tab-group class="w-full">
+    <mat-tab label="Create">
+      <ng-container *ngTemplateOutlet="communitySelect" />
+      <p>2. Fill the title and click the "Create" button:</p>
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Publication title</mat-label>
+        <input matInput placeholder="On the Origin of Species" [formControl]="titleFormControl" />
+      </mat-form-field>
+      <div class="flex justify-end mb-4 gap-1">
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          [disabled]="!titleFormControl.valid || !communityFormControl.valid"
+          (click)="create()"
+        >
+          Create
+        </button>
+        <button mat-button color="primary" type="button" (click)="dialogService.closeAll()">
+          Cancel
+        </button>
+      </div>
+    </mat-tab>
+    <mat-tab label="Import">
+      <ng-container *ngTemplateOutlet="communitySelect" />
+      <p>2. Introduce below the DOI of the publication you want to import.</p>
+      <p class="mat-body-2 mb-0"
+        >NOTE: Successful imports will depend on the website that the publication is hosted.
+        <a
+          href="https://help.orvium.io/publication/create-a-publication/#import-your-publication"
+          target="_blank"
+          >Get help</a
+        >
+      </p>
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Publication DOI</mat-label>
+        <input matInput placeholder="10.1016/j.cub.2016.10.008" [formControl]="doiFormControl" />
+      </mat-form-field>
+      <div class="flex justify-end mb-4">
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          [disabled]="!doiFormControl.valid"
+          (click)="import()"
+        >
+          Import
+        </button>
+        <button mat-button color="primary" type="button" (click)="dialogService.closeAll()">
+          Cancel
+        </button>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

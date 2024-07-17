@@ -1,0 +1,19 @@
+{{#each authors}}
+  <person_name sequence="{{#if @first}}first{{else}}additional{{/if}}" contributor_role="author">
+    <given_name>{{this.firstName}}</given_name>
+    <surname>{{this.lastName}}</surname>
+    {{#if this.institutions }}
+      <affiliations>
+        {{#each this.institutions}}
+          <institution>
+            <institution_name>{{this}}</institution_name>
+          </institution>
+        {{/each}}
+      </affiliations>
+    {{/if}}
+    {{#if this.orcid }}
+      <ORCID>{{this.orcid}}</ORCID>
+    {{/if}}
+  </person_name>
+{{/each}}
+

@@ -1,0 +1,25 @@
+<div class="grid grid-cols-1 justify-items-center">
+  <div class="max-w-4xl w-full mb-0.5">
+    <app-search-box
+      class="search-box"
+      [searchInfo]="true"
+      [customControls]="{ query: true, status: true }"
+      [appOverlayLoading]="loadingSearch"
+      (search)="filterPublications($event)"
+    />
+  </div>
+  @if (deposits.length === 0) {
+    <h1 class="mat-h1 primary text-center" i18n
+      >No deposits found for {{ query || 'advanced' }} search.</h1
+    >
+  }
+  <div class="flex flex-col justify-center max-w-4xl">
+    <app-deposits-list [deposits]="deposits" [appOverlayLoading]="loadingSearch" />
+    <mat-paginator
+      [length]="totalDeposits"
+      [pageSize]="10"
+      [pageIndex]="pageIndex"
+      (page)="paginate($event)"
+    />
+  </div>
+</div>

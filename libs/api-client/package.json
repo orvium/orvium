@@ -1,0 +1,17 @@
+{
+  "name": "api-client",
+  "version": "0.0.1",
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "typings": "./src/index.d.ts",
+  "private": true,
+  "scripts": {
+    "remove-tags": "jq 'del(.paths[][].tags)' openapi.json > openapilib.json",
+    "build": "ng-packagr -p ng-package.json",
+    "copy-custom-files": "cp ../../apps/api/src/template/model.ts src/custom.ts",
+    "gen-sdk": "rimraf libs/api-client/src/model/ src/api/ && npm run remove-tags && openapi-generator generate -c .openapiconfig.json -o src && npm run copy-custom-files"
+  }
+}

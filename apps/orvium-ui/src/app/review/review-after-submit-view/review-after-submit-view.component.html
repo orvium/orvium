@@ -1,0 +1,54 @@
+@if (!review) {
+  <app-access-denied />
+}
+@if (review) {
+  <div class="grid grid-cols-1 gap-8 justify-start justify-items-start md:grid-cols-2">
+    <div class="w-full">
+      <h1 class="mat-headline-3 primary mb-4"><strong>Congratulations!</strong></h1>
+      <h1 class="mat-headline-6"
+        >Your review has been submitted to
+        <strong
+          ><a
+            class="primary"
+            [routerLink]="['/', 'communities', review.communityPopulated._id, 'view']"
+            >{{ review.communityPopulated.name }}</a
+          ></strong
+        >.
+      </h1>
+      <h1 class="mat-headline-4 primary mb-4">What is next?</h1>
+      <h1 class="mat-headline-6 grey"><strong>Before making your review public</strong></h1>
+      <h1 class="mat-subtitle-1 grey"
+        >Your review is now in <span class="primary">Pending Approval</span>. The community editors
+        or moderators will check the content, format, and metadata to ensure the correct
+        accessibility and reading of your review. Meanwhile, feel free to review more papers from
+        <a
+          class="primary"
+          [routerLink]="['/', 'search']"
+          [queryParams]="{ query: depositAuthor, size: 10 }"
+          >{{ depositAuthor }}</a
+        >.
+      </h1>
+      <h1 class="mat-subtitle-1 grey mt-4">
+        If you would like to contact the authors of the paper, you can do that directly by leaving a
+        message in the
+        <a class="primary" [routerLink]="['/', 'deposits', review.depositPopulated._id, 'view']"
+          >comment section</a
+        >
+        of the article.
+      </h1>
+      <h1 class="mat-headline-6 grey">
+        <strong>Some other topics you may find interesting</strong>
+      </h1>
+      <mat-chip-set>
+        @for (discipline of review.depositPopulated.disciplines; track discipline; let i = $index) {
+          <mat-chip
+            [class]="'cursor-pointer orv-chip ' + chipClass[i % 4]"
+            (click)="searchByDiscipline(discipline)"
+            >{{ discipline | titlecase }}
+          </mat-chip>
+        }
+      </mat-chip-set>
+    </div>
+    <app-review-status-info [status]="review.status" />
+  </div>
+}

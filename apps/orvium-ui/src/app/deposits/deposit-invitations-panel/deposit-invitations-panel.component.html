@@ -1,0 +1,98 @@
+@if (!canInviteReviewers && !invitationPanelLoading) {
+  <app-access-denied />
+}
+@if (deposit && canInviteReviewers) {
+  <div class="container" [appOverlayLoading]="invitationPanelLoading">
+    <app-info-toolbar>
+      @if (deposit) {
+        <div class="grid">
+          <a
+            class="mat-subtitle-2 text-ellipsis overflow-hidden"
+            [routerLink]="['/deposits', deposit._id, 'view']"
+            >{{ deposit.title | titlecase }}</a
+          >
+          <span class="grey mat-caption">Publication hosting invitations</span>
+        </div>
+      }
+      <div app-info-toolbar-buttons class="flex gap-1 items-center">
+        <app-buttons-menu
+          [buttonsInToolbar]="buttonsInToolbar"
+          [buttonsAlwaysInMenu]="buttonsAlwaysInMenu"
+          [isMobile]="isMobile"
+        />
+      </div>
+    </app-info-toolbar>
+    <h1 class="mb-2 mat-headline-4 primary">Manage Invitations</h1>
+    @if (depositVersions.length > 0 && this.deposit._id !== latestVersion?._id) {
+      <app-alert type="info" [icon]="'info'">
+        You're about to invite reviewers to a non-latest version of the publication. Please
+        double-check your selection before proceeding.
+      </app-alert>
+    }
+    <p class="mat-subtitle-1">
+      Send invitations to review or copy edit this submission. If you have questions about sending
+      invitations check our user guide here
+      <a href="https://help.orvium.io/publication/invite-reviewers/" target="_blank">
+        <mat-icon
+          inline
+          class="cursor-pointer align-middle !text-2xl rounded hover:backdrop-brightness-125"
+          color="primary"
+          >help</mat-icon
+        >
+      </a>
+    </p>
+    <div class="grid grid-cols-4 gap-4 mb-4">
+      <app-metrics
+        [number]="invites.length"
+        [icon]="'account_circle'"
+        [description]="'Invitations Sent'"
+      />
+      <app-metrics
+        [number]="this.metrics.pending"
+        [icon]="'pending'"
+        [description]="'Invitations Pending'"
+      />
+      <app-metrics
+        [number]="this.metrics.accepted"
+        [icon]="'check_circle'"
+        [description]="'Invitations Accepted'"
+      />
+      <app-metrics
+        [number]="this.metrics.rejected"
+        [icon]="'cancel'"
+        [description]="'Invitations Rejected'"
+      />
+    </div>
+    <app-deposit-invitation-list [invites]="invites" />
+  </div>
+}
+
+<ng-template #buttonsInToolbar>
+  <button
+    mat-button
+    class="grey"
+    type="button"
+    aria-label="Invite reviewer"
+    (click)="inviteReviewer()"
+  >
+    <mat-icon>email</mat-icon>
+    Invite reviewers
+  </button>
+
+  <button
+    mat-button
+    class="grey"
+    type="button"
+    aria-label="Invite copy editors"
+    (click)="inviteCopyEditor()"
+  >
+    <mat-icon>email</mat-icon>
+    Invite copy editors
+  </button>
+</ng-template>
+
+<ng-template #inviteDialogTemplate>
+  @if (deposit) {
+    <app-invite-reviewers-dialog [deposit]="deposit" [invitationType]="inviteType" />
+  }
+</ng-template>

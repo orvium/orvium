@@ -1,0 +1,113 @@
+<mat-card class="p-4">
+  <div class="mb-4 flex flex-col">
+    <!--    Reviewer information-->
+    <div>
+      <div class="flex flex-row justify-between">
+        <div class="mat-subtitle-2 grey" i18n>PEER REVIEW</div>
+        <mat-chip-set>
+          @if (review.doi) {
+            <mat-chip class="orv-chip-outlined flex flex-row" [disableRipple]="true">
+              <mat-icon
+                inline
+                class="cursor-pointer align-middle"
+                [appCopyToClipboard]="'https://doi.org/' + review.doi"
+                >content_copy
+              </mat-icon>
+              <a
+                target="_blank"
+                class="ml-1 overflow-ellipsis"
+                [matTooltip]="'doi.org/' + review.doi"
+                href="https://doi.org/{{ review.doi }}"
+                >DOI</a
+              >
+            </mat-chip>
+          }
+          <app-review-visibility [visibilities]="review" />
+          @if (review.kind === ReviewKind.CopyEditing) {
+            <mat-chip class="orv-chip-yellow" [disableRipple]="true"> Copy Editing </mat-chip>
+          }
+          <mat-chip class="orv-chip-grey orv-chip-outlined" [disableRipple]="true">
+            <mat-icon matChipAvatar>{{ reviewIcon.icon }}</mat-icon>
+            {{ reviewIcon.description }}
+          </mat-chip>
+          <mat-chip class="orv-chip-{{ review.status.replace(' ', '-') }}" [disableRipple]="true">
+            {{ review.status | titlecase }}
+          </mat-chip>
+        </mat-chip-set>
+      </div>
+
+      <div class="primary cursor-pointer flex items-center gap-1">
+        <mat-icon class="!w-9 h-4 text-base" inline>article</mat-icon>
+        <a class="mat-body-1 m-0 line-clamp-1" [routerLink]="['/reviews', review._id, 'view']">
+          <ng-container i18n>Review of </ng-container> "{{ review.depositPopulated.title }}"
+        </a>
+      </div>
+    </div>
+    <div class="flex align-center mt-2">
+      <div class="ml-1 flex flex-row">
+        <span class="grey mt-2" [matTooltip]="'Review creation date'"
+          >{{ review.creationDate | date: 'dd/MM/yyyy' }} |
+        </span>
+        <app-contributor-line [user]="review.ownerProfile" />
+      </div>
+      @if (review.ownerProfile.nickname && chatLink) {
+        <a mat-raised-button color="primary" class="ml-4 mb-5" [routerLink]="chatLink">
+          <mat-icon>chat</mat-icon>
+          <ng-container i18n>Message</ng-container>
+        </a>
+      }
+    </div>
+  </div>
+  <mat-card-content>
+    @if (review.comments) {
+      <app-show-more class="mat-body-2 grey" [text]="review.comments" [expanded]="expanded" />
+    }
+  </mat-card-content>
+  <mat-card-actions class="flex flex-row justify-between items-end">
+    <!-- This div is necessary to keep buttons at the end using justify-between -->
+    <div>
+      @if (review.views > 0) {
+        <div class="flex items-center">
+          <mat-icon inline class="grey">visibility</mat-icon>
+          <span
+            ><span class="ml-1" i18n> {{ review.views }} </span> views</span
+          >
+        </div>
+      }
+    </div>
+    <div class="flex flex-row gap-2 justify-self-end">
+      @if (review.file) {
+        <div class="buttons-together">
+          <a mat-flat-button color="primary" target="_blank" href="{{ review.file.url }}">
+            Download review
+            <mat-icon>download</mat-icon>
+          </a>
+          <button
+            color="primary"
+            type="button"
+            mat-flat-button
+            [matMenuTriggerFor]="ReviewExtraFilesMenus"
+          >
+            <mat-icon class="!my-0 !mx-1">keyboard_arrow_down</mat-icon>
+          </button>
+        </div>
+      }
+      @if (showReadButton) {
+        <a color="primary" mat-raised-button [routerLink]="['/reviews', review._id, 'view']" i18n
+          >Read
+        </a>
+      }
+    </div>
+  </mat-card-actions>
+</mat-card>
+
+<mat-menu #ReviewExtraFilesMenus yPosition="below" xPosition="before">
+  @if (review.extraFiles.length > 0) {
+    @for (file of review.extraFiles; track file) {
+      <app-file-card [file]="file" [canDelete]="false" [canDownload]="false" />
+    }
+  }
+  @if (review.extraFiles.length <= 0) {
+    <p class="p-2" i18n>This review don't have any extra file</p>
+  }
+</mat-menu>

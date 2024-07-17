@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>{{date}}</responseDate>
+  <request {{param}} verb="ListIdentifiers" metadataPrefix="oai_openaire">{{endpoint}}/api/v1/oai</request>
+  <ListIdentifiers>
+    {{#each deposit}}
+      <header>
+        <identifier>oai:orvium.io:{{this._id}}</identifier>
+        <datestamp>{{toDateStampFormat this.createdOn}}</datestamp>
+        <setSpec>{{this.community.codename}}</setSpec>
+      </header>
+    {{/each}}
+    {{#if incomplete}}
+      <resumptionToken>{{token}}</resumptionToken>
+    {{/if}}
+  </ListIdentifiers>
+</OAI-PMH>

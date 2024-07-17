@@ -1,0 +1,55 @@
+<h1 class="mat-headline-2 primary">Spinner</h1>
+<h2>Selector: <code>&lt;orv-spinner&gt;</code></h2>
+<h2
+  >Input:
+  <code
+    >name: string, bdColor: color, color: color, class: ballClipRotate | ballScale (default),
+    fullScreen: boolean</code
+  ></h2
+>
+
+<mat-card>
+  <mat-card-title>Loading Spinner</mat-card-title>
+  <mat-card-content>
+    <app-loading-spinner />
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>Button Spinner</mat-card-title>
+  <mat-card-content>
+    <button type="button" mat-raised-button (click)="activateSpinner('buttonSpinner')">
+      Activate spinner
+    </button>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>Screen Spinner</mat-card-title>
+  <mat-card-content>
+    <button type="button" mat-raised-button (click)="activateSpinner('screenSpinner')"
+      >Activate Spinner</button
+    >
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>Component Spinner</mat-card-title>
+  <mat-card-content>
+    <button mat-raised-button type="button" (click)="fetchTableData()">Activate Spinner</button>
+    <app-moderator-deposit-table
+      [community]="community"
+      [deposits]="deposits"
+      [moderators]="community.moderatorsPopulated"
+      [appOverlayLoading]="isFetchingData"
+    />
+  </mat-card-content>
+</mat-card>
+
+<button
+  mat-raised-button
+  type="button"
+  [appOverlayLoading]="isFetchingData2"
+  (click)="fetchTableData2()"
+  >Activate Spinner</button
+>

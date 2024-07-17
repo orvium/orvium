@@ -1,0 +1,82 @@
+<h1 class="mat-headline-2 primary">Predefined Dialogs</h1>
+<h2>Service: <code>DialogsService</code></h2>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="primary">Confirmation Dialog</mat-card-title>
+    <mat-card-subtitle>
+      <p class="mat-body"
+        >Create a dialog with "Accept" or "Cancel" actions. Title, content and button's text are
+        editable. Alert dialogs should be used for information where user decision is needed.</p
+      >
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-stroked-button color="primary" type="button" (click)="openConfirm()"
+      >Open Confirm</button
+    >
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="primary">Alert Dialog</mat-card-title>
+    <mat-card-subtitle>
+      <p class="mat-body"
+        >Create an alert dialog with "Accept" action. Title, content and button text are editable.
+        Alert dialogs should be used for information where user decision is irrelevant.</p
+      >
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-stroked-button color="primary" type="button" (click)="openAlert()"
+      >Open Alert</button
+    >
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="primary">Custom Dialog</mat-card-title>
+    <mat-card-subtitle>Create a dialog with a custom component displayed inside</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-stroked-button color="primary" type="button" (click)="openCustom()"
+      >Open Custom</button
+    >
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="primary">Input Dialog</mat-card-title>
+    <mat-card-subtitle>
+      <p class="mat-body"
+        >Create a dialog with "Accept" or "Cancel" actions and input text. Title, content and
+        button's text are editable. Alert dialogs should be used for information where user decision
+        is needed.</p
+      >
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-stroked-button color="primary" type="button" (click)="openInput()"
+      >Open Input</button
+    >
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="primary">Video Dialog</mat-card-title>
+    <mat-card-subtitle>
+      <p class="mat-body"
+        >Create a dialog with "Accept" or "Cancel" with a video player. Content and button's text
+        are editable.
+      </p>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-stroked-button color="primary" type="button" (click)="openVideo()"
+      >Open Video</button
+    >
+  </mat-card-content>
+</mat-card>

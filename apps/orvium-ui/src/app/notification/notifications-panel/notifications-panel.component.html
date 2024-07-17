@@ -1,0 +1,71 @@
+<div class="pb-4 max-w-sm">
+  <mat-toolbar class="pl-6 flex justify-between bg-transparent">
+    <div class="flex items-center">
+      <div class="mb-0 mr-6 font-size text-base">Notifications</div>
+    </div>
+  </mat-toolbar>
+
+  @if (notifications.length === 0) {
+    <div>
+      <div
+        data-test="list-item"
+        class="flex items-center gap-4 h-fit box-border p-4 hover:backdrop-contrast-75"
+      >
+        <div>
+          <mat-icon>done_all</mat-icon>
+        </div>
+        <div>
+          <div>
+            <div class="mat-subtitle-1"> You are up to date </div>
+          </div>
+          <div class="mat-body-2"> Your notifications will appear here </div>
+        </div>
+      </div>
+    </div>
+  }
+
+  @if (notifications.length > 0) {
+    <div>
+      @for (notification of notifications; track notification; let i = $index) {
+        <div>
+          <div
+            class="flex items-center gap-4 h-fit box-border p-4 cursor-pointer hover:backdrop-contrast-75"
+            data-test="list-item"
+            tabindex="0"
+            (click)="deleteNotification(i, $event)"
+            (keyup)="deleteNotification(i, $event)"
+          >
+            <button
+              mat-fab
+              matBadge="&#8288;"
+              matBadgeSize="small"
+              type="button"
+              class="!bg-blue-100"
+              color="primary"
+              [matBadgeHidden]="notification.isRead"
+            >
+              <mat-icon color="primary">{{ notification.icon }}</mat-icon>
+            </button>
+            <div class="w-full">
+              <div class="flex justify-between">
+                <div class="mat-subtitle-1 mb-2">
+                  {{ notification.title }}
+                </div>
+                <div
+                  class="mat-body-2"
+                  [matTooltip]="(notification.createdOn | date: 'dd/MM/yyyy') || ''"
+                >
+                  {{ notification.createdOn | dateAgo }}
+                </div>
+              </div>
+              <div class="mat-body-2">
+                {{ notification.body }}
+              </div>
+            </div>
+          </div>
+          <mat-divider />
+        </div>
+      }
+    </div>
+  }
+</div>

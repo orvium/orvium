@@ -1,0 +1,10 @@
+<h1 class="mat-headline-2 primary">File List</h1>
+<h2>Selector: <code>&lt;app-file-card&gt;</code></h2>
+<h2>Input: <code>file: FileMetadata</code></h2>
+@for (file of files; track file) {
+  <app-file-card [file]="file" [canDelete]="false" />
+}
+<hr />
+@for (file of files; track file) {
+  <app-file-card [file]="file" />
+}

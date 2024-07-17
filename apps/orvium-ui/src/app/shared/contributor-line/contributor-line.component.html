@@ -1,0 +1,23 @@
+<div class="flex items-center gap-1">
+  <div aria-label="User avatar">
+    @if (user.nickname && user.nickname !== 'anonymous-reviewer') {
+      <a [routerLink]="['/', 'profile', user.nickname]">
+        <img appAvatar alt="User Avatar" [src]="user.avatar" [gravatar]="user.gravatar" />
+      </a>
+    }
+    @if (!user.nickname || user.nickname === 'anonymous-reviewer') {
+      <img appAvatar alt="User Avatar" [src]="user.avatar" [gravatar]="user.gravatar" />
+    }
+  </div>
+  <div aria-label="User info">
+    @if (user.nickname && user.nickname !== 'anonymous-reviewer') {
+      <a [routerLink]="['/', 'profile', user.nickname]">{{ user.firstName }} {{ user.lastName }}</a>
+    }
+    @if (!user.nickname || user.nickname === 'anonymous-reviewer') {
+      <span>{{ user.firstName }} {{ user.lastName }}</span>
+    }
+    <div class="grey">
+      {{ user.institutions | slice: 0 : 1 }}
+    </div>
+  </div>
+</div>

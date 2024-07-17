@@ -1,0 +1,13 @@
+@use 'variables';
+
+.mat-raised-button {
+  &.orv-button {
+    &.mat-raised-button:not([class*='mat-elevation-z']) {
+      box-shadow: 0 10px 20px rgb(46 91 255 / 7%);
+    }
+
+    &-secondary {
+      background-color: variables.$secondary;
+    }
+  }
+}

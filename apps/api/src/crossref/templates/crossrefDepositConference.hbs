@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd"
+           xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1"
+           xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" version="5.3.0">
+  <head>
+    {{>head_content}}
+  </head>
+  <body>
+  <conference>
+    <event_metadata>
+      <conference_name>{{deposit.conferenceTitle}}</conference_name>
+      <conference_theme>{{deposit.conferenceTheme}}</conference_theme>
+    </event_metadata>
+    <proceedings_metadata language="en">
+      <proceedings_title>
+        {{deposit.conferenceTitle}}
+      </proceedings_title>
+      {{#if deposit.publisher}}
+        <publisher>
+          <publisher_name>{{deposit.publisher}}</publisher_name>
+        </publisher>
+      {{/if}}
+      {{#if deposit.publicationDate}}
+        <publication_date>
+          <month>{{deposit.publicationDate.month}}</month>
+          <day>{{deposit.publicationDate.day}}</day>
+          <year>{{deposit.publicationDate.year}}</year>
+        </publication_date>
+      {{/if}}
+      {{#if deposit.isbn}}
+        <isbn>{{deposit.isbn}}</isbn>
+      {{else}}
+        <noisbn reason="simple_series"></noisbn>
+      {{/if}}
+    </proceedings_metadata>
+    <conference_paper publication_type="full_text">
+      <contributors>
+        {{> contributors_content authors=deposit.authors}}
+      </contributors>
+      <titles>
+        <title>
+          {{deposit.title}}
+        </title>
+      </titles>
+      <jats:abstract><jats:p>{{deposit.abstract}}</jats:p></jats:abstract>
+      {{#if deposit.publicationDate}}
+        <publication_date>
+          <month>{{deposit.publicationDate.month}}</month>
+          <day>{{deposit.publicationDate.day}}</day>
+          <year>{{deposit.publicationDate.year}}</year>
+        </publication_date>
+      {{/if}}
+      {{#if deposit.firstpage }}
+        <pages>
+          <first_page>{{deposit.firstpage}}</first_page>
+          {{#if deposit.lastpage }}
+            <last_page>{{deposit.firstpage}}</last_page>
+          {{/if}}
+        </pages>
+      {{/if}}
+      <doi_data>
+        <doi>{{deposit.doi}}</doi>
+        <resource>
+          {{deposit.resource}}
+        </resource>
+      </doi_data>
+      {{#if deposit.references}}
+        <citation_list>
+          {{#each deposit.references}}
+            <citation key="ref{{@index}}">
+              <unstructured_citation>
+                {{this.reference}}({{this.url}})
+              </unstructured_citation>
+            </citation>
+          {{/each}}
+        </citation_list>
+      {{/if}}
+    </conference_paper>
+  </conference>
+  </body>
+</doi_batch>

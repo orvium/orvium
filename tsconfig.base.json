@@ -1,0 +1,20 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "lib": ["ES2022", "dom"],
+    "baseUrl": "./",
+    "paths": {
+      "@orvium/api": ["libs/api-client/src/index.ts"],
+      "@orvium/contracts": ["libs/contracts/src/index.ts"],
+      "@orvium/datacite-client": ["libs/datacite-client/src/index.ts"],
+      "@orvium/ithenticate-client": ["libs/ithenticate-client/src/index.ts"]
+    }
+  }
+}

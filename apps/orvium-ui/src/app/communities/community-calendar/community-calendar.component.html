@@ -1,0 +1,17 @@
+@for (event of calendarEvents; track event) {
+  <div class="mat-display1">
+    <div
+      class="flex items-center justify-between p-4"
+      [ngClass]="{ 'opacity-50': event.daysLeft < 0 }"
+    >
+      <div class="mat-subheading-2 primary font-bold">{{ event.date | date: 'dd/MM/yyyy' }}:</div>
+      <div class="py-0 px-4">{{ event.message }}</div>
+      <mat-chip-set>
+        <mat-chip class="orv-chip-primary" [disableRipple]="true">
+          {{ event.daysLeft < 0 ? 'Expired' : event.daysLeft + ' days left' }}
+        </mat-chip>
+      </mat-chip-set>
+    </div>
+    <mat-divider />
+  </div>
+}

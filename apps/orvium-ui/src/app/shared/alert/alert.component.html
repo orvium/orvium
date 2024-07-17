@@ -1,0 +1,17 @@
+<div class="flex p-4 gap-4 items-center rounded alert-container-color-{{ type }}">
+  @if (icon) {
+    <mat-icon class="shrink-0">
+      {{ icon }}
+    </mat-icon>
+  }
+  <div>
+    <ng-content />
+  </div>
+  @if (isClosable) {
+    <mat-icon
+      class="ml-auto cursor-pointer"
+      onclick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);"
+      >close</mat-icon
+    >
+  }
+</div>

@@ -1,0 +1,97 @@
+<div class="flex flex-col h-full" [appOverlayLoading]="loadingMessages">
+  <div class="flex gap-2 shadow-lg items-center justify-center p-4">
+    @if (isMobile) {
+      <button
+        mat-icon-button
+        aria-label="Go back to all conversations"
+        type="button"
+        [routerLink]="['/chat']"
+      >
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    }
+    @if (recipient) {
+      <app-user-line
+        class="overflow-hidden"
+        [user]="recipient"
+        [userLineRouterLink]="['/profile', recipient.nickname]"
+      />
+    }
+  </div>
+  <cdk-virtual-scroll-viewport #virtualScroll itemSize="50" class="flex flex-1 flex-col gap-4">
+    @if (messages && recipient && profile) {
+      @if (moreMessages) {
+        <div class="flex justify-center">
+          @if (messages.length > 0) {
+            <button
+              type="button"
+              class="mat-caption grey"
+              mat-flat-button
+              (click)="getMoreMessages()"
+            >
+              Load more messages
+            </button>
+          }
+        </div>
+      }
+      <div aria-label="List of messages" class="flex flex-col">
+        @for (message of messages; track message; let i = $index; let first = $first) {
+          <div aria-label="One message" [class.opacity-50]="this.message._id === ''">
+            @if (
+              first ||
+              (message.createdAt | date: 'shortDate') !==
+                (messages[i - 1].createdAt | date: 'shortDate')
+            ) {
+              <div
+                class="flex flex-nowrap items-center justify-center"
+                aria-label="Group of messages by date"
+              >
+                <mat-divider class="w-full !inline-block" />
+                <span class="p-4 flex-shrink-0 text-gray-500 font-semibold text-xs">{{
+                  message.createdAt | date: 'dd/MM/yyyy'
+                }}</span>
+                <mat-divider class="w-full !inline-block" />
+              </div>
+            }
+            <div aria-label="Message header" class="flex gap-1 items-center">
+              <img
+                appAvatar
+                alt="Avatar"
+                [src]="message.sender === recipient._id ? recipient.avatar : profile.avatar"
+                [gravatar]="
+                  message.sender === recipient._id ? recipient.gravatar : profile.gravatar
+                "
+              />
+              <div class="mat-caption flex">
+                {{ message.sender === recipient._id ? recipient.firstName : profile.firstName }}
+                <span class="grey">&nbsp;{{ message.createdAt | date: 'shortTime' }}</span>
+                @if (this.message._id !== 'temporalChat') {
+                  @if (message.readAt) {
+                    <mat-icon
+                      inline="true"
+                      color="primary"
+                      [matTooltip]="'Message read by recipient'"
+                      >done_all
+                    </mat-icon>
+                  }
+                  @if (!message.readAt) {
+                    <mat-icon inline="true" [matTooltip]="'Message unread by recipient'"
+                      >check
+                    </mat-icon>
+                  }
+                } @else {
+                  <mat-icon inline="true"> hourglass_empty </mat-icon>
+                }
+              </div>
+            </div>
+            <div
+              aria-label="Message text"
+              class="mat-body !text-left m-1 break-anywhere"
+              [innerHTML]="message.content"
+            ></div>
+          </div>
+        }
+      </div>
+    }
+  </cdk-virtual-scroll-viewport>
+</div>

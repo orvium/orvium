@@ -1,0 +1,44 @@
+<h1 class="mat-headline-2 primary">Community Benefits</h1>
+
+<div>
+  <h3 class="primary">Individual highlight</h3>
+  <h4>Selector: <code>&lt;app-benefit> Input: benefit: Benefit</code></h4>
+
+  <app-benefit [benefit]="benefit" />
+</div>
+
+<div>
+  <h3 class="primary">Benefits Layout (Horizontal)</h3>
+
+  <div>
+    <mat-card class="p-4">
+      <mat-card-header>
+        <mat-card-title>Benefits</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <app-benefit [colorClass]="'pink'" [benefit]="benefit" />
+
+        <app-benefit [colorClass]="'green'" [benefit]="benefit" />
+
+        <app-benefit [colorClass]="'purple'" [benefit]="benefit" />
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <h3 class="primary">Benefits Layout (Vertical)</h3>
+
+  <div>
+    <mat-card class="p-4">
+      <mat-card-header>
+        <mat-card-title>Benefits</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="flex">
+        <app-benefit [colorClass]="'pink'" [benefit]="benefit" />
+
+        <app-benefit [colorClass]="'green'" [benefit]="benefit" />
+
+        <app-benefit [colorClass]="'purple'" [benefit]="benefit" />
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

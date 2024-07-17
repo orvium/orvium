@@ -1,0 +1,114 @@
+<div>
+  <div class="flex flex-col items-center justify-center text-center">
+    <h1 class="mat-headline-1 primary mb-0" i18n
+      ><strong>Discover</strong> about <br />
+      what matters to you <br />
+    </h1>
+    <h1 class="mat-subtitle-1 grey mb-1" i18n>TOP DISCIPLINES</h1>
+    <mat-chip-set class="w-full md:w-3/4 mb-4 orv-mat-chip-justify-center">
+      @for (discipline of topDisciplines; track discipline; let i = $index) {
+        <mat-chip
+          [class]="'clickable ' + chipClass[i % 4]"
+          (click)="searchByDiscipline(discipline._id)"
+          >{{ discipline._id | titlecase }}
+        </mat-chip>
+      }
+    </mat-chip-set>
+  </div>
+  @if (showFeaturedCommunities) {
+    <div class="container mx-0 justify-center items-center md:mx-auto gap-4">
+      <div class="communities md:w-11/12 grid justify-center items-center">
+        <h1 class="mat-h1 primary text-center" i18n>Featured Communities</h1>
+        <div class="mx-auto w-11/12 md:w-full gap-x-4 grid">
+          @for (community of featuredCommunities; track community) {
+            <div class="mb-4">
+              <app-community-card
+                [community]="community"
+                [routerLink]="['/communities', community._id, 'view']"
+              />
+            </div>
+          }
+        </div>
+        <button
+          mat-raised-button
+          color="primary"
+          class="mx-auto w-48"
+          type="button"
+          i18n
+          [routerLink]="'communities'"
+        >
+          More Communities
+        </button>
+      </div>
+      <div class="invite w-full">
+        <mat-card class="p-4 mb-4">
+          <mat-card-header>
+            <mat-card-title class="primary" i18n>Create a community</mat-card-title>
+            <mat-card-subtitle i18n>
+              Create your community and start managing your conference, journal or scientific
+              repository in a few minutes.
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-actions>
+            <div class="text-center">
+              <button
+                class="mb-4"
+                mat-stroked-button
+                color="primary"
+                type="button"
+                i18n
+                (click)="createCommunityOrLogin()"
+              >
+                Create Community
+              </button>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+
+        <mat-card class="p-4 mb-4">
+          <mat-card-header>
+            <mat-card-title class="primary" i18n>Invite your colleages</mat-card-title>
+            <mat-card-subtitle i18n>
+              The open platform in which everyone is invited to collaborate.
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-actions>
+            <div class="text-center">
+              <button
+                mat-stroked-button
+                color="primary"
+                type="button"
+                i18n
+                (click)="openInviteDialog()"
+              >
+                Invite
+              </button>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+        <mat-card class="p-4 mb-4">
+          <app-share-media [shareSubject]="'Orvium'" [shareText]="'Click on your favourite site'" />
+        </mat-card>
+      </div>
+      <div class="recent">
+        <h1 class="mat-h1 primary text-center" i18n>Recent Publications</h1>
+        <div class="max-w-4xl mx-auto" [appOverlayLoading]="depositsLoading">
+          <app-deposits-list [deposits]="deposits" />
+        </div>
+        @if (deposits.length > 0) {
+          <div class="text-center">
+            <a
+              mat-raised-button
+              color="primary"
+              aria-label="Show more publications"
+              i18n
+              [routerLink]="['search']"
+              [queryParams]="{ query: '', size: 10 }"
+              >More Publications</a
+            >
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

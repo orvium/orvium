@@ -1,0 +1,23 @@
+<mat-vertical-stepper #stepper [linear]="false">
+  <mat-step [completed]="completedSteps.draft">
+    <ng-template matStepLabel>Draft</ng-template>
+    <p class="mat-body-1"
+      >Upload your paper, add disciplines, keywords, authors and citations.
+      <strong>Preview</strong> your work and validate it before sending it to review.</p
+    >
+  </mat-step>
+  <mat-step [completed]="completedSteps.pending">
+    <ng-template matStepLabel>Pending Approval</ng-template>
+    <p class="mat-body-1">We will check the content, format and metadata of your article.</p>
+  </mat-step>
+  <mat-step [completed]="completedSteps.preprint">
+    <ng-template matStepLabel>Preprint</ng-template>
+    <p class="mat-body-1"
+      ><strong>Share</strong> your article within your network and recommend reviewers.</p
+    >
+  </mat-step>
+  <mat-step [completed]="completedSteps.published">
+    <ng-template matStepLabel>Published</ng-template>
+    <p class="mat-body-1">Boost productivity and increase your awareness</p>
+  </mat-step>
+</mat-vertical-stepper>

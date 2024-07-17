@@ -1,0 +1,26 @@
+.mat-chip {
+  white-space: nowrap;
+}
+
+.item {
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: 55% 30% 15%;
+}
+
+.item:hover {
+  backdrop-filter: contrast(0.9);
+}
+
+a:link {
+  word-wrap: break-word;
+  white-space: break-spaces;
+  width: fit-content;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .item {
+    grid-template-columns: 100%;
+  }
+}

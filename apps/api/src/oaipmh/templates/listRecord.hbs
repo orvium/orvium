@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>{{date}}</responseDate>
+  <request verb="ListRecords" metadataPrefix="oai_openaire">{{endpoint}}/api/v1/oai</request>
+  <ListRecords>
+    {{#each deposit}}
+      <record>
+        <header>
+          <identifier>oai:orvium.io:{{this._id}}</identifier>
+          <datestamp>{{toDateStampFormat this.createdOn}}</datestamp>
+          <setSpec>{{this.community.codename}}</setSpec>
+        </header>
+        <metadata>
+          <resource
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:dc="http://purl.org/dc/elements/1.1/"
+                  xmlns:datacite="http://datacite.org/schema/kernel-4"
+                  xmlns:oaire="http://namespace.openaire.eu/schema/oaire/"
+                  xmlns="http://namespace.openaire.eu/schema/oaire/"
+                  xsi:schemaLocation="http://namespace.openaire.eu/schema/oaire/ https://www.openaire.eu/schema/repo-lit/4.0/openaire.xsd">
+            <datacite:creators>
+              {{#each this.authors}}
+                <datacite:creator>
+                  <datacite:creatorName>{{this.firstName}} {{this.lastName}}</datacite:creatorName>
+                </datacite:creator>
+              {{/each}}
+            </datacite:creators>
+            <datacite:date>{{toISOString this.createdOn}}</datacite:date>
+            <dc:description>{{this.abstract}}</dc:description>
+            <datacite:identifier identifierType="URL">{{../endpoint}}/deposits/{{this._id}}/view</datacite:identifier>
+            <datacite:rights rightsURI="http://purl.org/coar/access_right/c_abf2">open access</datacite:rights>
+            <datacite:title xml:lang="en-US">{{this.title}}</datacite:title>
+            <oaire:resourceType resourceTypeGeneral="literature" uri="http://purl.org/coar/resource_type/c_6501">journal article</oaire:resourceType>
+          </resource>
+        </metadata>
+      </record>
+    {{/each}}
+    {{#if incomplete}}
+      <resumptionToken>{{token}}</resumptionToken>
+    {{/if}}
+  </ListRecords>
+</OAI-PMH>

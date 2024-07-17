@@ -1,0 +1,7 @@
+FROM nginx:alpine
+
+# Copia el archivo de configuración principal de nginx
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copia el archivo de configuración del sitio por defecto
+COPY default.conf /etc/nginx/conf.d/default.conf

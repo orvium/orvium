@@ -1,0 +1,64 @@
+<app-info-toolbar>
+  @if (this.community) {
+    <app-description-line
+      [communityId]="this.community._id"
+      [avatar]="this.community.logoURL"
+      [title]="this.community.name"
+    />
+  }
+  <div app-info-toolbar-buttons class="flex gap-1 items-center">
+    <app-buttons-menu [buttonsInToolbar]="buttonsInToolbar" [isMobile]="false" />
+  </div>
+</app-info-toolbar>
+
+@if (!communityActions.update) {
+  <app-access-denied />
+}
+
+<div [appOverlayLoading]="loadingPayments"></div>
+@if (community && communityActions.update) {
+  <div>
+    <h1 class="mb-2 mat-headline-4 primary">Community Payments</h1>
+    <app-search-box
+      #searchboxPayments
+      [searchInfo]="false"
+      [searchPlaceholder]="'Customer email'"
+      [customControls]="{
+        query: true,
+        paymentStatus: true,
+      }"
+      [community]="community"
+      (search)="searchPayments()"
+    />
+    @if (paymentQuery.payments.length > 0) {
+      <div class="flex flex-col gap-4">
+        @for (payment of paymentQuery.payments; track payment) {
+          <app-payment-card [payment]="payment" />
+        }
+        <mat-paginator
+          #paymentPaginator
+          [length]="paymentQuery.count"
+          [pageSizeOptions]="[10, 25]"
+          (page)="paginatePayments()"
+        />
+      </div>
+    } @else {
+      <h4 class="mx-auto mat-headline-4"> No payments in the community yet </h4>
+    }
+  </div>
+}
+
+<ng-template #buttonsInToolbar>
+  @if (communityActions.update) {
+    <button mat-button class="grey" type="button" [routerLink]="['..', 'templates']">
+      <mat-icon>email</mat-icon>
+      Edit emails
+    </button>
+  }
+  @if (communityActions.update) {
+    <button mat-button class="grey" type="button" [routerLink]="['..', 'edit']">
+      <mat-icon>edit</mat-icon>
+      Edit
+    </button>
+  }
+</ng-template>

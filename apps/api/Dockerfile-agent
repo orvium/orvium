@@ -1,0 +1,17 @@
+FROM orvium-agent-base:latest
+
+RUN mkdir app
+
+# Establece el directorio de trabajo
+WORKDIR /app
+
+# Copia el package.json y package-lock.json desde el directorio raíz del monorepo
+COPY ../../package*.json ./
+
+# Instala todas las dependencias
+RUN npm ci
+
+# Copia los archivos compilados de la API
+COPY ./dist/apps/api-agent ./
+
+ENTRYPOINT ["node", "main.js"]

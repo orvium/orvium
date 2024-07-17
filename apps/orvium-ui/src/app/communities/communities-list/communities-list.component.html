@@ -1,0 +1,30 @@
+@for (community of this.communities; track community; let index = $index) {
+  <ng-container (click)="$event.stopPropagation()" (keydown.enter)="$event.stopPropagation()">
+    <div class="p-2 grid grid-cols-1 md:grid-cols-2 hover:contrast-75" role="listitem">
+      <div class="justify-center flex flex-1 flex-col">
+        <a
+          class="break-words whitespace-break-spaces w-fit font-bold"
+          data-test="communities-view"
+          [routerLink]="['/communities', community._id, 'view']"
+          >{{ community.name }}</a
+        >
+      </div>
+      <div class="justify-center flex flex-1 flex-col items-end gap-2">
+        <mat-chip class="orv-chip-{{ community.status.replace(' ', '-') }}" [disableRipple]="true">
+          {{ community.status | titlecase }}
+        </mat-chip>
+        <div>
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            (click)="openAcceptModal(community)"
+          >
+            Accept
+          </button>
+        </div>
+      </div>
+    </div>
+    <mat-divider />
+  </ng-container>
+}

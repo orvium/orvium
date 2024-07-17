@@ -1,0 +1,405 @@
+@if (!communityActions.moderate) {
+  <app-access-denied />
+}
+<ng-template #buttonsInToolbar>
+  <button mat-stroked-button type="button" matTooltip="Preview" [routerLink]="['..', 'view']">
+    <mat-icon>visibility</mat-icon>
+    Preview
+  </button>
+
+  <button
+    mat-raised-button
+    color="primary"
+    aria-label="Save"
+    type="button"
+    data-test="save-session-button"
+    [disabled]="sessionForm.pristine || sessionForm.invalid"
+    (click)="save()"
+  >
+    <mat-icon>save</mat-icon>
+    Save
+  </button>
+
+  <button
+    mat-raised-button
+    color="warn"
+    aria-label="Delete"
+    type="button"
+    (click)="deleteSession()"
+  >
+    <mat-icon>delete</mat-icon>
+    Delete
+  </button>
+
+  @if (this.session) {
+    <button
+      mat-raised-button
+      color="primary"
+      aria-label="Go-back"
+      type="button"
+      [routerLink]="['/communities', this.session.community, 'program']"
+    >
+      <mat-icon>arrow_back</mat-icon>
+      Back to program
+    </button>
+  }
+</ng-template>
+
+@if (communityActions.moderate) {
+  <app-info-toolbar>
+    @if (this.community && this.session) {
+      <app-description-line
+        [communityId]="this.session.community"
+        [avatar]="this.community.logoURL"
+        [title]="this.community.name"
+        [subtitle]="'Community hosting publication'"
+      />
+    }
+    <div app-info-toolbar-buttons class="flex gap-1 items-center">
+      <ng-container *ngTemplateOutlet="buttonsInToolbar" />
+    </div>
+  </app-info-toolbar>
+}
+
+@if (communityActions.moderate && session && community) {
+  <div>
+    <div [formGroup]="sessionForm">
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h3 class="mat-headline-6 m-0">Session Details</h3>
+          </mat-panel-title>
+          <mat-panel-description>
+            Add relevant details about your sessions like description, dates, and linked
+            publications
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="flex flex-col flex-wrap items-stretch">
+          <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Title" [formControl]="sessionForm.controls.title" />
+            @if (sessionForm.controls.title.invalid) {
+              <mat-error>A title must be added</mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Select a track</mat-label>
+            <mat-select
+              ngDefaultControl
+              data-test="select-track"
+              [formControl]="sessionForm.controls.newTrackTimestamp"
+              (selectionChange)="changeTrack()"
+            >
+              <mat-option [value]="0">No track</mat-option>
+              @for (track of community.newTracks; track track) {
+                <mat-option [value]="track.timestamp">
+                  {{ track.title }}
+                </mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          @if (this.sessionForm.controls.newTrackTimestamp.value) {
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label>Publications</mat-label>
+              <app-input-with-chips
+                #inputComponent
+                ngDefaultControl
+                id="inputComponent"
+                [formControl]="sessionForm.controls.deposits"
+                [matAutocomplete]="autoCompletePublications"
+                [disableManualValueChange]="true"
+                (inputValueChange)="onInputValueChange($event)"
+              />
+              <mat-autocomplete
+                #autoCompletePublications="matAutocomplete"
+                (optionSelected)="selectedPublication($event)"
+              >
+                @for (publication of filteredDeposits$; track publication) {
+                  <mat-option [value]="publication">
+                    {{ publication.title }}
+                  </mat-option>
+                }
+              </mat-autocomplete>
+            </mat-form-field>
+          }
+          <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea
+              matInput
+              placeholder="Description"
+              cdkTextareaAutosize
+              data-test="session-description"
+              [formControl]="sessionForm.controls.description"
+            ></textarea>
+          </mat-form-field>
+          <div class="flex flex-row flex-wrap w-full gap-2.5">
+            <mat-form-field appearance="outline">
+              <mat-label>Start Date</mat-label>
+              <input
+                matInput
+                readonly
+                placeholder="Choose a start time"
+                [matDatepicker]="datetimePickerStart"
+                [formControl]="sessionForm.controls.dateStart"
+              />
+              <mat-datepicker-toggle matIconSuffix [for]="datetimePickerStart" />
+              <mat-datepicker #datetimePickerStart />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Start Date</mat-label>
+              <input
+                #dateStartPicker
+                matInput
+                placeholder="Time"
+                type="time"
+                data-test="input-dateStartPicker"
+                [value]="getTimeFromDate(sessionForm.controls.dateStart.value)"
+                (change)="setTime(dateStartPicker, sessionForm.controls.dateStart)"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                type="button"
+                data-test="button-dateStartPicker"
+                (click)="openTimer(dateStartPicker)"
+              >
+                <mat-icon matSuffix>schedule</mat-icon>
+              </button>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>End Date</mat-label>
+              <input
+                matInput
+                placeholder="Choose a start time"
+                [matDatepicker]="datetimePickerEnd"
+                [formControl]="sessionForm.controls.dateEnd"
+              />
+              <mat-datepicker-toggle matIconSuffix [for]="datetimePickerEnd" />
+              <mat-datepicker #datetimePickerEnd />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>End Date</mat-label>
+              <input
+                #dateEndPicker
+                matInput
+                type="time"
+                data-test="input-dateEndPicker"
+                [value]="getTimeFromDate(sessionForm.controls.dateEnd.value)"
+                (change)="setTime(dateEndPicker, sessionForm.controls.dateEnd)"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                type="button"
+                data-test="button-dateEndPicker"
+                (click)="openTimer(dateEndPicker)"
+              >
+                <mat-icon matSuffix>schedule</mat-icon>
+              </button>
+              <mat-datepicker />
+            </mat-form-field>
+            @if (!sessionForm.errors?.['invalidDates']) {
+              <p>
+                The session will last <b>{{ sessionDuration?.hours }} hours</b> and
+                <b>{{ sessionDuration?.minutes }} minutes</b>
+              </p>
+            }
+            @if (sessionForm.errors?.['invalidDates']) {
+              <mat-error>The session cannot end earlier than the starting hour </mat-error>
+            }
+          </div>
+        </div>
+      </mat-expansion-panel>
+      @if (session.speakers.length === 0) {
+        <app-alert [icon]="'info'">No speakers have been added yet. </app-alert>
+      }
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h3 class="mat-headline-6 m-0">Speakers</h3>
+          </mat-panel-title>
+          <mat-panel-description>
+            Add and edit speakers for this conference session
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="mb-4">
+          <mat-chip-listbox
+            #speakersChips
+            cdkDropList
+            cdkDropListOrientation="horizontal"
+            (cdkDropListDropped)="drop($event)"
+          >
+            @for (speaker of session.speakers; track speaker; let indexOfelement = $index) {
+              <mat-chip-option
+                cdkDrag
+                data-test="speaker-chip"
+                [matTooltip]="
+                  speaker.tags && speaker.tags.length > 0
+                    ? (speaker.tags.join(', ') | titlecase)
+                    : ''
+                "
+                (selectionChange)="selectSpeaker($event, indexOfelement)"
+              >
+                <img
+                  matChipAvatar
+                  appAvatar
+                  alt="Speaker Avatar"
+                  [applyStyle]="false"
+                  [gravatar]="speaker.gravatar"
+                  [src]="speaker.avatar"
+                />
+                <span
+                  >{{ indexOfelement + 1 }}. {{ speaker.firstName }} {{ speaker.lastName }}</span
+                >
+              </mat-chip-option>
+            }
+          </mat-chip-listbox>
+        </div>
+        <mat-autocomplete #autocompleteAuthors="matAutocomplete">
+          @for (author of authorsList; track author) {
+            <mat-option [value]="author" (click)="selectAuthorAutocomplete(author)">
+              {{ author.firstName + ' ' + author.lastName }}
+            </mat-option>
+          }
+        </mat-autocomplete>
+        @if (showSpeakerEdit) {
+          <div [formGroup]="speakersForm">
+            <div class="flex flex-row flex-wrap w-full gap-2.5">
+              <mat-form-field appearance="outline" class="flex flex-1 flex-col">
+                <mat-label>First Name</mat-label>
+                <input
+                  matInput
+                  placeholder="John"
+                  data-test="firstname-speaker-input"
+                  [formControl]="speakersForm.controls.firstName"
+                  [matAutocomplete]="autocompleteAuthors"
+                  [matAutocompleteDisabled]="this.speakersForm.controls.index.value >= 0"
+                />
+                @if (speakersForm.controls.firstName.invalid) {
+                  <mat-error> Name is missing</mat-error>
+                }
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="flex flex-1 flex-col">
+                <mat-label>Last Name</mat-label>
+                <input
+                  matInput
+                  placeholder="Doe"
+                  data-test="lastname-speaker-input"
+                  [formControl]="speakersForm.controls.lastName"
+                />
+                @if (speakersForm.controls.lastName.invalid) {
+                  <mat-error> Last name is missing </mat-error>
+                }
+              </mat-form-field>
+            </div>
+            <div class="flex flex-row flex-wrap w-full gap-2.5">
+              <mat-form-field appearance="outline" class="flex flex-1 flex-col">
+                <mat-label>Institutions</mat-label>
+                <app-input-with-chips
+                  ngDefaultControl
+                  data-test="institution-speaker-input"
+                  [formControl]="speakersForm.controls.institutions"
+                  [separatorKeysCodes]="institutionSeparators"
+                />
+                <mat-hint class="primary"
+                  >Separate your institutions using "enter" and "semicolon"
+                </mat-hint>
+              </mat-form-field>
+            </div>
+            <div class="flex flex-row flex-wrap w-full gap-2.5">
+              <mat-form-field appearance="outline" class="flex flex-1 flex-col mt-4">
+                <mat-label>ORCID</mat-label>
+                <input
+                  matInput
+                  placeholder="https://orcid.org/0000-0000-0000-0000"
+                  type="url"
+                  data-test="orcid-speaker-input"
+                  [formControl]="speakersForm.controls.orcid"
+                />
+                @if (speakersForm.controls.orcid.invalid) {
+                  <mat-error> Not valid ORCID format </mat-error>
+                }
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="flex flex-1 flex-col mt-4">
+                <mat-label>Tags</mat-label>
+                <app-input-with-chips
+                  ngDefaultControl
+                  data-test="tag-speaker-input"
+                  [formControl]="speakersForm.controls.tags"
+                  [separatorKeysCodes]="tagSeparators"
+                />
+                <mat-hint class="primary"
+                  >Separate your tags using "enter", "comma" and "semicolon"
+                </mat-hint>
+              </mat-form-field>
+              <input
+                type="number"
+                hidden
+                data-test="index-speaker-input"
+                [formControl]="speakersForm.controls.index"
+              />
+            </div>
+          </div>
+        }
+        @if (community) {
+          <mat-action-row>
+            @if (!showSpeakerEdit) {
+              <button
+                mat-button
+                color="primary"
+                aria-label="Add speaker"
+                data-test="add-speaker-button"
+                type="button"
+                (click)="showSpeakerForm()"
+              >
+                <mat-icon>add</mat-icon>
+                Add speaker
+              </button>
+            }
+            @if (showSpeakerEdit && this.speakersForm.controls.index.value >= 0) {
+              <button
+                mat-button
+                color="warn"
+                aria-label="Delete speaker"
+                data-test="delete-speaker-button"
+                type="button"
+                (click)="removeSpeaker()"
+              >
+                <mat-icon>delete</mat-icon>
+                Delete speaker
+              </button>
+            }
+            @if (showSpeakerEdit) {
+              <button
+                mat-button
+                color="primary"
+                aria-label="Save speaker"
+                data-test="save-speaker-button"
+                type="button"
+                [disabled]="speakersForm.invalid"
+                (click)="saveSpeaker()"
+              >
+                <mat-icon>save</mat-icon>
+                Save speaker
+              </button>
+            }
+            @if (showSpeakerEdit) {
+              <button
+                id="cancelUpdateButton"
+                mat-button
+                color="primary"
+                aria-label="Cancel update"
+                data-test="cancel-speaker-button"
+                type="button"
+                (click)="cancelSpeakerEdit(speakersChips)"
+              >
+                <mat-icon>cancel</mat-icon>
+                Cancel
+              </button>
+            }
+          </mat-action-row>
+        }
+      </mat-expansion-panel>
+    </div>
+  </div>
+}

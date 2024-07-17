@@ -1,0 +1,42 @@
+<div
+  class="flex basis-full items-center m-1.5 gap-2 hover:underline cursor-pointer"
+  tabindex="0"
+  (click)="openAuthorsPopup()"
+  (keyup)="openAuthorsPopup()"
+>
+  @for (author of authors; track author; let first = $first; let last = $last; let index = $index) {
+    @if (first) {
+      <div class="flex items-center">
+        <img
+          appAvatar
+          [alt]="author.firstName"
+          [src]="author.avatar"
+          [gravatar]="author.gravatar"
+        />
+        {{ author.firstName }} {{ author.lastName }}{{ authors.length > 1 ? ',' : '' }}
+      </div>
+    }
+    @if (index === previewLimit) {
+      <span
+        class="-mr-4 z-10 rounded-full w-8 h-8 inline-flex justify-center items-center bg-blue-100 text-blue-500"
+        [matTooltip]="authors.length - 2 + ' additional author(s)'"
+      >
+        + {{ authors.length - 2 }}
+      </span>
+    }
+    @if (last && !first) {
+      <div class="flex items-center">
+        <img
+          appAvatar
+          [alt]="author.firstName"
+          [src]="author.avatar"
+          [gravatar]="author.gravatar"
+        />
+        {{ author.firstName }} {{ author.lastName }}
+      </div>
+    }
+  }
+</div>
+<ng-template #authorsPopup>
+  <app-authors-list mat-dialog-content [authors]="authors" [showInvite]="true" />
+</ng-template>

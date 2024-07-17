@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.crossref.org/schema/4.4.2 http://www.crossref.org/schema/crossref4.4.2.xsd"
+           xmlns="http://www.crossref.org/schema/4.4.2" version="4.4.2">
+  <head>
+    {{>head_content}}
+  </head>
+  <body>
+  <peer_review recommendation="{{review.decision}}">
+    <contributors>
+      {{#if review.isAuthorHidden }}
+        <anonymous contributor_role="reviewer" sequence="first">
+        </anonymous>
+      {{else}}
+        <person_name contributor_role="reviewer" sequence="first">
+          <given_name>{{ review.firstName }}</given_name>
+          <surname>{{ review.lastName }}</surname>
+        </person_name>
+      {{/if}}
+    </contributors>
+    <titles>
+      <title>{{review.title}}</title>
+    </titles>
+    <review_date>
+      <month>{{review.publicationDate.month}}</month>
+      <day>{{review.publicationDate.day}}</day>
+      <year>{{review.publicationDate.year}}</year>
+    </review_date>
+    <program xmlns="http://www.crossref.org/relations.xsd">
+      <related_item>
+        <description>{{review.depositTitle}}</description>
+        <inter_work_relation relationship-type="isReviewOf" identifier-type="doi">{{review.depositDoi}}</inter_work_relation>
+      </related_item>
+    </program>
+    <doi_data>
+      <doi>{{review.doi}}</doi>
+      <resource>{{review.resource}}</resource>
+    </doi_data>
+  </peer_review>
+  </body>
+</doi_batch>

@@ -1,0 +1,15 @@
+<mat-form-field
+  appearance="outline"
+  [subscriptSizing]="'dynamic'"
+  [ngClass]="fullwidth ? 'form-field-w-full' : 'animate-form-field-width'"
+>
+  <mat-label i18n>Search</mat-label>
+  <input
+    matInput
+    type="text"
+    [placeholder]="placeholder"
+    [formControl]="control"
+    (change)="input()"
+  />
+  <mat-icon matSuffix class="cursor-pointer" (click)="input()">search</mat-icon>
+</mat-form-field>

@@ -1,0 +1,82 @@
+<app-info-toolbar>
+  @if (this.community) {
+    <app-description-line
+      [communityId]="this.community._id"
+      [avatar]="this.community.logoURL"
+      [title]="this.community.name"
+      [subtitle]="'Community hosting publication'"
+    />
+  }
+  @if (session && community) {
+    <div app-info-toolbar-buttons class="flex gap-1 items-center">
+      <ng-container *ngTemplateOutlet="buttonsInToolbar" />
+    </div>
+  }
+</app-info-toolbar>
+
+@if (session) {
+  @if (session) {
+    <h1 class="primary">{{ session.title }}</h1>
+  }
+  @if (session) {
+    <p class="whitespace-pre-wrap">{{ session.description }}</p>
+  }
+  <div
+    class="grid grid-cols-[max-content_max-content] gap-4 w-fit p-4 border border-solid border-gray-400 rounded-lg mb-4 border-opacity-30"
+  >
+    @if (track) {
+      <span>Track:</span>
+      <span>{{ track }}</span>
+    }
+    <span>Start:</span>
+    <span>{{ session.dateStart | date: 'HH:mm - dd/MM/yyyy' }}</span>
+    <span>End:</span>
+    <span>{{ session.dateEnd | date: 'HH:mm - dd/MM/yyyy' }}</span>
+  </div>
+  @if (session.speakers.length > 0) {
+    <div class="mb-4">
+      <h1 class="mat-h1 primary">Speakers</h1>
+      <div class="flex flex-row flex-wrap gap-8">
+        @for (speaker of session.speakers; track speaker) {
+          <app-contributor-line
+            [user]="{
+              firstName: speaker.firstName,
+              lastName: speaker.lastName,
+              avatar: speaker.avatar || '',
+              gravatar: speaker.gravatar || '',
+              institutions: speaker.institutions,
+              nickname: speaker.nickname,
+            }"
+          />
+        }
+      </div>
+    </div>
+  }
+  @if (deposits.length > 0) {
+    <div>
+      <h1 class="mat-h1 primary">Publications</h1>
+      <app-deposits-list [deposits]="deposits" />
+    </div>
+  }
+}
+
+<ng-template #buttonsInToolbar>
+  @if (communityActions.moderate) {
+    <button class="grey" type="button" mat-button [routerLink]="['/session', session._id, 'edit']">
+      <mat-icon>edit</mat-icon>
+      Edit
+    </button>
+  }
+  @if (community) {
+    <button
+      mat-raised-button
+      color="primary"
+      aria-label="Go-back"
+      type="button"
+      [routerLink]="['/communities', community._id, 'program']"
+    >
+      <mat-icon>arrow_back</mat-icon>
+      Program
+    </button>
+  }
+</ng-template>

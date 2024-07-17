@@ -1,0 +1,71 @@
+{
+  "name": "api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/api/src",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "api:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "api:build:development"
+        },
+        "production": {
+          "buildTarget": "api:build:production"
+        },
+        "staging": {}
+      }
+    },
+    "build:lambda": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"],
+      "outputs": ["{workspaceRoot}/dist/lambda/api"],
+      "executor": "@nx/webpack:webpack",
+      "options": {
+        "outputPath": "dist/lambda/api",
+        "webpackConfig": "apps/api/webpack.lambda.config.js"
+      },
+      "configurations": {
+        "development": {
+          "optimization": false,
+          "sourceMap": true,
+          "extractLicenses": false,
+          "inspect": false
+        },
+        "production": {
+          "optimization": true,
+          "sourceMap": false,
+          "extractLicenses": true,
+          "inspect": false
+        }
+      }
+    },
+    "package": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build:lambda"],
+      "options": {
+        "commands": [
+          "npm install --prefix dist/lambda/api",
+          "cd dist/lambda/api && npx bestzip ../api.zip ."
+        ],
+        "parallel": false
+      }
+    },
+    "build:agent": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/api",
+        "command": "webpack --config webpack.agent.config.js --mode production"
+      },
+      "outputs": [
+        "{workspaceRoot}/dist/apps/api-agent"
+      ]
+    }
+  },
+  "tags": []
+}

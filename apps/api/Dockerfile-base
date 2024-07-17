@@ -1,0 +1,38 @@
+FROM pandoc/core:3.1.1-ubuntu
+
+# Install basic tooling
+RUN apt-get update -y
+RUN apt-get install -y curl unzip ca-certificates libgnutls30 software-properties-common
+
+# Accept microsoft fonts
+RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
+
+# Install latex and dependencies
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get install -qy texlive-full=2021.20220204-1
+
+## Install AWS cli
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" &&  \
+    unzip awscliv2.zip  \
+    && ./aws/install
+
+# Install libreoffice for doc processing
+RUN curl -SL "https://download.documentfoundation.org/libreoffice/stable/7.6.6/deb/x86_64/LibreOffice_7.6.6_Linux_x86-64_deb.tar.gz" -o "libreoffice.tar.gz"
+RUN tar zxvpf "libreoffice.tar.gz" && \
+    rm "libreoffice.tar.gz" && \
+    cd LibreOffice_7.6.6.3_Linux_x86-64_deb/DEBS/ && \
+    dpkg -i *.deb && \
+    apt-get install -y default-jre
+
+## Install node
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - &&  \
+    apt-get install -y nodejs && \
+    npm install -g npm@9.3.1
+
+# Install tool to optimize images
+RUN add-apt-repository ppa:inkscape.dev/stable && apt-get update &&  \
+    apt-get install -y optipng jpegoptim pngquant inkscape webp
+
+RUN useradd -ms /bin/bash nestuser
+USER nestuser
+WORKDIR /home/nestuser

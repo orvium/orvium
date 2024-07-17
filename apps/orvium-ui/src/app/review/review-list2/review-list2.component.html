@@ -1,0 +1,57 @@
+@for (review of this._reviews; track review) {
+  <app-list-wrapper>
+    <div class="flex flex-row items-center">
+      <mat-checkbox color="primary" [value]="review._id" (change)="selector.toggle(review)" />
+      <div class="flex justify-center flex-col gap-2">
+        <a data-test="review-view" [routerLink]="['/reviews', review._id, 'view']"
+          >{{ review.depositPopulated.title }}
+        </a>
+        <div class="flex items-center gap-4 grey">
+          <span
+            >Submitted on: <b>{{ review.creationDate | date: 'dd/MM/yyyy' }}</b></span
+          >
+          <span class="flex items-center"
+            >Reviewer: <app-author-avatar-list [authors]="[review.ownerProfile]"
+          /></span>
+        </div>
+      </div>
+    </div>
+    <div list-end-section class="flex flex-1 flex-col items-end gap-1">
+      <mat-chip-set class="orv-mat-chip-set-justify-content-end flex">
+        @if (review.doi) {
+          <app-doi-status
+            [doi]="review.doi"
+            [doiStatus]="review.doiStatus"
+            [resourceId]="review._id"
+          />
+        }
+        <mat-chip class="orv-chip-{{ review.status.replace(' ', '-') }}" [disableRipple]="true">
+          {{ review.status | titlecase }}
+        </mat-chip>
+        <mat-chip class="orv-chip" [disableRipple]="true">
+          {{ review.kind | titlecase }}
+        </mat-chip>
+        <app-review-visibility [visibilities]="review" />
+      </mat-chip-set>
+      <div class="flex gap-1 items-center">
+        @if (review.status === ReviewStatus.PendingApproval) {
+          <button mat-raised-button color="primary" type="button" (click)="openAcceptModal(review)">
+            Accept
+          </button>
+        }
+        @if (review.status === ReviewStatus.PendingApproval) {
+          <button mat-raised-button type="button" (click)="openRejectModal(review)">
+            Request Changes
+          </button>
+        }
+        @if (review.creator !== profile?._id) {
+          <button mat-raised-button type="button" (click)="openConversation(review)">
+            <mat-icon>chat</mat-icon>
+            Message
+          </button>
+        }
+      </div>
+    </div>
+  </app-list-wrapper>
+  <mat-divider />
+}

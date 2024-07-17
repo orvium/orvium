@@ -1,0 +1,114 @@
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./Dockerfile-nginx
+    ports:
+      - '80:80'
+    depends_on:
+      - front
+      - api
+      - agent
+    networks:
+      - app-network
+
+  front:
+    build:
+      context: .
+      dockerfile: ./apps/orvium-ui/Dockerfile
+      args:
+        NG_APP_NAME: 'development'
+        NG_APP_PRODUCTION: 'false'
+        NG_APP_EXPERIMENTAL_FEATURES: 'true'
+        NG_APP_SERVICE_WORKERS: 'false'
+        NG_APP_PUBLIC_URL: 'http://localhost'
+        NG_APP_API_ENDPOINT: 'http://localhost/api/v1'
+        NG_APP_VAPID_KEY: 'dummy'
+        NG_APP_AUTH_CLIENT_ID: 'dummy'
+        NG_APP_AUTH_AUDIENCE: 'dummy'
+        NG_APP_AUTH_REDIRECT: 'http://localhost'
+        NG_APP_SENTRY_DSN: 'dummy'
+        NG_APP_SENTRY_SAMPLE: '0'
+        NG_APP_LOG_LEVEL: '1'
+        NG_APP_TINYMCE_KEY: 'dummy'
+        NG_APP_S3_BUCKET: 'http://minio:9000/public-apifiles'
+    networks:
+      - app-network
+
+  api:
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile-api
+    networks:
+      - app-network
+    environment: &default_env
+      ENVIRONMENT: production
+      MONGO_URI: mongodb://mongodb:27017/orvium
+      SMTP: '{"host":"smtp.ethereal.email","port":587,"auth":{"user":"someuser@ethereal.email","pass":"xxxxxxxxxxxxxx"}}'
+      STRIPE: '{"publishableKey":"pk_test_xxxxxxxxxxxxx", "key":"sk_test_xxxxxxxxxxxxxxxxx","webhookSecretDirect":"whsec_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx","webhookSecretConnect":"whsec_xxxxxxxxxxxxxxxxxxxxxxx"}'
+      SENTRY_DSN: https://xxxxxxxxxxxxxxxxxx.ingest.sentry.io/xxxxxxx
+      AWS_PROFILE: development
+      AWS_ENDPOINT_URL: http://minio:9000
+      S3_FILES_BUCKET: public-apifiles
+      AWS_ACCESS_KEY_ID: minio
+      AWS_SECRET_ACCESS_KEY: minio123
+      AUTH0_AUDIENCE: https://dev.auth.orvium.io/api
+      SECRET_KEY: xxxxxxxxxxxxxxxxxxxx
+      PUBLIC_URL: http://localhost
+      PUSH_NOTIFICATIONS_PRIVATE_KEY: xxxxxxxxxxxxxxxxxx
+      SENDER_EMAIL: noreply@orvium.io
+      ADMIN_EMAIL: myemail@orvium.io
+      CONVERTAPI_KEY: fake
+      DATACITE_PUBLISHER: 'My publishing house'
+
+  base:
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile-base
+    image: orvium-agent-base:latest
+    networks:
+      - app-network
+
+  agent:
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile-agent
+    networks:
+      - app-network
+    depends_on:
+      - base
+    environment:
+      <<: *default_env
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb-api
+    ports:
+      - '27017:27017'
+    networks:
+      - app-network
+    volumes:
+      - mongo-data:/data/db
+    command: mongod --quiet --logpath /var/log/mongodb/mongod.log
+
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    ports:
+      - "9000:9000"
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    volumes:
+      - minio-data:/data
+    command: server /data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
+  minio-data:

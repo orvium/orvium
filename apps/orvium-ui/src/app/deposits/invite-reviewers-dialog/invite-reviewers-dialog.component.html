@@ -1,0 +1,83 @@
+<h2 mat-dialog-title>{{ templateTitle }}</h2>
+<div mat-dialog-content [formGroup]="inviteForm">
+  <p class="mat-body">{{ templateDescription }}</p>
+  <mat-form-field appearance="outline">
+    <mat-label>{{ templateInputLabel }}</mat-label>
+    <input matInput id="emailInput" type="email" [formControl]="inviteForm.controls.email" />
+    @if (inviteForm.controls.email.invalid) {
+      <mat-error> Invalid Email format</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>{{ templateName }}</mat-label>
+    <input matInput id="nameInput" type="text" [formControl]="inviteForm.controls.name" />
+    @if (inviteForm.controls.name.invalid) {
+      <mat-error> Name is required</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>{{ templateMessage }}</mat-label>
+    <textarea
+      matInput
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="3"
+      cdkAutosizeMaxRows="3"
+      [formControl]="inviteForm.controls.message"
+    ></textarea>
+    @if (inviteForm.controls.message.invalid) {
+      <mat-error> Invalid Email format</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Deadline</mat-label>
+    <input
+      matInput
+      readonly
+      placeholder="Choose a date"
+      [matDatepicker]="datePicker"
+      [formControl]="inviteForm.controls.dateLimit"
+    />
+    <mat-datepicker-toggle matSuffix [for]="datePicker" />
+    <mat-datepicker #datePicker>
+      <!-- Custom icon or text of Apply icon -->
+      <ng-template>
+        <span>OK</span>
+      </ng-template>
+    </mat-datepicker>
+    @if (inviteForm.controls.dateLimit.invalid) {
+      <mat-error> Invalid date, cannot select a date in the past </mat-error>
+    }
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <div class="w-full flex justify-end">
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      [appOverlayLoading]="creatingInvitation"
+      [disabled]="!inviteForm.valid"
+      (click)="createInvitation()"
+    >
+      Send invitation
+    </button>
+    <button
+      mat-button
+      color="primary"
+      class="dialog-button"
+      type="button"
+      [appOverlayLoading]="creatingInvitation"
+      [disabled]="!inviteForm.valid"
+      (click)="createTestInvitation()"
+    >
+      View the invitation preview
+    </button>
+    <button mat-button color="primary" type="button" (click)="dialogService.closeAll()">
+      Cancel
+    </button>
+  </div>
+</div>
+
+<ng-template #reviewPreviewTemplate>
+  <app-review-html-preview [reviewPreviewHtml]="reviewHtml" />
+</ng-template>

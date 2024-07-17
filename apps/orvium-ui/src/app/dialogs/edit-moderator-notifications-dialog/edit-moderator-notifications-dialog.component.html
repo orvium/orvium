@@ -1,0 +1,20 @@
+<div class="m-4 flex flex-col gap-4">
+  <mat-button-toggle-group multiple vertical [formControl]="editNotificationsForm">
+    @for (track of communityTracks; track track) {
+      <mat-button-toggle value="{{ track.timestamp }}">
+        {{ track.title }}
+      </mat-button-toggle>
+    }
+  </mat-button-toggle-group>
+  <div>
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      (click)="submitNotifications(moderator)"
+    >
+      Assign
+    </button>
+    <button mat-button color="primary" type="button" (click)="close()"> Cancel </button>
+  </div>
+</div>

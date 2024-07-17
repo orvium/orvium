@@ -1,0 +1,17 @@
+.mat-drawer.mat-drawer-side {
+  z-index: 1;
+}
+
+.orv-sidenav-list {
+  &.mat-list-base .mat-list-item .mat-list-item-content {
+    height: 56px;
+  }
+}
+
+.reduce-margins {
+  mat-list-item {
+    mat-icon {
+      margin-right: 0;
+    }
+  }
+}

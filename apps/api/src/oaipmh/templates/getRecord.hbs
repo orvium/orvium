@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>{{date}}</responseDate>
+  <request verb="GetRecord" metadataPrefix="oai_openaire" identifier="oai:orvium.io:{{dcIdentifier}}">{{endpoint}}/api/v1/oai</request>
+  <GetRecord>
+    <record>
+      <header>
+        <identifier>oai:orvium.io:{{dcIdentifier}}</identifier>
+        <datestamp>{{date}}</datestamp>
+        <setSpec>{{spec}}</setSpec>
+      </header>
+      <metadata>
+        <resource
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:dc="http://purl.org/dc/elements/1.1/"
+          xmlns:datacite="http://datacite.org/schema/kernel-4"
+          xmlns:oaire="http://namespace.openaire.eu/schema/oaire/"
+          xmlns="http://namespace.openaire.eu/schema/oaire/"
+          xsi:schemaLocation="http://namespace.openaire.eu/schema/oaire/ https://www.openaire.eu/schema/repo-lit/4.0/openaire.xsd">
+          <datacite:creators>
+            {{#each deposit.authors}}
+              <datacite:creator>
+                <datacite:creatorName>{{this.lastName}}, {{this.firstName}}</datacite:creatorName>
+                {{#each this.institutions}}
+                  <datacite:affiliation>{{this}}</datacite:affiliation>
+                {{/each}}
+              </datacite:creator>
+            {{/each}}
+          </datacite:creators>
+          <datacite:date dateType="Issued">{{dcDate}}</datacite:date>
+          <dc:description>{{deposit.abstract}}</dc:description>
+          {{#if deposit.extraMetadata.language}}
+            <dc:language>{{deposit.extraMetadata.language}}</dc:language>
+          {{/if}}
+          {{#if deposit.extraMetadata.publisher}}
+            <dc:publisher>{{deposit.extraMetadata.publisher}}</dc:publisher>
+          {{/if}}
+          {{#if deposit.extraMetadata.volume}}
+            <oaire:citationVolume>{{deposit.extraMetadata.volume}}</oaire:citationVolume>
+          {{/if}}
+          {{#if deposit.extraMetadata.issue}}
+            <oaire:citationIssue>{{deposit.extraMetadata.issue}}</oaire:citationIssue>
+          {{/if}}
+          {{#if deposit.extraMetadata.firstpage}}
+            <oaire:citationStartPage>{{deposit.extraMetadata.firstpage}}</oaire:citationStartPage>
+          {{/if}}
+          {{#if deposit.extraMetadata.lastpage}}
+            <oaire:citationEndPage>{{deposit.extraMetadata.lastpage}}</oaire:citationEndPage>
+          {{/if}}
+          <datacite:identifier identifierType="URL">{{endpoint}}/deposits/{{dcIdentifier}}/view</datacite:identifier>
+          {{#if dcRelatedIdentifiers}}
+            <datacite:relatedIdentifiers>
+              {{#if deposit.extraMetadata.isbn}}
+                <datacite:relatedIdentifier relatedIdentifierType="ISBN" relationType="IsPartOf">{{deposit.extraMetadata.isbn}}</datacite:relatedIdentifier>
+              {{/if}}
+              {{#if deposit.extraMetadata.issn}}
+                <datacite:relatedIdentifier relatedIdentifierType="ISSN" relationType="IsPartOf">{{deposit.extraMetadata.issn}}</datacite:relatedIdentifier>
+              {{/if}}
+            </datacite:relatedIdentifiers>
+          {{/if}}
+          {{#if dcRelatedItems}}
+            <datacite:relatedItems>
+              {{#if deposit.extraMetadata.journalTitle}}
+                <datacite:relatedItem relatedItemType="Journal">
+                  <datacite:titles>
+                    <datacite:title>{{deposit.extraMetadata.journalTitle}}</datacite:title>
+                  </datacite:titles>
+                </datacite:relatedItem>
+              {{/if}}
+              {{#if deposit.extraMetadata.conferenceTitle}}
+                <datacite:relatedItem relatedItemType="ConferenceProceeding">
+                  <datacite:titles>
+                    <datacite:title>{{deposit.extraMetadata.conferenceTitle}}</datacite:title>
+                  </datacite:titles>
+                </datacite:relatedItem>
+              {{/if}}
+              {{#if deposit.extraMetadata.dissertationName}}
+                <datacite:relatedItem relatedItemType="Dissertation">
+                  <datacite:titles>
+                    <datacite:title>{{deposit.extraMetadata.dissertationName}}</datacite:title>
+                  </datacite:titles>
+                </datacite:relatedItem>
+              {{/if}}
+              {{#if deposit.extraMetadata.inbookTitle}}
+                <datacite:relatedItem relatedItemType="Book">
+                  <datacite:titles>
+                    <datacite:title>{{deposit.extraMetadata.inbookTitle}}</datacite:title>
+                  </datacite:titles>
+                </datacite:relatedItem>
+              {{/if}}
+            </datacite:relatedItems>
+          {{/if}}
+          <datacite:rights rightsURI="http://purl.org/coar/access_right/c_abf2">open access</datacite:rights>
+          <datacite:title xml:lang="en-US">{{deposit.title}}</datacite:title>
+          <oaire:resourceType resourceTypeGeneral="literature" uri="{{dcTypeUri}}">{{dcType}}</oaire:resourceType>
+        </resource>
+      </metadata>
+    </record>
+  </GetRecord>
+</OAI-PMH>
+

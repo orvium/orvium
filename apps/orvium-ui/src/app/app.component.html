@@ -1,0 +1,13 @@
+<div class="w-screen h-full grid grid-cols-1 overflow-x-auto grid-rows-[auto_1fr_auto]">
+  <div>
+    <app-toolbar id="toolbar" class="self-start justify-self-stretch" />
+    @if (progressBarService.isShown) {
+      <mat-progress-bar mode="indeterminate" />
+    }
+    @if (bannerInfo) {
+      <app-banner-panel [bannerInfo]="bannerInfo" />
+    }
+  </div>
+  <app-side-nav class="overflow-hidden" [enableLeftSidenav]="!!profile" />
+  <app-footer class="self-end justify-self-stretch" />
+</div>

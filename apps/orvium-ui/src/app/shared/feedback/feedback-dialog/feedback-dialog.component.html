@@ -1,0 +1,39 @@
+<div mat-dialog-content>
+  <h2 class="primary mat-headline-6">Send feedback</h2>
+  <p class="mat-body"
+    >Let us know how we can improve your experience or notify us about inappropriate content</p
+  >
+  <div class="flex flex-col grow relative">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" [(ngModel)]="feedback.email" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Feedback type</mat-label>
+      <mat-select required [value]="selected">
+        @for (feedbackType of feedbackTypes; track feedbackType) {
+          <mat-option [value]="feedbackType.value">
+            {{ feedbackType.viewValue }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="grow">
+      <mat-label>Description</mat-label>
+      <textarea
+        matInput
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="3"
+        cdkAutosizeMaxRows="3"
+        required
+        [(ngModel)]="feedback.description"
+      ></textarea>
+    </mat-form-field>
+  </div>
+  <div class="flex justify-end gap-4">
+    <button mat-button color="primary" type="button" (click)="dialogRef.close()">Cancel</button>
+    <button mat-raised-button color="primary" type="button" (click)="dialogRef.close(true)"
+      >Send
+    </button>
+  </div>
+</div>

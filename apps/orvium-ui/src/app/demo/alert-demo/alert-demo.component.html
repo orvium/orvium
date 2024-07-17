@@ -1,0 +1,15 @@
+<h1 class="mat-headline-2 primary">Alert</h1>
+<h2>Selector: <code>&lt;app-alert&gt;</code></h2>
+<h2
+  >Input:
+  <code>Inputs: text: string, icon: string, isClosable: boolean, type: 'error' | 'info'</code></h2
+>
+
+<div class="flex flex-col gap-2">
+  <app-alert type="info" [icon]="'error'" [isClosable]="true">
+    This is an error message This is an error message
+  </app-alert>
+  <app-alert type="info" icon="lightbulb"> This is an informative message. </app-alert>
+  <app-alert type="info"> Press save to preserve all the changes made </app-alert>
+  <app-alert type="error"> This is an error message This is an error message </app-alert>
+</div>

@@ -1,0 +1,23 @@
+<p class="mat-body-2" [@openClose]="expanded" [innerHTML]="displayText"></p>
+@if (!expanded && showButtons) {
+  <a
+    type="button"
+    class="button-show-more"
+    tabindex="0"
+    (click)="readMore()"
+    (keyup)="readMore()"
+    i18n
+    >Show More
+  </a>
+}
+@if (expanded && showButtons) {
+  <a
+    type="button"
+    class="button-show-more"
+    tabindex="0"
+    (click)="readMore()"
+    (keyup)="readMore()"
+    i18n
+    >Show Less
+  </a>
+}

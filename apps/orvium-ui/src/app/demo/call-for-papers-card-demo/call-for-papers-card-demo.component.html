@@ -1,0 +1,19 @@
+<h1 class="mat-headline-2 primary">Call for papers card</h1>
+<h2>Selector: <code>&lt;app-call-for-papers-card&gt;</code></h2>
+<h2>Input: <code>callForPapers: CallForPapers</code></h2>
+<h2>Output: <code>submit</code></h2>
+<div class="flex flex-col gap-4">
+  <app-call-for-papers-card [callForPapers]="callForPapers">
+    <ng-container action class="actions">
+      <button mat-raised-button color="primary" type="button">
+        <mat-icon>file_upload</mat-icon>
+        Upload
+      </button>
+      <button mat-raised-button color="primary" type="button">
+        <mat-icon>edit</mat-icon>
+        Edit
+      </button>
+    </ng-container>
+  </app-call-for-papers-card>
+  <app-call-for-papers-card [callForPapers]="callForPapers2" />
+</div>

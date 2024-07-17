@@ -1,0 +1,18 @@
+@if (initialized && deposits.length === 0) {
+  <app-empty-state-publications />
+}
+<div [appOverlayLoading]="depositsLoading"></div>
+@if (deposits.length > 0) {
+  <div class="grid justify-center items-center grid-cols-1">
+    <h1 class="mat-h1 primary text-center" i18n>My publications</h1>
+    <p class="mat-subtitle-1 text-center mb-12">
+      <mat-icon color="primary" class="align-bottom">help</mat-icon>
+      <ng-container i18n>You can learn more about how to create a new publication</ng-container>
+      <a href="https://help.orvium.io/publication/create-a-publication/" target="_blank"> here.</a>
+      <br />
+    </p>
+    <div class="max-w-5xl mx-auto">
+      <app-deposits-list [deposits]="deposits" />
+    </div>
+  </div>
+}

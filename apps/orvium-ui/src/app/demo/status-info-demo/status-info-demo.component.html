@@ -1,0 +1,24 @@
+<h1>Deposit</h1>
+<mat-form-field appearance="outline">
+  <mat-label>Select a status</mat-label>
+  <mat-select #selectDeposit>
+    @for (option of DEPOSITSTATUS_LOV; track option) {
+      <mat-option [value]="option.value">{{ option.viewValue }}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+<div>
+  <app-deposit-status-info [status]="selectDeposit.value" />
+</div>
+<h1>Review</h1>
+<mat-form-field appearance="outline">
+  <mat-label>Select a status</mat-label>
+  <mat-select #selectReview>
+    @for (option of REVIEWSTATUS_LOV; track option) {
+      <mat-option [value]="option.value">{{ option.viewValue }}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+<div>
+  <app-review-status-info [status]="selectReview.value" />
+</div>

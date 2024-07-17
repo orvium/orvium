@@ -1,0 +1,7 @@
+<a class="flex items-center" [routerLink]="['/communities', communityId, 'view']">
+  <img class="w-8 h-8 rounded-full object-cover" [src]="avatar" [alt]="title + ' logo'" />
+  <div class="flex flex-col ml-2 line-clamp-1 whitespace-normal">
+    <span class="mat-subtitle-2 line-clamp-1">{{ title }}</span>
+    <span class="mat-caption text-gray-400 line-clamp-1">{{ subtitle }}</span>
+  </div>
+</a>

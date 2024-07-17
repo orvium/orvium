@@ -1,0 +1,103 @@
+@if (!canUpdateCommunity) {
+  <app-access-denied />
+}
+
+<ng-template #assignDialogTemplate>
+  <form class="w-full" [formGroup]="assignModeratorForm">
+    <mat-form-field class="w-full flex flex-col" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        placeholder="johndoe@email.com"
+        data-test="add-moderator"
+        [formControl]="assignModeratorForm.controls.email"
+      />
+    </mat-form-field>
+  </form>
+  <div class="flex justify-end">
+    <button
+      mat-raised-button
+      color="primary"
+      class="mt-4"
+      type="button"
+      data-test="add-moderator-button"
+      [disabled]="assignModeratorForm.pristine || !assignModeratorForm.valid"
+      (click)="addModeratorEvent()"
+    >
+      Add Editor
+    </button>
+    <button class="m-4" mat-button color="primary" type="button" (click)="dialogService.closeAll()">
+      Cancel
+    </button>
+  </div>
+</ng-template>
+
+@if (canUpdateCommunity) {
+  <div>
+    <button
+      class="m-4"
+      mat-raised-button
+      color="primary"
+      type="button"
+      (click)="openAssignModeatorDialog()"
+    >
+      <mat-icon>assignment_ind</mat-icon>
+      Add Editor
+    </button>
+    @for (moderator of this.moderators; track moderator; let index = $index) {
+      <app-list-wrapper>
+        <app-contributor-line [user]="moderator.user" />
+        <div list-middle-section>
+          <mat-form-field subscriptSizing="dynamic" appearance="outline">
+            <mat-select
+              [disabled]="!canUpdateCommunity"
+              [value]="moderator.moderatorRole"
+              (selectionChange)="changeRole($event, moderator)"
+            >
+              @for (option of moderatorRoles; track option) {
+                <mat-option [value]="option.value">
+                  {{ option.viewValue }}
+                </mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div list-end-section>
+          <button
+            class="m-4"
+            mat-icon-button
+            matTooltip="Delete moderator"
+            type="button"
+            data-test="delete-moderator"
+            [disabled]="moderator.moderatorRole === 'owner'"
+            (click)="delete(moderator.user)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button
+            class="m-4"
+            mat-icon-button
+            matTooltip="Change notifications"
+            type="button"
+            [disabled]="moderator.moderatorRole === 'owner'"
+            (click)="openChangeNotificationsDialog(moderator)"
+          >
+            <mat-icon>add_alert</mat-icon>
+          </button>
+          @if (moderator.user._id !== profile?._id) {
+            <button
+              class="mb-3"
+              mat-raised-button
+              type="button"
+              (click)="openConversation(moderator)"
+            >
+              <mat-icon>chat</mat-icon>
+              Message
+            </button>
+          }
+        </div>
+      </app-list-wrapper>
+      <mat-divider />
+    }
+  </div>
+}

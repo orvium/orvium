@@ -1,0 +1,341 @@
+@if (!communityActions.update && !loadingCommunity) {
+  <app-access-denied />
+}
+<div [appOverlayLoading]="loadingCommunity"></div>
+
+@if (communityActions.update && community) {
+  <app-info-toolbar>
+    <app-description-line
+      [communityId]="community._id"
+      [avatar]="community.logoURL"
+      [title]="community.name"
+      [subtitle]="'Community hosting publication'"
+    />
+    <div app-info-toolbar-buttons class="flex gap-1 items-center">
+      <button
+        mat-stroked-button
+        class="orv-stroked-button"
+        type="button"
+        [routerLink]="['..', 'view']"
+      >
+        <mat-icon>visibility</mat-icon>
+        Preview
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        data-test="save-button"
+        type="button"
+        [disabled]="communityForm.pristine || communityForm.invalid"
+        (click)="save()"
+      >
+        <mat-icon>save</mat-icon>
+        Save
+      </button>
+    </div>
+  </app-info-toolbar>
+}
+
+@if (communityActions.update && community) {
+  <div class="w-11/12 mx-auto md:w-4/5">
+    <h1 class="mb-2 mat-headline-4 primary">Community integrations</h1>
+    <h4 class="mat-subtitle-1">Edit and manage the third party integrations in your community</h4>
+    <div [formGroup]="communityForm">
+      <div>
+        @if (!community.stripeAccount?.active) {
+          <mat-expansion-panel class="!mb-8" [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="flex items-center gap-2 justify-between">
+                <h3 class="mat-headline-6 mb-0">Fund your community with Stripe</h3>
+                <mat-chip [disableRipple]="true">Stripe not connected</mat-chip>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="mat-subtitle-1 grey">
+              <p
+                >We use <b>Stripe</b> to make sure you get paid on time and keep your personal and
+                bank details secure. You will need to complete the onboarding process on
+                <b>Stripe</b> before start selling.
+              </p>
+            </div>
+            <mat-action-row>
+              @if (!stripeOnboardingUrl) {
+                <button mat-raised-button type="button" (click)="startStripeOnboarding()"
+                  >Start onboarding
+                </button>
+              }
+              @if (stripeOnboardingUrl) {
+                <a mat-raised-button color="primary" target="_blank" [href]="stripeOnboardingUrl"
+                  >Setup Stripe account</a
+                >
+              }
+            </mat-action-row>
+          </mat-expansion-panel>
+        }
+        @if (community.stripeAccount?.active) {
+          <mat-expansion-panel class="!mb-8" [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="flex items-center gap-2 justify-between">
+                <h3 class="mat-headline-6 mb-0">Fund your community with Stripe</h3>
+                <mat-chip class="orv-chip-blue" [disableRipple]="true"> Stripe connected!</mat-chip>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="mat-subtitle-1 grey">
+              <p
+                >Your community is connected to <b>Stripe</b>. Configure your payment methods, issue
+                discounts or check your payment directly in your
+                <a href="https://dashboard.stripe.com/dashboard" target="_blank"
+                  >Stripe Dashboard
+                  <mat-icon>open_in_new</mat-icon>
+                </a>
+              </p>
+              <p
+                >The switch below will show or hide the "Products" button on your community landing
+                page. Please note that you will need to add at least one product, otherwise the
+                button won't be displayed.</p
+              >
+              <p
+                >Fund your community by adding your products below like: conference tickets, APCs,
+                subscriptions, etc.</p
+              >
+              <mat-slide-toggle
+                class="mt-4"
+                color="primary"
+                data-test="community-products-visible"
+                [formControl]="communityForm.controls.productsVisible"
+              >
+                <h3 class="mat-body-2">
+                  {{
+                    communityForm.controls.productsVisible.value
+                      ? 'Products visible'
+                      : 'Products not visible'
+                  }}</h3
+                >
+              </mat-slide-toggle>
+              <p class="mat-subheading-2 mt-4">
+                <mat-icon color="primary" class="align-bottom">help</mat-icon>
+                You can learn more here:
+                <a href="https://help.orvium.io/products-sell/intro/" target="_blank"
+                  >How to sell products</a
+                >
+              </p>
+            </div>
+          </mat-expansion-panel>
+        }
+        <mat-expansion-panel class="!mb-8" [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="flex items-center gap-2 justify-between">
+              <h3 class="mat-headline-6 mb-0">DOI Providers</h3>
+              @if (community.crossref) {
+                <mat-chip class="orv-chip-blue" [disableRipple]="true">
+                  Crossref is enabled
+                </mat-chip>
+              }
+              @if (community.datacite) {
+                <mat-chip class="orv-chip-blue" [disableRipple]="true">
+                  Datacite is enabled
+                </mat-chip>
+              }
+              @if (!community.datacite && !community.crossref) {
+                <mat-chip [disableRipple]="true"> DOI provider disabled </mat-chip>
+              }
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="pt-4">
+            <app-alert [icon]="'warning'">
+              Only one DOI provider can be active at the same time.
+            </app-alert>
+            <mat-chip-listbox
+              aria-label="DOI provider selector"
+              class="my-4"
+              (change)="changeDOIProvider(dataciteChip, crossrefChip)"
+            >
+              <mat-chip-option #dataciteChip [selected]="!!community.datacite"
+                >Datacite
+              </mat-chip-option>
+              <mat-chip-option #crossrefChip [selected]="!!community.crossref"
+                >Crossref
+              </mat-chip-option>
+            </mat-chip-listbox>
+            @if (dataciteChip.selected) {
+              <div [formGroup]="dataciteFormGroup">
+                <mat-form-field appearance="outline">
+                  <mat-label>Datacite server</mat-label>
+                  <mat-select ngDefaultControl [formControl]="dataciteFormGroup.controls.server">
+                    @for (option of dataciteServerLOV; track option) {
+                      <mat-option [value]="option.value">
+                        {{ option.viewValue }}
+                      </mat-option>
+                    }
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Account ID</mat-label>
+                  <input
+                    matInput
+                    id="dataciteAccountId"
+                    data-test="community-datacite-accountId"
+                    [formControl]="dataciteFormGroup.controls.accountId"
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Password</mat-label>
+                  <input
+                    matInput
+                    id="datacitePassword"
+                    type="password"
+                    data-test="community-datacite-pass"
+                    [formControl]="dataciteFormGroup.controls.pass"
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Prefix</mat-label>
+                  <input
+                    matInput
+                    id="datacitePrefix"
+                    data-test="community-datacite-prefix"
+                    [formControl]="dataciteFormGroup.controls.prefix"
+                  />
+                </mat-form-field>
+              </div>
+            }
+            @if (crossrefChip.selected) {
+              <div [formGroup]="crossrefFormGroup">
+                <mat-form-field appearance="outline">
+                  <mat-label>Crossref server</mat-label>
+                  <mat-select ngDefaultControl [formControl]="crossrefFormGroup.controls.server">
+                    @for (option of crossrefServerLOV; track option) {
+                      <mat-option [value]="option.value">
+                        {{ option.viewValue }}
+                      </mat-option>
+                    }
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>User</mat-label>
+                  <input
+                    matInput
+                    id="crossrefUser"
+                    data-test="community-crossRef-user"
+                    [formControl]="crossrefFormGroup.controls.user"
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Password</mat-label>
+                  <input
+                    matInput
+                    id="crossrefPassword"
+                    type="password"
+                    data-test="community-crossRef-pass"
+                    [formControl]="crossrefFormGroup.controls.pass"
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Role</mat-label>
+                  <input
+                    matInput
+                    id="crossrefRole"
+                    type="text"
+                    data-test="community-crossRef-role"
+                    [formControl]="crossrefFormGroup.controls.role"
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Prefix</mat-label>
+                  <input
+                    matInput
+                    id="crossrefPrefixDOI"
+                    type="text"
+                    data-test="community-crossRef-prefixDoi"
+                    [formControl]="crossrefFormGroup.controls.prefixDOI"
+                  />
+                </mat-form-field>
+              </div>
+            }
+          </div>
+        </mat-expansion-panel>
+        @if (!iThenticateActive && environment.experimentalFeatures) {
+          <app-alert [icon]="'info'">
+            iThenticate is DISABLED. To start generating similarity reports, please complete and
+            save all the required information.
+          </app-alert>
+        }
+        @if (iThenticateActive && environment.experimentalFeatures) {
+          <app-alert [icon]="'info'">
+            iThenticate is ENABLED. Similarity reports can now be generated from the moderation
+            panel if the credentials are correct and you accepted the iThenticate EULA.
+          </app-alert>
+        }
+        @if (environment.experimentalFeatures) {
+          <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="flex items-center gap-2 justify-between">
+                <h3 class="mat-headline-6 mb-0">iThenticate</h3>
+                @if (iThenticateActive) {
+                  <mat-chip disableRipple class="orv-chip-blue">Active </mat-chip>
+                }
+                @if (!iThenticateActive) {
+                  <mat-chip disableRipple>Inactive</mat-chip>
+                }
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            @if (!iThenticateActive) {
+              <div>
+                <p>
+                  In order to use the iThenticate service, you need to follow the steps described
+                  <a
+                    class="primary"
+                    href="https://help.orvium.io/community/community/#join-a-community"
+                  >
+                    here
+                  </a>
+                  . After that, you will obtain an API Key, which you will need when clicking the
+                  setup button.
+                </p>
+                <mat-form-field appearance="outline">
+                  <mat-label>iThenticate Key</mat-label>
+                  <input
+                    matInput
+                    type="password"
+                    data-test="community-ithenticate-apiKey"
+                    [formControl]="communityForm.controls.iThenticateAPIKey"
+                  />
+                </mat-form-field>
+                <mat-action-row>
+                  <button
+                    mat-raised-button
+                    color="primary"
+                    type="button"
+                    [disabled]="!!communityForm.controls.iThenticateAPIKey.value"
+                    (click)="setupIThenticate()"
+                  >
+                    Setup iThenticate
+                  </button>
+                </mat-action-row>
+              </div>
+            }
+            @if (iThenticateActive) {
+              <div>
+                <p> iThenticate has been configured successfully! </p>
+              </div>
+            }
+          </mat-expansion-panel>
+        }
+      </div>
+    </div>
+  </div>
+}
+
+<ng-template #extraSidenavTemplate>
+  <a mat-list-item class="ml-10" [routerLink]="['..', 'edit']">
+    <p matLine class="grey">Settings</p>
+  </a>
+
+  <a
+    mat-list-item
+    routerLinkActive="active-link"
+    class="ml-10"
+    [routerLink]="['..', 'integrations']"
+  >
+    <p matLine class="grey">Integrations</p>
+  </a>
+</ng-template>

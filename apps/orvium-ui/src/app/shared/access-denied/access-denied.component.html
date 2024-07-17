@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="primary">{{ title }}</mat-card-title>
+    <mat-card-subtitle>{{ subtitle }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="mat-body-2">{{ message }}</p>
+  </mat-card-content>
+  <mat-card-actions class="gap-1">
+    <button mat-raised-button color="primary" type="button" [routerLink]="['/']">
+      <mat-icon>home</mat-icon>
+      Go to home
+    </button>
+    <button mat-raised-button color="primary" type="button" (click)="back()">
+      <mat-icon>{{ icon }}</mat-icon>
+      Go back
+    </button>
+  </mat-card-actions>
+</mat-card>

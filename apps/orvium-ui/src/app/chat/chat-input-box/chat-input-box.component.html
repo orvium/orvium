@@ -1,0 +1,21 @@
+<ngx-editor-menu dropdownPlacement="top" [editor]="editor" [toolbar]="toolbar" />
+<div class="flex gap-2 items-center">
+  <ngx-editor
+    class="flex-1 overflow-auto"
+    [editor]="editor"
+    [disabled]="false"
+    [placeholder]="'Type here...'"
+    [formControl]="message"
+    (keydown.control.enter)="sendMessage()"
+  />
+  <button
+    mat-flat-button
+    color="primary"
+    type="button"
+    [disabled]="message.invalid"
+    (click)="sendMessage()"
+  >
+    Send
+    <mat-icon>send</mat-icon>
+  </button>
+</div>

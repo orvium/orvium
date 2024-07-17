@@ -1,0 +1,49 @@
+<app-info-toolbar [appOverlayLoading]="pageLoading">
+  @if (this.community) {
+    <app-description-line
+      [communityId]="this.community._id"
+      [avatar]="this.community.logoURL"
+      [title]="this.community.name"
+    />
+  }
+
+  <div class="flex gap-1 items-center">
+    @if (communityId) {
+      <button mat-button color="primary" type="button" [routerLink]="['/payments']">
+        My Payments
+      </button>
+    }
+    @if (communityId) {
+      <button
+        mat-raised-button
+        type="button"
+        [routerLink]="['/communities', this.communityId, 'view']"
+      >
+        <mat-icon>arrow_back</mat-icon>
+        Community
+      </button>
+    }
+  </div>
+</app-info-toolbar>
+
+<p
+  >Congratulations! Your purchase has been fulfilled, please find it below in detail. All your
+  payments will be listed under "My Payments" menu, you can find more information about this in our
+  user guide <a target="_blank" href="https://help.orvium.io/payments/intro/">here</a>.</p
+>
+
+<h1 class="mat-h1 primary text-center mt-8">Thank you!</h1>
+@for (item of this.itemsList; track item; let index = $index) {
+  <app-list-wrapper>
+    <span class="ml-5 primary font-bold">{{ item.description }}</span>
+    <div list-middle-section class="flex flex-col gap-5 mr-60">
+      <span> Price per unit: {{ getItemUnitAmount(item) / 100 | currency: currency }} </span>
+      <span>Quantity: {{ item.quantity }}</span>
+    </div>
+    <div list-end-section>
+      <span>Price for product: {{ item.amount_total / 100 | currency: currency }} </span>
+    </div>
+  </app-list-wrapper>
+  <mat-divider />
+}
+<h1 class="mat-h1 primary text-end mt-8">Total: {{ totalPrice / 100 | currency: currency }}</h1>

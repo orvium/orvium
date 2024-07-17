@@ -1,0 +1,9 @@
+<h1 class="mat-headline-2 primary">Deposit Card</h1>
+<h2>Selector: <code>&lt;app-deposit-card&gt;</code></h2>
+<h2>Input: <code>deposit: DepositDTO, isMember: boolean</code></h2>
+<h2>Output: <code>join: CommunityDTO</code></h2>
+<div class="grid grid-cols-2 gap-4">
+  @for (community of communities; track community; let index = $index) {
+    <app-community-card [community]="community" />
+  }
+</div>

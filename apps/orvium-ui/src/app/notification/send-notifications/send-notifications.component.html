@@ -1,0 +1,57 @@
+<div>
+  <div class="mb-4 overflow-y-scroll h-28">
+    <mat-chip-set>
+      @for (recipient of recipients; track recipient; let indexOfelement = $index) {
+        <mat-chip data-test="recipient-chip" (removed)="remove(recipient)">
+          <img
+            matChipAvatar
+            appAvatar
+            alt="Author Avatar"
+            [applyStyle]="false"
+            [src]="recipient.avatar"
+            [gravatar]="recipient.gravatar"
+          />
+          <span
+            >{{ indexOfelement + 1 }}. {{ recipient.firstName }} {{ recipient.lastName }} ({{
+              recipient.email
+            }})</span
+          >
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+      }
+    </mat-chip-set>
+  </div>
+
+  <div class="mt-4" [formGroup]="subjectForm">
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Email Subject</mat-label>
+      <input matInput id="subjectInput" [formControl]="subjectForm.controls.subject" />
+      @if (subjectForm.controls.subject.errors) {
+        <mat-error>The email subject can not be empty </mat-error>
+      }
+    </mat-form-field>
+  </div>
+  <ngx-editor-menu dropdownPlacement="top" [editor]="editor" [toolbar]="toolbar" />
+  <div class="flex gap-2 items-center mb-4">
+    <ngx-editor
+      class="flex-1 overflow-auto"
+      [editor]="editor"
+      [placeholder]="'Type the email body here...'"
+      [(ngModel)]="body"
+    />
+  </div>
+</div>
+
+<div class="flex justify-end gap-2">
+  <button
+    mat-flat-button
+    color="primary"
+    type="button"
+    [disabled]="subjectForm.controls.subject.invalid"
+    (click)="sendEmail()"
+  >
+    Send
+    <mat-icon>send</mat-icon>
+  </button>
+  <button type="button" mat-button mat-dialog-close>Close</button>
+</div>

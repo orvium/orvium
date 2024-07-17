@@ -1,0 +1,9 @@
+@use '../../../styles/variables';
+
+.wrap-anywhere {
+  overflow-wrap: anywhere;
+}
+
+.actions-block {
+  background-color: rgb(variables.$primary, 0.1);
+}

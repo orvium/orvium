@@ -1,0 +1,44 @@
+<div class="flex flex-col mb-4 overflow-x-hidden">
+  @if (canCreateComment) {
+    <div>
+      <div class="flex my-2 relative items-center w-full flex-row gap-2">
+        <textarea
+          #commentInput
+          matInput
+          id="mainInput"
+          placeholder="Add a public comment..."
+          class="w-full rounded border border-solid border-gray-400 pl-4 pr-12 bg-transparent focus:outline-none text-zinc-400"
+          [rows]="3"
+          (keyup.enter)="createComment(commentInput.value); commentInput.value = ''"
+        ></textarea>
+        <button
+          mat-flat-button
+          class="w-24"
+          color="primary"
+          type="button"
+          [disabled]="commentInput.value === ''"
+          (click)="createComment(commentInput.value); commentInput.value = ''"
+          >Send<mat-icon>send</mat-icon>
+        </button>
+      </div>
+    </div>
+  }
+  @if (comments.length !== 0) {
+    <div>
+      @for (comment of comments; track comment) {
+        <div class="mt-2">
+          <app-comment-with-responses
+            [resourceModel]="resourceModel"
+            [resource]="resource"
+            [comment]="comment"
+            (commentDeleted)="viewComments()"
+          />
+        </div>
+      }
+    </div>
+  } @else {
+    <div>
+      <p class="grey"><i>No comments published yet.</i></p>
+    </div>
+  }
+</div>

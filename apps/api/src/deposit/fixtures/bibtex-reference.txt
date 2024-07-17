@@ -1,0 +1,11 @@
+@article {
+    orvium-64900ee96bcda8382ed8737e,
+    title = "Big data analytics as a service infrastructure: challenges, desired properties and solutions",
+    abstract = "CERN’s accelerator complex generates a very large amount of data. A large volumen of heterogeneous data is constantly generated from control equipment and monitoring agents. These data must be stored and analysed. Over the decades, CERN’s researching and engineering teams have applied different approaches, techniques and technologies for this purpose. This situation has minimised the necessary collaboration and, more relevantly, the cross data analytics over different domains. These two factors are essential to unlock hidden insights and correlations between the underlying processes, which enable better and more efficient daily-based accelerator operations and more informed decisions.",
+    keywords = "Big Data, High Energy Physics, Machine Learning, Hadoop, Spark, Artificial Intelligence",
+    author = "John Doe",
+    year = "2024",
+    doi = "doiexample",
+    language = "English",
+    url = "http://localhost:4200/deposits/64900ee96bcda8382ed8737e/view",
+}

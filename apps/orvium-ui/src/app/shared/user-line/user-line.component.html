@@ -1,0 +1,21 @@
+<div class="flex items-center">
+  <img
+    class="mr-4"
+    appAvatar
+    alt="User avatar"
+    [src]="user.avatar"
+    [routerLink]="userLineRouterLink"
+    [gravatar]="user.gravatar"
+  />
+  <div class="w-full whitespace-nowrap overflow-hidden flex flex-col">
+    <a
+      class="mb-0 overflow-hidden text-ellipsis whitespace-nowrap"
+      [routerLink]="userLineRouterLink"
+    >
+      {{ user.firstName | titlecase }} {{ user.lastName | titlecase }}
+    </a>
+    <span class="mat-caption grey overflow-hidden text-ellipsis whitespace-nowrap">
+      {{ user.institutions | separator: ';' }}
+    </span>
+  </div>
+</div>

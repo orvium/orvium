@@ -1,0 +1,302 @@
+<ng-template #buttonsInToolbar>
+  @if (communityActions.update) {
+    <button mat-button class="grey" type="button" [routerLink]="['..', 'edit']">
+      <mat-icon>edit</mat-icon>
+      <ng-container i18n>Edit</ng-container>
+    </button>
+  }
+  <button mat-button class="grey" type="button" [routerLink]="['..', 'moderate']">
+    <mat-icon>badge</mat-icon>
+    <ng-container i18n>Moderate</ng-container>
+  </button>
+</ng-template>
+
+<ng-template #buttonsAlwaysInMenu>
+  @if (communityActions.update) {
+    <button mat-button class="grey" type="button" [routerLink]="['..', 'templates']">
+      <mat-icon>email</mat-icon>
+      <ng-container i18n>Edit emails</ng-container>
+    </button>
+  }
+  @if (communityActions.moderate) {
+    <button mat-button class="grey" type="button" (click)="createCall()">
+      <mat-icon>assignment</mat-icon>
+      <ng-container i18n>Create a Call</ng-container>
+    </button>
+  }
+
+  @if (communityActions.update) {
+    <button mat-button class="grey" type="button" [routerLink]="['..', 'payments']">
+      <mat-icon>receipt_long</mat-icon>
+      <ng-container i18n>Payments</ng-container>
+    </button>
+  }
+</ng-template>
+
+@if (community && communityActions.moderate) {
+  <app-info-toolbar>
+    <app-description-line
+      [communityId]="community._id"
+      [avatar]="community.logoURL"
+      [title]="community.name"
+    />
+    <div app-info-toolbar-buttons>
+      <app-buttons-menu
+        [buttonsAlwaysInMenu]="buttonsAlwaysInMenu"
+        [buttonsInToolbar]="buttonsInToolbar"
+        [isMobile]="isMobile"
+      />
+    </div>
+  </app-info-toolbar>
+}
+
+<div>
+  @if (community) {
+    <app-header
+      [bannerURL]="community.bannerURL"
+      [facebookURL]="community.facebookURL"
+      [twitterURL]="community.twitterURL"
+    />
+  }
+  @if (community) {
+    <div class="flex p-4 gap-4">
+      @if (!isMobile) {
+        <img
+          class="w-32 h-32 rounded-full object-cover"
+          alt="Community Logo"
+          [src]="community.logoURL"
+        />
+      }
+      <div class="flex justify-between flex-wrap w-full gap-4">
+        <div class="grey md:basis-2/3">
+          <div class="flex gap-4 items-center">
+            <div class="mb-0 mat-headline-6">
+              {{ community.name }}
+            </div>
+            <mat-chip-set>
+              <mat-chip [disableRipple]="true">{{ community.type | titlecase }}</mat-chip>
+            </mat-chip-set>
+          </div>
+          <div class="flex flex-wrap">
+            <div class="flex items-center gap-1 mr-4">
+              <mat-icon inline>place</mat-icon>
+              {{ community.country }}
+            </div>
+            <div class="flex items-center gap-1 mr-4">
+              <mat-icon inline>visibility</mat-icon>
+              {{ community.views | thousandConversor }} <ng-container i18n>Views</ng-container>
+            </div>
+            <div class="flex items-center gap-1">
+              <mat-icon inline>person</mat-icon>
+              {{ community.followersCount | thousandConversor }}
+              <ng-container i18n>Members</ng-container>
+            </div>
+          </div>
+          @if (community.issn) {
+            <p class="mat-subtitle-2 my-2"> ISSN: {{ community.issn }} </p>
+          }
+          <p>
+            {{ community.description }}
+          </p>
+          <p>
+            <a target="_blank" class="mat-body-1 mt-2 mb-2" [href]="community.websiteURL">{{
+              community.websiteURL
+            }}</a>
+          </p>
+        </div>
+        <div class="flex flex-col gap-2">
+          @if (community.guidelinesURL) {
+            <a
+              disableRipple
+              mat-button
+              target="_blank"
+              class="grey"
+              [href]="community.guidelinesURL"
+            >
+              <mat-icon>article</mat-icon>
+              <ng-container i18n>Check guidelines</ng-container>
+              <mat-icon>launch</mat-icon>
+            </a>
+          }
+          <button disableRipple mat-button type="button" (click)="openAcknowledgement()">
+            <mat-icon>thumb_up</mat-icon>
+            <ng-container i18n>Acknowledgement</ng-container>
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+
+  <div class="relative">
+    <div class="flex justify-end">
+      <ng-container *ngTemplateOutlet="menuButtons" />
+    </div>
+    <mat-tab-group>
+      <mat-tab label="HOME">
+        <div class="flex gap-4 flex-col md:flex-row w-full">
+          <div class="w-full md:w-2/3">
+            <div>
+              <app-deposits-list
+                [deposits]="depositsQuery.deposits"
+                [appOverlayLoading]="loadCommunityDeposits"
+              />
+              <mat-paginator
+                #paginator
+                class="mb-4"
+                [length]="depositsQuery.count"
+                [pageSize]="10"
+                (page)="paginate($event)"
+              />
+            </div>
+          </div>
+          <div class="w-full md:w-1/3">
+            <div class="block">
+              @if (moderators.length > 0) {
+                <div class="mb-8">
+                  <mat-expansion-panel class="orv-expansion-panel" [expanded]="true">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        <div class="primary mat-headline-6 m-0" i18n> Editors</div>
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    @for (moderator of moderators; track moderator) {
+                      <div class="p-4">
+                        <app-user-line
+                          [user]="moderator"
+                          [userLineRouterLink]="['/profile', moderator.nickname]"
+                        />
+                      </div>
+                    }
+                  </mat-expansion-panel>
+                </div>
+              }
+
+              @if (community && conferenceProceedings.length > 0) {
+                <div class="mb-8">
+                  <mat-expansion-panel class="orv-expansion-panel" [expanded]="true">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        <div class="primary mat-headline-6 m-0" i18n> Conference proceedings</div>
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="flex flex-col gap-4">
+                      @for (community of conferenceProceedings; track community) {
+                        <app-community-card
+                          [community]="community"
+                          [routerLink]="['/communities', community._id, 'view']"
+                        />
+                      }
+                    </div>
+                  </mat-expansion-panel>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+
+      @if (community && community.conferenceProceedings.length > 0) {
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span i18n>CONFERENCES</span>
+          </ng-template>
+          <div class="flex flex-col gap-4">
+            @for (community of conferenceProceedings; track community) {
+              <app-community-card
+                [community]="community"
+                [routerLink]="['/communities', community._id, 'view']"
+              />
+            }
+          </div>
+        </mat-tab>
+      }
+
+      <mat-tab label="CALLS {{ calls.length > 0 ? '(' + calls.length + ')' : '' }}">
+        @if (calls.length === 0) {
+          <app-alert [icon]="'info'">
+            <ng-container i18n> This community has no active calls for now.</ng-container>
+          </app-alert>
+        }
+        @for (call of calls; track call) {
+          <div class="flex flex-col gap-8 mt-8">
+            <app-call-for-papers-card [callForPapers]="call">
+              <ng-container action>
+                @if (communityActions.moderate) {
+                  <button
+                    mat-raised-button
+                    color="primary"
+                    class="edit-button"
+                    type="button"
+                    [routerLink]="['/call', call._id, 'edit']"
+                  >
+                    <mat-icon>edit</mat-icon>
+                    <ng-container i18n>Edit</ng-container>
+                  </button>
+                }
+              </ng-container>
+            </app-call-for-papers-card>
+          </div>
+        }
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+<ng-template #menuButtons>
+  <button mat-button class="grey" type="button" (click)="openFilters()">
+    <mat-icon>filter_list</mat-icon>
+    <ng-container i18n>Filters</ng-container>
+  </button>
+  @if (community && community.productsVisible) {
+    <button mat-button class="grey" type="button" [routerLink]="['..', 'products']">
+      <mat-icon>shopping_cart</mat-icon>
+      <ng-container i18n>Products</ng-container>
+    </button>
+  }
+  @if (community && community.calendarVisible) {
+    <button mat-button class="grey" type="button" (click)="openCalendar()">
+      <mat-icon>event</mat-icon>
+      <ng-container i18n>Calendar</ng-container>
+    </button>
+  }
+  <button mat-button class="grey" type="button" (click)="openShare()">
+    <mat-icon>share</mat-icon>
+    <ng-container i18n>Share</ng-container>
+  </button>
+  @if (
+    community &&
+    ((community.type === communityTypeLOV.Conference && sessions.length > 0) ||
+      communityActions.moderate)
+  ) {
+    <button mat-button class="grey" type="button" [routerLink]="['..', 'program']">
+      <mat-icon>chrome_reader_mode</mat-icon>
+      <ng-container i18n>View program</ng-container>
+    </button>
+  }
+</ng-template>
+
+<ng-template #acknowledgementTemplate>
+  <p class="black mt-2 mb-2" i18n
+    >Following the official community's guidelines, authors will have to acknowledge when submitting
+    a new publication:</p
+  >
+  <app-acknowledgement [acknowledgementHTML]="community.acknowledgement" />
+</ng-template>
+
+<ng-template #shareDialogTemplate>
+  <app-share-media [shareSubject]="'this community'" [shareText]="shareText" />
+</ng-template>
+
+<ng-template #calendarDialogTemplate>
+  <app-calendar [calendarEvents]="community.calendarDates" />
+</ng-template>
+
+<ng-template #searchBox>
+  <div class="p-2">
+    <app-search-box
+      [community]="community"
+      [customControls]="{ query: true, status: true, newTrackTimestamp: true, sort: true }"
+      [columnLayout]="true"
+      (search)="filterPublications($event)"
+    />
+  </div>
+</ng-template>

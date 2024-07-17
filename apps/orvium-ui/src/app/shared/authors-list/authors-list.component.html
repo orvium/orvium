@@ -1,0 +1,73 @@
+@for (author of authors; track author; let last = $last) {
+  <div>
+    <div class="flex mt-4 gap-4 items-center">
+      @if (author.nickname) {
+        <a
+          [mat-dialog-close]="author.nickname"
+          [tabIndex]="0"
+          [routerLink]="['/profile', author.nickname]"
+        >
+          <img appAvatar alt="Author avatar" [gravatar]="author.gravatar" [src]="author.avatar" />
+        </a>
+      } @else {
+        <div class="opacity-40">
+          <img appAvatar alt="Author avatar" [gravatar]="author.gravatar" [src]="author.avatar" />
+        </div>
+      }
+      <div aria-label="Author details section" class="flex flex-col">
+        <div aria-label="Author name and orcid" class="flex">
+          @if (author.firstName || author.lastName) {
+            <span [ngClass]="{ primary: author.nickname }">
+              @if (author.orcid) {
+                <a target="_blank" class="mr-1.5" [href]="author.orcid">
+                  <fa-icon size="lg" class="orcid-color" [icon]="['fab', 'orcid']" />
+                </a>
+              }
+              @if (author.nickname) {
+                <a
+                  [mat-dialog-close]="author.nickname"
+                  [routerLink]="['/profile', author.nickname]"
+                  >{{ author.firstName + ' ' + author.lastName }}</a
+                >
+              } @else {
+                {{ author.firstName + ' ' + author.lastName }}
+              }
+            </span>
+          }
+        </div>
+        @if (author.email) {
+          <span class="grey mat-caption">{{ author.email }}</span>
+        }
+        @if (author.credit) {
+          <span class="grey mat-body-2">{{ author.credit | separator: ',' | titlecase }}</span>
+        }
+        @if (author.tags) {
+          <span class="grey mat-body-2">{{ author.tags | separator: ',' | titlecase }}</span>
+        }
+        @if (author.institutions) {
+          <mat-chip-set>
+            @for (institution of author.institutions; track institution) {
+              <mat-chip [disableRipple]="true">{{ institution | titlecase }}</mat-chip>
+            }
+          </mat-chip-set>
+        }
+      </div>
+      <div aria-label="Actions section" class="ml-auto">
+        @if (author.nickname && profile?.nickname && profile?.nickname !== author.nickname) {
+          <button mat-raised-button type="button" (click)="openConversation(author)">
+            <mat-icon>chat</mat-icon>
+            <ng-container i18n>Message</ng-container>
+          </button>
+        }
+        @if (!author.nickname && showInvite) {
+          <button mat-stroked-button color="primary" type="button" (click)="inviteAuthor()" i18n>
+            Invite
+          </button>
+        }
+      </div>
+    </div>
+    @if (!last) {
+      <mat-divider />
+    }
+  </div>
+}

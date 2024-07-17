@@ -1,0 +1,12 @@
+<div mat-dialog-content>
+  <h2 class="primary mat-headline-6">{{ title }}</h2>
+  <p class="mat-body whitespace-pre-line">{{ content }}</p>
+  <div>
+    <button mat-raised-button color="primary" type="button" (click)="confirm()">
+      @if (icon) {
+        <mat-icon>{{ icon }}</mat-icon>
+      }
+      {{ acceptMessage }}</button
+    >
+  </div>
+</div>

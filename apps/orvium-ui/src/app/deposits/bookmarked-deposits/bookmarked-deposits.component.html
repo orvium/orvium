@@ -1,0 +1,14 @@
+<h1 class="primary mat-headline-4 m-4">
+  <mat-icon class="align-bottom" inline aria-label="Starred icon">bookmark_border </mat-icon>
+  <ng-container i18n>Bookmarked publications</ng-container>
+</h1>
+@if (starredDeposits.length === 0) {
+  <h2 class="text-2xl mt-20 primary text-center" i18n> No bookmarked publications yet</h2>
+}
+<div [appOverlayLoading]="depositsLoading"></div>
+
+@if (starredDeposits.length > 0) {
+  <div class="max-w-5xl mx-auto">
+    <app-deposits-list [deposits]="starredDeposits" />
+  </div>
+}

@@ -1,0 +1,137 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+$primary-shades: (
+  50: #e7efff,
+  100: #c3d8ff,
+  200: #9bbeff,
+  300: #73a4ff,
+  400: #5591ff,
+  500: #377dff,
+  600: #3175ff,
+  700: #2a6aff,
+  800: #2360ff,
+  900: #164dff,
+  A100: #fff,
+  A200: #fcfcff,
+  A400: #c9d4ff,
+  A700: #afbfff,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #000,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+    A100: #000,
+    A200: #000,
+    A400: #000,
+    A700: #000,
+  ),
+);
+$secondary-shades: (
+  50: #e7faf7,
+  100: #c3f3ec,
+  200: #9becdf,
+  300: #73e4d2,
+  400: #55dec8,
+  500: #37d8be,
+  600: #31d4b8,
+  700: #2aceaf,
+  800: #23c8a7,
+  900: #16bf99,
+  A100: #f1fffc,
+  A200: #beffef,
+  A400: #8bffe3,
+  A700: #71ffdd,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #000,
+    500: #000,
+    600: #000,
+    700: #000,
+    800: #000,
+    900: #000,
+    A100: #000,
+    A200: #000,
+    A400: #000,
+    A700: #000,
+  ),
+);
+$warn-shades: (
+  50: #fff7f7,
+  100: #ffebeb,
+  200: #ffdede,
+  300: #ffd1d0,
+  400: #ffc7c6,
+  500: #ffbdbc,
+  600: #ffb7b6,
+  700: #ffaead,
+  800: #ffa6a5,
+  900: #ff9897,
+  A100: #fff,
+  A200: #fff,
+  A400: #fff,
+  A700: #fff,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #000,
+    500: #000,
+    600: #000,
+    700: #000,
+    800: #000,
+    900: #000,
+    A100: #000,
+    A200: #000,
+    A400: #000,
+    A700: #000,
+  ),
+);
+
+@mixin get-theme-colors($theme) {
+  $theme-colors: mat.m2-get-color-config($theme);
+  $primary: map.get($theme-colors, primary);
+  $secondary: map.get($theme-colors, secondary);
+  $accent: map.get($theme-colors, accent);
+  $warn: map.get($theme-colors, warn);
+}
+
+$primary-palette: mat.m2-define-palette($primary-shades);
+$primary: mat.m2-get-color-from-palette($primary-palette);
+$secondary-palette: mat.m2-define-palette($secondary-shades);
+$secondary: mat.m2-get-color-from-palette($secondary-palette);
+$warn-palette: mat.m2-define-palette($warn-shades);
+$warn: mat.m2-get-color-from-palette($warn-palette);
+$grey: #85919f;
+$dark-grey: #40526a;
+$purple: #8c54ff;
+$yellow: #fdc500;
+$blue: #00c1d4;
+
+@mixin get-global-color-classes() {
+  .dark-grey {
+    color: $dark-grey;
+  }
+
+  .yellow {
+    color: $yellow;
+  }
+
+  .purple {
+    color: $purple;
+  }
+
+  .blue {
+    color: $blue;
+  }
+}

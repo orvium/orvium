@@ -1,0 +1,46 @@
+@if (!isAdmin) {
+  <app-access-denied />
+}
+@if (isAdmin) {
+  <div class="container">
+    <h1 class="mb-2 mat-headline-4 primary">Impersonate Users</h1>
+    <div [formGroup]="searchFormGroup">
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Search</mat-label>
+        <input
+          matInput
+          [placeholder]="'Search by Name, Email or User ID'"
+          [formControl]="searchFormGroup.controls.search"
+        />
+      </mat-form-field>
+    </div>
+    @if (!searchFormGroup.controls.search.value) {
+      <app-alert [icon]="'info'">
+        There is no filter set. You need to fill the filter input to find users
+      </app-alert>
+    }
+    @if (searchFormGroup.controls.search.value && profiles.length === 0) {
+      <app-alert [icon]="'info'"> Results not found </app-alert>
+    }
+    @for (profile of this.profiles; track profile; let index = $index) {
+      <app-list-wrapper [appOverlayLoading]="this.isSearching">
+        <app-contributor-line [user]="profile" />
+        <span>{{ profile.email }}</span>
+        <div list-middle-section>
+          <span>User Id: {{ profile._id }}</span>
+        </div>
+        <div list-end-section class="ml-20">
+          <button
+            mat-icon-button
+            matTooltip="Impersonate user"
+            type="button"
+            (click)="impersonate(profile.userId)"
+          >
+            <mat-icon>supervisor_account</mat-icon>
+          </button>
+        </div>
+      </app-list-wrapper>
+      <mat-divider />
+    }
+  </div>
+}

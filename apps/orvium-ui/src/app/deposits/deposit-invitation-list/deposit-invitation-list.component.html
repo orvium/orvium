@@ -1,0 +1,44 @@
+@for (invitation of this.invites; track invitation; let index = $index) {
+  <app-list-wrapper>
+    <a
+      data-test="deposit-link"
+      class="break-words w-fit font-bold"
+      [routerLink]="['/deposits', invitation.data.depositId, 'view']"
+      >{{ invitation.data.depositTitle }}</a
+    >
+    <div class="flex flex-wrap items-center gap-2 grey">
+      <span><b>Sent on:</b> {{ invitation.createdOn | date: 'dd/MM/yyyy' }}</span>
+      @if (requestedBy) {
+        <span class="flex items-center ml-4 mr-4">
+          <b>Requested by:</b>
+          <app-contributor-line [user]="invitation.senderPopulated" />
+        </span>
+      }
+      <span>
+        <b>Sent to:</b>
+        {{ invitation.addressee }}
+      </span>
+      @if (invitation.dateLimit) {
+        <span><b>Review deadline:</b> {{ invitation.dateLimit | date: 'dd/MM/yyyy' }}</span>
+      }
+      <div class="flex flex-1 items-center justify-center">
+        @if (invitation.message) {
+          <span class="line-clamp-2" [matTooltip]="invitation.message">
+            <b>Message:</b> {{ invitation.message }}
+          </span>
+        }
+      </div>
+    </div>
+    <div list-end-section>
+      <mat-chip-set>
+        <mat-chip class="orv-chip-{{ invitation.status.replace(' ', '-') }}" [disableRipple]="true">
+          {{ invitation.status | titlecase }}
+        </mat-chip>
+        <mat-chip class="orv-chip-yellow" [disableRipple]="true">
+          {{ invitation.inviteType | titlecase }}
+        </mat-chip>
+      </mat-chip-set>
+    </div>
+  </app-list-wrapper>
+  <mat-divider />
+}

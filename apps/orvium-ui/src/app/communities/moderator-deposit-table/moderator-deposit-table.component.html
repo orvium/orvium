@@ -1,0 +1,143 @@
+@for (deposit of _deposits; track deposit; let index = $index) {
+  <ng-container (click)="$event.stopPropagation()" (keydown.enter)="$event.stopPropagation()">
+    <div class="item" role="listitem">
+      <div class="flex flex-row items-center">
+        <mat-checkbox color="primary" [value]="deposit._id" (change)="selector.toggle(deposit)" />
+        <div class="flex justify-center flex-col gap-2">
+          <a data-test="publication-view" [routerLink]="['/deposits', deposit._id, 'view']" i18n
+            >{{ deposit.title }} [Version {{ deposit.version }}]</a
+          >
+          <div class="flex items-center gap-4 grey">
+            <span i18n
+              >Submitted: <b>{{ deposit.submissionDate | date: 'dd/MM/yyyy' }}</b></span
+            >
+            <span class="flex items-center"
+              ><app-author-avatar-list [authors]="deposit.authors" />
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center justify-center gap-2">
+        <app-autocomplete
+          [disabled]="deposit.status === DepositStatus.Draft"
+          [tooltip]="
+            deposit.status === DepositStatus.Draft
+              ? 'You cannot change the editor assigned while the publication is in draft'
+              : 'Assign editor'
+          "
+          [moderators]="moderators"
+          [currentValue]="findModerator(deposit.assignee)"
+          (selectedModerator)="assignModerator($event, deposit)"
+          (removed)="removeModerator(deposit)"
+        />
+        @if (community && community.type === communityTypeLOV.Conference) {
+          <mat-form-field
+            appearance="outline"
+            [subscriptSizing]="'dynamic'"
+            [matTooltip]="
+              deposit.status === DepositStatus.Draft
+                ? 'You cannot change the decision while the publication is in draft'
+                : 'Choose a decision'
+            "
+          >
+            <mat-label i18n>Decision</mat-label>
+            <mat-select
+              placeholder="Make your decision"
+              [value]="deposit.acceptedFor"
+              [disabled]="deposit.status === DepositStatus.Draft"
+              (selectionChange)="selectDecision($event, deposit, index)"
+            >
+              @for (option of depositDecisionLOV; track option) {
+                <mat-option [value]="option.value">
+                  {{ option.viewValue }}
+                </mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        }
+      </div>
+      <div class="flex flex-col justify-center items-end gap-2">
+        <mat-chip-set>
+          @if (deposit.doi) {
+            <app-doi-status
+              [doiStatus]="deposit.doiStatus"
+              [doi]="deposit.doi"
+              [resourceId]="deposit._id"
+            />
+          }
+          <mat-chip class="orv-chip-{{ deposit.status.replace(' ', '-') }}" [disableRipple]="true">
+            {{ deposit.status | titlecase }}
+          </mat-chip>
+        </mat-chip-set>
+        <div class="flex items-center">
+          @if (deposit.status === DepositStatus.PendingApproval) {
+            <button
+              mat-raised-button
+              color="primary"
+              type="button"
+              (click)="acceptDeposit(deposit)"
+              i18n
+            >
+              Accept
+            </button>
+          }
+          @if (deposit.status === DepositStatus.Preprint) {
+            <button
+              mat-raised-button
+              color="primary"
+              type="button"
+              (click)="publishDeposit(deposit)"
+              i18n
+            >
+              Publish
+            </button>
+          }
+          @if (menuOptions.children.length > 0) {
+            <button mat-icon-button type="button" [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          }
+          <mat-menu #menu="matMenu">
+            <div #menuOptions class="flex gap-1 items-center flex-wrap justify-center">
+              @if (deposit.creator !== profile?._id) {
+                <button mat-menu-item type="button" (click)="openConversation(deposit)">
+                  Message
+                </button>
+              }
+              @if (deposit.status === DepositStatus.PendingApproval) {
+                <button mat-menu-item type="button" (click)="draftDeposit(deposit)" i18n>
+                  Request Changes
+                </button>
+              }
+              @if (
+                deposit.status === DepositStatus.Published ||
+                deposit.status === DepositStatus.Preprint
+              ) {
+                <button
+                  mat-menu-item
+                  color="warn"
+                  type="button"
+                  (click)="backToPendingApproval(deposit)"
+                  i18n
+                >
+                  Back to pending approval
+                </button>
+              }
+              @if (deposit.status === DepositStatus.PendingApproval) {
+                <button mat-menu-item type="button" (click)="rejectDeposit(deposit)" i18n>
+                  Reject
+                </button>
+              }
+              @if (deposit.status === DepositStatus.PendingApproval && deposit.version > 1) {
+                <button mat-menu-item type="button" (click)="mergeDeposit(deposit)" i18n>
+                  Merge
+                </button>
+              }
+            </div>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+    <mat-divider />
+  </ng-container>
+}

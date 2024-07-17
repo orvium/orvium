@@ -1,0 +1,29 @@
+<mat-form-field appearance="outline" [subscriptSizing]="'dynamic'" [matTooltip]="tooltip">
+  <mat-label>Editor</mat-label>
+  <div class="flex">
+    <input
+      placeholder="Editor"
+      matInput
+      [formControl]="formControl"
+      [matAutocomplete]="autoCompleteEditor"
+      (input)="editorInputChanges($event)"
+      (focusout)="clearInput($event)"
+    />
+    @if (currentValue && !disabled) {
+      <mat-icon class="cursor-pointer" (click)="removeEditor($event)">clear</mat-icon>
+    }
+  </div>
+  <mat-autocomplete
+    #autoCompleteEditor="matAutocomplete"
+    [displayWith]="displayEditorsName"
+    (optionSelected)="onEditorSelect($event)"
+  >
+    <ng-container>
+      @for (editor of filteredArray; track editor) {
+        <mat-option [value]="editor">
+          {{ editor.user.firstName }} {{ editor.user.lastName }}
+        </mat-option>
+      }
+    </ng-container>
+  </mat-autocomplete>
+</mat-form-field>

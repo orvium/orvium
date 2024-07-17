@@ -1,0 +1,2069 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-US">
+  <file id="ngi18n" original="ng.template">
+    <unit id="2375184418435964576">
+      <segment>
+        <source>Invite your colleages</source>
+      </segment>
+    </unit>
+    <unit id="2778032470005423138">
+      <segment>
+        <source>TOP DISCIPLINES</source>
+      </segment>
+    </unit>
+    <unit id="340163075213868058">
+      <segment>
+        <source> Create Your Community </source>
+      </segment>
+    </unit>
+    <unit id="3887210017134186927">
+      <segment>
+        <source>Create a community</source>
+      </segment>
+    </unit>
+    <unit id="4359206588070571631">
+      <segment>
+        <source> Create Community </source>
+      </segment>
+    </unit>
+    <unit id="4601268238492341876">
+      <segment>
+        <source> More Communities </source>
+      </segment>
+    </unit>
+    <unit id="5365645592728181211">
+      <segment>
+        <source> Orvium is an open platform in which everyone is invited to collaborate. </source>
+      </segment>
+    </unit>
+    <unit id="5381998132873583054">
+      <segment>
+        <source>More Publications</source>
+      </segment>
+    </unit>
+    <unit id="5521269195787912389">
+      <segment>
+        <source>Recent Publications</source>
+      </segment>
+    </unit>
+    <unit id="5683151854837048004">
+      <segment>
+        <source>What is Orvium in 1 minute</source>
+      </segment>
+    </unit>
+    <unit id="5909052074229255919">
+      <segment>
+        <source>Top Communities</source>
+      </segment>
+    </unit>
+    <unit id="9208587554896702553">
+      <segment>
+        <source> Invite to Orvium </source>
+      </segment>
+    </unit>
+    <unit id="9631500899217740">
+      <segment>
+        <source> Create your community in Orvium and start managing your conference, journal or scientific repository in a few minutes. </source>
+      </segment>
+    </unit>
+    <unit id="1155162794610679050">
+      <segment>
+        <source>The publication needs some small changes to be published</source>
+      </segment>
+    </unit>
+    <unit id="117954017715534854">
+      <segment>
+        <source>comments</source>
+      </segment>
+    </unit>
+    <unit id="1262214757973218545">
+      <segment>
+        <source> with your colleagues</source>
+      </segment>
+    </unit>
+    <unit id="1274247756500564795">
+      <segment>
+        <source>Community</source>
+      </segment>
+    </unit>
+    <unit id="1308811634486246923">
+      <segment>
+        <source>Blockchain </source>
+      </segment>
+    </unit>
+    <unit id="1408045022812097780">
+      <segment>
+        <source>views</source>
+      </segment>
+    </unit>
+    <unit id="1545881888946288173">
+      <segment>
+        <source>Peer review</source>
+      </segment>
+    </unit>
+    <unit id="1554838717931748985">
+      <segment>
+        <source>Merged</source>
+      </segment>
+    </unit>
+    <unit id="1617560746372539990">
+      <segment>
+        <source>Demo Components</source>
+      </segment>
+    </unit>
+    <unit id="1758440051293769579">
+      <segment>
+        <source>Presentation</source>
+      </segment>
+    </unit>
+    <unit id="187187500641108332">
+      <segment>
+        <source>
+          <ph id="0" equiv="INTERPOLATION" disp="{{ searchPlaceholder }}"/>
+        </source>
+      </segment>
+    </unit>
+    <unit id="1951089763019042037">
+      <segment>
+        <source>Student</source>
+      </segment>
+    </unit>
+    <unit id="1951232520437111410">
+      <segment>
+        <source>Policy report</source>
+      </segment>
+    </unit>
+    <unit id="2123659921722214537">
+      <segment>
+        <source>Views</source>
+      </segment>
+    </unit>
+    <unit id="2137170138215342783">
+      <segment>
+        <source>We couldn&apos;t find <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">Metamask</pc> extension installed in your browser. Please, install the <pc id="1" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a class=&quot;primary&quot; href=&quot;https://metamask.io/&quot;&gt;" dispEnd="&lt;/a&gt;">extension</pc> and try again. If you have any questions please feel free to check our <pc id="2" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a class=&quot;primary&quot; href=&quot;https://help.orvium.io/tech/blockchain/&quot;&gt;" dispEnd="&lt;/a&gt;">user guide</pc> or contact us through the <pc id="3" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">feedback</pc> button bellow. </source>
+      </segment>
+    </unit>
+    <unit id="2211886557442189520">
+      <segment>
+        <source>Conference</source>
+      </segment>
+    </unit>
+    <unit id="2507900464366548324">
+      <segment>
+        <source>All publications</source>
+      </segment>
+    </unit>
+    <unit id="2656123100839645861">
+      <segment>
+        <source>Pending approval</source>
+      </segment>
+    </unit>
+    <unit id="2744677189336461333">
+      <segment>
+        <source>My Publications</source>
+      </segment>
+    </unit>
+    <unit id="2866242569279642865">
+      <segment>
+        <source>Registered report</source>
+      </segment>
+    </unit>
+    <unit id="2873009445868070653">
+      <segment>
+        <source>No deposits found for <ph id="0" equiv="INTERPOLATION" disp="{{ query || &apos;advanced&apos; }}"/> search.</source>
+      </segment>
+    </unit>
+    <unit id="3108049275616204246">
+      <segment>
+        <source>All invitations</source>
+      </segment>
+    </unit>
+    <unit id="3344299373338489100">
+      <segment>
+        <source>My Invitations</source>
+      </segment>
+    </unit>
+    <unit id="3369637921760701054">
+      <segment>
+        <source>Show Less </source>
+      </segment>
+    </unit>
+    <unit id="3449737423228947333">
+      <segment>
+        <source>Research proposal</source>
+      </segment>
+    </unit>
+    <unit id="3526697194438971319">
+      <segment>
+        <source>The publication is ready to be published</source>
+      </segment>
+    </unit>
+    <unit id="3605844549000539065">
+      <segment>
+        <source>My payments</source>
+      </segment>
+    </unit>
+    <unit id="3715596725146409911">
+      <segment>
+        <source>Owner</source>
+      </segment>
+    </unit>
+    <unit id="3797778920049399855">
+      <segment>
+        <source>Logout</source>
+      </segment>
+    </unit>
+    <unit id="3884972854571844716">
+      <segment>
+        <source>Bookmarked publications</source>
+      </segment>
+    </unit>
+    <unit id="4058575476871566236">
+      <segment>
+        <source>Published</source>
+      </segment>
+    </unit>
+    <unit id="4089843277504845615">
+      <segment>
+        <source>Conference paper</source>
+      </segment>
+    </unit>
+    <unit id="4188654437346976139">
+      <segment>
+        <source>Rejected</source>
+      </segment>
+    </unit>
+    <unit id="4197988031879614135">
+      <segment>
+        <source>Share </source>
+      </segment>
+    </unit>
+    <unit id="4355268630638803275">
+      <segment>
+        <source>Call for abstracts</source>
+      </segment>
+    </unit>
+    <unit id="4379645658640672261">
+      <segment>
+        <source>Read </source>
+      </segment>
+    </unit>
+    <unit id="438016527885969605">
+      <segment>
+        <source>Academic</source>
+      </segment>
+    </unit>
+    <unit id="4402507135978648426">
+      <segment>
+        <source>Create review </source>
+      </segment>
+    </unit>
+    <unit id="45251111618559556">
+      <segment>
+        <source>Citizen</source>
+      </segment>
+    </unit>
+    <unit id="4567885301549754909">
+      <segment>
+        <source>Most popular</source>
+      </segment>
+    </unit>
+    <unit id="4580988005648117665">
+      <segment>
+        <source>Search</source>
+      </segment>
+    </unit>
+    <unit id="4582579540016274405">
+      <segment>
+        <source>Method paper</source>
+      </segment>
+    </unit>
+    <unit id="4607581465689784056">
+      <segment>
+        <source>Business</source>
+      </segment>
+    </unit>
+    <unit id="4660369915738329717">
+      <segment>
+        <source>New Publication</source>
+      </segment>
+    </unit>
+    <unit id="4691887509600985309">
+      <segment>
+        <source>Members</source>
+      </segment>
+    </unit>
+    <unit id="4705374304108593038">
+      <segment>
+        <source>Extended abstract</source>
+      </segment>
+    </unit>
+    <unit id="4728531318608713912">
+      <segment>
+        <source>Review Status</source>
+      </segment>
+    </unit>
+    <unit id="4759501379960802880">
+      <segment>
+        <source>Poster</source>
+      </segment>
+    </unit>
+    <unit id="4808589666930368915">
+      <segment>
+        <source>Draft</source>
+      </segment>
+    </unit>
+    <unit id="4834363188002392992">
+      <segment>
+        <source>Stop Impersonate</source>
+      </segment>
+    </unit>
+    <unit id="4915431133669985304">
+      <segment>
+        <source>Profile</source>
+      </segment>
+    </unit>
+    <unit id="4968151111061046122">
+      <segment>
+        <source>Moderator</source>
+      </segment>
+    </unit>
+    <unit id="4969257843132924159">
+      <segment>
+        <source>Major Revision Required</source>
+      </segment>
+    </unit>
+    <unit id="5141912871649790402">
+      <segment>
+        <source>Research report</source>
+      </segment>
+    </unit>
+    <unit id="5276172031906098369">
+      <segment>
+        <source>mode</source>
+      </segment>
+    </unit>
+    <unit id="5376967655946109687">
+      <segment>
+        <source>Email templates</source>
+      </segment>
+    </unit>
+    <unit id="5377078063439833222">
+      <segment>
+        <source> Edit </source>
+      </segment>
+    </unit>
+    <unit id="5452129511052208861">
+      <segment>
+        <source>Most recent</source>
+      </segment>
+    </unit>
+    <unit id="5602093660815688839">
+      <segment>
+        <source>Minor Revision Required</source>
+      </segment>
+    </unit>
+    <unit id="5621354808212583729">
+      <segment>
+        <source>All moderators</source>
+      </segment>
+    </unit>
+    <unit id="569247706444129182">
+      <segment>
+        <source>Track</source>
+      </segment>
+    </unit>
+    <unit id="5856839712813580008">
+      <segment>
+        <source>Preprint</source>
+      </segment>
+    </unit>
+    <unit id="5898106319446332360">
+      <segment>
+        <source>Medical</source>
+      </segment>
+    </unit>
+    <unit id="6019185418990573020">
+      <segment>
+        <source>Share this with your colleagues</source>
+      </segment>
+    </unit>
+    <unit id="6193371691913692223">
+      <segment>
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">Discover</pc> about <ph id="1" equiv="LINE_BREAK" type="fmt" disp="&lt;br /&gt;"/> what matters to you <ph id="2" equiv="LINE_BREAK" type="fmt" disp="&lt;br /&gt;"/></source>
+      </segment>
+    </unit>
+    <unit id="6252070156626006029">
+      <segment>
+        <source>None</source>
+      </segment>
+    </unit>
+    <unit id="6483323202801330052">
+      <segment>
+        <source>Invite to Orvium </source>
+      </segment>
+    </unit>
+    <unit id="672693948616897966">
+      <segment>
+        <source>Software documentation</source>
+      </segment>
+    </unit>
+    <unit id="6739729408266268748">
+      <segment>
+        <source>Research article</source>
+      </segment>
+    </unit>
+    <unit id="6829569799895970716">
+      <segment>
+        <source>Call for papers</source>
+      </segment>
+    </unit>
+    <unit id="6910865064463105075">
+      <segment>
+        <source>Communities</source>
+      </segment>
+    </unit>
+    <unit id="692883803919783580">
+      <segment>
+        <source>Video abstract</source>
+      </segment>
+    </unit>
+    <unit id="6986356702262112794">
+      <segment>
+        <source>My Reviews</source>
+      </segment>
+    </unit>
+    <unit id="705371523027596744">
+      <segment>
+        <source>Copy Editing</source>
+      </segment>
+    </unit>
+    <unit id="7154857322449834182">
+      <segment>
+        <source>Publications Status</source>
+      </segment>
+    </unit>
+    <unit id="7165187026155209793">
+      <segment>
+        <source>All reviews</source>
+      </segment>
+    </unit>
+    <unit id="7207653966006266573">
+      <segment>
+        <source>All decisions</source>
+      </segment>
+    </unit>
+    <unit id="7317290694079257887">
+      <segment>
+        <source>Accepted</source>
+      </segment>
+    </unit>
+    <unit id="731750448508986316">
+      <segment>
+        <source>Abstract</source>
+      </segment>
+    </unit>
+    <unit id="7699622144571229146">
+      <segment>
+        <source>Sort by</source>
+      </segment>
+    </unit>
+    <unit id="7809374858674328383">
+      <segment>
+        <source>Decision</source>
+      </segment>
+    </unit>
+    <unit id="7911416166208830577">
+      <segment>
+        <source>Help</source>
+      </segment>
+    </unit>
+    <unit id="7927354222438929134">
+      <segment>
+        <source> Invite </source>
+      </segment>
+    </unit>
+    <unit id="79428968823428712">
+      <segment>
+        <source>Review Type</source>
+      </segment>
+    </unit>
+    <unit id="8066193230560980010">
+      <segment>
+        <source>Dataset</source>
+      </segment>
+    </unit>
+    <unit id="8066608938393600549">
+      <segment>
+        <source>Message</source>
+      </segment>
+    </unit>
+    <unit id="8175342407510654197">
+      <segment>
+        <source>Admin Dashboard</source>
+      </segment>
+    </unit>
+    <unit id="8336381523326011904">
+      <segment>
+        <source>Researcher</source>
+      </segment>
+    </unit>
+    <unit id="841924054761993392">
+      <segment>
+        <source>Journal</source>
+      </segment>
+    </unit>
+    <unit id="8453057670404998665">
+      <segment>
+        <source>The publication contains errors that must be corrected</source>
+      </segment>
+    </unit>
+    <unit id="8681959014657101834">
+      <segment>
+        <source>Invitation Status</source>
+      </segment>
+    </unit>
+    <unit id="8693603235657020323">
+      <segment>
+        <source>Other</source>
+      </segment>
+    </unit>
+    <unit id="8882140866624884065">
+      <segment>
+        <source>Show More </source>
+      </segment>
+    </unit>
+    <unit id="9126131107147614770">
+      <segment>
+        <source>Payment Status</source>
+      </segment>
+    </unit>
+    <unit id="9131208755256097068">
+      <segment>
+        <source>Impersonate Profile</source>
+      </segment>
+    </unit>
+    <unit id="9163274795232943057">
+      <segment>
+        <source>Review article</source>
+      </segment>
+    </unit>
+    <unit id="9202727223252787821">
+      <segment>
+        <source>Help about article search</source>
+      </segment>
+    </unit>
+    <unit id="101798813826351137">
+      <segment>
+        <source>File is being processed. Please click Refresh if it does not update automatically.</source>
+      </segment>
+    </unit>
+    <unit id="1025943759839282305">
+      <segment>
+        <source> Open in Binder</source>
+      </segment>
+    </unit>
+    <unit id="105997570955934219">
+      <segment>
+        <source>Moderator panel</source>
+      </segment>
+    </unit>
+    <unit id="1066383719958289184">
+      <segment>
+        <source>You need to accept iThenticate EULA before using this feature.</source>
+      </segment>
+    </unit>
+    <unit id="1131264372756277854">
+      <segment>
+        <source>Payments</source>
+      </segment>
+    </unit>
+    <unit id="1134511716414536731">
+      <segment>
+        <source>ORV Tokens</source>
+      </segment>
+    </unit>
+    <unit id="1157140089600283544">
+      <segment>
+        <source>You have <pc id="0" equivStart="START_TAG_BUTTON" equivEnd="CLOSE_TAG_BUTTON" type="other" dispStart="&lt;button mat-mini-fab type=&quot;button&quot; matTooltip=&quot;Number of ORV tokens you can transfer to ORV platform for peer reviews&quot; color=&quot;primary&quot; &gt;" dispEnd="&gt;"><ph id="1" equiv="INTERPOLATION" disp="ice(0, -18) || 0 }}"/></pc> ORVs unlocked and ready for deposit.</source>
+      </segment>
+    </unit>
+    <unit id="1167560182301499586">
+      <segment>
+        <source>Optional edit the publication HTML</source>
+      </segment>
+    </unit>
+    <unit id="1237043281212320666">
+      <segment>
+        <source>Edit revision</source>
+      </segment>
+    </unit>
+    <unit id="1295614462098694869">
+      <segment>
+        <source>Preview</source>
+      </segment>
+    </unit>
+    <unit id="1313741253154188183">
+      <segment>
+        <source> Turn a GitHub repo into a collection of interactive notebooks. Orvium uses <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://mybinder.org/&quot; target=&quot;_blank&quot; class=&quot;primary&quot;&gt;" dispEnd="&lt;/a&gt;">Binder</pc> to open those notebooks in an executable environment, making your code immediately reproducible by anyone, anywhere. </source>
+      </segment>
+    </unit>
+    <unit id="1366898489579833984">
+      <segment>
+        <source>Calendar is not visible</source>
+      </segment>
+    </unit>
+    <unit id="1467848036714507772">
+      <segment>
+        <source>Optional settings to link github repositories</source>
+      </segment>
+    </unit>
+    <unit id="1477034824639540764">
+      <segment>
+        <source>Publication Details</source>
+      </segment>
+    </unit>
+    <unit id="1547694925914557146">
+      <segment>
+        <source>Technical report institution: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.extraMetadata.technicalReportInstitution }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="1563900319204548353">
+      <segment>
+        <source>CRediT roles <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a class=&quot;primary whitespace-nowrap&quot; href=&quot;https://credit.niso.org/&quot; target=&quot;_blank&quot; &gt;" dispEnd="&lt;/a &gt;">(What&apos;s this?)</pc></source>
+      </segment>
+    </unit>
+    <unit id="1564354962427553813">
+      <segment>
+        <source>Institutions</source>
+      </segment>
+    </unit>
+    <unit id="1575810254412583888">
+      <segment>
+        <source>Tracks</source>
+      </segment>
+    </unit>
+    <unit id="1582679132404634106">
+      <segment>
+        <source>Create a Call</source>
+      </segment>
+    </unit>
+    <unit id="1604795977599078115">
+      <segment>
+        <source>Keywords</source>
+      </segment>
+    </unit>
+    <unit id="1619322869553679829">
+      <segment>
+        <source> Get DOI </source>
+      </segment>
+    </unit>
+    <unit id="1676807435218657264">
+      <segment>
+        <source>Issue: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.extraMetadata.issue }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="1715373473261069991">
+      <segment>
+        <source>Twitter</source>
+      </segment>
+    </unit>
+    <unit id="1787900255852910532">
+      <segment>
+        <source>ISSN Code</source>
+      </segment>
+    </unit>
+    <unit id="1830694637356267593">
+      <segment>
+        <source>Public Comments</source>
+      </segment>
+    </unit>
+    <unit id="1850255301937474020">
+      <segment>
+        <source>Conference: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.extraMetadata.conferenceTitle }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="2008840375241350799">
+      <segment>
+        <source> Reject </source>
+      </segment>
+    </unit>
+    <unit id="2012821624743365312">
+      <segment>
+        <source>This document is mandatory</source>
+      </segment>
+    </unit>
+    <unit id="2017202954329649445">
+      <segment>
+        <source>Add relevant dates for your community and keep everyone updated, ie: Call for Papers deadlines, Conference dates, etc.</source>
+      </segment>
+    </unit>
+    <unit id="202679197642667361">
+      <segment>
+        <source>Following the official community&apos;s guidelines, authors will have to acknowledge when submitting a new publication:</source>
+      </segment>
+    </unit>
+    <unit id="2081556129834281073">
+      <segment>
+        <source>Download Publication</source>
+      </segment>
+    </unit>
+    <unit id="2091170956935572934">
+      <segment>
+        <source>Add New Date</source>
+      </segment>
+    </unit>
+    <unit id="2105074088556127556">
+      <segment>
+        <source>MY COMMUNITIES</source>
+      </segment>
+    </unit>
+    <unit id="2108773151693472427">
+      <segment>
+        <source>Blockchain</source>
+      </segment>
+    </unit>
+    <unit id="2159130950882492111">
+      <segment>
+        <source>Cancel</source>
+      </segment>
+    </unit>
+    <unit id="2172902003676402663">
+      <segment>
+        <source> Refresh </source>
+      </segment>
+    </unit>
+    <unit id="2198590276913934346">
+      <segment>
+        <source>Logo URL</source>
+      </segment>
+    </unit>
+    <unit id="2199495945006927205">
+      <segment>
+        <source>Card image URL</source>
+      </segment>
+    </unit>
+    <unit id="2267728760158481003">
+      <segment>
+        <source>Optional settings for this publication in the Blochchain</source>
+      </segment>
+    </unit>
+    <unit id="2287239505074913312">
+      <segment>
+        <source>Separate your keywords using &quot;enter&quot;, &quot;comma&quot;, and &quot;semicolon&quot; </source>
+      </segment>
+    </unit>
+    <unit id="2302876272246527976">
+      <segment>
+        <source>Show review to everyone</source>
+      </segment>
+    </unit>
+    <unit id="2322785403053828770">
+      <segment>
+        <source>Export submissions</source>
+      </segment>
+    </unit>
+    <unit id="2329670385417167224">
+      <segment>
+        <source> File extension is not supported by iThenticate. Accepted extensions are: docx, doc, xml, pdf, tex, html, rtf and wpd. </source>
+      </segment>
+    </unit>
+    <unit id="2347724151568473592">
+      <segment>
+        <source>language</source>
+      </segment>
+    </unit>
+    <unit id="2374745757175347076">
+      <segment>
+        <source>Edit and manage the information displayed about your community</source>
+      </segment>
+    </unit>
+    <unit id="2451656483824020015">
+      <segment>
+        <source>Citation</source>
+      </segment>
+    </unit>
+    <unit id="2472774867406414288">
+      <segment>
+        <source> Create Submission </source>
+      </segment>
+    </unit>
+    <unit id="2483358638836463475">
+      <segment>
+        <source>Ownership</source>
+      </segment>
+    </unit>
+    <unit id="2542859900036888133">
+      <segment>
+        <source>Dissertation name: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.extraMetadata.dissertationName }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="2551831321295761410">
+      <segment>
+        <source>Ownership proved in</source>
+      </segment>
+    </unit>
+    <unit id="2598334060434675729">
+      <segment>
+        <source>Submitted by</source>
+      </segment>
+    </unit>
+    <unit id="265392924151208576">
+      <segment>
+        <source>CONFERENCES</source>
+      </segment>
+    </unit>
+    <unit id="2660484181860608199">
+      <segment>
+        <source> Request Changes </source>
+      </segment>
+    </unit>
+    <unit id="2688890306807567104">
+      <segment>
+        <source>Delete publication</source>
+      </segment>
+    </unit>
+    <unit id="2710037321961919780">
+      <segment>
+        <source> Not valid email format </source>
+      </segment>
+    </unit>
+    <unit id="2743857045928862139">
+      <segment>
+        <source>Submission date: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.submissionDate | date : &apos;d MMMM yyyy&apos; }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="2760289648641008311">
+      <segment>
+        <source>Extra files</source>
+      </segment>
+    </unit>
+    <unit id="2769961809962430740">
+      <segment>
+        <source>Following options allows you to select which users will see the identity of the reviewers</source>
+      </segment>
+    </unit>
+    <unit id="2772990121130531525">
+      <segment>
+        <source>To edit a reference click on the one you want to modify and scroll down until you reach the text area where you can add your changes. Finally click the &quot;Save Reference&quot; button.</source>
+      </segment>
+    </unit>
+    <unit id="2800924662568447857">
+      <segment>
+        <source> PDF </source>
+      </segment>
+    </unit>
+    <unit id="2811024748505644299">
+      <segment>
+        <source>Publication date: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.publicationDate | date : &apos;d MMMM yyyy&apos; }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="2826581353496868063">
+      <segment>
+        <source>Language</source>
+      </segment>
+    </unit>
+    <unit id="2830855718349204493">
+      <segment>
+        <source>This field is required </source>
+      </segment>
+    </unit>
+    <unit id="2832721550980603217">
+      <segment>
+        <source>Check guidelines</source>
+      </segment>
+    </unit>
+    <unit id="2876186798894067944">
+      <segment>
+        <source> Replace http with https </source>
+      </segment>
+    </unit>
+    <unit id="2884520392875296967">
+      <segment>
+        <source> Use the blockchain to access extra features such as proving of the ownership of your work and get rewards for the peer reviews you make. </source>
+      </segment>
+    </unit>
+    <unit id="2975144742170120701">
+      <segment>
+        <source>No reviews to show.</source>
+      </segment>
+    </unit>
+    <unit id="3070042282388821458">
+      <segment>
+        <source>Everyone can create a peer review</source>
+      </segment>
+    </unit>
+    <unit id="3135994256278133060">
+      <segment>
+        <source>Banner URL</source>
+      </segment>
+    </unit>
+    <unit id="3150963375210757761">
+      <segment>
+        <source>Publications</source>
+      </segment>
+    </unit>
+    <unit id="3166175351826826178">
+      <segment>
+        <source>You can edit the preview of your publication directly here, the changes will reflect immediately after saving, and if a new publication file is uploaded this content will be refreshed. </source>
+      </segment>
+    </unit>
+    <unit id="3169949383294682974">
+      <segment>
+        <source> Add me </source>
+      </segment>
+    </unit>
+    <unit id="3185445846738486687">
+      <segment>
+        <source>Overleaf</source>
+      </segment>
+    </unit>
+    <unit id="3205165360403401558">
+      <segment>
+        <source>Edit Publication</source>
+      </segment>
+    </unit>
+    <unit id="3231981408725584034">
+      <segment>
+        <source>Following options allow moderators to define who can create peer reviews</source>
+      </segment>
+    </unit>
+    <unit id="3247928802450617111">
+      <segment>
+        <source>Publication type: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.publicationType | titlecase }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="3293563372916521205">
+      <segment>
+        <source> Back to pending approval </source>
+      </segment>
+    </unit>
+    <unit id="3294616659006930875">
+      <segment>
+        <source>Show reviewer identity to everyone</source>
+      </segment>
+    </unit>
+    <unit id="3365336180045337697">
+      <segment>
+        <source>Choose the file extensions allowed for the submission of articles.</source>
+      </segment>
+    </unit>
+    <unit id="3368105758408932207">
+      <segment>
+        <source>Dissertation institution</source>
+      </segment>
+    </unit>
+    <unit id="3372697229446544516">
+      <segment>
+        <source> This link doesn&apos;t have a proper format </source>
+      </segment>
+    </unit>
+    <unit id="3380490787424566784">
+      <segment>
+        <source> Benefits of joining</source>
+      </segment>
+    </unit>
+    <unit id="3437721527794913723">
+      <segment>
+        <source>Publication status</source>
+      </segment>
+    </unit>
+    <unit id="3453061736135647826">
+      <segment>
+        <source>The switch below will show or hide a &quot;Calendar&quot; button on your community landing page. If no dates are entered, the button won&apos;t be displayed.</source>
+      </segment>
+    </unit>
+    <unit id="356103927715900422">
+      <segment>
+        <source>iThenticate</source>
+      </segment>
+    </unit>
+    <unit id="3582857921209594802">
+      <segment>
+        <source>Moderate</source>
+      </segment>
+    </unit>
+    <unit id="3629052978449485105">
+      <segment>
+        <source><ph id="0" equiv="INTERPOLATION" disp="{{ deposit.title }}"/> [Version <ph id="1" equiv="INTERPOLATION_1" disp="{{ deposit.version }}"/>]</source>
+      </segment>
+    </unit>
+    <unit id="3692407176345956105">
+      <segment>
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">A global community</pc><ph id="1" equiv="LINE_BREAK" type="fmt" disp="&lt;br /&gt;"/> of researchers like you</source>
+      </segment>
+    </unit>
+    <unit id="372452028662586657">
+      <segment>
+        <source> Preview DOI </source>
+      </segment>
+    </unit>
+    <unit id="3740321151310932523">
+      <segment>
+        <source>Only invited reviewers can create peer reviews</source>
+      </segment>
+    </unit>
+    <unit id="3768927257183755959">
+      <segment>
+        <source>Save</source>
+      </segment>
+    </unit>
+    <unit id="3815743162158873361">
+      <segment>
+        <source>If you are not sure about this action, you can read more details at <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a class=&quot;primary&quot; href=&quot; https://eips.ethereum.org/EIPS/eip-20#approve&quot;&gt;" dispEnd="&lt;/a&gt;">here</pc>. </source>
+      </segment>
+    </unit>
+    <unit id="3825802286872185103">
+      <segment>
+        <source>Calendar</source>
+      </segment>
+    </unit>
+    <unit id="3870254041127646470">
+      <segment>
+        <source>GitHub repository URL</source>
+      </segment>
+    </unit>
+    <unit id="387939326372419602">
+      <segment>
+        <source>GitHub Repository</source>
+      </segment>
+    </unit>
+    <unit id="3900417052346620962">
+      <segment>
+        <source>No references have been added yet,</source>
+      </segment>
+    </unit>
+    <unit id="3905822903636226730">
+      <segment>
+        <source>Manage <ph id="0" equiv="INTERPOLATION" disp="{{ community.name }}"/> community publications.</source>
+      </segment>
+    </unit>
+    <unit id="396450776983430680">
+      <segment>
+        <source>Dissertation institution: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.extraMetadata.dissertationInstitution }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="3973931101896534797">
+      <segment>
+        <source>Date</source>
+      </segment>
+    </unit>
+    <unit id="3975041276467253140">
+      <segment>
+        <source>You must select at least one license! </source>
+      </segment>
+    </unit>
+    <unit id="4014238832803395352">
+      <segment>
+        <source>Visibility options for reviewer identity</source>
+      </segment>
+    </unit>
+    <unit id="4033108494819881815">
+      <segment>
+        <source>Calendar is visible</source>
+      </segment>
+    </unit>
+    <unit id="4103648446399659922">
+      <segment>
+        <source>Similarity Report is being processed. Please click Refresh if it does not update automatically.</source>
+      </segment>
+    </unit>
+    <unit id="4163272119298020373">
+      <segment>
+        <source>Filters</source>
+      </segment>
+    </unit>
+    <unit id="4170643526378337145">
+      <segment>
+        <source> This community has no active calls for now.</source>
+      </segment>
+    </unit>
+    <unit id="4181717508082128128">
+      <segment>
+        <source>Select a track</source>
+      </segment>
+    </unit>
+    <unit id="4227616649715410484">
+      <segment>
+        <source>Invite Reviewers</source>
+      </segment>
+    </unit>
+    <unit id="423654107446442178">
+      <segment>
+        <source>Selected licenses: <ph id="0" equiv="INTERPOLATION" disp="{{ communityForm.controls.customLicenses.value }}"/></source>
+      </segment>
+    </unit>
+    <unit id="4312183290449350804">
+      <segment>
+        <source>Send email</source>
+      </segment>
+    </unit>
+    <unit id="4313544752013453805">
+      <segment>
+        <source> Upload file </source>
+      </segment>
+    </unit>
+    <unit id="4316921164447176767">
+      <segment>
+        <source>Delete author</source>
+      </segment>
+    </unit>
+    <unit id="439130533561834924">
+      <segment>
+        <source> Accept </source>
+      </segment>
+    </unit>
+    <unit id="4407559560004943843">
+      <segment>
+        <source>Last Name</source>
+      </segment>
+    </unit>
+    <unit id="441692181100900573">
+      <segment>
+        <source>Press <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">Save</pc> to preview your changes.</source>
+      </segment>
+    </unit>
+    <unit id="44668100800744862">
+      <segment>
+        <source>No authors have been added yet.</source>
+      </segment>
+    </unit>
+    <unit id="4492871004050155394">
+      <segment>
+        <source> URL </source>
+      </segment>
+    </unit>
+    <unit id="449712922219700420">
+      <segment>
+        <source>References</source>
+      </segment>
+    </unit>
+    <unit id="450676261608320224">
+      <segment>
+        <source>Unlock ORVs</source>
+      </segment>
+    </unit>
+    <unit id="4536844718526810540">
+      <segment>
+        <source>This article state does not allow changes. </source>
+      </segment>
+    </unit>
+    <unit id="4565540823350155067">
+      <segment>
+        <source>Set value between 1 and 100</source>
+      </segment>
+    </unit>
+    <unit id="4579496777570550463">
+      <segment>
+        <source>Social</source>
+      </segment>
+    </unit>
+    <unit id="471816275243265264">
+      <segment>
+        <source>Location</source>
+      </segment>
+    </unit>
+    <unit id="4723537363174500971">
+      <segment>
+        <source>Dissertation Name</source>
+      </segment>
+    </unit>
+    <unit id="4727677075893278">
+      <segment>
+        <source> Save the Ownership of your publication storing your authorship in the blockchain </source>
+      </segment>
+    </unit>
+    <unit id="4768749765465246664">
+      <segment>
+        <source>Email</source>
+      </segment>
+    </unit>
+    <unit id="4862012612155363469">
+      <segment>
+        <source>View program</source>
+      </segment>
+    </unit>
+    <unit id="4902817035128594900">
+      <segment>
+        <source>Description</source>
+      </segment>
+    </unit>
+    <unit id="4909973008719872212">
+      <segment>
+        <source>Following options will allow you to define the author&apos;s permissions when inviting reviewers to their publications </source>
+      </segment>
+    </unit>
+    <unit id="4916902385114633674">
+      <segment>
+        <source>Reference link</source>
+      </segment>
+    </unit>
+    <unit id="4921028967832988123">
+      <segment>
+        <source>Separate your keywords using &quot;enter&quot; and &quot;semicolon&quot; </source>
+      </segment>
+    </unit>
+    <unit id="4930506384627295710">
+      <segment>
+        <source>Settings</source>
+      </segment>
+    </unit>
+    <unit id="4944372417149760037">
+      <segment>
+        <source>Integrations</source>
+      </segment>
+    </unit>
+    <unit id="4946044435607796519">
+      <segment>
+        <source>Remember to press the submit button when you finish your article to send it to the community editorial board.</source>
+      </segment>
+    </unit>
+    <unit id="4948001907826009853">
+      <segment>
+        <source> Last name is missing </source>
+      </segment>
+    </unit>
+    <unit id="5007715380527010621">
+      <segment>
+        <source>Save Ownership</source>
+      </segment>
+    </unit>
+    <unit id="5234079714087710834">
+      <segment>
+        <source>Publication keywords</source>
+      </segment>
+    </unit>
+    <unit id="5306748937002456661">
+      <segment>
+        <source> Add reference </source>
+      </segment>
+    </unit>
+    <unit id="5340547029493123488">
+      <segment>
+        <source>Edit emails</source>
+      </segment>
+    </unit>
+    <unit id="5390186098550158722">
+      <segment>
+        <source>Journal title: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.extraMetadata.journalTitle }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="5395049417673332416">
+      <segment>
+        <source>Acknowledgement</source>
+      </segment>
+    </unit>
+    <unit id="546867268609960665">
+      <segment>
+        <source>This article state does not allow changes.</source>
+      </segment>
+    </unit>
+    <unit id="5481284030283031915">
+      <segment>
+        <source>Website</source>
+      </segment>
+    </unit>
+    <unit id="5505637243815082364">
+      <segment>
+        <source>Authors</source>
+      </segment>
+    </unit>
+    <unit id="5513759162164352216">
+      <segment>
+        <source>Show review to the publication author</source>
+      </segment>
+    </unit>
+    <unit id="5536162196438013100">
+      <segment>
+        <source>Add author</source>
+      </segment>
+    </unit>
+    <unit id="5611592591303869712">
+      <segment>
+        <source>Status</source>
+      </segment>
+    </unit>
+    <unit id="5611801322244649384">
+      <segment>
+        <source> This is not a valid language format</source>
+      </segment>
+    </unit>
+    <unit id="5695642841238895923">
+      <segment>
+        <source>Technical report institution</source>
+      </segment>
+    </unit>
+    <unit id="5701618810648052610">
+      <segment>
+        <source>Title</source>
+      </segment>
+    </unit>
+    <unit id="570276649058316249">
+      <segment>
+        <source>Please, put a valid ISSN code </source>
+      </segment>
+    </unit>
+    <unit id="5709465824915582418">
+      <segment>
+        <source>This article cannot be edit. You may not upload new files but you can download the existing ones.</source>
+      </segment>
+    </unit>
+    <unit id="5746755001151143931">
+      <segment>
+        <source>Claim Article</source>
+      </segment>
+    </unit>
+    <unit id="5764402626475001586">
+      <segment>
+        <source>Create revision</source>
+      </segment>
+    </unit>
+    <unit id="5773100773959766948">
+      <segment>
+        <source>Unlock and deposit your ORVs, so reviewers can see how much you&apos;re willing to reward:</source>
+      </segment>
+    </unit>
+    <unit id="5782604951260620576">
+      <segment>
+        <source>ORCID</source>
+      </segment>
+    </unit>
+    <unit id="5784178612122160196">
+      <segment>
+        <source>Entering a valid ORCID will try to populate missing fields </source>
+      </segment>
+    </unit>
+    <unit id="5796031848503572541">
+      <segment>
+        <source>Bibtex References</source>
+      </segment>
+    </unit>
+    <unit id="5796976583531977937">
+      <segment>
+        <source>Peer Review Visibility</source>
+      </segment>
+    </unit>
+    <unit id="5814277628544156857">
+      <segment>
+        <source>Journal Title</source>
+      </segment>
+    </unit>
+    <unit id="5833626790712999947">
+      <segment>
+        <source>Issue</source>
+      </segment>
+    </unit>
+    <unit id="5873107773468464121">
+      <segment>
+        <source>Logo, banner, card image</source>
+      </segment>
+    </unit>
+    <unit id="5889816238342895815">
+      <segment>
+        <source> Register DOI </source>
+      </segment>
+    </unit>
+    <unit id="5923333566872276385">
+      <segment>
+        <source>Show reviewer identity to author</source>
+      </segment>
+    </unit>
+    <unit id="6024401449125506002">
+      <segment>
+        <source>what’s this?</source>
+      </segment>
+    </unit>
+    <unit id="6028371114637047813">
+      <segment>
+        <source>First Name</source>
+      </segment>
+    </unit>
+    <unit id="6075720635823473895">
+      <segment>
+        <source> No bookmarked publications yet</source>
+      </segment>
+    </unit>
+    <unit id="6101268533719115006">
+      <segment>
+        <source>Preview automatically generated form the publication file.</source>
+      </segment>
+    </unit>
+    <unit id="6123351875287964538">
+      <segment>
+        <source>Preview Calendar</source>
+      </segment>
+    </unit>
+    <unit id="613451886800114025">
+      <segment>
+        <source> This is not a valid format, positive number expected</source>
+      </segment>
+    </unit>
+    <unit id="6134929894553178229">
+      <segment>
+        <source>Create Review</source>
+      </segment>
+    </unit>
+    <unit id="6187202970563103626">
+      <segment>
+        <source>Deposit ORVs</source>
+      </segment>
+    </unit>
+    <unit id="6221775712840236751">
+      <segment>
+        <source> Publish </source>
+      </segment>
+    </unit>
+    <unit id="6253795438683474460">
+      <segment>
+        <source> Editors</source>
+      </segment>
+    </unit>
+    <unit id="6316402243348763220">
+      <segment>
+        <source>More details</source>
+      </segment>
+    </unit>
+    <unit id="6373105143993475383">
+      <segment>
+        <source>DOI</source>
+      </segment>
+    </unit>
+    <unit id="6408567060698980664">
+      <segment>
+        <source> When you confirm this transaction, the Orvium smart contract will take ORV tokens from your wallet executing the ERC20 method &quot;transferFrom&quot;. </source>
+      </segment>
+    </unit>
+    <unit id="6413186938737457227">
+      <segment>
+        <source>Author options for inviting reviewers</source>
+      </segment>
+    </unit>
+    <unit id="6556876768044823541">
+      <segment>
+        <source>Guidelines URL</source>
+      </segment>
+    </unit>
+    <unit id="6593927319296366893">
+      <segment>
+        <source>Inbook Title</source>
+      </segment>
+    </unit>
+    <unit id="6644813437070769379">
+      <segment>
+        <source>Publication File</source>
+      </segment>
+    </unit>
+    <unit id="6679360825150107274">
+      <segment>
+        <source>Edit Community</source>
+      </segment>
+    </unit>
+    <unit id="6706269316332414690">
+      <segment>
+        <source>Edit publication</source>
+      </segment>
+    </unit>
+    <unit id="6707361102856436710">
+      <segment>
+        <source>Products</source>
+      </segment>
+    </unit>
+    <unit id="6714066205474586103">
+      <segment>
+        <source>Delete Community</source>
+      </segment>
+    </unit>
+    <unit id="6717439380873383021">
+      <segment>
+        <source>Licence <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a class=&quot;primary whitespace-nowrap&quot; href=&quot;https://help.orvium.io/licenses/&quot; target=&quot;_blank&quot; &gt;" dispEnd="&lt;/a &gt;">(What&apos;s this?)</pc></source>
+      </segment>
+    </unit>
+    <unit id="6731966584346875115">
+      <segment>
+        <source> iThenticate EULA </source>
+      </segment>
+    </unit>
+    <unit id="6741201205210838034">
+      <segment>
+        <source>Moderators</source>
+      </segment>
+    </unit>
+    <unit id="6782553768696197826">
+      <segment>
+        <source>Disciplines</source>
+      </segment>
+    </unit>
+    <unit id="6784113225007749815">
+      <segment>
+        <source>Language: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.extraMetadata.language }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="6784758141439994527">
+      <segment>
+        <source>Last page</source>
+      </segment>
+    </unit>
+    <unit id="6785300090396997300">
+      <segment>
+        <source> Import citations </source>
+      </segment>
+    </unit>
+    <unit id="6789976831521034120">
+      <segment>
+        <source>Submitted: <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.submissionDate | date : &apos;dd/MM/yyyy&apos; }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="6868543665706326424">
+      <segment>
+        <source>Community Calendar</source>
+      </segment>
+    </unit>
+    <unit id="6940320157177914132">
+      <segment>
+        <source> ORCID has to be like this: https://orcid.org/0000-0000-0000-0000 </source>
+      </segment>
+    </unit>
+    <unit id="6975182510290149086">
+      <segment>
+        <source>Please complete the following form to submit your work. Before clicking the &quot;Submit&quot; button, please ensure your submission is ready as you will not be able to make any further changes. If you have any questions or concerns, please refer to our <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://help.orvium.io/publication/edit-a-publication/#publication-details&quot; target=&quot;_blank&quot; &gt;" dispEnd="&lt;/a &gt;">user guide</pc> for assistance. </source>
+      </segment>
+    </unit>
+    <unit id="6993694344151131421">
+      <segment>
+        <source>Canonical Url</source>
+      </segment>
+    </unit>
+    <unit id="7008439939460403347">
+      <segment>
+        <source>Report</source>
+      </segment>
+    </unit>
+    <unit id="7022070615528435141">
+      <segment>
+        <source>Delete</source>
+      </segment>
+    </unit>
+    <unit id="7101355595470197657">
+      <segment>
+        <source>This community will be submitted and reviewed by Orvium. Do you want to continue?</source>
+      </segment>
+    </unit>
+    <unit id="7224277698283470028">
+      <segment>
+        <source>BROWSE COMMUNITIES</source>
+      </segment>
+    </unit>
+    <unit id="7281047867650280107">
+      <segment>
+        <source>First page: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.extraMetadata.firstpage }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="7321875568973070326">
+      <segment>
+        <source>You have to choose a license type </source>
+      </segment>
+    </unit>
+    <unit id="7411029473994606823">
+      <segment>
+        <source>Following options allows you to select which users will see the review</source>
+      </segment>
+    </unit>
+    <unit id="7419704019640008953">
+      <segment>
+        <source>Share</source>
+      </segment>
+    </unit>
+    <unit id="7443825983469024594">
+      <segment>
+        <source>Conference and Journal Details</source>
+      </segment>
+    </unit>
+    <unit id="7463715960858876246">
+      <segment>
+        <source> Merge </source>
+      </segment>
+    </unit>
+    <unit id="7510409322920906429">
+      <segment>
+        <source>Preferred file extensions</source>
+      </segment>
+    </unit>
+    <unit id="7576021544519101214">
+      <segment>
+        <source>Save author</source>
+      </segment>
+    </unit>
+    <unit id="7585826646011739428">
+      <segment>
+        <source>Edit</source>
+      </segment>
+    </unit>
+    <unit id="758948760207549597">
+      <segment>
+        <source>ISSN: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.extraMetadata.issn }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="7593845223095948118">
+      <segment>
+        <source>Privacy options for reviews</source>
+      </segment>
+    </unit>
+    <unit id="7651335321004153127">
+      <segment>
+        <source>Volume: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.extraMetadata.volume }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="7655254838098368453">
+      <segment>
+        <source>Delete reference</source>
+      </segment>
+    </unit>
+    <unit id="7734042519638532672">
+      <segment>
+        <source>Publisher</source>
+      </segment>
+    </unit>
+    <unit id="7750979441135016521">
+      <segment>
+        <source> Indexed by<ph id="0" equiv="LINE_BREAK" type="fmt" disp="&lt;br /&gt;"/>OpenAIRE </source>
+      </segment>
+    </unit>
+    <unit id="7817247895153435951">
+      <segment>
+        <source> * You have been invited to review this publication. Go to <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a class=&quot;primary&quot; [routerLink]=&quot;[&apos;/reviews&apos;, &apos;myreviews&apos;]&quot;&gt;" dispEnd="&lt;/a&gt;">My Reviews</pc> to manage the invitation. </source>
+      </segment>
+    </unit>
+    <unit id="7840184439375085213">
+      <segment>
+        <source>ISBN: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.extraMetadata.isbn }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="7860497467296679534">
+      <segment>
+        <source>There was an error processing the file. Error code: <ph id="0" equiv="INTERPOLATION" disp="{{ iThenticateSubmission?.error_code }}"/>. Please contact Orvium.</source>
+      </segment>
+    </unit>
+    <unit id="7932833194584268759">
+      <segment>
+        <source>Can author invite reviewers</source>
+      </segment>
+    </unit>
+    <unit id="7938334329511548414">
+      <segment>
+        <source>To edit a reference click on the one you want to modify and scroll down until you reach the text area where you can add your changes. Finally click the &quot;Save Reference&quot; button. Once you have all your references click the &quot;Save publication references&quot; button.</source>
+      </segment>
+    </unit>
+    <unit id="7992244993643023209">
+      <segment>
+        <source>Invitations</source>
+      </segment>
+    </unit>
+    <unit id="8024072640394867214">
+      <segment>
+        <source> No reviews to show. Please remember to LOG IN as some reviews may be only visible to specific users.</source>
+      </segment>
+    </unit>
+    <unit id="8072425130757009393">
+      <segment>
+        <source>Community Details</source>
+      </segment>
+    </unit>
+    <unit id="8147268666114840144">
+      <segment>
+        <source>ISSN</source>
+      </segment>
+    </unit>
+    <unit id="820361888847442421">
+      <segment>
+        <source>Visibility options for the review</source>
+      </segment>
+    </unit>
+    <unit id="8217302697911776350">
+      <segment>
+        <source>Please read and acknowledge the following requirements before submitting:</source>
+      </segment>
+    </unit>
+    <unit id="824559467603077972">
+      <segment>
+        <source>Review type: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.reviewType | titlecase }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="8360107325291301836">
+      <segment>
+        <source>Advanced Settings</source>
+      </segment>
+    </unit>
+    <unit id="8368770971709407616">
+      <segment>
+        <source>Publisher: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.extraMetadata.publisher }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="8375765141285797591">
+      <segment>
+        <source> If you want to know more, please watch our explainer video here.</source>
+      </segment>
+    </unit>
+    <unit id="839478770322066278">
+      <segment>
+        <source>Authorized licenses</source>
+      </segment>
+    </unit>
+    <unit id="8488716729015134150">
+      <segment>
+        <source>Change publication status</source>
+      </segment>
+    </unit>
+    <unit id="852613017723111565">
+      <segment>
+        <source> The author has deposited <pc id="0" equivStart="START_TAG_BUTTON" equivEnd="CLOSE_TAG_BUTTON" type="other" dispStart="&lt;button mat-mini-fab matTooltip=&quot;Number of ORV tokens the author has stacked&quot; color=&quot;primary&quot; type=&quot;button&quot; &gt;" dispEnd="&lt;/button&gt;"><ph id="1" equiv="INTERPOLATION" disp="e(0, -18) || 0 }}"/> i18n </pc> ORV tokens for peer review rewards. </source>
+      </segment>
+    </unit>
+    <unit id="8626127440251421951">
+      <segment>
+        <source>Last page: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.extraMetadata.lastpage }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="8631502410510107835">
+      <segment>
+        <source>Bookmark</source>
+      </segment>
+    </unit>
+    <unit id="8642445555713453888">
+      <segment>
+        <source>First page</source>
+      </segment>
+    </unit>
+    <unit id="8650499415827640724">
+      <segment>
+        <source>Type</source>
+      </segment>
+    </unit>
+    <unit id="8709443388677901080">
+      <segment>
+        <source>Publication type</source>
+      </segment>
+    </unit>
+    <unit id="8723847986152492964">
+      <segment>
+        <source>Title should not be empty</source>
+      </segment>
+    </unit>
+    <unit id="8740790039447126757">
+      <segment>
+        <source> Generate Report </source>
+      </segment>
+    </unit>
+    <unit id="8782116318292848088">
+      <segment>
+        <source>Save reference</source>
+      </segment>
+    </unit>
+    <unit id="8790918354594417962">
+      <segment>
+        <source>Facebook</source>
+      </segment>
+    </unit>
+    <unit id="8860567190320038063">
+      <segment>
+        <source>ISBN</source>
+      </segment>
+    </unit>
+    <unit id="8877289860626916489">
+      <segment>
+        <source> Conference proceedings</source>
+      </segment>
+    </unit>
+    <unit id="8926131056153039799">
+      <segment>
+        <source> Name is missing </source>
+      </segment>
+    </unit>
+    <unit id="8953033926734869941">
+      <segment>
+        <source>Name</source>
+      </segment>
+    </unit>
+    <unit id="9010081714149653086">
+      <segment>
+        <source>This documents are optional</source>
+      </segment>
+    </unit>
+    <unit id="9016100402132590336">
+      <segment>
+        <source>The following options will allow you to define the author&apos;s permissions when inviting reviewers to their publications </source>
+      </segment>
+    </unit>
+    <unit id="9029286143304711365">
+      <segment>
+        <source>Reviews</source>
+      </segment>
+    </unit>
+    <unit id="9072653149392942124">
+      <segment>
+        <source> This is not a valid ISSN format</source>
+      </segment>
+    </unit>
+    <unit id="910235240833960044">
+      <segment>
+        <source>Inbook title: <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;primary&quot;&gt;" dispEnd="&lt;/span&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ deposit.extraMetadata.inbookTitle }}"/></pc></source>
+      </segment>
+    </unit>
+    <unit id="9108906521873388855">
+      <segment>
+        <source>No references have been added yet.</source>
+      </segment>
+    </unit>
+    <unit id="9117472836647553461">
+      <segment>
+        <source>Confirm </source>
+      </segment>
+    </unit>
+    <unit id="9154974792005122245">
+      <segment>
+        <source>Add reference</source>
+      </segment>
+    </unit>
+    <unit id="9166078860772067238">
+      <segment>
+        <source>Generation of similarity Reports</source>
+      </segment>
+    </unit>
+    <unit id="935187492052582731">
+      <segment>
+        <source>Submit</source>
+      </segment>
+    </unit>
+    <unit id="1094789988600290162">
+      <segment>
+        <source>Edit, manage and share your </source>
+      </segment>
+    </unit>
+    <unit id="1233287559416354086">
+      <segment>
+        <source>PEER REVIEW</source>
+      </segment>
+    </unit>
+    <unit id="1235551462733323751">
+      <segment>
+        <source>Review Files</source>
+      </segment>
+    </unit>
+    <unit id="1361015672260630724">
+      <segment>
+        <source>Upload your <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">review</pc>. Preview your work and validate it before sending it.</source>
+      </segment>
+    </unit>
+    <unit id="1665164460809282723">
+      <segment>
+        <source>Edit Review</source>
+      </segment>
+    </unit>
+    <unit id="1850832245907389323">
+      <segment>
+        <source>Publication hosting review</source>
+      </segment>
+    </unit>
+    <unit id="1880760272133049424">
+      <segment>
+        <source>Use the blockchain to access extra features such as proving of the ownership of your work and get rewards for the peer reviews you make.</source>
+      </segment>
+    </unit>
+    <unit id="2094208643965086373">
+      <segment>
+        <source>Everyone can see the reviewer identity</source>
+      </segment>
+    </unit>
+    <unit id="2671639158023360592">
+      <segment>
+        <source>Review Details</source>
+      </segment>
+    </unit>
+    <unit id="2686502808051744287">
+      <segment>
+        <source>There is a newer version for this publication.</source>
+      </segment>
+    </unit>
+    <unit id="2948178941552062895">
+      <segment>
+        <source>Visibility options</source>
+      </segment>
+    </unit>
+    <unit id="3074873118189038372">
+      <segment>
+        <source>Please, put a valid doi</source>
+      </segment>
+    </unit>
+    <unit id="331160544765519446">
+      <segment>
+        <source>Save Ownerships</source>
+      </segment>
+    </unit>
+    <unit id="3345365799592148815">
+      <segment>
+        <source>My publications</source>
+      </segment>
+    </unit>
+    <unit id="3430678834682292642">
+      <segment>
+        <source>Reward</source>
+      </segment>
+    </unit>
+    <unit id="3444498437750225962">
+      <segment>
+        <source>Optional Fields </source>
+      </segment>
+    </unit>
+    <unit id="3459461293922244381">
+      <segment>
+        <source>My reviews</source>
+      </segment>
+    </unit>
+    <unit id="3653895074267361213">
+      <segment>
+        <source>Review of </source>
+      </segment>
+    </unit>
+    <unit id="3695229547394086874">
+      <segment>
+        <source>The author can see the reviewer identity</source>
+      </segment>
+    </unit>
+    <unit id="4198398275032038775">
+      <segment>
+        <source>We will check the content, format and metadata of your review.</source>
+      </segment>
+    </unit>
+    <unit id="4459550581634901091">
+      <segment>
+        <source>From here you will have access to the status of all your invitations. It is important to remember to promptly accept or reject each invitation in order to effectively communicate your decision to the requester. </source>
+      </segment>
+    </unit>
+    <unit id="4477559347527944369">
+      <segment>
+        <source>Now your review is published and will provide with helpful <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">feedback</pc>.</source>
+      </segment>
+    </unit>
+    <unit id="4579760549244343227">
+      <segment>
+        <source>Preview automatically generated from the review file.</source>
+      </segment>
+    </unit>
+    <unit id="497937647136188733">
+      <segment>
+        <source> Or if you prefer, you can see the full process in the following video. </source>
+      </segment>
+    </unit>
+    <unit id="510746776691970873">
+      <segment>
+        <source>Only editors can see the reviewer identity</source>
+      </segment>
+    </unit>
+    <unit id="5168902183808506169">
+      <segment>
+        <source>Pending Approval</source>
+      </segment>
+    </unit>
+    <unit id="5251169642764648373">
+      <segment>
+        <source>has not uploaded any publication yet</source>
+      </segment>
+    </unit>
+    <unit id="5396095997898385662">
+      <segment>
+        <source>General Comments</source>
+      </segment>
+    </unit>
+    <unit id="5557445106109830312">
+      <segment>
+        <source>Benefits</source>
+      </segment>
+    </unit>
+    <unit id="5668632685575118472">
+      <segment>
+        <source> Cancel</source>
+      </segment>
+    </unit>
+    <unit id="5701447060784553506">
+      <segment>
+        <source> Accepted file (max. 20MB): </source>
+      </segment>
+    </unit>
+    <unit id="5744737651274051140">
+      <segment>
+        <source> review.</source>
+      </segment>
+    </unit>
+    <unit id="5929318715868203966">
+      <segment>
+        <source> Remember to press the submit button when you finish your review to send it to the community editorial board. </source>
+      </segment>
+    </unit>
+    <unit id="6145392478704877931">
+      <segment>
+        <source>Only editors can see the review and the report</source>
+      </segment>
+    </unit>
+    <unit id="6174788234791031024">
+      <segment>
+        <source> What&apos;s this? </source>
+      </segment>
+    </unit>
+    <unit id="6249484391846924804">
+      <segment>
+        <source> Confirm </source>
+      </segment>
+    </unit>
+    <unit id="6489272365115650351">
+      <segment>
+        <source> Accepted files (max. 20MB each): <ph id="0" equiv="INTERPOLATION" disp="{{ ACCEPT_TYPES.OTHER_FILE_EXTENSIONS_ALLOWED }}"/> </source>
+      </segment>
+    </unit>
+    <unit id="6861117477331412289">
+      <segment>
+        <source>You can learn more about how to create a new publication</source>
+      </segment>
+    </unit>
+    <unit id="7551445162516222530">
+      <segment>
+        <source>has not reviewed any publication yet</source>
+      </segment>
+    </unit>
+    <unit id="7708270344948043036">
+      <segment>
+        <source>
+          <ph id="0" equiv="INTERPOLATION" disp="{{ review.views }}"/>
+        </source>
+      </segment>
+    </unit>
+    <unit id="8147820422485301041">
+      <segment>
+        <source>The author can see the review and the report</source>
+      </segment>
+    </unit>
+    <unit id="817907067483191637">
+      <segment>
+        <source>Everyone can see the review and the report</source>
+      </segment>
+    </unit>
+    <unit id="83677713270486027">
+      <segment>
+        <source> Save the Ownership of your review storing your authorship in the blockchain </source>
+      </segment>
+    </unit>
+    <unit id="8435993997488499454">
+      <segment>
+        <source>This review don&apos;t have any extra file</source>
+      </segment>
+    </unit>
+    <unit id="8438127619593699559">
+      <segment>
+        <source>From here you will have access to the status of all your reviews. Once you have accepted an invitation, you will be able to proceed with the review creation process and ultimately submit your evaluation. This entire workflow can be efficiently managed from this central location. </source>
+      </segment>
+    </unit>
+    <unit id="8940787083343087223">
+      <segment>
+        <source>Activate Blockchain functionality to use these features</source>
+      </segment>
+    </unit>
+  </file>
+</xliff>

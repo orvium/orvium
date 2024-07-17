@@ -1,0 +1,33 @@
+<div class="flex gap-4 w-full h-full flex-nowrap max-w-7xl mx-auto">
+  <div class="flex flex-col gap-1">
+    @if (chats.length === 0) {
+      <app-alert [icon]="'info'"> At the moment you don't have any chat open </app-alert>
+    }
+    @if (!isMobile || (isMobile && !openedConversation)) {
+      <div class="overflow-auto flex flex-col gap-1">
+        @for (chat of chats; track chat) {
+          <app-chat-card
+            [chat]="chat"
+            [selected]="openedConversation?._id === chat.conversation._id"
+            (click)="showChat(chat.conversation)"
+          />
+        }
+      </div>
+    }
+  </div>
+  @if (openedConversation && profile && recipient) {
+    <div class="grow flex flex-col overflow-auto">
+      <app-chat-messages
+        #chatMessagesComponent
+        class="grow"
+        [conversation]="openedConversation"
+        [recipient]="recipient"
+        [profile]="profile"
+      />
+      <app-chat-input-box
+        class="p-1"
+        (messageSent)="handleMessageToSent($event, chatMessagesComponent)"
+      />
+    </div>
+  }
+</div>

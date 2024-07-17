@@ -1,0 +1,265 @@
+@use '@angular/material' as mat;
+@use 'styles/variables';
+@use 'styles/snackbar';
+@use 'styles/chips';
+@use 'styles/button-colors';
+@use 'styles/buttons';
+@use 'styles/mat-menu';
+@use 'styles/form-field.scss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$custom-typography: mat.m2-define-typography-config(
+  $font-family: 'Roboto, Arial, sans-serif',
+  $headline-1: mat.m2-define-typography-level(3.25rem, 4rem, 300),
+  $headline-2: mat.m2-define-typography-level(3rem, 3.5rem, 400),
+  $headline-3: mat.m2-define-typography-level(2rem, 2.5rem, 700),
+  $headline-4: mat.m2-define-typography-level(1.625rem, 2rem, 400),
+  $headline-5: mat.m2-define-typography-level(1.25rem, 1.625rem, 500),
+  $headline-6: mat.m2-define-typography-level(1.25rem, 1.625rem, 400),
+  $subtitle-1: mat.m2-define-typography-level(1rem, 1.5rem, 400),
+  $body-1: mat.m2-define-typography-level(0.75rem, 1.125rem, 400),
+  $body-2: mat.m2-define-typography-level(0.875rem, 1.25rem, 300),
+  $button: mat.m2-define-typography-level(0.875rem, 1.125rem, 400),
+);
+
+@include mat.all-component-typographies($custom-typography);
+@include mat.core;
+
+// The following mixins include base theme styles that are only needed once per application. These
+// theme styles do not depend on the color, typography, or density settings in your theme. However,
+// these styles may differ depending on the theme's design system. Currently all themes use the
+// Material 2 design system, but in the future it may be possible to create theme based on other
+// design systems, such as Material 3.
+
+// Please note: you do not need to include the 'base' mixins, if you include the corresponding
+// 'theme' mixin elsewhere in your Sass. The full 'theme' mixins already include the base styles.
+
+// To learn more about "base" theme styles visit our theming guide:
+// https://material.angular.io/guide/theming#theming-dimensions
+
+// TODO(v17): Please move these @include statements to the preferred place in your Sass, and pass
+// your theme to them. This will ensure the correct values for your app are included.
+// @include mat.all-component-bases(__<<ngM2ThemingMigrationEscapedComment0>>__);
+
+@include variables.get-global-color-classes;
+@tailwind base;
+@tailwind utilities;
+
+body {
+  @apply w-screen h-[100dvh] m-0 overflow-hidden;
+}
+
+a {
+  color: variables.$primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.decorate-as-link {
+  color: variables.$primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+/* stylelint-disable */
+.tox-dialog__content-js {
+  max-height: 100%;
+  overflow: auto;
+}
+
+/* stylelint-enable */
+
+.overlay-backdrop {
+  background-color: rgba(variables.$dark-grey, 0.5);
+}
+
+.orv-expansion-panel {
+  .mat-expansion-panel-header {
+    &.mat-expanded {
+      background-color: rgba(variables.$primary, 0.1) !important;
+
+      .name {
+        color: variables.$primary;
+      }
+
+      .mat-expansion-indicator::after {
+        color: variables.$primary;
+      }
+    }
+  }
+
+  .mat-expansion-panel-body {
+    padding: 0;
+  }
+}
+
+.orv-mat-chip-justify-center {
+  /* stylelint-disable-next-line */
+  .mdc-evolution-chip-set__chips {
+    justify-content: center;
+  }
+}
+
+.orv-main-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+// COLOR CLASSES
+.primary-icon {
+  color: variables.$primary;
+  border-color: variables.$primary;
+}
+
+// ORV Customization
+.orv-stepper {
+  &.mat-stepper-horizontal {
+    background-color: inherit;
+  }
+}
+
+mat-toolbar.mat-toolbar {
+  box-shadow: 0 10px 15px rgb(46 91 255 / 10%);
+}
+
+mat-toolbar.mat-toolbar.action-toolbar {
+  background: #fafafa;
+  z-index: 10;
+  box-shadow: none;
+}
+
+.mat-list-base[dense] .mat-list-item {
+  max-width: 30rem;
+  height: 100px;
+}
+
+.orv-mat-chip-set-justify-content-end {
+  div {
+    justify-content: flex-end;
+  }
+}
+
+app-review-list {
+  mat-chip-set > .mat-chip-set-wrapper {
+    justify-content: center;
+  }
+}
+
+.break-anywhere {
+  overflow-wrap: anywhere;
+}
+
+@mixin set-elevation-color($color: rgba(46, 91, 255, 0.1)) {
+  mat-toolbar.mat-toolbar {
+    box-shadow: 0 10px 15px $color;
+  }
+}
+
+* {
+  font-family: Roboto, Arial, sans-serif;
+}
+
+.orcid-color {
+  color: #a6ce39;
+}
+
+.preview-html {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  text-align: justify;
+  text-justify: inter-word;
+  margin: 1rem;
+
+  *:has(> img) {
+    text-align: center;
+  }
+
+  img {
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  blockquote {
+    margin-inline: 0;
+  }
+
+  *:has(> .math.inline) {
+    text-align: center;
+  }
+
+  // mark tags are styled by browsers by default and we need to override them
+  mark {
+    color: inherit;
+    background-color: inherit;
+  }
+}
+
+.chat-messages {
+  img {
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
+
+// Class designed to allow the icons to be filled.
+.font-fill {
+  font-variation-settings: 'FILL' 1;
+}
+
+/* stylelint-disable */
+.NgxEditor__MenuBar {
+  background-color: unset !important;
+}
+/* stylelint-enable */
+
+// Disable arrows when input type is number
+// Chrome, Safari, Edge, Opera
+
+/* stylelint-disable */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+// Firefox
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+/* stylelint-enable */
+
+// TODO remove these styles when it is fixed in Angular Material
+// The following styles are applied globally because of this issue in angular material with chips overflow
+// https://github.com/angular/components/issues/26584
+/* stylelint-disable */
+span[role='gridcell'].mdc-evolution-chip__cell.mdc-evolution-chip__cell--primary {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  * {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.mat-mdc-chip-action-label {
+  overflow: hidden !important;
+}
+
+.mat-mdc-chip-action {
+  overflow: hidden !important;
+}
+
+/* stylelint-enable */
+// End of chips styles due to https://github.com/angular/components/issues/26584

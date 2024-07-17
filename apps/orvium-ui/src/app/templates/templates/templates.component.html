@@ -1,0 +1,94 @@
+<app-info-toolbar>
+  @if (community) {
+    <app-description-line
+      [communityId]="community._id"
+      [avatar]="community.logoURL"
+      [title]="community.name"
+    />
+  }
+  <div app-info-toolbar-buttons class="flex gap-1 items-center">
+    @if (selectedTemplate && (selectedTemplate.community || isAdminView)) {
+      <button
+        type="button"
+        mat-raised-button
+        color="primary"
+        [disabled]="this.templateForm.pristine"
+        (click)="save()"
+      >
+        <mat-icon>save</mat-icon>
+        Save
+      </button>
+    }
+    @if (selectedTemplate && !selectedTemplate.community && !isAdminView) {
+      <button
+        type="button"
+        mat-raised-button
+        color="primary"
+        [disabled]="this.templateForm.pristine"
+        (click)="createTemplate()"
+      >
+        <mat-icon>edit</mat-icon>
+        Create Template
+      </button>
+    }
+    @if (selectedTemplate) {
+      <button type="button" mat-raised-button (click)="sendEmail()">
+        <mat-icon>email</mat-icon>
+        Send a test email
+      </button>
+    }
+    @if (selectedTemplate) {
+      <button type="button" mat-raised-button (click)="resetEmail()">
+        <mat-icon>backup</mat-icon>
+        Recover default email
+      </button>
+    }
+    @if (community) {
+      <button
+        mat-raised-button
+        color="primary"
+        aria-label="Go-back"
+        type="button"
+        [routerLink]="['/communities', communityId, 'view']"
+      >
+        <mat-icon>arrow_back</mat-icon>
+        Community
+      </button>
+    }
+  </div>
+</app-info-toolbar>
+
+<mat-form-field appearance="outline">
+  <mat-label>Template</mat-label>
+  <mat-select (selectionChange)="selectTemplate($event)">
+    @for (group of templatesGroups; track group) {
+      <mat-optgroup>
+        {{ group.category.toUpperCase() }}
+        @for (template of group.templates; track template) {
+          <mat-option [value]="template.name">
+            {{ template.title }}
+          </mat-option>
+        }
+      </mat-optgroup>
+    }
+  </mat-select>
+</mat-form-field>
+@if (selectedTemplate) {
+  <div>
+    <h3>Email description: </h3>
+    <p>{{ this.selectedTemplate.description }}</p>
+  </div>
+  @if (!this.selectedTemplate.community && !isAdminView) {
+    <app-alert class="mt-4" type="info" [icon]="'info'">
+      This email template is a default one, make changes and click Create Template to create a
+      custom email for the selected event in this community.
+    </app-alert>
+  }
+  <div [formGroup]="templateForm">
+    <editor
+      [formControl]="templateForm.controls.template"
+      [apiKey]="tinymceKey"
+      [init]="editorOptions"
+    />
+  </div>
+}

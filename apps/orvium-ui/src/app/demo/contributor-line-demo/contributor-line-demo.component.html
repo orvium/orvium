@@ -1,0 +1,13 @@
+<h1 class="mat-headline-2 primary">Contributor Line</h1>
+<h3 class="mat-subtitle-1">Selector: <code>&lt;app-contributor-line&gt;</code></h3>
+<h3 class="mat-subtitle-1">Input: <code>user: any[]</code></h3>
+<app-contributor-line [user]="review.ownerProfile">
+  <ng-container>
+    <mat-chip-set>
+      <mat-chip class="orv-chip-grey orv-chip-outlined">
+        <mat-icon matPrefix>verified</mat-icon>
+        <span class="mat-body-2">Accepted</span>
+      </mat-chip>
+    </mat-chip-set>
+  </ng-container>
+</app-contributor-line>

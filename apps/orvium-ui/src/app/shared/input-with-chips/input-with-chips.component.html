@@ -1,0 +1,43 @@
+<div role="group">
+  <mat-chip-grid #chips>
+    @for (chip of value; track chip) {
+      <mat-chip-row (removed)="removeChip(chip)">
+        {{ chip }}
+        @if (!disabled) {
+          <mat-icon matChipRemove>cancel</mat-icon>
+        }
+      </mat-chip-row>
+    }
+    <!-- eslint-disable-next-line -->
+    @if (matAutocomplete) {
+      <input
+        matInput
+        matChipInputAddOnBlur="true"
+        [ngStyle]="{ opacity: disabled ? 0.5 : 1 }"
+        [placeholder]="placeholder"
+        [disabled]="disabled"
+        [matChipInputFor]="chips"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matAutocomplete]="matAutocomplete"
+        (input)="onInputValueChange($event)"
+        (paste)="onPaste($event)"
+        (matChipInputTokenEnd)="addChip($event)"
+      />
+    }
+    <!-- eslint-disable-next-line -->
+    @if (!matAutocomplete) {
+      <input
+        matInput
+        matChipInputAddOnBlur="true"
+        [ngStyle]="{ opacity: disabled ? 0.5 : 1 }"
+        [placeholder]="placeholder"
+        [disabled]="disabled"
+        [matChipInputFor]="chips"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (input)="onInputValueChange($event)"
+        (paste)="onPaste($event)"
+        (matChipInputTokenEnd)="addChip($event)"
+      />
+    }
+  </mat-chip-grid>
+</div>

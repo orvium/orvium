@@ -1,0 +1,58 @@
+@use 'sass:color';
+@use 'variables';
+
+.mat-mdc-chip.mat-mdc-standard-chip {
+  &.orv-chip-yellow {
+    background-color: rgb(variables.$yellow, 0.2);
+  }
+
+  &.orv-chip-pink {
+    background-color: rgb(variables.$purple, 0.2);
+  }
+
+  &.orv-chip-blue {
+    background-color: rgb(variables.$blue, 20%);
+  }
+
+  &.orv-chip-white {
+    border: 1px solid white;
+    color: white;
+  }
+
+  &.orv-chip-grey {
+    border: 1px solid variables.$grey;
+  }
+
+  &.orv-chip-secondary {
+    background-color: rgb(variables.$secondary, 0.2);
+  }
+
+  &.orv-chip-primary {
+    background-color: rgb(variables.$primary, 0.2);
+  }
+
+  &.orv-chip-pending-approval,
+  &.orv-chip-pending {
+    background-color: rgb(variables.$purple, 20%);
+  }
+
+  &.orv-chip-preprint {
+    background-color: rgb(variables.$yellow, 20%);
+  }
+
+  &.orv-chip-published,
+  &.orv-chip-accepted {
+    background-color: rgb(variables.$secondary, 20%);
+  }
+
+  &.orv-chip-rejected {
+    color: #e97367;
+    background-color: rgb(233 115 103 / 20%);
+  }
+
+  &.orv-chip-outlined {
+    background-color: #0000;
+    border: 1px solid;
+    border-radius: 9999px;
+  }
+}

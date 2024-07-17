@@ -1,0 +1,25 @@
+<div
+  class="flex flex-col min-w-[16rem] items-center mt-0.5 text-center cursor-pointer"
+  [routerLink]="profileMenuRouterLink"
+>
+  <img
+    appAvatar
+    alt="Profile Avatar"
+    class="!w-16 !h-16"
+    [src]="user.avatar"
+    [gravatar]="user.gravatar"
+  />
+  <a class="whitespace-nowrap mat-subtitle-2 primary">{{ user.firstName }} {{ user.lastName }}</a>
+  @if (user.institutions.length > 0) {
+    <span
+      class="whitespace-nowrap mat-body-2 grey"
+      matTooltip="{{ user.institutions | separator: ';' }}"
+    >
+      {{ user.institutions[0] | titlecase }}
+    </span>
+  }
+</div>
+<mat-divider />
+<ng-content select="[action-buttons]" />
+<mat-divider />
+<ng-content select="[last-action-button]" />

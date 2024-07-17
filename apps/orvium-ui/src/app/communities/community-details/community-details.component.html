@@ -1,0 +1,611 @@
+@if (!communityActions.update && !loadingCommunity) {
+  <app-access-denied />
+}
+<div [appOverlayLoading]="loadingCommunity"></div>
+
+@if (community && communityActions.update) {
+  <app-info-toolbar>
+    <app-description-line
+      [communityId]="this.community._id"
+      [avatar]="this.community.logoURL"
+      [title]="this.community.name"
+      [subtitle]="'Community hosting publication'"
+    />
+    <div app-info-toolbar-buttons class="flex gap-1 items-center">
+      <button
+        mat-stroked-button
+        class="orv-stroked-button"
+        type="button"
+        [routerLink]="['..', 'view']"
+      >
+        <mat-icon>visibility</mat-icon>
+        <ng-container i18n>Preview</ng-container>
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        data-test="save-button"
+        type="button"
+        [disabled]="communityForm.pristine || !communityForm.valid"
+        (click)="save()"
+      >
+        <mat-icon>save</mat-icon>
+        <ng-container i18n>Save</ng-container>
+      </button>
+      @if (community.status === CommunityStatus.Draft) {
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="openSubmitCommunityModal()"
+        >
+          <mat-icon>file_upload</mat-icon>
+          <ng-container i18n>Submit</ng-container>
+        </button>
+      }
+    </div>
+  </app-info-toolbar>
+}
+
+@if (communityActions.update) {
+  <div class="w-11/12 mx-auto md:w-4/5">
+    <h1 class="mb-2 mat-headline-4 primary" i18n>Edit Community</h1>
+    <h4 class="mat-subtitle-1" i18n
+      >Edit and manage the information displayed about your community</h4
+    >
+    <div [formGroup]="communityForm">
+      <div>
+        <mat-expansion-panel class="!mb-8" [(expanded)]="detailsExpanded">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3 class="mat-headline-6 mb-0" i18n>Community Details</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="flex gap-1 items-center">
+            <mat-form-field appearance="outline">
+              <mat-label i18n>Name</mat-label>
+              <input
+                matInput
+                id="nameInput"
+                placeholder="Name"
+                data-test="community-name"
+                [formControl]="communityForm.controls.name"
+              />
+            </mat-form-field>
+            <mat-form-field class="w-full md:w-2/6" appearance="outline">
+              <mat-label i18n>Type</mat-label>
+              <mat-select ngDefaultControl [formControl]="communityForm.controls.type">
+                @for (option of communityTypeLOV; track option) {
+                  <mat-option [value]="option.value">
+                    {{ option.viewValue }}
+                  </mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <mat-form-field appearance="outline">
+            <mat-label i18n>Description</mat-label>
+            <textarea
+              matInput
+              id="descriptionInput"
+              cdkTextareaAutosize
+              data-test="community-description"
+              [formControl]="communityForm.controls.description"
+            ></textarea>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label i18n>Location</mat-label>
+            <input
+              matInput
+              data-test="community-location"
+              [formControl]="communityForm.controls.country"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label i18n>ISSN Code</mat-label>
+            <input
+              matInput
+              data-test="community-issn"
+              [formControl]="communityForm.controls.issn"
+            />
+            @if (communityForm.controls.issn.invalid) {
+              <mat-error i18n>Please, put a valid ISSN code </mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label i18n>Guidelines URL</mat-label>
+            <input
+              matInput
+              type="url"
+              placeholder="Guidelines URL"
+              data-test="community-guidelines"
+              [formControl]="communityForm.controls.guidelinesURL"
+            />
+          </mat-form-field>
+          <div class="mb-12">
+            <p class="mat-body-2" i18n>Acknowledgement</p>
+            <editor
+              ngDefaultControl
+              data-test="community-acknowledgement"
+              [formControl]="communityForm.controls.acknowledgement"
+              [apiKey]="environment.tinymceKey"
+              [init]="{ plugins: 'lists link image table code help wordcount fullscreen media' }"
+            />
+          </div>
+          <p class="mat-subtitle-2" i18n>Authorized licenses</p>
+          <mat-button-toggle-group multiple [formControl]="communityForm.controls.customLicenses">
+            @for (option of accessRightLov; track option) {
+              <mat-button-toggle data-test="license-button" value="{{ option.value }}">
+                {{ option.viewValue }}</mat-button-toggle
+              >
+            }
+          </mat-button-toggle-group>
+          @if (!communityForm.controls.customLicenses.invalid) {
+            <p i18n>Selected licenses: {{ communityForm.controls.customLicenses.value }}</p>
+          }
+          @if (communityForm.controls.customLicenses.invalid) {
+            <mat-error i18n>You must select at least one license! </mat-error>
+          }
+          <p class="mat-subtitle-2" i18n>Preferred file extensions</p>
+          <p class="mat-body-3" i18n
+            >Choose the file extensions allowed for the submission of articles.</p
+          >
+          <mat-button-toggle-group
+            multiple
+            [formControl]="communityForm.controls.preferredFileExtensions"
+          >
+            @for (option of preferredFileExtensionsLOV; track option) {
+              <mat-button-toggle data-test="extension-button" value="{{ option.value }}">
+                {{ option.viewValue }}</mat-button-toggle
+              >
+            }
+          </mat-button-toggle-group>
+          @if (
+            communityForm.controls.preferredFileExtensions.value &&
+            communityForm.controls.preferredFileExtensions.value.length > 0
+          ) {
+            <p> Selected extensions: {{ communityForm.controls.preferredFileExtensions.value }}</p>
+          }
+        </mat-expansion-panel>
+        <mat-expansion-panel class="!mb-8" [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3 class="mat-headline-6 mb-0" i18n>Logo, banner, card image</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="flex gap-4 items-center">
+            @if (community) {
+              <app-fileupload
+                #logoFileUpload
+                name="file"
+                chooseLabel="Add logo image"
+                data-test="community-logo"
+                [maxFileSize]="defaultMaxFileSize"
+                [accept]="ACCEPT_TYPES.COMMUNITY_EXTENSIONS_ALLOWED"
+                (fileUpload)="filesUploaded($event, communityImageType.Logo)"
+                (fileSelectedToUpload)="
+                  generateSignedUrl($event, false, logoFileUpload, communityImageType.Logo)
+                "
+                (click)="beforeUpload($event)"
+              />
+            }
+            <mat-form-field appearance="outline">
+              <mat-label i18n>Logo URL</mat-label>
+              <input
+                matInput
+                readonly
+                id="logoInput"
+                type="url"
+                placeholder="Logo URL"
+                [formControl]="communityForm.controls.logoURL"
+              />
+            </mat-form-field>
+          </div>
+          <div class="flex gap-4 items-center">
+            @if (community) {
+              <app-fileupload
+                #bannerFileUpload
+                name="file"
+                chooseLabel="Add banner image"
+                data-test="community-banner"
+                [maxFileSize]="defaultMaxFileSize"
+                [accept]="ACCEPT_TYPES.COMMUNITY_EXTENSIONS_ALLOWED"
+                (fileUpload)="filesUploaded($event, communityImageType.Banner)"
+                (fileSelectedToUpload)="
+                  generateSignedUrl($event, false, bannerFileUpload, communityImageType.Banner)
+                "
+                (click)="beforeUpload($event)"
+              />
+            }
+            <mat-form-field appearance="outline">
+              <mat-label i18n>Banner URL</mat-label>
+              <input
+                matInput
+                readonly
+                id="bannerInput"
+                type="url"
+                placeholder="Banner URL"
+                [formControl]="communityForm.controls.bannerURL"
+              />
+            </mat-form-field>
+          </div>
+          <div class="flex gap-4 items-center">
+            @if (community) {
+              <app-fileupload
+                #cardFileUpload
+                name="file"
+                chooseLabel="Add card image"
+                data-test="community-card"
+                [maxFileSize]="defaultMaxFileSize"
+                [accept]="ACCEPT_TYPES.COMMUNITY_EXTENSIONS_ALLOWED"
+                (fileUpload)="filesUploaded($event, communityImageType.Card)"
+                (fileSelectedToUpload)="
+                  generateSignedUrl($event, false, cardFileUpload, communityImageType.Card)
+                "
+                (click)="beforeUpload($event)"
+              />
+            }
+            <mat-form-field appearance="outline">
+              <mat-label i18n>Card image URL</mat-label>
+              <input
+                matInput
+                readonly
+                id="cardImageInput"
+                type="url"
+                placeholder="Card image URL"
+                [formControl]="communityForm.controls.cardImageUrl"
+              />
+            </mat-form-field>
+          </div>
+          <div>
+            @if (community) {
+              <app-community-card [community]="community" />
+            }
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel class="!mb-8" [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3 class="mat-headline-6 mb-0" i18n>Peer Review Configuration and Visibility</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <section aria-label="Privacy options for reviews">
+            <h4 i18n>Who can create peer reviews?</h4>
+            <mat-radio-group
+              aria-label="Select an option for reviewer identity"
+              class="flex flex-col"
+              color="primary"
+              data-test="private-reviews"
+              [formControl]="communityForm.controls.privateReviews"
+            >
+              <mat-radio-button [value]="false" i18n
+                >Everyone can create a peer review
+              </mat-radio-button>
+              <mat-radio-button [value]="true" i18n
+                >Only invited reviewers can create peer reviews
+              </mat-radio-button>
+            </mat-radio-group>
+          </section>
+          <section aria-label="Author options for inviting reviewers">
+            <h4 i18n>Can authors invite reviewers to their publications?</h4>
+            <div class="flex gap-4">
+              <mat-radio-group
+                aria-label="Author options for inviting reviewers"
+                class="flex flex-col"
+                color="primary"
+                data-test="can-author-invite-reviewers"
+                [formControl]="communityForm.controls.canAuthorInviteReviewers"
+              >
+                <mat-radio-button [value]="false" i18n
+                  >Authors cannot invite reviewers to their publications
+                </mat-radio-button>
+                <mat-radio-button [value]="true" i18n
+                  >Authors can invite reviewers to their publications
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </section>
+          <section aria-label="Reviewer identity visibility options">
+            <h4 i18n>Who can see the reviewer identity?</h4>
+            <div class="flex gap-4">
+              <mat-radio-group
+                aria-label="Review identity options"
+                class="flex flex-col"
+                color="primary"
+                data-test="show-identity-to-everyone"
+                [formControl]="communityForm.controls.showIdentity"
+              >
+                <mat-radio-button [value]="this.showReviewIdentityEnum.everyone">
+                  <mat-label i18n
+                    >Show reviewer identity to everyone (Full Open-Peer-Review)
+                  </mat-label>
+                </mat-radio-button>
+                <mat-radio-button [value]="this.showReviewIdentityEnum.author">
+                  <mat-label i18n
+                    >Show reviewer identity to the author (Open-Peer-Review)
+                  </mat-label>
+                </mat-radio-button>
+                <mat-radio-button [value]="this.showReviewIdentityEnum.NoOne">
+                  <mat-label i18n>Hide reviewer identity (Single-Blind) </mat-label>
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </section>
+          <section aria-label="Review visibility options">
+            <h4 i18n>Who can see the review?</h4>
+            <div class="flex gap-4">
+              <mat-radio-group
+                aria-label="Review visibility options"
+                class="flex flex-col"
+                color="primary"
+                data-test="show-review-to-everyone"
+                [formControl]="communityForm.controls.showReview"
+              >
+                <mat-radio-button [value]="this.showReviewEnum.everyone">
+                  <mat-label i18n>Show review to everyone </mat-label>
+                </mat-radio-button>
+                <mat-radio-button [value]="this.showReviewEnum.author">
+                  <mat-label i18n>Show review only to publication author and editors </mat-label>
+                </mat-radio-button>
+                <mat-radio-button [value]="this.showReviewEnum.NoOne">
+                  <mat-label i18n>Show review only to editors </mat-label>
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </section>
+        </mat-expansion-panel>
+        <mat-expansion-panel class="!mb-8" [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3 class="mat-headline-6 mb-0" i18n>Social</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="flex gap-1 items-center">
+            <!-- eslint-disable-next-line -->
+            <fa-icon
+              size="lg"
+              class="mb-4"
+              [icon]="['fab', 'x-twitter']"
+              [style]="{ color: '#1da1f2' }"
+            />
+            <mat-form-field appearance="outline">
+              <mat-label i18n>Twitter</mat-label>
+              <input
+                matInput
+                id="twitterInput"
+                type="url"
+                placeholder="Twitter"
+                [formControl]="communityForm.controls.twitterURL"
+              />
+            </mat-form-field>
+          </div>
+          <div class="flex gap-1 items-center">
+            <!-- eslint-disable-next-line -->
+            <fa-icon
+              size="lg"
+              class="mb-4"
+              [icon]="['fab', 'facebook']"
+              [style]="{ color: '#3b5998' }"
+            />
+            <mat-form-field appearance="outline">
+              <mat-label i18n>Facebook</mat-label>
+              <input
+                matInput
+                id="facebookInput"
+                placeholder="Facebook"
+                type="url"
+                data-test="community-facebook"
+                [formControl]="communityForm.controls.facebookURL"
+              />
+            </mat-form-field>
+          </div>
+          <div class="flex gap-1 items-center">
+            <mat-icon class="mb-4" i18n>language</mat-icon>
+            <mat-form-field appearance="outline">
+              <mat-label i18n>Website</mat-label>
+              <input
+                matInput
+                id="websiteInput"
+                placeholder="Website"
+                type="url"
+                data-test="community-website"
+                [formControl]="communityForm.controls.websiteURL"
+              />
+            </mat-form-field>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel class="!mb-8" [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3 class="mat-headline-6 mb-0" i18n>Tracks</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          @for (
+            tracksForm of communityForm.controls.newTracks.controls;
+            track tracksForm;
+            let i = $index
+          ) {
+            <div class="flex gap-1 items-center" [formGroup]="tracksForm">
+              <mat-form-field appearance="outline">
+                <mat-label i18n>Title</mat-label>
+                <input
+                  matInput
+                  placeholder="Political ecology and adaptive and transformative framework"
+                  data-test="community-track-title"
+                  [formControl]="tracksForm.controls.title"
+                />
+                @if (tracksForm.invalid) {
+                  <mat-error i18n>Title should not be empty</mat-error>
+                }
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label i18n>Description</mat-label>
+                <input
+                  matInput
+                  placeholder="Description"
+                  data-test="community-track-description"
+                  [formControl]="tracksForm.controls.description"
+                />
+              </mat-form-field>
+              <button
+                mat-mini-fab
+                color="warn"
+                matTooltip="Remove line"
+                type="button"
+                class="mb-4 ml-4"
+                (click)="deleteTrack(i)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          }
+          <mat-action-row>
+            @if (!communityForm.pristine) {
+              <span class="mat-caption grey" i18n
+                >Press <strong>Save</strong> to preview your changes.</span
+              >
+            }
+            <button mat-raised-button color="primary" type="button" (click)="addTrack()">
+              <mat-icon>add</mat-icon>
+              <ng-container i18n>Track</ng-container>
+            </button>
+          </mat-action-row>
+        </mat-expansion-panel>
+        <mat-expansion-panel class="!mb-8" [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3 class="mat-headline-6 mb-0" i18n>Community Calendar</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="mat-subtitle-1 grey">
+            <p i18n
+              >Add relevant dates for your community and keep everyone updated, ie: Call for Papers
+              deadlines, Conference dates, etc.</p
+            >
+            <p i18n
+              >The switch below will show or hide a "Calendar" button on your community landing
+              page. If no dates are entered, the button won't be displayed.</p
+            >
+            <mat-slide-toggle
+              color="primary"
+              data-test="community-calendar"
+              [formControl]="communityForm.controls.calendarVisible"
+            >
+              @if (communityForm.controls.calendarVisible.value) {
+                <h3 class="mat-body-2" i18n>Calendar is visible</h3>
+              }
+              @if (!communityForm.controls.calendarVisible.value) {
+                <h3 class="mat-body-2" i18n>Calendar is not visible</h3>
+              }
+            </mat-slide-toggle>
+          </div>
+          @for (
+            dateForm of communityForm.controls.calendarDates.controls;
+            track dateForm;
+            let i = $index;
+            let isLast = $last
+          ) {
+            <div class="flex gap-1 items-center" [formGroup]="dateForm">
+              <mat-form-field appearance="outline" class="short-input">
+                <mat-label i18n>Date</mat-label>
+                <input matInput [formControl]="dateForm.controls.date" [matDatepicker]="picker2" />
+                <mat-datepicker-toggle matSuffix [for]="picker2" />
+                <mat-datepicker #picker2 />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label i18n>Message</mat-label>
+                <input
+                  matInput
+                  placeholder="Call for abstract opens"
+                  id="message"
+                  data-test="community-calendar-message"
+                  [formControl]="dateForm.controls.message"
+                />
+              </mat-form-field>
+              @if (!isLast) {
+                <button
+                  mat-mini-fab
+                  color="primary"
+                  matTooltip="Append a new date below"
+                  type="button"
+                  class="mb-4"
+                  (click)="addDates(i)"
+                >
+                  <mat-icon>add</mat-icon>
+                </button>
+              }
+              <button
+                mat-mini-fab
+                color="warn"
+                matTooltip="Remove line"
+                type="button"
+                class="mb-4 ml-4"
+                (click)="deleteDate(i)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          }
+          <mat-action-row>
+            @if (!communityForm.pristine) {
+              <span class="mat-caption grey" i18n
+                >Press <strong>Save</strong> to preview your changes.</span
+              >
+            }
+            <button mat-raised-button color="primary" type="button" (click)="addDates()">
+              <mat-icon>add</mat-icon>
+              <ng-container i18n>Add New Date</ng-container>
+            </button>
+            <button
+              mat-stroked-button
+              color="primary"
+              type="button"
+              [disabled]="
+                !communityForm.pristine || communityForm.controls.calendarDates.length === 0
+              "
+              (click)="openCalendar()"
+            >
+              <mat-icon>event</mat-icon>
+              <ng-container i18n>Preview Calendar</ng-container>
+            </button>
+          </mat-action-row>
+        </mat-expansion-panel>
+        @if (isAdmin) {
+          <mat-expansion-panel class="!mb-8">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h3 class="mat-headline-6 mb-0" i18n>Delete Community</h3>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-action-row>
+              <button color="warn" mat-flat-button type="button" (click)="deleteCommunity()">
+                <mat-icon>delete</mat-icon>
+                <ng-container i18n>Delete</ng-container>
+              </button>
+            </mat-action-row>
+          </mat-expansion-panel>
+        }
+      </div>
+    </div>
+  </div>
+}
+
+<ng-template #submitDialogTemplate>
+  <p class="black" i18n>This community will be submitted and reviewed. Do you want to continue?</p>
+</ng-template>
+
+<ng-template #calendarDialogTemplate>
+  @if (community) {
+    <app-calendar [calendarEvents]="community.calendarDates" />
+  }
+</ng-template>
+
+<ng-template #extraSidenavTemplate>
+  <a mat-list-item routerLinkActive="active-link" class="ml-10" [routerLink]="['..', 'edit']">
+    <p matLine class="grey" i18n>Settings</p>
+  </a>
+
+  <a mat-list-item class="ml-10" [routerLink]="['..', 'integrations']">
+    <p matLine class="grey" i18n>Integrations</p>
+  </a>
+</ng-template>

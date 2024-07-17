@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>{{ templateTitle }}</h2>
+<div mat-dialog-content [formGroup]="deleteForm">
+  <mat-card-content class="flex flex-col mt-1">
+    <p class="mat-body" [innerHTML]="templateDescription"></p>
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        data-test="confirmation-input"
+        [formControl]="deleteForm.controls.confirmationWord"
+      />
+    </mat-form-field>
+  </mat-card-content>
+</div>
+<div mat-dialog-actions>
+  <div class="flex">
+    <button
+      type="button"
+      color="warn"
+      mat-raised-button
+      [disabled]="!deleteForm.valid"
+      (click)="dialogRef.close(true)"
+      >Confirm</button
+    >
+    <button type="button" mat-button (click)="dialogRef.close(false)">Cancel</button>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="flex flex-col items-center">
+  <div class="orv-main-title">
+    <h1 class="mat-headline-1 primary title" i18n
+      ><strong>A global community</strong><br />
+      of researchers like you</h1
+    >
+  </div>
+
+  <h1 class="mat-h1 primary text-center" i18n>BROWSE COMMUNITIES</h1>
+  @if (canCreateCommunity) {
+    <button
+      mat-raised-button
+      color="primary"
+      class="mb-8"
+      type="button"
+      (click)="createCommunityOrLogin()"
+      i18n
+    >
+      Create Your Community
+    </button>
+  }
+  <div class="w-full md:w-4/5">
+    <div [appOverlayLoading]="loadingCommunities"></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      @for (community of communities; track community) {
+        <app-community-card
+          class="card"
+          [community]="community"
+          [routerLink]="['/communities', community._id, 'view']"
+        />
+      }
+    </div>
+  </div>
+</div>

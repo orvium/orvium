@@ -1,0 +1,117 @@
+<mat-card class="p-4">
+  <div class="flex flex-col">
+    <div class="flex justify-between flex-row-reverse">
+      <div class="flex items-center self-end">
+        <mat-chip>
+          <div class="flex items-center gap-1">
+            <span>Version {{ deposit.version }} </span>
+            @for (peerReview of publishedReviews; track peerReview) {
+              <mat-icon>
+                {{ peerReview | reviewIcon }}
+              </mat-icon>
+            }
+          </div>
+        </mat-chip>
+        @if (showBookmark) {
+          <section>
+            <button type="button" mat-icon-button (click)="star()">
+              <!-- If isStarred is true, the icon will be filled in blue. -->
+              <mat-icon [ngClass]="{ 'primary font-fill': isStarred }">bookmark</mat-icon>
+            </button>
+          </section>
+        }
+      </div>
+      <mat-chip-set [tabIndex]="-1">
+        <mat-chip class="orv-chip-{{ deposit.status.replace(' ', '-') }}" [disableRipple]="true">
+          {{ deposit.status | titlecase }}
+        </mat-chip>
+        @if (deposit.acceptedFor !== AcceptedFor.None) {
+          <mat-chip class="orv-chip-primary" [disableRipple]="true">
+            {{ deposit.acceptedFor | titlecase }}
+          </mat-chip>
+        }
+      </mat-chip-set>
+    </div>
+    <div>
+      <div class="mat-subtitle-2 grey">
+        {{ deposit.publicationType | uppercase }}
+      </div>
+      <div class="primary cursor-pointer flex items-center gap-1">
+        <mat-icon class="!w-6" inline>bubble_chart</mat-icon>
+        <a class="mat-body-1 m-0 line-clamp-1" [routerLink]="communityRouterLink">{{
+          deposit.communityPopulated.name
+        }}</a>
+      </div>
+    </div>
+    <a
+      class="mat-headline-6 mt-4 mb-0 text-inherit line-clamp-3"
+      [routerLink]="depositRouterLink"
+      [matTooltip]="deposit.title"
+    >
+      {{ deposit.title }}
+    </a>
+  </div>
+  <div class="flex flex-wrap items-center grey">
+    <span>{{ deposit.submissionDate | date: 'dd/MM/yyyy' }}</span>
+    <span>| By</span>
+    <app-author-avatar-list [authors]="deposit.authors" />
+  </div>
+  @if (!reducedCard) {
+    <div>
+      @if (deposit.abstract) {
+        <p class="line-clamp-6">
+          {{ deposit.abstract }}
+        </p>
+      }
+      <mat-card-actions class="flex flex-row justify-between">
+        <div class="flex gap-4">
+          @if (deposit.views > 0) {
+            <div class="mat-small flex items-center">
+              <mat-icon inline class="grey">visibility</mat-icon>
+              <span
+                >&nbsp;{{ deposit.views }}
+                @if (!smallScreen) {
+                  <span i18n>views</span>
+                }
+              </span>
+            </div>
+          }
+          @if (deposit.socialComments) {
+            <div class="mat-small flex items-center">
+              <mat-icon inline class="grey">chat_bubble</mat-icon>
+              <span
+                >&nbsp;{{ deposit.socialComments }}
+                @if (!smallScreen) {
+                  <span i18n>comments</span>
+                }
+              </span>
+            </div>
+          }
+        </div>
+        <div class="flex gap-2 items-center">
+          @if (showCreateReview) {
+            <button type="button" mat-raised-button (click)="review()" i18n>Create review </button>
+          }
+          @if (canEditDeposit) {
+            <button
+              mat-raised-button
+              type="button"
+              [routerLink]="['/deposits', deposit._id, 'edit']"
+              i18n
+            >
+              Edit
+            </button>
+          }
+          <button
+            type="button"
+            color="primary"
+            mat-raised-button
+            [routerLink]="depositRouterLink"
+            i18n
+            >Read
+          </button>
+        </div>
+      </mat-card-actions>
+    </div>
+  }
+</mat-card>

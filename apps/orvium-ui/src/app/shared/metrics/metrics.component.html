@@ -1,0 +1,18 @@
+<mat-card class="text-center">
+  <mat-card-header class="primary justify-center">
+    <mat-card-title>
+      <span class="flex mat-headline-1 mb-1">
+        {{ number }}
+        <mat-icon inline class="ml-1 align-bottom">{{ icon }}</mat-icon>
+      </span>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content
+    ><span
+      >{{ description }}
+      @if (tooltipText) {
+        <mat-icon inline class="ml-1 primary-icon" [matTooltip]="tooltipText">help</mat-icon>
+      }
+    </span>
+  </mat-card-content>
+</mat-card>

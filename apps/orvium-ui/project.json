@@ -1,0 +1,183 @@
+{
+  "name": "orvium-ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "i18n": {
+    "sourceLocale": "en-US",
+    "locales": {
+      "es": {
+        "translation": "apps/orvium-ui/src/locales/messages.es.xlf"
+      }
+    }
+  },
+  "projectType": "application",
+  "sourceRoot": "apps/orvium-ui/src",
+  "prefix": "app",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    },
+    "@schematics/angular:application": {
+      "strict": true
+    }
+  },
+  "targets": {
+    "build": {
+      "executor": "@ngx-env/builder:application",
+      "options": {
+        "outputPath": "dist/apps/orvium-ui",
+        "index": "apps/orvium-ui/src/index.html",
+        "browser": "apps/orvium-ui/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/orvium-ui/tsconfig.app.json",
+        "assets": [
+          "apps/orvium-ui/src/favicon.ico",
+          "apps/orvium-ui/src/assets",
+          "apps/orvium-ui/src/robots.txt",
+          "apps/orvium-ui/src/manifest.webmanifest"
+        ],
+        "styles": [
+          "apps/orvium-ui/src/styles.scss",
+          {
+            "input": "apps/orvium-ui/src/light-theme.scss",
+            "inject": false,
+            "bundleName": "theme-light"
+          },
+          {
+            "input": "apps/orvium-ui/src/dark-theme.scss",
+            "inject": false,
+            "bundleName": "theme-dark"
+          }
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["src"]
+        },
+        "serviceWorker": "ngsw-config.json",
+        "extractLicenses": false,
+        "sourceMap": true,
+        "optimization": false,
+        "namedChunks": true,
+        "server": "apps/orvium-ui/src/main.server.ts",
+        "prerender": false,
+        "ssr": {
+          "entry": "apps/orvium-ui/server.ts"
+        }
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/orvium-ui/src/environments/environment.ts",
+              "with": "apps/orvium-ui/src/environments/environment.prod.ts"
+            },
+            {
+              "replace": "apps/orvium-ui/src/app/routes.ts",
+              "with": "apps/orvium-ui/src/app/routes.prod.ts"
+            }
+          ],
+          "scripts": ["scripts/google-analytics.prod.js"],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": {
+            "hidden": true,
+            "scripts": true,
+            "styles": true
+          },
+          "namedChunks": false,
+          "extractLicenses": true,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "1.5mb",
+              "maximumError": "1.9mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "5kb"
+            }
+          ],
+          "serviceWorker": "ngsw-config.json"
+        },
+        "staging": {
+          "fileReplacements": [
+            {
+              "replace": "apps/orvium-ui/src/app/routes.ts",
+              "with": "apps/orvium-ui/src/app/routes.prod.ts"
+            }
+          ],
+          "scripts": ["scripts/google-analytics.js"],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": {
+            "hidden": true,
+            "scripts": true,
+            "styles": true
+          },
+          "namedChunks": false,
+          "extractLicenses": true,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "1.5mb",
+              "maximumError": "1.9mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "5kb"
+            }
+          ],
+          "serviceWorker": "ngsw-config.json"
+        },
+        "development": {},
+        "local-staging": {}
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@ngx-env/builder:dev-server",
+      "options": {
+        "proxyConfig": "apps/orvium-ui/proxy.conf.json"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "orvium-ui:build:production"
+        },
+        "development": {
+          "buildTarget": "orvium-ui:build:development"
+        },
+        "staging": {
+          "buildTarget": "orvium-ui:build:staging"
+        },
+        "local-staging": {
+          "buildTarget": "orvium-ui:build:local-staging"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "ng-extract-i18n-merge:ng-extract-i18n-merge",
+      "options": {
+        "buildTarget": "orvium-ui:build",
+        "format": "xlf2",
+        "outputPath": "apps/orvium-ui/src/locales",
+        "targetFiles": ["messages.es.xlf"]
+      }
+    },
+    "lint": {
+      "executor": "@angular-eslint/builder:lint",
+      "options": {
+        "lintFilePatterns": ["apps/orvium-ui/src/**/*.ts", "apps/orvium-ui/src/**/*.component.html"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/orvium-ui/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<h1 class="mat-headline-2 primary">Deposit Card</h1>
+<h2>Selector: <code>&lt;app-deposit-card&gt;</code></h2>
+<h2>Input: <code>deposit: DepositPopulatedDTO, isStarred: boolean</code></h2>
+<h2>Output: <code>starDeposit: DepositDTO, createReview: DepositDTO</code></h2>
+<div class="flex flex-col gap-4">
+  <app-deposit-card class="card" [deposit]="deposit" [isStarred]="true" />
+  <app-deposit-card class="card" [deposit]="deposit2" [reducedCard]="true" />
+  <app-deposit-card class="card" [deposit]="deposit3" [showBookmark]="false" />
+  <app-deposit-card class="card" [deposit]="deposit4" [showCreateReview]="false" />
+  <app-deposit-card
+    class="card"
+    [deposit]="deposit5"
+    [isStarred]="true"
+    [showCreateReview]="true"
+  />
+</div>

@@ -1,0 +1,29 @@
+<h1 class="mat-headline-2 primary">Chips</h1>
+<div class="max-w-screen-md flex flex-col gap-8">
+  <section>
+    <h3>Chip set - Appear in community type, call for papers, etc. </h3>
+    <mat-chip-set>
+      @for (discipline of disciplines; track discipline) {
+        <mat-chip class="orv-chip-outlined orv-chip-grey" [disableRipple]="true">{{
+          discipline | titlecase
+        }}</mat-chip>
+      }
+    </mat-chip-set>
+  </section>
+  <section>
+    <h3>Chip listbox - Appear in conference program and deposit details(references)</h3>
+    <mat-chip-listbox aria-label="Fish selection">
+      @for (discipline of disciplines; track discipline) {
+        <mat-chip-option>{{ discipline }}</mat-chip-option>
+      }
+    </mat-chip-listbox>
+  </section>
+
+  <section>
+    <h3>Chip grid - Appear in Input with chips</h3>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Chip grid </mat-label>
+      <app-input-with-chips [value]="disciplines" [formControl]="demoForm" />
+    </mat-form-field>
+  </section>
+</div>

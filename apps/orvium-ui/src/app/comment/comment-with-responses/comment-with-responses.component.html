@@ -1,0 +1,75 @@
+<app-comment-card
+  [comment]="comment"
+  [showReplyInput]="showReplyInput"
+  (isRepliesOpened)="toggleReplies()"
+  (replyContent)="replyToComment($event)"
+>
+  <ng-container actions>
+    <div class="flex">
+      @if (canReply) {
+        <mat-icon
+          class="grey text-xl cursor-pointer mx-2"
+          matTooltip="Reply"
+          (click)="toggleReplyInput()"
+          >add_comment
+        </mat-icon>
+      }
+      <mat-icon class="grey icon" [matMenuTriggerFor]="menu">more_horiz</mat-icon>
+      <mat-menu #menu="matMenu">
+        <!-- eslint-disable-next-line -->
+        @if (canDelete) {
+          <div
+            mat-menu-item
+            tabindex="0"
+            (click)="deleteComment(comment._id)"
+            (keydown.enter)="deleteComment(comment._id)"
+          >
+            <mat-icon class="grey icon mr">delete </mat-icon>
+            Delete
+          </div>
+        }
+        @if (!canDelete) {
+          <div mat-menu-item appFeedback (send)="reportComment($event)">
+            <mat-icon class="grey icon mr">report </mat-icon>
+            Report
+          </div>
+        }
+      </mat-menu>
+    </div>
+  </ng-container>
+</app-comment-card>
+@if (showReplies) {
+  <div class="mt-8">
+    @for (response of repliesComment; track response) {
+      <div class="w-11/12 mr-0 ml-auto mb-4 p-4 border border-solid border-black/20">
+        <app-comment-card [comment]="response" [showReplyInput]="false">
+          <ng-container actions>
+            <div class="comment-controls">
+              <mat-icon class="grey icon" [matMenuTriggerFor]="menu">more_horiz</mat-icon>
+              <mat-menu #menu="matMenu">
+                <!-- eslint-disable-next-line -->
+                @if (canDeleteComment(response)) {
+                  <div
+                    mat-menu-item
+                    tabindex="0"
+                    (click)="deleteComment(response._id)"
+                    (keydown.enter)="deleteComment(response._id)"
+                  >
+                    <mat-icon class="grey icon mr">delete </mat-icon>
+                    Delete
+                  </div>
+                }
+                @if (!canDeleteComment(response)) {
+                  <div mat-menu-item appFeedback (send)="reportComment($event)">
+                    <mat-icon class="grey icon mr">report </mat-icon>
+                    Report
+                  </div>
+                }
+              </mat-menu>
+            </div>
+          </ng-container>
+        </app-comment-card>
+      </div>
+    }
+  </div>
+}

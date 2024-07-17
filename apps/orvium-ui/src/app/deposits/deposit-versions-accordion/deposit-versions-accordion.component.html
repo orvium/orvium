@@ -1,0 +1,89 @@
+<div>
+  @for (version of versions; track version; let i = $index) {
+    <mat-expansion-panel
+      class="orv-expansion-panel bg-transparent shadow-none !rounded-none"
+      [expanded]="true"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div class="flex items-center">
+            <mat-chip-listbox>
+              <mat-chip-option
+                [selected]="version._id === selectedVersionId"
+                [routerLink]="['/deposits', version._id, 'view']"
+                [selectable]="version._id !== selectedVersionId"
+                (click)="$event.stopPropagation()"
+              >
+                <div class="flex items-center gap-1">
+                  <span>Version {{ version.version }} </span>
+                  @for (peerReview of version.peerReviewsPopulated; track peerReview) {
+                    <mat-icon>
+                      {{ peerReview | reviewIcon }}
+                    </mat-icon>
+                  }
+                </div>
+              </mat-chip-option>
+            </mat-chip-listbox>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      @if (version.peerReviewsPopulated.length > 0) {
+        <div class="flex justify-around">
+          <b>Reviewer</b>
+          <b>Decision</b>
+          <b>Type</b>
+        </div>
+        @for (peerReview of version.peerReviewsPopulated; track peerReview) {
+          <div
+            class="px-2 grid grid-cols-[45%_35%_20%] justify-between items-center gap-1 cursor-pointer hover:backdrop-contrast-[0.9]"
+            [routerLink]="['/reviews', peerReview._id, 'view']"
+          >
+            <app-contributor-line class="text-xs" [user]="peerReview.ownerProfile" />
+            <div class="flex items-center gap-1">
+              <mat-icon>{{ peerReview | reviewIcon }}</mat-icon>
+              <span>{{
+                peerReview.status === ReviewStatus.Draft
+                  ? 'In progress'
+                  : (peerReview.decision | titlecase)
+              }}</span>
+            </div>
+            <div>
+              <span>{{ peerReview.kind | titlecase }}</span>
+            </div>
+          </div>
+        }
+        <!-- useful review not implemented yet -->
+        @if (false) {
+          <div class="primary">
+            <span>check_circle</span>
+            Useful review
+          </div>
+        }
+      } @else {
+        @if (version.canBeReviewed && privateReviews) {
+          <div>
+            <p class="px-2">Peer review details are not publicly available in this paper.</p>
+          </div>
+        }
+        @if (version.canBeReviewed && !privateReviews) {
+          <div>
+            @if (!profile) {
+              <p class="px-2">
+                No reviews to show. Please remember to LOG IN as some reviews may be only visible to
+                specific users.
+              </p>
+            }
+            @if (profile) {
+              <p class="px-2"> No reviews to show. </p>
+            }
+          </div>
+        }
+        @if (!version.canBeReviewed) {
+          <div>
+            <p class="px-2">This publication does not accept peer review.</p>
+          </div>
+        }
+      }
+    </mat-expansion-panel>
+  }
+</div>

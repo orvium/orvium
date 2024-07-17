@@ -1,0 +1,19 @@
+{
+  "generatorName": "typescript-angular",
+  "inputSpec": "openapilib.json",
+  "reservedWordsMappings": {
+    "abstract": "abstract"
+  },
+  "typeMappings": {
+    "DateTime": "Date"
+  },
+  "ngVersion": "15.0.3",
+  "supportsES6": true,
+  "npmVersion": "0.0.49",
+  "npmName": "@orvium/api",
+  "legacyDiscriminatorBehavior": false,
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "removeOperationIdPrefix": true,
+  "stringEnums": true,
+  "useSingleRequestParameter": true
+}

@@ -1,0 +1,44 @@
+<div>
+  @if (!shareSubject) {
+    <h3 class="mat-headline-6 primary" i18n>Share this with your colleagues</h3>
+  }
+  @if (shareSubject) {
+    <h3 class="mat-headline-6 primary"
+      ><ng-container i18n>Share </ng-container>{{ shareSubject
+      }}<ng-container i18n> with your colleagues</ng-container></h3
+    >
+  }
+  <span class="mat-body-2" [innerHTML]="shareText"></span>
+</div>
+<div class="flex gap-4 justify-center">
+  <!-- eslint-disable-next-line -->
+  <button
+    #facebookBtn="shareButton"
+    mat-fab
+    shareButton="facebook"
+    type="button"
+    [style.background-color]="facebookBtn.color()"
+  >
+    <fa-icon class="text-white" size="lg" [icon]="['fab', 'facebook']" />
+  </button>
+  <!-- eslint-disable-next-line -->
+  <button
+    #twitterBtn="shareButton"
+    mat-fab
+    shareButton="x"
+    type="button"
+    [style.background-color]="twitterBtn.color()"
+  >
+    <fa-icon class="text-white" size="lg" [icon]="['fab', 'x-twitter']" />
+  </button>
+  <!-- eslint-disable-next-line -->
+  <button
+    #linkedinBtn="shareButton"
+    mat-fab
+    shareButton="linkedin"
+    type="button"
+    [style.background-color]="linkedinBtn.color()"
+  >
+    <fa-icon class="text-white" size="lg" [icon]="['fab', 'linkedin']" />
+  </button>
+</div>

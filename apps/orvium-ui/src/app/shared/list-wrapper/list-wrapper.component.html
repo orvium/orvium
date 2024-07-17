@@ -1,0 +1,13 @@
+<div
+  class="p-2 grid grid-cols-1 md:grid-cols-[minmax(50%,_80%)_fit-content(30%)_minmax(15%,_35%)] gap-2 hover:backdrop-brightness-125"
+>
+  <div class="flex justify-center flex-col gap-2">
+    <ng-content />
+  </div>
+  <div class="flex items-center justify-center gap-2">
+    <ng-content select="[list-middle-section]" />
+  </div>
+  <div class="flex flex-col justify-center items-end gap-2">
+    <ng-content select="[list-end-section]" />
+  </div>
+</div>

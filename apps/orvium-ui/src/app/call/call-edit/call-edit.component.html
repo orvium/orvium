@@ -1,0 +1,155 @@
+<ng-template #buttonsInToolbar>
+  <button
+    mat-raised-button
+    color="primary"
+    aria-label="Save"
+    type="button"
+    [disabled]="callForm.pristine || !callForm.valid"
+    (click)="save()"
+  >
+    <mat-icon>save</mat-icon>
+    Save
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    aria-label="Go-back"
+    type="button"
+    [routerLink]="['/communities', call?.community, 'view']"
+  >
+    <mat-icon>arrow_back</mat-icon>
+    Community
+  </button>
+  <button mat-raised-button color="warn" aria-label="Delete" type="button" (click)="deleteCall()">
+    <mat-icon>delete</mat-icon>
+    Delete
+  </button>
+</ng-template>
+
+<div>
+  @if (community) {
+    <app-info-toolbar>
+      <app-description-line
+        [communityId]="this.community._id"
+        [avatar]="this.community.logoURL"
+        [title]="this.community.name"
+        [subtitle]="'Community hosting publication'"
+      />
+      <div app-info-toolbar-buttons class="flex gap-1 items-center">
+        <ng-container *ngTemplateOutlet="buttonsInToolbar" />
+      </div>
+    </app-info-toolbar>
+  }
+  <h2 class="mat-headline-6">Call</h2>
+  <mat-card class="p-4">
+    <div [formGroup]="callForm">
+      <div class="flex flex-col w-full">
+        <mat-form-field appearance="outline">
+          <mat-label>Title</mat-label>
+          <input
+            matInput
+            placeholder="Title"
+            data-test="title-input"
+            [formControl]="callForm.controls.title"
+          />
+        </mat-form-field>
+        <div class="flex gap-1 items-center">
+          <mat-form-field class="short-input" appearance="outline">
+            <mat-label>Type</mat-label>
+            <mat-select
+              ngDefaultControl
+              data-test="type-input"
+              [formControl]="callForm.controls.callType"
+            >
+              @for (option of callTypeLOV; track option) {
+                <mat-option [value]="option.value">
+                  {{ option.viewValue }}
+                </mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="short-input">
+            <mat-label>Deadline</mat-label>
+            <input
+              matInput
+              data-test="date-input"
+              [matDatepicker]="picker1"
+              [formControl]="callForm.controls.deadline"
+            />
+            <mat-datepicker-toggle matSuffix [for]="picker1" />
+            <mat-datepicker #picker1 />
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea
+            matInput
+            placeholder="Description"
+            cdkTextareaAutosize
+            data-test="description-input"
+            [formControl]="callForm.controls.description"
+          ></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Scope</mat-label>
+          <textarea
+            matInput
+            placeholder="Scope"
+            cdkTextareaAutosize
+            data-test="type-scope"
+            [formControl]="callForm.controls.scope"
+          ></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Disciplines</mat-label>
+          <app-input-with-chips
+            ngDefaultControl
+            [formControl]="callForm.controls.disciplines"
+            [matAutocomplete]="autoCompleteDisciplines"
+            [disableManualValueChange]="true"
+            (inputValueChange)="onInputValueChange($event)"
+          />
+          <mat-autocomplete #autoCompleteDisciplines="matAutocomplete">
+            @for (discipline of filteredDisciplines | async; track discipline) {
+              <mat-option [value]="discipline.name">
+                {{ discipline.name }}
+              </mat-option>
+            }
+          </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Contact information</mat-label>
+          <textarea
+            matInput
+            placeholder="Contact information"
+            cdkTextareaAutosize
+            data-test="contact-input"
+            [formControl]="callForm.controls.contact"
+          ></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Contact Email</mat-label>
+          <input
+            matInput
+            type="email"
+            placeholder="Contact Email"
+            data-test="contact-email-input"
+            [formControl]="callForm.controls.contactEmail"
+          />
+          @if (callForm.controls.contactEmail.invalid) {
+            <mat-error> Invalid Email format </mat-error>
+          }
+        </mat-form-field>
+        <mat-slide-toggle color="primary" class="mt-4" [formControl]="callForm.controls.visible">
+          @if (callForm.controls.visible.value) {
+            <h3 class="mat-body-2 item-title">Call is visible</h3>
+          }
+          @if (!callForm.controls.visible.value) {
+            <h3 class="mat-body-2 item-title">Call is not visible</h3>
+          }
+        </mat-slide-toggle>
+      </div>
+    </div>
+  </mat-card>
+</div>

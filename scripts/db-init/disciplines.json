@@ -1,0 +1,7381 @@
+[{
+  "_id": {
+    "$oid": "5f68ed0a381b7f6454cef8af"
+  },
+  "name": "Abnormal psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0a381b7f6454cef8b0"
+  },
+  "name": "Accompanying",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0a381b7f6454cef8b1"
+  },
+  "name": "Accounting",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0a381b7f6454cef8b2"
+  },
+  "name": "Acoustical engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0a381b7f6454cef8b3"
+  },
+  "name": "Acoustics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0a381b7f6454cef8b4"
+  },
+  "name": "Acting",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0a381b7f6454cef8b5"
+  },
+  "name": "Actuarial science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0a381b7f6454cef8b6"
+  },
+  "name": "Administrative law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0a381b7f6454cef8b7"
+  },
+  "name": "Admiralty law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0a381b7f6454cef8b8"
+  },
+  "name": "Aerobiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0a381b7f6454cef8b9"
+  },
+  "name": "Aerodynamics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0a381b7f6454cef8ba"
+  },
+  "name": "Aeronautics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0b381b7f6454cef8bb"
+  },
+  "name": "Aerospace engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0b381b7f6454cef8bc"
+  },
+  "name": "Aesthetics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0b381b7f6454cef8bd"
+  },
+  "name": "Affect control theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0b381b7f6454cef8be"
+  },
+  "name": "Affine geometry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0b381b7f6454cef8bf"
+  },
+  "name": "African history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0b381b7f6454cef8c0"
+  },
+  "name": "African philosophy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0b381b7f6454cef8c1"
+  },
+  "name": "African studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0b381b7f6454cef8c2"
+  },
+  "name": "African-American literature",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0b381b7f6454cef8c3"
+  },
+  "name": "Africana studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0b381b7f6454cef8c4"
+  },
+  "name": "Agricultural economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0b381b7f6454cef8c5"
+  },
+  "name": "Agrochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0b381b7f6454cef8c6"
+  },
+  "name": "Agroecology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0b381b7f6454cef8c7"
+  },
+  "name": "Algebra",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0b381b7f6454cef8c8"
+  },
+  "name": "Algebraic (symbolic) computation",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0b381b7f6454cef8c9"
+  },
+  "name": "Algebraic geometry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0b381b7f6454cef8ca"
+  },
+  "name": "Algebraic number theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0b381b7f6454cef8cb"
+  },
+  "name": "Algebraic topology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0c381b7f6454cef8cc"
+  },
+  "name": "Algorithms",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0c381b7f6454cef8cd"
+  },
+  "name": "Alternative medicine",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0c381b7f6454cef8ce"
+  },
+  "name": "American history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0c381b7f6454cef8cf"
+  },
+  "name": "American literature",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0c381b7f6454cef8d0"
+  },
+  "name": "American politics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0c381b7f6454cef8d1"
+  },
+  "name": "American studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0c381b7f6454cef8d2"
+  },
+  "name": "Analysis",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0c381b7f6454cef8d3"
+  },
+  "name": "Analytic number theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0c381b7f6454cef8d4"
+  },
+  "name": "Analytic philosophy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0c381b7f6454cef8d5"
+  },
+  "name": "Analytical chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0c381b7f6454cef8d6"
+  },
+  "name": "Analytical sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0c381b7f6454cef8d7"
+  },
+  "name": "Anarchism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0c381b7f6454cef8d8"
+  },
+  "name": "Anarchist economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0c381b7f6454cef8d9"
+  },
+  "name": "Anatomical pathology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0c381b7f6454cef8da"
+  },
+  "name": "Anatomy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0c381b7f6454cef8db"
+  },
+  "name": "Ancient Egypt",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0d381b7f6454cef8dc"
+  },
+  "name": "Ancient Greek history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0d381b7f6454cef8dd"
+  },
+  "name": "Ancient Roman history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0d381b7f6454cef8de"
+  },
+  "name": "Ancient history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0d381b7f6454cef8df"
+  },
+  "name": "Ancient philosophy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0d381b7f6454cef8e0"
+  },
+  "name": "Andrology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0d381b7f6454cef8e1"
+  },
+  "name": "Anglican theology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0d381b7f6454cef8e2"
+  },
+  "name": "Animal communications",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0d381b7f6454cef8e3"
+  },
+  "name": "Animal law/Animal rights",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0d381b7f6454cef8e4"
+  },
+  "name": "Animal rights",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0d381b7f6454cef8e5"
+  },
+  "name": "Animation",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0d381b7f6454cef8e6"
+  },
+  "name": "Anthropology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0d381b7f6454cef8e7"
+  },
+  "name": "Apiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0d381b7f6454cef8e8"
+  },
+  "name": "Appalachian studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0d381b7f6454cef8e9"
+  },
+  "name": "Applied Sciences",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0d381b7f6454cef8ea"
+  },
+  "name": "Applied arts",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0d381b7f6454cef8eb"
+  },
+  "name": "Applied economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0d381b7f6454cef8ec"
+  },
+  "name": "Applied ethics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0e381b7f6454cef8ed"
+  },
+  "name": "Applied linguistics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0e381b7f6454cef8ee"
+  },
+  "name": "Applied mathematics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0e381b7f6454cef8ef"
+  },
+  "name": "Applied philosophy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0e381b7f6454cef8f0"
+  },
+  "name": "Applied physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0e381b7f6454cef8f1"
+  },
+  "name": "Applied psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0e381b7f6454cef8f2"
+  },
+  "name": "Applied sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0e381b7f6454cef8f3"
+  },
+  "name": "Approximation theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0e381b7f6454cef8f4"
+  },
+  "name": "Arachnology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0e381b7f6454cef8f5"
+  },
+  "name": "Archaeology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0e381b7f6454cef8f6"
+  },
+  "name": "Architectural analytics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0e381b7f6454cef8f7"
+  },
+  "name": "Architectural engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0e381b7f6454cef8f8"
+  },
+  "name": "Architectural sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0e381b7f6454cef8f9"
+  },
+  "name": "Architecture",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0e381b7f6454cef8fa"
+  },
+  "name": "Area studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0e381b7f6454cef8fb"
+  },
+  "name": "Aristotelianism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0e381b7f6454cef8fc"
+  },
+  "name": "Arithmetic combinatorics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0f381b7f6454cef8fd"
+  },
+  "name": "Artificial intelligence",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0f381b7f6454cef8fe"
+  },
+  "name": "Artificial neural network",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0f381b7f6454cef8ff"
+  },
+  "name": "Arts",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0f381b7f6454cef900"
+  },
+  "name": "Asian history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0f381b7f6454cef901"
+  },
+  "name": "Asian psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0f381b7f6454cef902"
+  },
+  "name": "Asian studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0f381b7f6454cef903"
+  },
+  "name": "Assignment problem",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0f381b7f6454cef904"
+  },
+  "name": "Associative algebra",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0f381b7f6454cef905"
+  },
+  "name": "Astrobiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0f381b7f6454cef906"
+  },
+  "name": "Astrochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0f381b7f6454cef907"
+  },
+  "name": "Astronautics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0f381b7f6454cef908"
+  },
+  "name": "Astronomy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0f381b7f6454cef909"
+  },
+  "name": "Astrophysical plasma",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0f381b7f6454cef90a"
+  },
+  "name": "Astrophysics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0f381b7f6454cef90b"
+  },
+  "name": "Astrostatistics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed0f381b7f6454cef90c"
+  },
+  "name": "Atmospheric chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed10381b7f6454cef90d"
+  },
+  "name": "Atmospheric science / Meteorology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed10381b7f6454cef90e"
+  },
+  "name": "Atomic, molecular, and optical physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed10381b7f6454cef90f"
+  },
+  "name": "Australian history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed10381b7f6454cef910"
+  },
+  "name": "Australian studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed10381b7f6454cef911"
+  },
+  "name": "Automata theory (Formal languages)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed10381b7f6454cef912"
+  },
+  "name": "Automated reasoning",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed10381b7f6454cef913"
+  },
+  "name": "Automotive engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed10381b7f6454cef914"
+  },
+  "name": "Baptist theology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed10381b7f6454cef915"
+  },
+  "name": "Bariatric surgery",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed10381b7f6454cef916"
+  },
+  "name": "Behavioral geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed10381b7f6454cef917"
+  },
+  "name": "Behavioral neuroscience",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed10381b7f6454cef918"
+  },
+  "name": "Behavioral sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed10381b7f6454cef919"
+  },
+  "name": "Behavioural economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed10381b7f6454cef91a"
+  },
+  "name": "Behavioural genetics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed10381b7f6454cef91b"
+  },
+  "name": "Biblical Hebrew, Biblical Greek, Aramaic",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed10381b7f6454cef91c"
+  },
+  "name": "Biblical history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed10381b7f6454cef91d"
+  },
+  "name": "Biblical studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed11381b7f6454cef91e"
+  },
+  "name": "Biochemical engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed11381b7f6454cef91f"
+  },
+  "name": "Biochemical systems theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed11381b7f6454cef920"
+  },
+  "name": "Biochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed11381b7f6454cef921"
+  },
+  "name": "Biocybernetics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed11381b7f6454cef922"
+  },
+  "name": "Bioeconomics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed11381b7f6454cef923"
+  },
+  "name": "Bioengineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed11381b7f6454cef924"
+  },
+  "name": "Bioethics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed11381b7f6454cef925"
+  },
+  "name": "Biogeography / Phytogeography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed11381b7f6454cef926"
+  },
+  "name": "Bioinformatics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed11381b7f6454cef927"
+  },
+  "name": "Biological anthropology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed11381b7f6454cef928"
+  },
+  "name": "Biological psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed11381b7f6454cef929"
+  },
+  "name": "Biological systems engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed11381b7f6454cef92a"
+  },
+  "name": "Biology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed11381b7f6454cef92b"
+  },
+  "name": "Biomaterials",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed11381b7f6454cef92c"
+  },
+  "name": "Biomechanical engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed11381b7f6454cef92d"
+  },
+  "name": "Biomedical engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed11381b7f6454cef92e"
+  },
+  "name": "Biomolecular engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed12381b7f6454cef92f"
+  },
+  "name": "Biophysics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed12381b7f6454cef930"
+  },
+  "name": "Biostatistics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed12381b7f6454cef931"
+  },
+  "name": "Biotechnology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed12381b7f6454cef932"
+  },
+  "name": "Black holes",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed12381b7f6454cef933"
+  },
+  "name": "Black psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed12381b7f6454cef934"
+  },
+  "name": "Botany",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed12381b7f6454cef935"
+  },
+  "name": "British literature",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed12381b7f6454cef936"
+  },
+  "name": "Buddhist theology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed12381b7f6454cef937"
+  },
+  "name": "Business",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed12381b7f6454cef938"
+  },
+  "name": "Business management",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed12381b7f6454cef939"
+  },
+  "name": "Calculus",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed12381b7f6454cef93a"
+  },
+  "name": "Calligraphy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed12381b7f6454cef93b"
+  },
+  "name": "Canadian politics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed12381b7f6454cef93c"
+  },
+  "name": "Canadian studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed12381b7f6454cef93d"
+  },
+  "name": "Canon law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed12381b7f6454cef93e"
+  },
+  "name": "Carcinology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed13381b7f6454cef93f"
+  },
+  "name": "Cardiac electrophysiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed13381b7f6454cef940"
+  },
+  "name": "Cardiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed13381b7f6454cef941"
+  },
+  "name": "Cardiothoracic surgery",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed13381b7f6454cef942"
+  },
+  "name": "Carthage",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed13381b7f6454cef943"
+  },
+  "name": "Catalysis",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed13381b7f6454cef944"
+  },
+  "name": "Category theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed13381b7f6454cef945"
+  },
+  "name": "Catholic theology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed13381b7f6454cef946"
+  },
+  "name": "Cell biology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed13381b7f6454cef947"
+  },
+  "name": "Celtic studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed13381b7f6454cef948"
+  },
+  "name": "Central Asian studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed13381b7f6454cef949"
+  },
+  "name": "Ceramic engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed13381b7f6454cef94a"
+  },
+  "name": "Cetology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed13381b7f6454cef94b"
+  },
+  "name": "Chamber music",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed13381b7f6454cef94c"
+  },
+  "name": "Chaos theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed13381b7f6454cef94d"
+  },
+  "name": "Chemical Engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed13381b7f6454cef94e"
+  },
+  "name": "Chemical biology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed13381b7f6454cef94f"
+  },
+  "name": "Chemical engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed14381b7f6454cef950"
+  },
+  "name": "Cheminformatics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed14381b7f6454cef951"
+  },
+  "name": "Chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed14381b7f6454cef952"
+  },
+  "name": "Child psychopathology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed14381b7f6454cef953"
+  },
+  "name": "Chinese history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed14381b7f6454cef954"
+  },
+  "name": "Choral conducting",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed14381b7f6454cef955"
+  },
+  "name": "Choreography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed14381b7f6454cef956"
+  },
+  "name": "Christian theology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed14381b7f6454cef957"
+  },
+  "name": "Chronobiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed14381b7f6454cef958"
+  },
+  "name": "Church music",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed14381b7f6454cef959"
+  },
+  "name": "Civics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed14381b7f6454cef95a"
+  },
+  "name": "Civil Engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed14381b7f6454cef95b"
+  },
+  "name": "Civil law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed14381b7f6454cef95c"
+  },
+  "name": "Civil procedure",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed14381b7f6454cef95d"
+  },
+  "name": "Climatology / Paleoclimatology / Palaeogeography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed14381b7f6454cef95e"
+  },
+  "name": "Clinical Social Work",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed14381b7f6454cef95f"
+  },
+  "name": "Clinical biochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed14381b7f6454cef960"
+  },
+  "name": "Clinical immunology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed15381b7f6454cef961"
+  },
+  "name": "Clinical laboratory sciences/Clinical pathology/Laboratory medicine",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed15381b7f6454cef962"
+  },
+  "name": "Clinical microbiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed15381b7f6454cef963"
+  },
+  "name": "Clinical neuropsychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed15381b7f6454cef964"
+  },
+  "name": "Clinical pathology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed15381b7f6454cef965"
+  },
+  "name": "Clinical physiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed15381b7f6454cef966"
+  },
+  "name": "Clinical psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed15381b7f6454cef967"
+  },
+  "name": "Cloud computing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed15381b7f6454cef968"
+  },
+  "name": "Coastal engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed15381b7f6454cef969"
+  },
+  "name": "Coastal geography / Oceanography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed15381b7f6454cef96a"
+  },
+  "name": "Coding theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed15381b7f6454cef96b"
+  },
+  "name": "Cognitive geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed15381b7f6454cef96c"
+  },
+  "name": "Cognitive psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed15381b7f6454cef96d"
+  },
+  "name": "Cognitive science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed15381b7f6454cef96e"
+  },
+  "name": "Collective behavior",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed15381b7f6454cef96f"
+  },
+  "name": "Combinatorics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed15381b7f6454cef970"
+  },
+  "name": "Commercial law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed16381b7f6454cef971"
+  },
+  "name": "Common law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed16381b7f6454cef972"
+  },
+  "name": "Community informatics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed16381b7f6454cef973"
+  },
+  "name": "Community practice",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed16381b7f6454cef974"
+  },
+  "name": "Community psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed16381b7f6454cef975"
+  },
+  "name": "Commutative algebra",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed16381b7f6454cef976"
+  },
+  "name": "Comparative anatomy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed16381b7f6454cef977"
+  },
+  "name": "Comparative law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed16381b7f6454cef978"
+  },
+  "name": "Comparative literature",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed16381b7f6454cef979"
+  },
+  "name": "Comparative politics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed16381b7f6454cef97a"
+  },
+  "name": "Comparative psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed16381b7f6454cef97b"
+  },
+  "name": "Comparative sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed16381b7f6454cef97c"
+  },
+  "name": "Competition law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed16381b7f6454cef97d"
+  },
+  "name": "Compilers",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed16381b7f6454cef97e"
+  },
+  "name": "Complex analysis",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed16381b7f6454cef97f"
+  },
+  "name": "Complex systems",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed16381b7f6454cef980"
+  },
+  "name": "Complexity economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed16381b7f6454cef981"
+  },
+  "name": "Composition studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed17381b7f6454cef982"
+  },
+  "name": "Computability theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed17381b7f6454cef983"
+  },
+  "name": "Computational biology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed17381b7f6454cef984"
+  },
+  "name": "Computational biology (bioinformatics)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed17381b7f6454cef985"
+  },
+  "name": "Computational chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed17381b7f6454cef986"
+  },
+  "name": "Computational complexity theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed17381b7f6454cef987"
+  },
+  "name": "Computational economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed17381b7f6454cef988"
+  },
+  "name": "Computational finance",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed17381b7f6454cef989"
+  },
+  "name": "Computational fluid dynamics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed17381b7f6454cef98a"
+  },
+  "name": "Computational geometry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed17381b7f6454cef98b"
+  },
+  "name": "Computational linguistics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed17381b7f6454cef98c"
+  },
+  "name": "Computational mathematics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed17381b7f6454cef98d"
+  },
+  "name": "Computational neuroscience",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed17381b7f6454cef98e"
+  },
+  "name": "Computational number theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed17381b7f6454cef98f"
+  },
+  "name": "Computational physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed17381b7f6454cef990"
+  },
+  "name": "Computational sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed17381b7f6454cef991"
+  },
+  "name": "Computational systems biology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed17381b7f6454cef992"
+  },
+  "name": "Computer Science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed18381b7f6454cef993"
+  },
+  "name": "Computer architecture",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed18381b7f6454cef994"
+  },
+  "name": "Computer communications (networks)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed18381b7f6454cef995"
+  },
+  "name": "Computer engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed18381b7f6454cef996"
+  },
+  "name": "Computer graphics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed18381b7f6454cef997"
+  },
+  "name": "Computer science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed18381b7f6454cef998"
+  },
+  "name": "Computer security and reliability",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed18381b7f6454cef999"
+  },
+  "name": "Computer vision",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed18381b7f6454cef99a"
+  },
+  "name": "Computer-aided engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed18381b7f6454cef99b"
+  },
+  "name": "Computing in mathematics, natural sciences, engineering, and medicine",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed18381b7f6454cef99c"
+  },
+  "name": "Computing in social sciences, arts, humanities, and professions",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed18381b7f6454cef99d"
+  },
+  "name": "Conceptual systems",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed18381b7f6454cef99e"
+  },
+  "name": "Conchology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed18381b7f6454cef99f"
+  },
+  "name": "Concurrency theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed18381b7f6454cef9a0"
+  },
+  "name": "Concurrent programming",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed18381b7f6454cef9a1"
+  },
+  "name": "Condensed matter physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed19381b7f6454cef9a2"
+  },
+  "name": "Conducting",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed19381b7f6454cef9a3"
+  },
+  "name": "Conflict theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed19381b7f6454cef9a4"
+  },
+  "name": "Conservation psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed19381b7f6454cef9a5"
+  },
+  "name": "Constitutional law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed19381b7f6454cef9a6"
+  },
+  "name": "Consumer economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed19381b7f6454cef9a7"
+  },
+  "name": "Consumer psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed19381b7f6454cef9a8"
+  },
+  "name": "Contemporary philosophy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed19381b7f6454cef9a9"
+  },
+  "name": "Continental philosophy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed19381b7f6454cef9aa"
+  },
+  "name": "Continuum mechanics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed19381b7f6454cef9ab"
+  },
+  "name": "Contract law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed19381b7f6454cef9ac"
+  },
+  "name": "Control engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed19381b7f6454cef9ad"
+  },
+  "name": "Control systems",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed19381b7f6454cef9ae"
+  },
+  "name": "Control systems engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed19381b7f6454cef9af"
+  },
+  "name": "Control theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed19381b7f6454cef9b0"
+  },
+  "name": "Convex geometry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed19381b7f6454cef9b1"
+  },
+  "name": "Corporate law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1a381b7f6454cef9b2"
+  },
+  "name": "Corporations",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1a381b7f6454cef9b3"
+  },
+  "name": "Cosmochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1a381b7f6454cef9b4"
+  },
+  "name": "Counseling psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1a381b7f6454cef9b5"
+  },
+  "name": "Creative writing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1a381b7f6454cef9b6"
+  },
+  "name": "Criminal justice",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1a381b7f6454cef9b7"
+  },
+  "name": "Criminal law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1a381b7f6454cef9b8"
+  },
+  "name": "Criminal procedure",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1a381b7f6454cef9b9"
+  },
+  "name": "Criminal psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1a381b7f6454cef9ba"
+  },
+  "name": "Criminology/Criminal justice",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1a381b7f6454cef9bb"
+  },
+  "name": "Critical management studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1a381b7f6454cef9bc"
+  },
+  "name": "Critical sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1a381b7f6454cef9bd"
+  },
+  "name": "Critical theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1a381b7f6454cef9be"
+  },
+  "name": "Cross-cultural studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1a381b7f6454cef9bf"
+  },
+  "name": "Cryobiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1a381b7f6454cef9c0"
+  },
+  "name": "Cryogenics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1a381b7f6454cef9c1"
+  },
+  "name": "Cryptography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1a381b7f6454cef9c2"
+  },
+  "name": "Crystallography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1b381b7f6454cef9c3"
+  },
+  "name": "Cultural anthropology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1b381b7f6454cef9c4"
+  },
+  "name": "Cultural geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1b381b7f6454cef9c5"
+  },
+  "name": "Cultural psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1b381b7f6454cef9c6"
+  },
+  "name": "Cultural sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1b381b7f6454cef9c7"
+  },
+  "name": "Cultural studies/ethnic studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1b381b7f6454cef9c8"
+  },
+  "name": "Culturology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1b381b7f6454cef9c9"
+  },
+  "name": "Cybernetics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1b381b7f6454cef9ca"
+  },
+  "name": "Cytogenetics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1b381b7f6454cef9cb"
+  },
+  "name": "Cytohematology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1b381b7f6454cef9cc"
+  },
+  "name": "Cytology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1b381b7f6454cef9cd"
+  },
+  "name": "Dance",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1b381b7f6454cef9ce"
+  },
+  "name": "Dance notation",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1b381b7f6454cef9cf"
+  },
+  "name": "Data management",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1b381b7f6454cef9d0"
+  },
+  "name": "Data mining",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1b381b7f6454cef9d1"
+  },
+  "name": "Data structures",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1b381b7f6454cef9d2"
+  },
+  "name": "Data visualization",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1c381b7f6454cef9d3"
+  },
+  "name": "Database",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1c381b7f6454cef9d4"
+  },
+  "name": "Deaf studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1c381b7f6454cef9d5"
+  },
+  "name": "Decision analysis",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1c381b7f6454cef9d6"
+  },
+  "name": "Decorative arts",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1c381b7f6454cef9d7"
+  },
+  "name": "Demography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1c381b7f6454cef9d8"
+  },
+  "name": "Demography/Population",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1c381b7f6454cef9d9"
+  },
+  "name": "Dental hygiene and epidemiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1c381b7f6454cef9da"
+  },
+  "name": "Dental surgery",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1c381b7f6454cef9db"
+  },
+  "name": "Dentistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1c381b7f6454cef9dc"
+  },
+  "name": "Dermatology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1c381b7f6454cef9dd"
+  },
+  "name": "Dermatopathology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1c381b7f6454cef9de"
+  },
+  "name": "Determinism and Free will",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1c381b7f6454cef9df"
+  },
+  "name": "Development economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1c381b7f6454cef9e0"
+  },
+  "name": "Development geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1c381b7f6454cef9e1"
+  },
+  "name": "Developmental biology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1c381b7f6454cef9e2"
+  },
+  "name": "Developmental psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1c381b7f6454cef9e3"
+  },
+  "name": "Developmental systems theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1d381b7f6454cef9e4"
+  },
+  "name": "Differential algebra",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1d381b7f6454cef9e5"
+  },
+  "name": "Differential psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1d381b7f6454cef9e6"
+  },
+  "name": "Differential topology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1d381b7f6454cef9e7"
+  },
+  "name": "Digital humanities (Humanities computing)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1d381b7f6454cef9e8"
+  },
+  "name": "Digital sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1d381b7f6454cef9e9"
+  },
+  "name": "Directing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1d381b7f6454cef9ea"
+  },
+  "name": "Discourse analysis",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1d381b7f6454cef9eb"
+  },
+  "name": "Discrete geometry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1d381b7f6454cef9ec"
+  },
+  "name": "Distance education",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1d381b7f6454cef9ed"
+  },
+  "name": "Distributed algorithms",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1d381b7f6454cef9ee"
+  },
+  "name": "Distributed computing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1d381b7f6454cef9ef"
+  },
+  "name": "Distributed database",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1d381b7f6454cef9f0"
+  },
+  "name": "Dramaturgical sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1d381b7f6454cef9f1"
+  },
+  "name": "Dramaturgy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1d381b7f6454cef9f2"
+  },
+  "name": "Drawing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1d381b7f6454cef9f3"
+  },
+  "name": "Dynamic programming",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1d381b7f6454cef9f4"
+  },
+  "name": "Dynamical systems",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1e381b7f6454cef9f5"
+  },
+  "name": "Early music",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1e381b7f6454cef9f6"
+  },
+  "name": "Earth science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1e381b7f6454cef9f7"
+  },
+  "name": "Earth systems engineering and management",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1e381b7f6454cef9f8"
+  },
+  "name": "Earthquake engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1e381b7f6454cef9f9"
+  },
+  "name": "East Asian studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1e381b7f6454cef9fa"
+  },
+  "name": "Eastern Orthodox theology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1e381b7f6454cef9fb"
+  },
+  "name": "Eastern philosophy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1e381b7f6454cef9fc"
+  },
+  "name": "Ecclesiastical history of the Catholic Church",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1e381b7f6454cef9fd"
+  },
+  "name": "Ecological economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1e381b7f6454cef9fe"
+  },
+  "name": "Ecological engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1e381b7f6454cef9ff"
+  },
+  "name": "Ecological psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1e381b7f6454cefa00"
+  },
+  "name": "Ecological systems theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1e381b7f6454cefa01"
+  },
+  "name": "Ecology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1e381b7f6454cefa02"
+  },
+  "name": "Econometrics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1e381b7f6454cefa03"
+  },
+  "name": "Economic development",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1e381b7f6454cefa04"
+  },
+  "name": "Economic geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1f381b7f6454cefa05"
+  },
+  "name": "Economic history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1f381b7f6454cefa06"
+  },
+  "name": "Economic sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1f381b7f6454cefa07"
+  },
+  "name": "Economic sociology/Socioeconomics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1f381b7f6454cefa08"
+  },
+  "name": "Economic systems",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1f381b7f6454cefa09"
+  },
+  "name": "Economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1f381b7f6454cefa0a"
+  },
+  "name": "Ecosystem ecology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1f381b7f6454cefa0b"
+  },
+  "name": "Edaphology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1f381b7f6454cefa0c"
+  },
+  "name": "Edaphology / Pedology or Soil science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1f381b7f6454cefa0d"
+  },
+  "name": "Education economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1f381b7f6454cefa0e"
+  },
+  "name": "Educational Technology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1f381b7f6454cefa0f"
+  },
+  "name": "Educational psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1f381b7f6454cefa10"
+  },
+  "name": "Educational sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1f381b7f6454cefa11"
+  },
+  "name": "Electrical Engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1f381b7f6454cefa12"
+  },
+  "name": "Electricity",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1f381b7f6454cefa13"
+  },
+  "name": "Electrochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1f381b7f6454cefa14"
+  },
+  "name": "Electromagnetism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed1f381b7f6454cefa15"
+  },
+  "name": "Electronic engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed20381b7f6454cefa16"
+  },
+  "name": "Elementary particle physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed20381b7f6454cefa17"
+  },
+  "name": "Embryology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed20381b7f6454cefa18"
+  },
+  "name": "Emergency medicine",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed20381b7f6454cefa19"
+  },
+  "name": "Empirical sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed20381b7f6454cefa1a"
+  },
+  "name": "Endocrinology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed20381b7f6454cefa1b"
+  },
+  "name": "Endodontics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed20381b7f6454cefa1c"
+  },
+  "name": "Energy economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed20381b7f6454cefa1d"
+  },
+  "name": "Engineering and technology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed20381b7f6454cefa1e"
+  },
+  "name": "Engineering cybernetics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed20381b7f6454cefa1f"
+  },
+  "name": "Engineering geology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed20381b7f6454cefa20"
+  },
+  "name": "Engineering physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed20381b7f6454cefa21"
+  },
+  "name": "English literature",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed20381b7f6454cefa22"
+  },
+  "name": "English studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed20381b7f6454cefa23"
+  },
+  "name": "Enterprise systems engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed20381b7f6454cefa24"
+  },
+  "name": "Entomology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed20381b7f6454cefa25"
+  },
+  "name": "Entrepreneurial economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed20381b7f6454cefa26"
+  },
+  "name": "Environmental chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed21381b7f6454cefa27"
+  },
+  "name": "Environmental economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed21381b7f6454cefa28"
+  },
+  "name": "Environmental engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed21381b7f6454cefa29"
+  },
+  "name": "Environmental ethics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed21381b7f6454cefa2a"
+  },
+  "name": "Environmental history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed21381b7f6454cefa2b"
+  },
+  "name": "Environmental law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed21381b7f6454cefa2c"
+  },
+  "name": "Environmental psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed21381b7f6454cefa2d"
+  },
+  "name": "Environmental science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed21381b7f6454cefa2e"
+  },
+  "name": "Environmental sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed21381b7f6454cefa2f"
+  },
+  "name": "Epidemiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed21381b7f6454cefa30"
+  },
+  "name": "Epistemology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed21381b7f6454cefa31"
+  },
+  "name": "Ergodic theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed21381b7f6454cefa32"
+  },
+  "name": "Ergonomics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed21381b7f6454cefa33"
+  },
+  "name": "Ethics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed21381b7f6454cefa34"
+  },
+  "name": "Ethnobotany",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed21381b7f6454cefa35"
+  },
+  "name": "Ethnochoreology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed21381b7f6454cefa36"
+  },
+  "name": "Ethnoecology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed22381b7f6454cefa37"
+  },
+  "name": "Ethnology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed22381b7f6454cefa38"
+  },
+  "name": "Ethnomethodology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed22381b7f6454cefa39"
+  },
+  "name": "Ethnomusicology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed22381b7f6454cefa3a"
+  },
+  "name": "Ethnozoology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed22381b7f6454cefa3b"
+  },
+  "name": "Ethology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed22381b7f6454cefa3c"
+  },
+  "name": "Etymology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed22381b7f6454cefa3d"
+  },
+  "name": "European history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed22381b7f6454cefa3e"
+  },
+  "name": "European studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed22381b7f6454cefa3f"
+  },
+  "name": "Evolutionary biology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed22381b7f6454cefa40"
+  },
+  "name": "Evolutionary economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed22381b7f6454cefa41"
+  },
+  "name": "Evolutionary psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed22381b7f6454cefa42"
+  },
+  "name": "Evolutionary sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed22381b7f6454cefa43"
+  },
+  "name": "Exercise physiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed22381b7f6454cefa44"
+  },
+  "name": "Experimental economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed22381b7f6454cefa45"
+  },
+  "name": "Experimental physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed22381b7f6454cefa46"
+  },
+  "name": "Experimental psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed22381b7f6454cefa47"
+  },
+  "name": "Expert systems",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed23381b7f6454cefa48"
+  },
+  "name": "Family law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed23381b7f6454cefa49"
+  },
+  "name": "Family psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed23381b7f6454cefa4a"
+  },
+  "name": "Family systems theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed23381b7f6454cefa4b"
+  },
+  "name": "Family therapy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed23381b7f6454cefa4c"
+  },
+  "name": "Fashion design",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed23381b7f6454cefa4d"
+  },
+  "name": "Fault-tolerant computing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed23381b7f6454cefa4e"
+  },
+  "name": "Federal law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed23381b7f6454cefa4f"
+  },
+  "name": "Feminine psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed23381b7f6454cefa50"
+  },
+  "name": "Feminist economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed23381b7f6454cefa51"
+  },
+  "name": "Feminist philosophy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed23381b7f6454cefa52"
+  },
+  "name": "Feminist sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed23381b7f6454cefa53"
+  },
+  "name": "Femtochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed23381b7f6454cefa54"
+  },
+  "name": "Fiction",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed23381b7f6454cefa55"
+  },
+  "name": "Field theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed23381b7f6454cefa56"
+  },
+  "name": "Figurational sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed23381b7f6454cefa57"
+  },
+  "name": "Film",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed23381b7f6454cefa58"
+  },
+  "name": "Film criticism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed24381b7f6454cefa59"
+  },
+  "name": "Film theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed24381b7f6454cefa5a"
+  },
+  "name": "Filmmaking",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed24381b7f6454cefa5b"
+  },
+  "name": "Finance",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed24381b7f6454cefa5c"
+  },
+  "name": "Financial econometrics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed24381b7f6454cefa5d"
+  },
+  "name": "Financial economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed24381b7f6454cefa5e"
+  },
+  "name": "Financial social work",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed24381b7f6454cefa5f"
+  },
+  "name": "Fine arts",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed24381b7f6454cefa60"
+  },
+  "name": "Finite element analysis",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed24381b7f6454cefa61"
+  },
+  "name": "Finite geometry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed24381b7f6454cefa62"
+  },
+  "name": "Flavor",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed24381b7f6454cefa63"
+  },
+  "name": "Flow chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed24381b7f6454cefa64"
+  },
+  "name": "Fluid dynamics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed24381b7f6454cefa65"
+  },
+  "name": "Fluid mechanics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed24381b7f6454cefa66"
+  },
+  "name": "Food engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed24381b7f6454cefa67"
+  },
+  "name": "Forensic developmental psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed24381b7f6454cefa68"
+  },
+  "name": "Forensic entomology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed25381b7f6454cefa69"
+  },
+  "name": "Forensic pathology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed25381b7f6454cefa6a"
+  },
+  "name": "Forensic psychiatry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed25381b7f6454cefa6b"
+  },
+  "name": "Forensic psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed25381b7f6454cefa6c"
+  },
+  "name": "Forensic science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed25381b7f6454cefa6d"
+  },
+  "name": "Formal Sciences",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed25381b7f6454cefa6e"
+  },
+  "name": "Formal methods (Formal verification)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed25381b7f6454cefa6f"
+  },
+  "name": "Fourier analysis",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed25381b7f6454cefa70"
+  },
+  "name": "Fractal geometry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed25381b7f6454cefa71"
+  },
+  "name": "Functional analysis",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed25381b7f6454cefa72"
+  },
+  "name": "Functional programming",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed25381b7f6454cefa73"
+  },
+  "name": "Futures studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed25381b7f6454cefa74"
+  },
+  "name": "Fuzzy logic",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed25381b7f6454cefa75"
+  },
+  "name": "Galaxy formation and evolution",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed25381b7f6454cefa76"
+  },
+  "name": "Galois geometry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed25381b7f6454cefa77"
+  },
+  "name": "Game design",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed25381b7f6454cefa78"
+  },
+  "name": "Game theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed25381b7f6454cefa79"
+  },
+  "name": "Gamma ray astronomy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed26381b7f6454cefa7a"
+  },
+  "name": "Gastroenterology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed26381b7f6454cefa7b"
+  },
+  "name": "Gemology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed26381b7f6454cefa7c"
+  },
+  "name": "Gender studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed26381b7f6454cefa7d"
+  },
+  "name": "General practice",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed26381b7f6454cefa7e"
+  },
+  "name": "General systems theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed26381b7f6454cefa7f"
+  },
+  "name": "General topology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed26381b7f6454cefa80"
+  },
+  "name": "Genetics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed26381b7f6454cefa81"
+  },
+  "name": "Geobiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed26381b7f6454cefa82"
+  },
+  "name": "Geochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed26381b7f6454cefa83"
+  },
+  "name": "Geodesy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed26381b7f6454cefa84"
+  },
+  "name": "Geology (Geomorphology, Mineralogy, Petrology, Sedimentology, Speleology, Tectonics, Volcanology)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed26381b7f6454cefa85"
+  },
+  "name": "Geometric number theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed26381b7f6454cefa86"
+  },
+  "name": "Geometric topology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed26381b7f6454cefa87"
+  },
+  "name": "Geometry and Topology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed26381b7f6454cefa88"
+  },
+  "name": "Geophysics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed26381b7f6454cefa89"
+  },
+  "name": "Geopolitics (Political geography)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed27381b7f6454cefa8a"
+  },
+  "name": "Geostatistics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed27381b7f6454cefa8b"
+  },
+  "name": "Geotechnical engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed27381b7f6454cefa8c"
+  },
+  "name": "Geriatrics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed27381b7f6454cefa8d"
+  },
+  "name": "German studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed27381b7f6454cefa8e"
+  },
+  "name": "Glaciology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed27381b7f6454cefa8f"
+  },
+  "name": "Grammar",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed27381b7f6454cefa90"
+  },
+  "name": "Graph theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed27381b7f6454cefa91"
+  },
+  "name": "Graphic arts",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed27381b7f6454cefa92"
+  },
+  "name": "Graphic design",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed27381b7f6454cefa93"
+  },
+  "name": "Gravitational astronomy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed27381b7f6454cefa94"
+  },
+  "name": "Green chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed27381b7f6454cefa95"
+  },
+  "name": "Green economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed27381b7f6454cefa96"
+  },
+  "name": "Grid computing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed27381b7f6454cefa97"
+  },
+  "name": "Group Fitness / aerobics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed27381b7f6454cefa98"
+  },
+  "name": "Group psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed28381b7f6454cefa99"
+  },
+  "name": "Group representation",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed28381b7f6454cefa9a"
+  },
+  "name": "Group theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed28381b7f6454cefa9b"
+  },
+  "name": "Growth economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed28381b7f6454cefa9c"
+  },
+  "name": "Gynaecology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed28381b7f6454cefa9d"
+  },
+  "name": "Haemostasiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed28381b7f6454cefa9e"
+  },
+  "name": "Harmonic analysis",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed28381b7f6454cefa9f"
+  },
+  "name": "Health geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed28381b7f6454cefaa0"
+  },
+  "name": "Health informatics/Clinical informatics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed28381b7f6454cefaa1"
+  },
+  "name": "Health psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed28381b7f6454cefaa2"
+  },
+  "name": "Heat transfer",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed28381b7f6454cefaa3"
+  },
+  "name": "Helioseismology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed28381b7f6454cefaa4"
+  },
+  "name": "Helminthology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed28381b7f6454cefaa5"
+  },
+  "name": "Hematology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed28381b7f6454cefaa6"
+  },
+  "name": "Hematopathology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed28381b7f6454cefaa7"
+  },
+  "name": "Hepatology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed28381b7f6454cefaa8"
+  },
+  "name": "Herpetology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed28381b7f6454cefaa9"
+  },
+  "name": "Heterosexism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed29381b7f6454cefaaa"
+  },
+  "name": "High-energy astrophysics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed29381b7f6454cefaab"
+  },
+  "name": "High-performance computing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed29381b7f6454cefaac"
+  },
+  "name": "Highway engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed29381b7f6454cefaad"
+  },
+  "name": "Hindu theology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed29381b7f6454cefaae"
+  },
+  "name": "Histochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed29381b7f6454cefaaf"
+  },
+  "name": "Histology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed29381b7f6454cefab0"
+  },
+  "name": "Histopathology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed29381b7f6454cefab1"
+  },
+  "name": "Historic preservation",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed29381b7f6454cefab2"
+  },
+  "name": "Historical geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed29381b7f6454cefab3"
+  },
+  "name": "Historical linguistics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed29381b7f6454cefab4"
+  },
+  "name": "Historical musicology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed29381b7f6454cefab5"
+  },
+  "name": "Historical sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed29381b7f6454cefab6"
+  },
+  "name": "History",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed29381b7f6454cefab7"
+  },
+  "name": "History of Mesopotamia",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed29381b7f6454cefab8"
+  },
+  "name": "History of computer hardware",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed29381b7f6454cefab9"
+  },
+  "name": "History of computer science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed29381b7f6454cefaba"
+  },
+  "name": "History of culture",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2a381b7f6454cefabb"
+  },
+  "name": "History of dance",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2a381b7f6454cefabc"
+  },
+  "name": "History of linguistics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2a381b7f6454cefabd"
+  },
+  "name": "History of literature",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2a381b7f6454cefabe"
+  },
+  "name": "History of philosophy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2a381b7f6454cefabf"
+  },
+  "name": "History of the Indus Valley Civilization",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2a381b7f6454cefac0"
+  },
+  "name": "History of the Yangtze civilization",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2a381b7f6454cefac1"
+  },
+  "name": "History of the Yellow River civillization",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2a381b7f6454cefac2"
+  },
+  "name": "Homological algebra",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2a381b7f6454cefac3"
+  },
+  "name": "Human anatomy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2a381b7f6454cefac4"
+  },
+  "name": "Human biology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2a381b7f6454cefac5"
+  },
+  "name": "Human development theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2a381b7f6454cefac6"
+  },
+  "name": "Human ecology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2a381b7f6454cefac7"
+  },
+  "name": "Human geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2a381b7f6454cefac8"
+  },
+  "name": "Human performance technology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2a381b7f6454cefac9"
+  },
+  "name": "Human physiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2a381b7f6454cefaca"
+  },
+  "name": "Human sexual behavior",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2b381b7f6454cefacb"
+  },
+  "name": "Human sexuality",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2b381b7f6454cefacc"
+  },
+  "name": "Human-computer interaction",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2b381b7f6454cefacd"
+  },
+  "name": "Humanism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2b381b7f6454ceface"
+  },
+  "name": "Humanistic informatics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2b381b7f6454cefacf"
+  },
+  "name": "Humanistic psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2b381b7f6454cefad0"
+  },
+  "name": "Humanistic sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2b381b7f6454cefad1"
+  },
+  "name": "Humanities",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2b381b7f6454cefad2"
+  },
+  "name": "Hydraulic engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2b381b7f6454cefad3"
+  },
+  "name": "Hydrodynamics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2b381b7f6454cefad4"
+  },
+  "name": "Hydrogenation",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2b381b7f6454cefad5"
+  },
+  "name": "Hydrology/ Limnology / Hydrogeology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2b381b7f6454cefad6"
+  },
+  "name": "Ichthyology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2b381b7f6454cefad7"
+  },
+  "name": "Image processing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2b381b7f6454cefad8"
+  },
+  "name": "Immunochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2b381b7f6454cefad9"
+  },
+  "name": "Immunology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2b381b7f6454cefada"
+  },
+  "name": "Imperative programming",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2b381b7f6454cefadb"
+  },
+  "name": "Implantology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2c381b7f6454cefadc"
+  },
+  "name": "Indian history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2c381b7f6454cefadd"
+  },
+  "name": "Indigenous psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2c381b7f6454cefade"
+  },
+  "name": "Indology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2c381b7f6454cefadf"
+  },
+  "name": "Indonesian history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2c381b7f6454cefae0"
+  },
+  "name": "Industrial design (product design)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2c381b7f6454cefae1"
+  },
+  "name": "Industrial engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2c381b7f6454cefae2"
+  },
+  "name": "Industrial organization",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2c381b7f6454cefae3"
+  },
+  "name": "Industrial sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2c381b7f6454cefae4"
+  },
+  "name": "Infectious disease",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2c381b7f6454cefae5"
+  },
+  "name": "Information architecture",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2c381b7f6454cefae6"
+  },
+  "name": "Information economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2c381b7f6454cefae7"
+  },
+  "name": "Information management",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2c381b7f6454cefae8"
+  },
+  "name": "Information retrieval",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2c381b7f6454cefae9"
+  },
+  "name": "Information theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2c381b7f6454cefaea"
+  },
+  "name": "Infrared astronomy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2c381b7f6454cefaeb"
+  },
+  "name": "Inorganic chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2c381b7f6454cefaec"
+  },
+  "name": "Institutional economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2d381b7f6454cefaed"
+  },
+  "name": "Instructional design",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2d381b7f6454cefaee"
+  },
+  "name": "Instructional simulation",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2d381b7f6454cefaef"
+  },
+  "name": "Instrumentation engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2d381b7f6454cefaf0"
+  },
+  "name": "Integral geometry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2d381b7f6454cefaf1"
+  },
+  "name": "Intellectual history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2d381b7f6454cefaf2"
+  },
+  "name": "Intensive care medicine",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2d381b7f6454cefaf3"
+  },
+  "name": "Interaction design",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2d381b7f6454cefaf4"
+  },
+  "name": "Interactionism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2d381b7f6454cefaf5"
+  },
+  "name": "Interior architecture",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2d381b7f6454cefaf6"
+  },
+  "name": "Interior design (interior architecture)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2d381b7f6454cefaf7"
+  },
+  "name": "Interlinguistics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2d381b7f6454cefaf8"
+  },
+  "name": "Internal medicine",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2d381b7f6454cefaf9"
+  },
+  "name": "International economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2d381b7f6454cefafa"
+  },
+  "name": "International law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2d381b7f6454cefafb"
+  },
+  "name": "International organizations",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2d381b7f6454cefafc"
+  },
+  "name": "International relations",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2e381b7f6454cefafd"
+  },
+  "name": "Internet, World Wide Web",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2e381b7f6454cefafe"
+  },
+  "name": "Interpretive sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2e381b7f6454cefaff"
+  },
+  "name": "Interstellar medium",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2e381b7f6454cefb00"
+  },
+  "name": "Intuitionistic logic",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2e381b7f6454cefb01"
+  },
+  "name": "Inventory theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2e381b7f6454cefb02"
+  },
+  "name": "Iranian history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2e381b7f6454cefb03"
+  },
+  "name": "Iranian studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2e381b7f6454cefb04"
+  },
+  "name": "Islamic economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2e381b7f6454cefb05"
+  },
+  "name": "Islamic law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2e381b7f6454cefb06"
+  },
+  "name": "Japanese studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2e381b7f6454cefb07"
+  },
+  "name": "Jazz studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2e381b7f6454cefb08"
+  },
+  "name": "Jealousy sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2e381b7f6454cefb09"
+  },
+  "name": "Jewish law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2e381b7f6454cefb0a"
+  },
+  "name": "Jewish theology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2e381b7f6454cefb0b"
+  },
+  "name": "Jurisprudence (Philosophy of Law)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2e381b7f6454cefb0c"
+  },
+  "name": "Justification",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2e381b7f6454cefb0d"
+  },
+  "name": "K-theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2f381b7f6454cefb0e"
+  },
+  "name": "Kinesiology / Exercise science / Human performance",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2f381b7f6454cefb0f"
+  },
+  "name": "Knowledge management",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2f381b7f6454cefb10"
+  },
+  "name": "Korean studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2f381b7f6454cefb11"
+  },
+  "name": "LTI system theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2f381b7f6454cefb12"
+  },
+  "name": "Labor economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2f381b7f6454cefb13"
+  },
+  "name": "Labor law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2f381b7f6454cefb14"
+  },
+  "name": "Landscape architecture",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2f381b7f6454cefb15"
+  },
+  "name": "Landscape design",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2f381b7f6454cefb16"
+  },
+  "name": "Landscape ecology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2f381b7f6454cefb17"
+  },
+  "name": "Landscape planning",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2f381b7f6454cefb18"
+  },
+  "name": "Language geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2f381b7f6454cefb19"
+  },
+  "name": "Languages and literature",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2f381b7f6454cefb1a"
+  },
+  "name": "Latin American history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2f381b7f6454cefb1b"
+  },
+  "name": "Latin American studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2f381b7f6454cefb1c"
+  },
+  "name": "Lattice theory (Order theory)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2f381b7f6454cefb1d"
+  },
+  "name": "Law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed2f381b7f6454cefb1e"
+  },
+  "name": "Law and economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed30381b7f6454cefb1f"
+  },
+  "name": "Legal management",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed30381b7f6454cefb20"
+  },
+  "name": "Legal psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed30381b7f6454cefb21"
+  },
+  "name": "Leisure studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed30381b7f6454cefb22"
+  },
+  "name": "Lexicology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed30381b7f6454cefb23"
+  },
+  "name": "Libertarianism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed30381b7f6454cefb24"
+  },
+  "name": "Lie algebra",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed30381b7f6454cefb25"
+  },
+  "name": "Limnology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed30381b7f6454cefb26"
+  },
+  "name": "Linear algebra (Vector space)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed30381b7f6454cefb27"
+  },
+  "name": "Linear programming",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed30381b7f6454cefb28"
+  },
+  "name": "Linguistic anthropology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed30381b7f6454cefb29"
+  },
+  "name": "Linguistic typology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed30381b7f6454cefb2a"
+  },
+  "name": "Linguistics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed30381b7f6454cefb2b"
+  },
+  "name": "Linnaean taxonomy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed30381b7f6454cefb2c"
+  },
+  "name": "Literary criticism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed30381b7f6454cefb2d"
+  },
+  "name": "Literary theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed30381b7f6454cefb2e"
+  },
+  "name": "Live action",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed31381b7f6454cefb2f"
+  },
+  "name": "Living systems theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed31381b7f6454cefb30"
+  },
+  "name": "Logic",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed31381b7f6454cefb31"
+  },
+  "name": "Logic in computer science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed31381b7f6454cefb32"
+  },
+  "name": "Logic programming",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed31381b7f6454cefb33"
+  },
+  "name": "Machine learning",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed31381b7f6454cefb34"
+  },
+  "name": "Macroeconomics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed31381b7f6454cefb35"
+  },
+  "name": "Macrosociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed31381b7f6454cefb36"
+  },
+  "name": "Magnetohydrodynamics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed31381b7f6454cefb37"
+  },
+  "name": "Malacology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed31381b7f6454cefb38"
+  },
+  "name": "Mammalogy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed31381b7f6454cefb39"
+  },
+  "name": "Management cybernetics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed31381b7f6454cefb3a"
+  },
+  "name": "Managerial economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed31381b7f6454cefb3b"
+  },
+  "name": "Manufacturing engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed31381b7f6454cefb3c"
+  },
+  "name": "Marine biology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed31381b7f6454cefb3d"
+  },
+  "name": "Marine chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed31381b7f6454cefb3e"
+  },
+  "name": "Marine engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed31381b7f6454cefb3f"
+  },
+  "name": "Marketing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed32381b7f6454cefb40"
+  },
+  "name": "Marketing geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed32381b7f6454cefb41"
+  },
+  "name": "Marxian economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed32381b7f6454cefb42"
+  },
+  "name": "Marxism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed32381b7f6454cefb43"
+  },
+  "name": "Marxist sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed32381b7f6454cefb44"
+  },
+  "name": "Mass transfer",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed32381b7f6454cefb45"
+  },
+  "name": "Materials Science and Engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed32381b7f6454cefb46"
+  },
+  "name": "Materials engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed32381b7f6454cefb47"
+  },
+  "name": "Mathematical biology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed32381b7f6454cefb48"
+  },
+  "name": "Mathematical chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed32381b7f6454cefb49"
+  },
+  "name": "Mathematical economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed32381b7f6454cefb4a"
+  },
+  "name": "Mathematical logic",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed32381b7f6454cefb4b"
+  },
+  "name": "Mathematical logic and Foundations of mathematics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed32381b7f6454cefb4c"
+  },
+  "name": "Mathematical optimization",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed32381b7f6454cefb4d"
+  },
+  "name": "Mathematical physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed32381b7f6454cefb4e"
+  },
+  "name": "Mathematical psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed32381b7f6454cefb4f"
+  },
+  "name": "Mathematical sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed32381b7f6454cefb50"
+  },
+  "name": "Mathematical statistics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed33381b7f6454cefb51"
+  },
+  "name": "Mathematical system theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed33381b7f6454cefb52"
+  },
+  "name": "Mathematics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed33381b7f6454cefb53"
+  },
+  "name": "Measure theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed33381b7f6454cefb54"
+  },
+  "name": "Mechanical Engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed33381b7f6454cefb55"
+  },
+  "name": "Mechanics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed33381b7f6454cefb56"
+  },
+  "name": "Mechanochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed33381b7f6454cefb57"
+  },
+  "name": "Mechatronics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed33381b7f6454cefb58"
+  },
+  "name": "Media psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed33381b7f6454cefb59"
+  },
+  "name": "Medical cybernetics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed33381b7f6454cefb5a"
+  },
+  "name": "Medical physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed33381b7f6454cefb5b"
+  },
+  "name": "Medical psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed33381b7f6454cefb5c"
+  },
+  "name": "Medical sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed33381b7f6454cefb5d"
+  },
+  "name": "Medical toxicology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed33381b7f6454cefb5e"
+  },
+  "name": "Medicinal chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed33381b7f6454cefb5f"
+  },
+  "name": "Medicine and health",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed33381b7f6454cefb60"
+  },
+  "name": "Medieval literature",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed34381b7f6454cefb61"
+  },
+  "name": "Medieval philosophy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed34381b7f6454cefb62"
+  },
+  "name": "Men's studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed34381b7f6454cefb63"
+  },
+  "name": "Mental health",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed34381b7f6454cefb64"
+  },
+  "name": "Mesosociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed34381b7f6454cefb65"
+  },
+  "name": "Meta-ethics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed34381b7f6454cefb66"
+  },
+  "name": "Meta-philosophy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed34381b7f6454cefb67"
+  },
+  "name": "Metaphysics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed34381b7f6454cefb68"
+  },
+  "name": "Microbiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed34381b7f6454cefb69"
+  },
+  "name": "Microeconomics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed34381b7f6454cefb6a"
+  },
+  "name": "Microsociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed34381b7f6454cefb6b"
+  },
+  "name": "Microwave astronomy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed34381b7f6454cefb6c"
+  },
+  "name": "Middle Eastern studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed34381b7f6454cefb6d"
+  },
+  "name": "Military geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed34381b7f6454cefb6e"
+  },
+  "name": "Military psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed34381b7f6454cefb6f"
+  },
+  "name": "Military sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed34381b7f6454cefb70"
+  },
+  "name": "Mining engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed35381b7f6454cefb71"
+  },
+  "name": "Mixed media",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed35381b7f6454cefb72"
+  },
+  "name": "Modal logic",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed35381b7f6454cefb73"
+  },
+  "name": "Model theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed35381b7f6454cefb74"
+  },
+  "name": "Modern history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed35381b7f6454cefb75"
+  },
+  "name": "Modern philosophy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed35381b7f6454cefb76"
+  },
+  "name": "Molecular biology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed35381b7f6454cefb77"
+  },
+  "name": "Molecular engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed35381b7f6454cefb78"
+  },
+  "name": "Molecular genetics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed35381b7f6454cefb79"
+  },
+  "name": "Molecular mechanics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed35381b7f6454cefb7a"
+  },
+  "name": "Molecular pathology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed35381b7f6454cefb7b"
+  },
+  "name": "Molecular physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed35381b7f6454cefb7c"
+  },
+  "name": "Molecular virology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed35381b7f6454cefb7d"
+  },
+  "name": "Monetary economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed35381b7f6454cefb7e"
+  },
+  "name": "Moral psychology and Descriptive ethics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed35381b7f6454cefb7f"
+  },
+  "name": "Moral psychology, Descriptive ethics, Value theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed35381b7f6454cefb80"
+  },
+  "name": "Morphology (linguistics)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed35381b7f6454cefb81"
+  },
+  "name": "Multi-valued logic",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed36381b7f6454cefb82"
+  },
+  "name": "Multilinear algebra",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed36381b7f6454cefb83"
+  },
+  "name": "Multimedia, hypermedia",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed36381b7f6454cefb84"
+  },
+  "name": "Music",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed36381b7f6454cefb85"
+  },
+  "name": "Music education",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed36381b7f6454cefb86"
+  },
+  "name": "Music history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed36381b7f6454cefb87"
+  },
+  "name": "Music psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed36381b7f6454cefb88"
+  },
+  "name": "Music theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed36381b7f6454cefb89"
+  },
+  "name": "Music therapy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed36381b7f6454cefb8a"
+  },
+  "name": "Musical composition",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed36381b7f6454cefb8b"
+  },
+  "name": "Musical theatre",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed36381b7f6454cefb8c"
+  },
+  "name": "Musicology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed36381b7f6454cefb8d"
+  },
+  "name": "Muslim theology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed36381b7f6454cefb8e"
+  },
+  "name": "Mycology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed36381b7f6454cefb8f"
+  },
+  "name": "Myrmecology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed36381b7f6454cefb90"
+  },
+  "name": "Nanoengineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed36381b7f6454cefb91"
+  },
+  "name": "Nanomaterials",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed37381b7f6454cefb92"
+  },
+  "name": "Nanotechnology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed37381b7f6454cefb93"
+  },
+  "name": "Nationalism studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed37381b7f6454cefb94"
+  },
+  "name": "Natural Sciences",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed37381b7f6454cefb95"
+  },
+  "name": "Natural language processing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed37381b7f6454cefb96"
+  },
+  "name": "Natural language processing (Computational linguistics)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed37381b7f6454cefb97"
+  },
+  "name": "Natural product chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed37381b7f6454cefb98"
+  },
+  "name": "Natural resource sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed37381b7f6454cefb99"
+  },
+  "name": "Nematology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed37381b7f6454cefb9a"
+  },
+  "name": "Nephrology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed37381b7f6454cefb9b"
+  },
+  "name": "Network science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed37381b7f6454cefb9c"
+  },
+  "name": "Neural engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed37381b7f6454cefb9d"
+  },
+  "name": "Neuro-ophthalmology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed37381b7f6454cefb9e"
+  },
+  "name": "Neurochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed37381b7f6454cefb9f"
+  },
+  "name": "Neuroeconomics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed37381b7f6454cefba0"
+  },
+  "name": "Neuroethology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed37381b7f6454cefba1"
+  },
+  "name": "Neurology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed37381b7f6454cefba2"
+  },
+  "name": "Neuropsychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed38381b7f6454cefba3"
+  },
+  "name": "Neuroscience",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed38381b7f6454cefba4"
+  },
+  "name": "Neurosurgery",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed38381b7f6454cefba5"
+  },
+  "name": "New Cybernetics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed38381b7f6454cefba6"
+  },
+  "name": "Newtonian dynamics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed38381b7f6454cefba7"
+  },
+  "name": "Non-Euclidean geometry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed38381b7f6454cefba8"
+  },
+  "name": "Non-associative algebra",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed38381b7f6454cefba9"
+  },
+  "name": "Non-fiction",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed38381b7f6454cefbaa"
+  },
+  "name": "Non-standard analysis",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed38381b7f6454cefbab"
+  },
+  "name": "Noncommutative algebra",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed38381b7f6454cefbac"
+  },
+  "name": "Noncommutative geometry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed38381b7f6454cefbad"
+  },
+  "name": "Normative ethics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed38381b7f6454cefbae"
+  },
+  "name": "Nuclear engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed38381b7f6454cefbaf"
+  },
+  "name": "Nuclear physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed38381b7f6454cefbb0"
+  },
+  "name": "Number theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed38381b7f6454cefbb1"
+  },
+  "name": "Numerical analysis",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed38381b7f6454cefbb2"
+  },
+  "name": "Numerical simulations",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed38381b7f6454cefbb3"
+  },
+  "name": "Nursing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed39381b7f6454cefbb4"
+  },
+  "name": "Nutrition",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed39381b7f6454cefbb5"
+  },
+  "name": "Nutrition and dietetics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed39381b7f6454cefbb6"
+  },
+  "name": "Object database",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed39381b7f6454cefbb7"
+  },
+  "name": "Object-oriented programming",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed39381b7f6454cefbb8"
+  },
+  "name": "Observational astronomy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed39381b7f6454cefbb9"
+  },
+  "name": "Obstetrics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed39381b7f6454cefbba"
+  },
+  "name": "Occupational health psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed39381b7f6454cefbbb"
+  },
+  "name": "Occupational hygiene",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed39381b7f6454cefbbc"
+  },
+  "name": "Occupational psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed39381b7f6454cefbbd"
+  },
+  "name": "Occupational therapy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed39381b7f6454cefbbe"
+  },
+  "name": "Occupational toxicology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed39381b7f6454cefbbf"
+  },
+  "name": "Ocean engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed39381b7f6454cefbc0"
+  },
+  "name": "Oenology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed39381b7f6454cefbc1"
+  },
+  "name": "Oncology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed39381b7f6454cefbc2"
+  },
+  "name": "Ontology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed39381b7f6454cefbc3"
+  },
+  "name": "Oology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3a381b7f6454cefbc4"
+  },
+  "name": "Operating systems",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3a381b7f6454cefbc5"
+  },
+  "name": "Operations management",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3a381b7f6454cefbc6"
+  },
+  "name": "Operations research",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3a381b7f6454cefbc7"
+  },
+  "name": "Operator theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3a381b7f6454cefbc8"
+  },
+  "name": "Ophthalmology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3a381b7f6454cefbc9"
+  },
+  "name": "Optical astronomy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3a381b7f6454cefbca"
+  },
+  "name": "Optical engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3a381b7f6454cefbcb"
+  },
+  "name": "Optics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3a381b7f6454cefbcc"
+  },
+  "name": "Optimal maintenance",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3a381b7f6454cefbcd"
+  },
+  "name": "Optometry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3a381b7f6454cefbce"
+  },
+  "name": "Oral and maxillofacial surgery",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3a381b7f6454cefbcf"
+  },
+  "name": "Orchestral conducting",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3a381b7f6454cefbd0"
+  },
+  "name": "Orchestral studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3a381b7f6454cefbd1"
+  },
+  "name": "Ordinary differential equations",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3a381b7f6454cefbd2"
+  },
+  "name": "Organ and historical keyboards",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3a381b7f6454cefbd3"
+  },
+  "name": "Organic chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3a381b7f6454cefbd4"
+  },
+  "name": "Organizational psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3b381b7f6454cefbd5"
+  },
+  "name": "Organizational studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3b381b7f6454cefbd6"
+  },
+  "name": "Organology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3b381b7f6454cefbd7"
+  },
+  "name": "Organometallic chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3b381b7f6454cefbd8"
+  },
+  "name": "Ornithology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3b381b7f6454cefbd9"
+  },
+  "name": "Orthodontics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3b381b7f6454cefbda"
+  },
+  "name": "Orthopedic surgery",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3b381b7f6454cefbdb"
+  },
+  "name": "Orthoptics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3b381b7f6454cefbdc"
+  },
+  "name": "Otolaryngology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3b381b7f6454cefbdd"
+  },
+  "name": "Painting",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3b381b7f6454cefbde"
+  },
+  "name": "Pakistan studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3b381b7f6454cefbdf"
+  },
+  "name": "Paleobiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3b381b7f6454cefbe0"
+  },
+  "name": "Paleoecology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3b381b7f6454cefbe1"
+  },
+  "name": "Paleontology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3b381b7f6454cefbe2"
+  },
+  "name": "Parallel algorithms",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3b381b7f6454cefbe3"
+  },
+  "name": "Parallel computing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3b381b7f6454cefbe4"
+  },
+  "name": "Parapsychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3b381b7f6454cefbe5"
+  },
+  "name": "Parasitology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3c381b7f6454cefbe6"
+  },
+  "name": "Partial differential equations",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3c381b7f6454cefbe7"
+  },
+  "name": "Participatory economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3c381b7f6454cefbe8"
+  },
+  "name": "Pathology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3c381b7f6454cefbe9"
+  },
+  "name": "Peace and conflict studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3c381b7f6454cefbea"
+  },
+  "name": "Pediatric psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3c381b7f6454cefbeb"
+  },
+  "name": "Pediatrics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3c381b7f6454cefbec"
+  },
+  "name": "Pedology (children study)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3c381b7f6454cefbed"
+  },
+  "name": "Perceptual control theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3c381b7f6454cefbee"
+  },
+  "name": "Performing arts",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3c381b7f6454cefbef"
+  },
+  "name": "Periodontics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3c381b7f6454cefbf0"
+  },
+  "name": "Person-centered therapy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3c381b7f6454cefbf1"
+  },
+  "name": "Personal fitness training",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3c381b7f6454cefbf2"
+  },
+  "name": "Personality psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3c381b7f6454cefbf3"
+  },
+  "name": "Petrochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3c381b7f6454cefbf4"
+  },
+  "name": "Petroleum engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3c381b7f6454cefbf5"
+  },
+  "name": "Pharmaceutical sciences",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3d381b7f6454cefbf6"
+  },
+  "name": "Pharmacology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3d381b7f6454cefbf7"
+  },
+  "name": "Pharmacy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3d381b7f6454cefbf8"
+  },
+  "name": "Phenomenological sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3d381b7f6454cefbf9"
+  },
+  "name": "Phenomenology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3d381b7f6454cefbfa"
+  },
+  "name": "Philology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3d381b7f6454cefbfb"
+  },
+  "name": "Philosophical logic",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3d381b7f6454cefbfc"
+  },
+  "name": "Philosophical traditions and schools",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3d381b7f6454cefbfd"
+  },
+  "name": "Philosophy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3d381b7f6454cefbfe"
+  },
+  "name": "Philosophy of Action",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3d381b7f6454cefbff"
+  },
+  "name": "Philosophy of artificial intelligence",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3d381b7f6454cefc00"
+  },
+  "name": "Philosophy of biology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3d381b7f6454cefc01"
+  },
+  "name": "Philosophy of chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3d381b7f6454cefc02"
+  },
+  "name": "Philosophy of economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3d381b7f6454cefc03"
+  },
+  "name": "Philosophy of education",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3d381b7f6454cefc04"
+  },
+  "name": "Philosophy of engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3d381b7f6454cefc05"
+  },
+  "name": "Philosophy of history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3d381b7f6454cefc06"
+  },
+  "name": "Philosophy of language",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3e381b7f6454cefc07"
+  },
+  "name": "Philosophy of law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3e381b7f6454cefc08"
+  },
+  "name": "Philosophy of mathematics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3e381b7f6454cefc09"
+  },
+  "name": "Philosophy of mind",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3e381b7f6454cefc0a"
+  },
+  "name": "Philosophy of music",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3e381b7f6454cefc0b"
+  },
+  "name": "Philosophy of pain",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3e381b7f6454cefc0c"
+  },
+  "name": "Philosophy of perception",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3e381b7f6454cefc0d"
+  },
+  "name": "Philosophy of physical sciences",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3e381b7f6454cefc0e"
+  },
+  "name": "Philosophy of physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3e381b7f6454cefc0f"
+  },
+  "name": "Philosophy of psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3e381b7f6454cefc10"
+  },
+  "name": "Philosophy of religion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3e381b7f6454cefc11"
+  },
+  "name": "Philosophy of social science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3e381b7f6454cefc12"
+  },
+  "name": "Philosophy of space and time",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3e381b7f6454cefc13"
+  },
+  "name": "Philosophy of technology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3e381b7f6454cefc14"
+  },
+  "name": "Phonetics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3e381b7f6454cefc15"
+  },
+  "name": "Phonology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3e381b7f6454cefc16"
+  },
+  "name": "Photochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3e381b7f6454cefc17"
+  },
+  "name": "Photography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3f381b7f6454cefc18"
+  },
+  "name": "Photonics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3f381b7f6454cefc19"
+  },
+  "name": "Phycology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3f381b7f6454cefc1a"
+  },
+  "name": "Physical Metallurgy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3f381b7f6454cefc1b"
+  },
+  "name": "Physical chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3f381b7f6454cefc1c"
+  },
+  "name": "Physical cosmology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3f381b7f6454cefc1d"
+  },
+  "name": "Physical fitness",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3f381b7f6454cefc1e"
+  },
+  "name": "Physical geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3f381b7f6454cefc1f"
+  },
+  "name": "Physical organic chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3f381b7f6454cefc20"
+  },
+  "name": "Physical therapy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3f381b7f6454cefc21"
+  },
+  "name": "Physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3f381b7f6454cefc22"
+  },
+  "name": "Physiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3f381b7f6454cefc23"
+  },
+  "name": "Physiotherapy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3f381b7f6454cefc24"
+  },
+  "name": "Phytochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3f381b7f6454cefc25"
+  },
+  "name": "Piano",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3f381b7f6454cefc26"
+  },
+  "name": "Planetary science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3f381b7f6454cefc27"
+  },
+  "name": "Planktology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed3f381b7f6454cefc28"
+  },
+  "name": "Plasma physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed40381b7f6454cefc29"
+  },
+  "name": "Plastic surgery",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed40381b7f6454cefc2a"
+  },
+  "name": "Platonism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed40381b7f6454cefc2b"
+  },
+  "name": "Playwrighting",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed40381b7f6454cefc2c"
+  },
+  "name": "Podiatry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed40381b7f6454cefc2d"
+  },
+  "name": "Poetics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed40381b7f6454cefc2e"
+  },
+  "name": "Poetry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed40381b7f6454cefc2f"
+  },
+  "name": "Police science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed40381b7f6454cefc30"
+  },
+  "name": "Policy sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed40381b7f6454cefc31"
+  },
+  "name": "Policy studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed40381b7f6454cefc32"
+  },
+  "name": "Political behavior",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed40381b7f6454cefc33"
+  },
+  "name": "Political culture",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed40381b7f6454cefc34"
+  },
+  "name": "Political economy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed40381b7f6454cefc35"
+  },
+  "name": "Political geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed40381b7f6454cefc36"
+  },
+  "name": "Political history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed40381b7f6454cefc37"
+  },
+  "name": "Political philosophy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed40381b7f6454cefc38"
+  },
+  "name": "Political psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed41381b7f6454cefc39"
+  },
+  "name": "Political science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed41381b7f6454cefc3a"
+  },
+  "name": "Political sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed41381b7f6454cefc3b"
+  },
+  "name": "Polymer chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed41381b7f6454cefc3c"
+  },
+  "name": "Polymer engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed41381b7f6454cefc3d"
+  },
+  "name": "Polymer science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed41381b7f6454cefc3e"
+  },
+  "name": "Population genetics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed41381b7f6454cefc3f"
+  },
+  "name": "Population geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed41381b7f6454cefc40"
+  },
+  "name": "Positive psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed41381b7f6454cefc41"
+  },
+  "name": "Post-colonial literature",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed41381b7f6454cefc42"
+  },
+  "name": "Post-modern literature",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed41381b7f6454cefc43"
+  },
+  "name": "Power engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed41381b7f6454cefc44"
+  },
+  "name": "Pragmatics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed41381b7f6454cefc45"
+  },
+  "name": "Pre-Columbian era",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed41381b7f6454cefc46"
+  },
+  "name": "Preclassic Maya",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed41381b7f6454cefc47"
+  },
+  "name": "Preventive medicine",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed41381b7f6454cefc48"
+  },
+  "name": "Primary care",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed42381b7f6454cefc49"
+  },
+  "name": "Primatology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed42381b7f6454cefc4a"
+  },
+  "name": "Printmaking",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed42381b7f6454cefc4b"
+  },
+  "name": "Probability theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed42381b7f6454cefc4c"
+  },
+  "name": "Procedural law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed42381b7f6454cefc4d"
+  },
+  "name": "Process design",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed42381b7f6454cefc4e"
+  },
+  "name": "Process engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed42381b7f6454cefc4f"
+  },
+  "name": "Program semantics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed42381b7f6454cefc50"
+  },
+  "name": "Programming language semantics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed42381b7f6454cefc51"
+  },
+  "name": "Programming languages",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed42381b7f6454cefc52"
+  },
+  "name": "Programming paradigms",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed42381b7f6454cefc53"
+  },
+  "name": "Projective geometry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed42381b7f6454cefc54"
+  },
+  "name": "Proof theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed42381b7f6454cefc55"
+  },
+  "name": "Property law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed42381b7f6454cefc56"
+  },
+  "name": "Prosthodontics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed43381b7f6454cefc57"
+  },
+  "name": "Protestant theology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed43381b7f6454cefc58"
+  },
+  "name": "Psephology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed43381b7f6454cefc59"
+  },
+  "name": "Psychiatry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed43381b7f6454cefc5a"
+  },
+  "name": "Psychoanalysis",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed43381b7f6454cefc5b"
+  },
+  "name": "Psychoanalytic sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed43381b7f6454cefc5c"
+  },
+  "name": "Psychobiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed43381b7f6454cefc5d"
+  },
+  "name": "Psycholinguistics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed43381b7f6454cefc5e"
+  },
+  "name": "Psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed43381b7f6454cefc5f"
+  },
+  "name": "Psychology of religion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed43381b7f6454cefc60"
+  },
+  "name": "Psychometrics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed43381b7f6454cefc61"
+  },
+  "name": "Psychopathology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed43381b7f6454cefc62"
+  },
+  "name": "Psychophysics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed43381b7f6454cefc63"
+  },
+  "name": "Psychosocial rehabilitation",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed43381b7f6454cefc64"
+  },
+  "name": "Public administration",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed43381b7f6454cefc65"
+  },
+  "name": "Public economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed43381b7f6454cefc66"
+  },
+  "name": "Public finance",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed43381b7f6454cefc67"
+  },
+  "name": "Public health",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed44381b7f6454cefc68"
+  },
+  "name": "Public international law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed44381b7f6454cefc69"
+  },
+  "name": "Public law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed44381b7f6454cefc6a"
+  },
+  "name": "Public sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed44381b7f6454cefc6b"
+  },
+  "name": "Pulmonology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed44381b7f6454cefc6c"
+  },
+  "name": "Puppetry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed44381b7f6454cefc6d"
+  },
+  "name": "Pure mathematics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed44381b7f6454cefc6e"
+  },
+  "name": "Pure sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed44381b7f6454cefc6f"
+  },
+  "name": "Quantitative psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed44381b7f6454cefc70"
+  },
+  "name": "Quantum chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed44381b7f6454cefc71"
+  },
+  "name": "Quantum computing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed44381b7f6454cefc72"
+  },
+  "name": "Quantum field theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed44381b7f6454cefc73"
+  },
+  "name": "Quantum gravity",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed44381b7f6454cefc74"
+  },
+  "name": "Quantum mechanics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed44381b7f6454cefc75"
+  },
+  "name": "Quantum physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed44381b7f6454cefc76"
+  },
+  "name": "Quaternary science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed44381b7f6454cefc77"
+  },
+  "name": "Queer studies/Queer theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed44381b7f6454cefc78"
+  },
+  "name": "Radio astronomy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed45381b7f6454cefc79"
+  },
+  "name": "Radiochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed45381b7f6454cefc7a"
+  },
+  "name": "Radiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed45381b7f6454cefc7b"
+  },
+  "name": "Randomized algorithms",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed45381b7f6454cefc7c"
+  },
+  "name": "Reaction engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed45381b7f6454cefc7d"
+  },
+  "name": "Real analysis",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed45381b7f6454cefc7e"
+  },
+  "name": "Real estate economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed45381b7f6454cefc7f"
+  },
+  "name": "Real options analysis",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed45381b7f6454cefc80"
+  },
+  "name": "Reasoning errors",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed45381b7f6454cefc81"
+  },
+  "name": "Recording",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed45381b7f6454cefc82"
+  },
+  "name": "Recreational therapy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed45381b7f6454cefc83"
+  },
+  "name": "Recursion theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed45381b7f6454cefc84"
+  },
+  "name": "Rehabilitation medicine",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed45381b7f6454cefc85"
+  },
+  "name": "Rehabilitation psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed45381b7f6454cefc86"
+  },
+  "name": "Relational database",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed45381b7f6454cefc87"
+  },
+  "name": "Religion geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed45381b7f6454cefc88"
+  },
+  "name": "Religious studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed45381b7f6454cefc89"
+  },
+  "name": "Representation theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed46381b7f6454cefc8a"
+  },
+  "name": "Resource economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed46381b7f6454cefc8b"
+  },
+  "name": "Respiratory therapy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed46381b7f6454cefc8c"
+  },
+  "name": "Rhetoric",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed46381b7f6454cefc8d"
+  },
+  "name": "Rheumatology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed46381b7f6454cefc8e"
+  },
+  "name": "Ring theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed46381b7f6454cefc8f"
+  },
+  "name": "Robotics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed46381b7f6454cefc90"
+  },
+  "name": "Russian history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed46381b7f6454cefc91"
+  },
+  "name": "Scandinavian studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed46381b7f6454cefc92"
+  },
+  "name": "Scenography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed46381b7f6454cefc93"
+  },
+  "name": "Scheduling",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed46381b7f6454cefc94"
+  },
+  "name": "Scholasticism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed46381b7f6454cefc95"
+  },
+  "name": "School psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed47381b7f6454cefc96"
+  },
+  "name": "Science studies/Science and technology studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed47381b7f6454cefc97"
+  },
+  "name": "Scientific computing (Computational science)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed47381b7f6454cefc98"
+  },
+  "name": "Scientific history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed47381b7f6454cefc99"
+  },
+  "name": "Scientific visualization",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed47381b7f6454cefc9a"
+  },
+  "name": "Sculpture",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed48381b7f6454cefc9b"
+  },
+  "name": "Second-order cybernetics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed48381b7f6454cefc9c"
+  },
+  "name": "Semantics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed48381b7f6454cefc9d"
+  },
+  "name": "Semiconductors",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed48381b7f6454cefc9e"
+  },
+  "name": "Semiotics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed48381b7f6454cefc9f"
+  },
+  "name": "Set theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed48381b7f6454cefca0"
+  },
+  "name": "Sex education",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed49381b7f6454cefca1"
+  },
+  "name": "Sexology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed49381b7f6454cefca2"
+  },
+  "name": "Sindhology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed49381b7f6454cefca3"
+  },
+  "name": "Singing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed49381b7f6454cefca4"
+  },
+  "name": "Sinology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed49381b7f6454cefca5"
+  },
+  "name": "Slavic studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4a381b7f6454cefca6"
+  },
+  "name": "Sleep medicine",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4a381b7f6454cefca7"
+  },
+  "name": "Social Work",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4a381b7f6454cefca8"
+  },
+  "name": "Social anthropology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4a381b7f6454cefca9"
+  },
+  "name": "Social capital",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4a381b7f6454cefcaa"
+  },
+  "name": "Social change",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4a381b7f6454cefcab"
+  },
+  "name": "Social choice theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4a381b7f6454cefcac"
+  },
+  "name": "Social conflict theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4a381b7f6454cefcad"
+  },
+  "name": "Social constructionism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4a381b7f6454cefcae"
+  },
+  "name": "Social control",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4a381b7f6454cefcaf"
+  },
+  "name": "Social development",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4a381b7f6454cefcb0"
+  },
+  "name": "Social dynamics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4a381b7f6454cefcb1"
+  },
+  "name": "Social economy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4a381b7f6454cefcb2"
+  },
+  "name": "Social engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4a381b7f6454cefcb3"
+  },
+  "name": "Social geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4a381b7f6454cefcb4"
+  },
+  "name": "Social movements",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4b381b7f6454cefcb5"
+  },
+  "name": "Social network analysis",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4b381b7f6454cefcb6"
+  },
+  "name": "Social philosophy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4b381b7f6454cefcb7"
+  },
+  "name": "Social philosophy and political philosophy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4b381b7f6454cefcb8"
+  },
+  "name": "Social policy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4b381b7f6454cefcb9"
+  },
+  "name": "Social psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4b381b7f6454cefcba"
+  },
+  "name": "Social sciences",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4b381b7f6454cefcbb"
+  },
+  "name": "Social stratification",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4b381b7f6454cefcbc"
+  },
+  "name": "Social theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4b381b7f6454cefcbd"
+  },
+  "name": "Social transformation",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4b381b7f6454cefcbe"
+  },
+  "name": "Socialist economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4b381b7f6454cefcbf"
+  },
+  "name": "Sociobiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4b381b7f6454cefcc0"
+  },
+  "name": "Sociocybernetics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4b381b7f6454cefcc1"
+  },
+  "name": "Socioeconomics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4b381b7f6454cefcc2"
+  },
+  "name": "Sociolinguistics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4b381b7f6454cefcc3"
+  },
+  "name": "Sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4b381b7f6454cefcc4"
+  },
+  "name": "Sociology in Poland",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4b381b7f6454cefcc5"
+  },
+  "name": "Sociology of aging",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4c381b7f6454cefcc6"
+  },
+  "name": "Sociology of agriculture",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4c381b7f6454cefcc7"
+  },
+  "name": "Sociology of art",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4c381b7f6454cefcc8"
+  },
+  "name": "Sociology of autism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4c381b7f6454cefcc9"
+  },
+  "name": "Sociology of childhood",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4c381b7f6454cefcca"
+  },
+  "name": "Sociology of conflict",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4c381b7f6454cefccb"
+  },
+  "name": "Sociology of culture",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4c381b7f6454cefccc"
+  },
+  "name": "Sociology of cyberspace",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4c381b7f6454cefccd"
+  },
+  "name": "Sociology of development",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4c381b7f6454cefcce"
+  },
+  "name": "Sociology of deviance",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4c381b7f6454cefccf"
+  },
+  "name": "Sociology of disaster",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4c381b7f6454cefcd0"
+  },
+  "name": "Sociology of education",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4c381b7f6454cefcd1"
+  },
+  "name": "Sociology of emotions",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4c381b7f6454cefcd2"
+  },
+  "name": "Sociology of fatherhood",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4c381b7f6454cefcd3"
+  },
+  "name": "Sociology of finance",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4c381b7f6454cefcd4"
+  },
+  "name": "Sociology of food",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4c381b7f6454cefcd5"
+  },
+  "name": "Sociology of gender",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4d381b7f6454cefcd6"
+  },
+  "name": "Sociology of generations",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4d381b7f6454cefcd7"
+  },
+  "name": "Sociology of globalization",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4d381b7f6454cefcd8"
+  },
+  "name": "Sociology of government",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4d381b7f6454cefcd9"
+  },
+  "name": "Sociology of health and illness",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4d381b7f6454cefcda"
+  },
+  "name": "Sociology of human consciousness",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4d381b7f6454cefcdb"
+  },
+  "name": "Sociology of immigration",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4d381b7f6454cefcdc"
+  },
+  "name": "Sociology of knowledge",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4d381b7f6454cefcdd"
+  },
+  "name": "Sociology of language",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4d381b7f6454cefcde"
+  },
+  "name": "Sociology of law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4d381b7f6454cefcdf"
+  },
+  "name": "Sociology of leisure",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4d381b7f6454cefce0"
+  },
+  "name": "Sociology of literature",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4d381b7f6454cefce1"
+  },
+  "name": "Sociology of markets",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4d381b7f6454cefce2"
+  },
+  "name": "Sociology of marriage",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4d381b7f6454cefce3"
+  },
+  "name": "Sociology of motherhood",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4d381b7f6454cefce4"
+  },
+  "name": "Sociology of music",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4d381b7f6454cefce5"
+  },
+  "name": "Sociology of natural resources",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4e381b7f6454cefce6"
+  },
+  "name": "Sociology of organizations",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4e381b7f6454cefce7"
+  },
+  "name": "Sociology of peace, war, and social conflict",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4e381b7f6454cefce8"
+  },
+  "name": "Sociology of punishment",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4e381b7f6454cefce9"
+  },
+  "name": "Sociology of race and ethnic relations",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4e381b7f6454cefcea"
+  },
+  "name": "Sociology of religion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4e381b7f6454cefceb"
+  },
+  "name": "Sociology of risk",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4e381b7f6454cefcec"
+  },
+  "name": "Sociology of science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4e381b7f6454cefced"
+  },
+  "name": "Sociology of scientific knowledge",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4e381b7f6454cefcee"
+  },
+  "name": "Sociology of social change",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4e381b7f6454cefcef"
+  },
+  "name": "Sociology of social movements",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4e381b7f6454cefcf0"
+  },
+  "name": "Sociology of space",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4e381b7f6454cefcf1"
+  },
+  "name": "Sociology of sport",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4e381b7f6454cefcf2"
+  },
+  "name": "Sociology of technology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4e381b7f6454cefcf3"
+  },
+  "name": "Sociology of terrorism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4e381b7f6454cefcf4"
+  },
+  "name": "Sociology of the Internet",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4e381b7f6454cefcf5"
+  },
+  "name": "Sociology of the body",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4e381b7f6454cefcf6"
+  },
+  "name": "Sociology of the family",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4f381b7f6454cefcf7"
+  },
+  "name": "Sociology of the history of science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4f381b7f6454cefcf8"
+  },
+  "name": "Sociology of work",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4f381b7f6454cefcf9"
+  },
+  "name": "Sociomusicology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4f381b7f6454cefcfa"
+  },
+  "name": "Sociotechnical systems theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4f381b7f6454cefcfb"
+  },
+  "name": "Software engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4f381b7f6454cefcfc"
+  },
+  "name": "Solid mechanics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4f381b7f6454cefcfd"
+  },
+  "name": "Solid state physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4f381b7f6454cefcfe"
+  },
+  "name": "Solid-state chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4f381b7f6454cefcff"
+  },
+  "name": "Sonochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4f381b7f6454cefd00"
+  },
+  "name": "Sound and music computing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4f381b7f6454cefd01"
+  },
+  "name": "Southeast Asian studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4f381b7f6454cefd02"
+  },
+  "name": "Space sciences",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4f381b7f6454cefd03"
+  },
+  "name": "Speech-language pathology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4f381b7f6454cefd04"
+  },
+  "name": "Sport psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4f381b7f6454cefd05"
+  },
+  "name": "Sports medicine",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed4f381b7f6454cefd06"
+  },
+  "name": "Stage design",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed50381b7f6454cefd07"
+  },
+  "name": "Star formation",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed50381b7f6454cefd08"
+  },
+  "name": "Statistical mechanics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed50381b7f6454cefd09"
+  },
+  "name": "Statistics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed50381b7f6454cefd0a"
+  },
+  "name": "Stellar astrophysics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed50381b7f6454cefd0b"
+  },
+  "name": "Stellar evolution",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed50381b7f6454cefd0c"
+  },
+  "name": "Stellar nucleosynthesis",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed50381b7f6454cefd0d"
+  },
+  "name": "Stochastic process",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed50381b7f6454cefd0e"
+  },
+  "name": "Stochastic processes",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed50381b7f6454cefd0f"
+  },
+  "name": "Strategic geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed50381b7f6454cefd10"
+  },
+  "name": "String theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed50381b7f6454cefd11"
+  },
+  "name": "Strings, harp, oud, and guitar",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed50381b7f6454cefd12"
+  },
+  "name": "Structural Biology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed50381b7f6454cefd13"
+  },
+  "name": "Structural engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed50381b7f6454cefd14"
+  },
+  "name": "Structural mechanics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed50381b7f6454cefd15"
+  },
+  "name": "Structural sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed50381b7f6454cefd16"
+  },
+  "name": "Studio art",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed50381b7f6454cefd17"
+  },
+  "name": "Substantive law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed51381b7f6454cefd18"
+  },
+  "name": "Support vector machine",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed51381b7f6454cefd19"
+  },
+  "name": "Supramolecular chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed51381b7f6454cefd1a"
+  },
+  "name": "Supranational law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed51381b7f6454cefd1b"
+  },
+  "name": "Surface chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed51381b7f6454cefd1c"
+  },
+  "name": "Surgery",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed51381b7f6454cefd1d"
+  },
+  "name": "Surgical pathology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed51381b7f6454cefd1e"
+  },
+  "name": "Surveying",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed51381b7f6454cefd1f"
+  },
+  "name": "Symbolic interactionism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed51381b7f6454cefd20"
+  },
+  "name": "Syntax",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed51381b7f6454cefd21"
+  },
+  "name": "Synthetic biology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed51381b7f6454cefd22"
+  },
+  "name": "Synthetic chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed51381b7f6454cefd23"
+  },
+  "name": "System dynamics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed51381b7f6454cefd24"
+  },
+  "name": "Systematic musicology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed51381b7f6454cefd25"
+  },
+  "name": "Systematics (Taxonomy)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed51381b7f6454cefd26"
+  },
+  "name": "Systemic therapy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed51381b7f6454cefd27"
+  },
+  "name": "Systems analysis",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed52381b7f6454cefd28"
+  },
+  "name": "Systems biology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed52381b7f6454cefd29"
+  },
+  "name": "Systems ecology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed52381b7f6454cefd2a"
+  },
+  "name": "Systems engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed52381b7f6454cefd2b"
+  },
+  "name": "Systems immunology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed52381b7f6454cefd2c"
+  },
+  "name": "Systems neuroscience",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed52381b7f6454cefd2d"
+  },
+  "name": "Systems philosophy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed52381b7f6454cefd2e"
+  },
+  "name": "Systems psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed52381b7f6454cefd2f"
+  },
+  "name": "Systems science",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed52381b7f6454cefd30"
+  },
+  "name": "Systems theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed52381b7f6454cefd31"
+  },
+  "name": "Systems theory in anthropology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed52381b7f6454cefd32"
+  },
+  "name": "Tax law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed52381b7f6454cefd33"
+  },
+  "name": "Technical drawing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed52381b7f6454cefd34"
+  },
+  "name": "Technological history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed52381b7f6454cefd35"
+  },
+  "name": "Telecommunications engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed52381b7f6454cefd36"
+  },
+  "name": "Teleology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed52381b7f6454cefd37"
+  },
+  "name": "Television",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed53381b7f6454cefd38"
+  },
+  "name": "Television studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed53381b7f6454cefd39"
+  },
+  "name": "Teratology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed53381b7f6454cefd3a"
+  },
+  "name": "Textile design",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed53381b7f6454cefd3b"
+  },
+  "name": "Thai studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed53381b7f6454cefd3c"
+  },
+  "name": "Theatre",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed53381b7f6454cefd3d"
+  },
+  "name": "Theism and Atheism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed53381b7f6454cefd3e"
+  },
+  "name": "Theology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed53381b7f6454cefd3f"
+  },
+  "name": "Theoretical chemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed53381b7f6454cefd40"
+  },
+  "name": "Theoretical physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed53381b7f6454cefd41"
+  },
+  "name": "Theoretical sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed53381b7f6454cefd42"
+  },
+  "name": "Theory of computation",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed53381b7f6454cefd43"
+  },
+  "name": "Thermal physics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed53381b7f6454cefd44"
+  },
+  "name": "Thermochemistry",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed54381b7f6454cefd45"
+  },
+  "name": "Thermodynamics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed54381b7f6454cefd46"
+  },
+  "name": "Time geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed54381b7f6454cefd47"
+  },
+  "name": "Topos theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed54381b7f6454cefd48"
+  },
+  "name": "Tort law",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed54381b7f6454cefd49"
+  },
+  "name": "Tourism geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed54381b7f6454cefd4a"
+  },
+  "name": "Toy and amusement design",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed54381b7f6454cefd4b"
+  },
+  "name": "Traditional medicine",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed54381b7f6454cefd4c"
+  },
+  "name": "Traffic psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed54381b7f6454cefd4d"
+  },
+  "name": "Transpersonal psychology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed54381b7f6454cefd4e"
+  },
+  "name": "Transport economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed54381b7f6454cefd4f"
+  },
+  "name": "Transport geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed54381b7f6454cefd50"
+  },
+  "name": "Transport phenomena",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed54381b7f6454cefd51"
+  },
+  "name": "Transportation engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed54381b7f6454cefd52"
+  },
+  "name": "Trauma surgery",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed54381b7f6454cefd53"
+  },
+  "name": "Traumatology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed54381b7f6454cefd54"
+  },
+  "name": "Type design",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed55381b7f6454cefd55"
+  },
+  "name": "Type theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed55381b7f6454cefd56"
+  },
+  "name": "Typography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed55381b7f6454cefd57"
+  },
+  "name": "UV astronomy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed55381b7f6454cefd58"
+  },
+  "name": "Ubiquitous computing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed55381b7f6454cefd59"
+  },
+  "name": "Universal algebra",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed55381b7f6454cefd5a"
+  },
+  "name": "Urban geography",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed55381b7f6454cefd5b"
+  },
+  "name": "Urban planning (urban design)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed55381b7f6454cefd5c"
+  },
+  "name": "Urban studies or Urban sociology/Rural sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed55381b7f6454cefd5d"
+  },
+  "name": "Urology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed55381b7f6454cefd5e"
+  },
+  "name": "Usage",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed55381b7f6454cefd5f"
+  },
+  "name": "User experience design",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed55381b7f6454cefd60"
+  },
+  "name": "User experience evaluation",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed55381b7f6454cefd61"
+  },
+  "name": "User interface design",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed55381b7f6454cefd62"
+  },
+  "name": "Utopian studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed55381b7f6454cefd63"
+  },
+  "name": "VLSI design",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed56381b7f6454cefd64"
+  },
+  "name": "Vehicle engineering",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed56381b7f6454cefd65"
+  },
+  "name": "Ventriloquism",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed56381b7f6454cefd66"
+  },
+  "name": "Veterinary medicine",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed56381b7f6454cefd67"
+  },
+  "name": "Victimology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed56381b7f6454cefd68"
+  },
+  "name": "Virology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed56381b7f6454cefd69"
+  },
+  "name": "Virtue ethics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed56381b7f6454cefd6a"
+  },
+  "name": "Visual arts",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed56381b7f6454cefd6b"
+  },
+  "name": "Visual communication",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed56381b7f6454cefd6c"
+  },
+  "name": "Visual sociology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed56381b7f6454cefd6d"
+  },
+  "name": "Welfare economics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed56381b7f6454cefd6e"
+  },
+  "name": "Whiteness studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed56381b7f6454cefd6f"
+  },
+  "name": "Wind ensemble conducting",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed56381b7f6454cefd70"
+  },
+  "name": "Wireless computing (Mobile computing)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed56381b7f6454cefd71"
+  },
+  "name": "Women's studies",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed56381b7f6454cefd72"
+  },
+  "name": "Woodwinds, brass, and percussion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed56381b7f6454cefd73"
+  },
+  "name": "Word usage",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed56381b7f6454cefd74"
+  },
+  "name": "World history",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed57381b7f6454cefd75"
+  },
+  "name": "World literature",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed57381b7f6454cefd76"
+  },
+  "name": "World-systems theory",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed57381b7f6454cefd77"
+  },
+  "name": "X-ray astronomy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed57381b7f6454cefd78"
+  },
+  "name": "Xenobiology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed57381b7f6454cefd79"
+  },
+  "name": "Zoology",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed57381b7f6454cefd7a"
+  },
+  "name": "Zoosemiotics",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed57381b7f6454cefd7b"
+  },
+  "name": "Zootomy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f68ed57381b7f6454cefd7c"
+  },
+  "name": "p-adic analysis",
+  "__v": 0
+}]

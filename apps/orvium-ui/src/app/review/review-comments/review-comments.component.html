@@ -1,0 +1,35 @@
+<div class="flex flex-col gap-4">
+  @if (review.actions.includes('createComment')) {
+    <ngx-editor-menu dropdownPlacement="bottom" [editor]="editor" [toolbar]="toolbar" />
+    <div class="flex gap-2 items-center">
+      <ngx-editor
+        class="flex-1 overflow-auto"
+        [editor]="editor"
+        [disabled]="false"
+        [placeholder]="'Type here...'"
+        [formControl]="message"
+        (keydown.control.enter)="publishComment()"
+      />
+      <button
+        mat-flat-button
+        color="primary"
+        type="button"
+        [disabled]="message.invalid"
+        (click)="publishComment()"
+      >
+        Send
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+  }
+
+  <div class="grid grid-cols-1 gap-4">
+    @for (comment of comments | async; track comment._id) {
+      <app-comment-card [comment]="comment" />
+    } @empty {
+      <div class="flex justify-center items-center">
+        <p>No comments yet</p>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,27 @@
+stages:
+  - build
+  - publish
+
+default:
+  image: node:16.20-buster
+
+build:
+  stage: build
+  script:
+    - npm config set -- "//gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken" ${CI_JOB_TOKEN}
+    - cd typechain-types
+    - npm i
+    - npm run build:lib
+  except:
+    - master
+
+publish_package:
+  stage: publish
+  script:
+    - npm config set -- "//gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken" ${CI_JOB_TOKEN}
+    - cd typechain-types
+    - npm i
+    - npm run build:lib
+    - npm run publish && echo "Successfully published ${NPM_PACKAGE_VERSION} of ${NPM_PACKAGE_NAME} to GitLab NPM registry ${CI_PROJECT_URL}/-/packages"
+  only:
+    - master

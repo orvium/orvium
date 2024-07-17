@@ -1,0 +1,121 @@
+<div
+  class="flex flex-col justify-end justify-items-end md:grid md:grid-cols-2 md:gap-x-8 md:w-8/12 mx-auto"
+>
+  <div>
+    <h1 class="mat-headline-2 primary">Upload a publication</h1>
+    <h1 class="mat-headline-6 grey"><strong>Upload now your first paper</strong></h1>
+    <h1 class="mat-subtitle-1 grey"
+      >Check our communities, and select a <b>journal or a conference</b> to publish your first
+      article and collaborate with other researchers in Open Access, enjoying all our benefits.</h1
+    >
+    <div class="flex justify-center md:block">
+      <button
+        class="my-3"
+        mat-raised-button
+        color="primary"
+        type="button"
+        [routerLink]="['/communities']"
+      >
+        <mat-icon>bubble_chart</mat-icon>
+        Explore Communities
+      </button>
+    </div>
+  </div>
+  <div class="w-full md:w-4/6">
+    <!-- completed -->
+    <div class="p-3 flex flex-row justify-start">
+      <div class="relative">
+        <div
+          class="bg-blue-500 border-3 border-solid border-blue-400 w-7 h-7 inline-block rounded-full visible border-blue-500"
+        >
+        </div>
+        <div
+          class="top-6 left-4 h-full absolute border-0 border-l-4 border-solid border-blue-400 border-blue-500"
+        >
+        </div>
+      </div>
+      <div>
+        <h1 class="mat-headline-5 primary ml-2">Draft</h1>
+        <h1 class="mat-subtitle-1 grey"
+          >Upload your paper, add disciplines, keywords, authors and citations.
+          <strong>Preview</strong> your work and validate it before sending it to review.
+        </h1>
+      </div>
+    </div>
+    <!-- active -->
+    <div class="p-3 flex flex-row justify-start active">
+      <div class="relative">
+        <div
+          class="bg-blue-400 border-3 border-solid border-blue-400 w-7 h-7 inline-block rounded-full"
+        ></div>
+        <div
+          class="top-6 left-4 h-full absolute border-0 border-l-4 border-solid border-blue-400"
+        ></div>
+      </div>
+      <div>
+        <h1 class="mat-headline-5 primary ml-2">Review</h1>
+        <h1 class="mat-subtitle-1 grey"
+          >Send your document to review, <strong>contact</strong> reviewers and get insights from
+          the review reports.</h1
+        >
+      </div>
+    </div>
+    <div class="p-3 flex flex-row justify-start active">
+      <div class="relative">
+        <div
+          class="bg-blue-400 border-3 border-solid border-blue-400 w-7 h-7 inline-block rounded-full"
+        ></div>
+        <div
+          class="top-6 left-4 h-full absolute border-0 border-l-4 border-solid border-blue-400"
+        ></div>
+      </div>
+      <div>
+        <h1 class="mat-headline-5 primary ml-2">Published</h1>
+        <h1 class="mat-subtitle-1 grey"
+          >Publish your article, <strong>share</strong> it within your network and recommend
+          reviewers.</h1
+        >
+      </div>
+    </div>
+    <div class="p-3 flex flex-row justify-start active">
+      <div class="relative">
+        <div
+          class="bg-blue-400 border-3 border-solid border-blue-400 w-7 h-7 inline-block rounded-full"
+        ></div>
+      </div>
+      <div class="content ml-2">
+        <h1 class="mat-headline-5 primary">Analytics</h1>
+        <h1 class="mat-subtitle-1 grey"
+          >Instant insights on your article performance, <strong>measure</strong> your progress,
+          etc</h1
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <div class="flex flex-col items-center justify-center text-center mb-1">
+    <h1 class="mat-headline-3 primary m-0 mb-1"><strong>Powerful publishing</strong></h1>
+    <h1 class="mat-headline-6 grey mb-1"
+      >Manage your publishing workflow without technical knowledge and give your
+      <br />
+      journal editors and readers a superior user experience.
+    </h1>
+  </div>
+  <div>
+    <div
+      class="flex flex-col items-center md:justify-around md:flex-row md:items-start md:mb-8 md:[&>*]:w-96"
+    >
+      @for (benefit of publishingBenefits.slice(0, 3); track benefit) {
+        <app-benefit [benefit]="benefit" />
+      }
+    </div>
+    <div
+      class="flex flex-col items-center md:justify-around md:flex-row md:items-start md:mb-8 md:[&>*]:w-96"
+    >
+      @for (benefit of publishingBenefits.slice(3, 6); track benefit) {
+        <app-benefit [benefit]="benefit" />
+      }
+    </div>
+  </div>
+</div>

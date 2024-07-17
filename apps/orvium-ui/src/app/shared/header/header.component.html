@@ -1,0 +1,47 @@
+<div>
+  <img
+    alt="Banner image"
+    class="w-full banner rounded-xl object-cover"
+    [src]="bannerURL || defaultBannerURL"
+  />
+  @if (twitterURL || facebookURL || linkedinURl || orcidURL) {
+    <div class="flex justify-end -mt-8 mr-4">
+      @if (twitterURL) {
+        <a target="_blank" [href]="twitterURL">
+          <fa-icon
+            class="text-xs flex justify-center items-center rounded-full text-white bg-blue-500 ml-4 h-8 w-8 cursor-pointer"
+            size="lg"
+            [icon]="['fab', 'x-twitter']"
+          />
+        </a>
+      }
+      @if (facebookURL) {
+        <a target="_blank" [href]="facebookURL">
+          <fa-icon
+            class="text-xs flex justify-center items-center rounded-full text-white bg-blue-500 ml-4 h-8 w-8 cursor-pointer"
+            size="lg"
+            [icon]="['fab', 'facebook']"
+          />
+        </a>
+      }
+      @if (linkedinURl) {
+        <a target="_blank" [href]="linkedinURl">
+          <fa-icon
+            class="text-xs flex justify-center items-center rounded-full text-white bg-blue-500 ml-4 h-8 w-8 cursor-pointer"
+            size="lg"
+            [icon]="['fab', 'linkedin']"
+          />
+        </a>
+      }
+      @if (orcidURL) {
+        <a target="_blank" [href]="orcidURL">
+          <fa-icon
+            class="text-xs flex justify-center items-center rounded-full text-white bg-blue-500 ml-4 h-8 w-8 cursor-pointer"
+            size="lg"
+            [icon]="['fab', 'orcid']"
+          />
+        </a>
+      }
+    </div>
+  }
+</div>

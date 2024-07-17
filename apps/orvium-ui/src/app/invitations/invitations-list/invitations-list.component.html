@@ -1,0 +1,60 @@
+@for (invitation of this.invitations; track invitation; let index = $index) {
+  <app-list-wrapper>
+    <a
+      data-test="invitation-view"
+      [routerLink]="['/deposits', invitation.data.depositId, 'view']"
+      >{{ invitation.data.depositTitle }}</a
+    >
+    <div class="flex items-center gap-4 grey">
+      <span
+        >Submitted: <b>{{ invitation.createdOn | date: 'dd/MM/yyyy' }}</b></span
+      >
+      <span class="flex items-center ml-4"
+        >Requested by:
+        <app-contributor-line [user]="invitation.senderPopulated" />
+      </span>
+      @if (invitation.dateLimit) {
+        <span
+          >Review deadline: <b>{{ invitation.dateLimit | date: 'dd/MM/yyyy' }}</b></span
+        >
+      }
+    </div>
+    <div list-end-section class="flex flex-1 flex-col items-end gap-1">
+      <mat-chip-set>
+        <mat-chip class="orv-chip-{{ invitation.status.replace(' ', '-') }}" [disableRipple]="true">
+          {{ invitation.status | titlecase }}
+        </mat-chip>
+        <mat-chip class="orv-chip-yellow" [disableRipple]="true">
+          {{ invitation.inviteType | titlecase }}
+        </mat-chip>
+      </mat-chip-set>
+      <div class="flex gap-1 items-center">
+        @if (invitation.status === InviteStatus.Pending) {
+          <button type="button" color="primary" mat-raised-button (click)="acceptInvite(invitation)"
+            >Accept Invitation</button
+          >
+        }
+        @if (invitation.status === InviteStatus.Pending) {
+          <button type="button" mat-stroked-button (click)="rejectInvite(invitation)"
+            >Reject Invitation</button
+          >
+        }
+        @if (invitation.status === InviteStatus.Accepted && !invitation.data.reviewId) {
+          <button mat-raised-button type="button" color="primary" (click)="createReview(invitation)"
+            >Create Review</button
+          >
+        }
+        @if (invitation.data.reviewId) {
+          <button
+            mat-raised-button
+            type="button"
+            color="primary"
+            routerLink="../../reviews/{{ invitation.data.reviewId }}/view"
+            >View</button
+          >
+        }
+      </div>
+    </div>
+  </app-list-wrapper>
+  <mat-divider />
+}

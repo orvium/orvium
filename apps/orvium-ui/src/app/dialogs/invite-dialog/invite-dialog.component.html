@@ -1,0 +1,49 @@
+<mat-card mat-dialog-content role="main" class="basis-0 grow-1" [formGroup]="sendEmailFormGroup">
+  <mat-card-title>Invite your colleagues</mat-card-title>
+  <mat-card-subtitle
+    >You can add multiple email addresses. You can separate the emails by using "enter", "comma" and
+    "semicolon".
+  </mat-card-subtitle>
+  <mat-card-content class="mt-4">
+    <div class="flex flex-col justify-center">
+      <mat-form-field appearance="outline">
+        <mat-label>Emails</mat-label>
+        <app-input-with-chips ngDefaultControl [formControl]="sendEmailFormGroup.controls.emails" />
+        @if (sendEmailFormGroup.controls.emails.errors?.['required']) {
+          <mat-error>There are no emails to send the invite</mat-error>
+        }
+        @if (sendEmailFormGroup.controls.emails.errors?.['email']) {
+          <mat-error
+            >One or more of the inserted emails do not have the proper email format
+          </mat-error>
+        }
+      </mat-form-field>
+      <p>You can also share the following link:</p>
+      <mat-form-field>
+        <mat-label>Invite link</mat-label>
+        <input #inputInviteLink matInput readonly value="{{ inviteLink }}" />
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Copy"
+          type="button"
+          [appCopyToClipboard]="inputInviteLink.value"
+        >
+          <mat-icon>content_copy</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="flex gap-1 items-center justify-end">
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      [disabled]="!sendEmailFormGroup.valid"
+      (click)="send()"
+    >
+      Send
+    </button>
+    <button mat-button color="primary" type="button" (click)="onNoClick()">Close</button>
+  </mat-card-actions>
+</mat-card>

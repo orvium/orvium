@@ -1,0 +1,73 @@
+<div
+  class="flex items-center flex-wrap md:flex-nowrap justify-center cursor-pointer py-2 px-4 gap-4 rounded hover:bg-[#85919f] hover:bg-opacity-10"
+  tabindex="0"
+  (click)="openLink()"
+  (keyup)="openLink()"
+>
+  <div aria-label="File icon with details" class="grow flex gap-4 items-center">
+    <fa-icon
+      class="primary text-2xl"
+      size="lg"
+      [icon]="
+        file.contentType.includes('word')
+          ? 'file-word'
+          : file.contentType.includes('pdf')
+            ? 'file-pdf'
+            : file.contentType.includes('csv')
+              ? 'file-csv'
+              : file.contentType.includes('image')
+                ? 'file-image'
+                : file.contentType.includes('x-tex')
+                  ? 'file-code'
+                  : 'file'
+      "
+    />
+    <div aria-label="File details">
+      <div class="mb-1">
+        <div class="mat-subtitle-2 line-clamp-1">{{ file.description }}</div>
+        <div class="mat-small grey">{{ file.contentLength / 1024 / 1024 | number }}MB</div>
+      </div>
+      @if (file.tags.length > 0) {
+        <mat-chip-set>
+          @for (tag of file.tags; track tag) {
+            <mat-chip class="orv-chip-primary" [disableRipple]="true">{{ tag }}</mat-chip>
+          }
+        </mat-chip-set>
+      }
+    </div>
+  </div>
+  <div class="flex gap-3">
+    @if (canDownload) {
+      <a
+        aria-label="Download file"
+        download
+        mat-stroked-button
+        matTooltip="Download file"
+        target="_blank"
+        href="{{ file.url }}"
+        (click)="$event.stopPropagation()"
+      >
+        <mat-icon>save_alt</mat-icon>
+        Download
+      </a>
+    }
+    @if (file.url && canUseOverleaf) {
+      <a
+        aria-label="Open in overleaf"
+        class="table-button"
+        mat-stroked-button
+        matTooltip="Open in Overleaf"
+        target="_blank"
+        href="https://www.overleaf.com/docs?snip_uri={{ file.url | encodeURIComponent }}"
+        (click)="$event.stopPropagation()"
+      >
+        <fa-icon icon="leaf" size="lg" />
+      </a>
+    }
+    @if (canDelete) {
+      <button mat-stroked-button type="button" (click)="deleteFile($event, file)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    }
+  </div>
+</div>

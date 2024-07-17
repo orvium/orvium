@@ -1,0 +1,9 @@
+<h1 class="mat-headline-2 primary">Payment Card demo</h1>
+<h2>Selector: <code>&lt;app-payment-card></code></h2>
+<h2>Input: <code>Payment: PaymentDTO</code></h2>
+
+<div class="flex flex-col gap-4">
+  @for (payment of payments; track payment) {
+    <app-payment-card [payment]="payment" />
+  }
+</div>

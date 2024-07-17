@@ -1,0 +1,42 @@
+<mat-chip-option
+  class="ml-1 cursor-pointer"
+  [selectable]="false"
+  (click)="openVisibilityDialog(visibilityOptions)"
+>
+  <div class="flex items-center gap-1">
+    <mat-icon inline>{{ identityIcon }}</mat-icon>
+    <mat-icon inline>{{ reviewIcon }}</mat-icon>
+  </div>
+</mat-chip-option>
+<ng-template #visibilityOptions>
+  <h1 mat-dialog-title i18n>Visibility options</h1>
+  <div mat-dialog-content>
+    <div
+      class="flex gap-1 items-center"
+      [ngClass]="{ primary: identityIcon === 'lock_open_right' }"
+    >
+      <mat-icon>lock_open_right</mat-icon>
+      <p i18n>Everyone can see the reviewer identity</p>
+    </div>
+    <div class="flex gap-1 items-center" [ngClass]="{ primary: identityIcon === 'lock_person' }">
+      <mat-icon>lock_person</mat-icon>
+      <p i18n>The author can see the reviewer identity</p>
+    </div>
+    <div class="flex gap-1 items-center" [ngClass]="{ primary: identityIcon === 'lock' }">
+      <mat-icon>lock</mat-icon>
+      <p i18n>Only editors can see the reviewer identity</p>
+    </div>
+    <div class="flex gap-1 items-center" [ngClass]="{ primary: reviewIcon === 'visibility' }">
+      <mat-icon>visibility</mat-icon>
+      <p i18n>Everyone can see the review and the report</p>
+    </div>
+    <div class="flex gap-1 items-center" [ngClass]="{ primary: reviewIcon === 'visibility_lock' }">
+      <mat-icon>visibility_lock</mat-icon>
+      <p i18n>The author can see the review and the report</p>
+    </div>
+    <div class="flex gap-1 items-center" [ngClass]="{ primary: reviewIcon === 'visibility_off' }">
+      <mat-icon>visibility_off</mat-icon>
+      <p i18n>Only editors can see the review and the report</p>
+    </div>
+  </div>
+</ng-template>

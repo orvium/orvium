@@ -1,0 +1,25 @@
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.disabled {
+  opacity: 50%;
+  pointer-events: none;
+}
+
+.mat-chip.mat-standard-chip.mat-chip-disabled {
+  opacity: inherit;
+}
+
+.mat-input-element:disabled {
+  color: inherit;
+}
+
+.mat-hint {
+  font-size: 1.3rem;
+}

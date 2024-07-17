@@ -1,0 +1,40 @@
+@if (!deposit) {
+  <app-access-denied />
+}
+@if (deposit) {
+  <div
+    class="w-full grid grid-cols-1 justify-start justify-items-start md:grid-cols-[auto_40%] my-10 mr-0 ml-10"
+  >
+    <div class="w-full max-w-5xl mr-2">
+      <h1 class="mat-headline-2 primary"><strong>Congratulations!</strong></h1>
+      @if (!deposit.communityPopulated) {
+        <h1 class="mat-headline-6 grey">Your article has been submitted to Orvium.</h1>
+      }
+      @if (deposit.communityPopulated) {
+        <h1 class="mat-headline-6 grey"
+          >Your article has been submitted to
+          <strong
+            ><span
+              class="primary cursor-pointer"
+              [routerLink]="['/', 'communities', deposit.communityPopulated._id, 'view']"
+              >{{ deposit.communityPopulated.name }}</span
+            ></strong
+          >.
+        </h1>
+      }
+      <h1 class="mat-headline-4 primary mt-8">What is next?</h1>
+      <h1 class="mat-headline-6 grey"><strong>Before making your article public</strong></h1>
+      <h1 class="mat-subtitle-1 grey"
+        >Your article is now in <span class="primary">Pending Approval</span>. The community editors
+        or moderators will check the content, format, and metadata to ensure the correct
+        accessibility and reading of your article.
+      </h1>
+      <div align="center">
+        <button mat-raised-button color="primary" type="button" class="my-2" [routerLink]="['/']"
+          >BROWSE ARTICLES</button
+        >
+      </div>
+    </div>
+    <app-deposit-status-info [status]="deposit.status" />
+  </div>
+}

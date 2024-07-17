@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+
+  .animate-form-field-width {
+    transition: width 0.4s ease-in-out;
+    width: 10rem;
+  }
+
+  .form-field-w-full {
+    width: 99%;
+  }
+
+  .mat-mdc-form-field:focus-within,
+  .mat-mdc-form-field:hover {
+    width: 99%;
+  }
+}

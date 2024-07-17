@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.crossref.org/schema/4.4.2 http://www.crossref.org/schema/crossref4.4.2.xsd" xmlns="http://www.crossref.org/schema/4.4.2" version="4.4.2">
+    <head>
+        <doi_batch_id>
+            1683891519085
+        </doi_batch_id>
+        <timestamp>
+            1683891519085
+        </timestamp>
+        <depositor>
+            <depositor_name>
+                Orvium
+            </depositor_name>
+            <email_address>
+                support@orvium.io
+            </email_address>
+        </depositor>
+        <registrant>
+            Orvium
+        </registrant>
+    </head>
+    <body>
+        <peer_review recommendation="major-revision">
+            <contributors>
+                <anonymous contributor_role="reviewer" sequence="first">
+                </anonymous>
+            </contributors>
+            <titles>
+                <title>
+                    Review: Big data analytics as a service infrastructure: challenges, desired properties and solutions (R1/RC1)
+                </title>
+            </titles>
+            <review_date>
+                <month>
+                    5
+                </month>
+                <day>
+                    14
+                </day>
+                <year>
+                    2023
+                </year>
+            </review_date>
+            <program xmlns="http://www.crossref.org/relations.xsd">
+                <related_item>
+                    <description>
+                        Big data analytics as a service infrastructure: challenges, desired properties and solutions
+                    </description>
+                    <inter_work_relation relationship-type="isReviewOf" identifier-type="doi">
+                        doiexample
+                    </inter_work_relation>
+                </related_item>
+            </program>
+            <doi_data>
+                <doi>
+                    10.51875/645e253f47d02c737a1fd452
+                </doi>
+                <resource>
+                    http://localhost:4200/reviews/645e253f47d02c737a1fd452/view
+                </resource>
+            </doi_data>
+        </peer_review>
+    </body>
+</doi_batch>

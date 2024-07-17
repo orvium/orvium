@@ -1,0 +1,18 @@
+<mat-vertical-stepper #stepper [linear]="false">
+  <mat-step [completed]="completedSteps.draft">
+    <ng-template matStepLabel i18n>Draft</ng-template>
+    <p class="mat-body-1" i18n
+      >Upload your <strong>review</strong>. Preview your work and validate it before sending it.</p
+    >
+  </mat-step>
+  <mat-step [completed]="completedSteps.pending">
+    <ng-template matStepLabel i18n>Pending Approval</ng-template>
+    <p class="mat-body-1" i18n>We will check the content, format and metadata of your review.</p>
+  </mat-step>
+  <mat-step [completed]="completedSteps.published">
+    <ng-template matStepLabel i18n>Published</ng-template>
+    <p class="mat-body-1" i18n
+      >Now your review is published and will provide with helpful <strong>feedback</strong>.</p
+    >
+  </mat-step>
+</mat-vertical-stepper>

@@ -1,0 +1,268 @@
+@if (!communityActions.moderate && !moderationPanelLoading) {
+  <app-access-denied />
+}
+<div [appOverlayLoading]="moderationPanelLoading"></div>
+<app-info-toolbar>
+  @if (this.community) {
+    <app-description-line
+      [communityId]="this.community._id"
+      [avatar]="this.community.logoURL"
+      [title]="this.community.name"
+    />
+  }
+  <div app-info-toolbar-buttons class="flex gap-1 items-center">
+    <app-buttons-menu
+      [buttonsAlwaysInMenu]="buttonsAlwaysInMenu"
+      [buttonsInToolbar]="buttonsInToolbar"
+      [isMobile]="isMobile"
+    />
+  </div>
+</app-info-toolbar>
+@if (community && communityActions.moderate) {
+  <div>
+    <h1 class="mb-2 mat-headline-4 primary" i18n>Moderator panel</h1>
+    <h4 class="mat-subtitle-1" i18n>Manage {{ community.name }} community publications.</h4>
+    <p class="mb-4" i18n>
+      <mat-icon class="align-bottom" color="primary">help</mat-icon>
+      Click <a href="https://help.orvium.io/community/moderate/" target="_blank">here</a>
+      for useful tips about moderating your community.
+    </p>
+    <app-alert [icon]="'play_circle'">
+      <span
+        class="decorate-as-link"
+        tabindex="0"
+        (click)="openVideo()"
+        (keydown)="$event.key !== 'Tab' ? openVideo() : ''"
+        i18n
+      >
+        If you want to know more, please watch our explainer video here.</span
+      >
+    </app-alert>
+    <div class="grid grid-cols-5 gap-4 my-4">
+      <app-metrics
+        class="cursor-pointer hover:opacity-70"
+        [number]="counterPendingApproval"
+        [icon]="'assignment'"
+        [description]="'Publications Pending Approval'"
+        [tooltipText]="'Number of publications sent by authors waiting for an editorial decision.'"
+        (click)="setFilterPublicationsPendingApproval()"
+      />
+      <app-metrics
+        class="cursor-pointer hover:opacity-70"
+        [number]="reviewsPendingApprovalNumber"
+        [icon]="'thumbs_up_down'"
+        [description]="'Reviews Pending Approval'"
+        [tooltipText]="'Number of reviews sent by reviewers waiting for an editorial decision.'"
+        (click)="setFilterReviewsPendingApproval()"
+      />
+      <app-metrics
+        class="cursor-pointer hover:opacity-70"
+        [number]="depositsWithoutInvitations.length"
+        [icon]="'mail'"
+        [description]="'Publications Without Invitations'"
+        [tooltipText]="
+          'Number of publications in Pending Approval or Preprint with no invitation to review.'
+        "
+        (click)="setFilterPublicationsWithOutInvitations()"
+      />
+      <app-metrics
+        class="cursor-pointer hover:opacity-70"
+        [number]="invitesPendingResponse"
+        [icon]="'insert_invitation'"
+        [description]="'Review Invitations Pending'"
+        [tooltipText]="
+          'Number of invitations to review still not accepted or rejected by the reviewer.'
+        "
+        (click)="setFilterReviewsInvitationsPending()"
+      />
+      <app-metrics
+        class="cursor-pointer hover:opacity-70"
+        [number]="invitesAboutToExpire"
+        [icon]="'schedule'"
+        [description]="'Invitations about to expire'"
+        [tooltipText]="'Number of review invitations expiring in the next two weeks.'"
+        (click)="setFilterReviewsInvitationsAboutToExpire()"
+      />
+    </div>
+    <mat-tab-group (selectedTabChange)="onTabChanged($event)">
+      <mat-tab label="Publications">
+        <ng-template mat-tab-label>
+          <mat-icon class="mr-1">article</mat-icon>
+          <ng-container i18n>Publications</ng-container>
+        </ng-template>
+        <app-search-box
+          #searchboxDeposits
+          [searchInfo]="true"
+          [customPublicationStatus]="[
+            DepositStatus.Draft,
+            DepositStatus.Preprint,
+            DepositStatus.PendingApproval,
+            DepositStatus.Published,
+            DepositStatus.Rejected,
+            DepositStatus.Merged,
+          ]"
+          [customControls]="{
+            query: true,
+            status: true,
+            sort: true,
+            newTrackTimestamp: true,
+            moderator: true,
+            acceptedFor: true,
+          }"
+          [community]="community"
+          (search)="searchDeposits($event)"
+        />
+        <app-moderator-deposit-table
+          #depositsTable
+          [deposits]="deposits"
+          [community]="community"
+          [moderators]="moderators"
+          [appOverlayLoading]="loadDeposits"
+          (accept)="acceptDeposit($event)"
+          (reject)="rejectDeposit($event)"
+          (draft)="draftDeposit($event)"
+          (merge)="mergeDeposit($event)"
+          (publish)="publishDeposit($event)"
+          (pendingApproval)="pendingApproval($event)"
+        />
+        <mat-paginator
+          #paginatorDeposits
+          [pageSizeOptions]="[10, 25]"
+          [length]="depositsCount"
+          (page)="publicationsPageChange($event)"
+        />
+      </mat-tab>
+      <mat-tab label="Reviews">
+        <ng-template mat-tab-label>
+          <mat-icon class="mr-1">thumbs_up_down</mat-icon>
+          <ng-container i18n>Reviews</ng-container>
+        </ng-template>
+        <app-search-box
+          #searchboxReviews
+          [customControls]="{
+            query: true,
+            reviewStatus: true,
+            reviewKind: true,
+            newTrackTimestamp: true,
+          }"
+          [searchInfo]="true"
+          [community]="community"
+          (search)="searchReviews($event)"
+        />
+        <app-review-list2
+          #reviewTable
+          [reviews]="reviews"
+          [appOverlayLoading]="loadReviews"
+          (accept)="publishReview($event)"
+          (draft)="draftReview($event)"
+        />
+        <mat-paginator
+          #paginatorReviews
+          [pageSizeOptions]="[10, 25]"
+          [length]="reviewsCount"
+          (page)="reviewsPageChange($event)"
+        />
+      </mat-tab>
+      <mat-tab label="Invitations">
+        <ng-template mat-tab-label>
+          <mat-icon class="mr-1">insert_invitation</mat-icon>
+          <ng-container i18n>Invitations</ng-container>
+        </ng-template>
+        <app-search-box
+          #searchboxInvites
+          [customControls]="{ query: true, inviteStatus: true }"
+          [community]="community"
+          (search)="searchInvites($event)"
+        />
+        <app-deposit-invitation-list [appOverlayLoading]="loadInvites" [invites]="invites" />
+        <mat-paginator
+          #paginatorInvitations
+          [pageSizeOptions]="[10, 25]"
+          [length]="invitesCount"
+          (page)="invitesPageChange($event)"
+        />
+      </mat-tab>
+      @if (communityActions.update) {
+        <mat-tab label="Moderators">
+          <ng-template mat-tab-label>
+            <mat-icon class="mr-1">badge</mat-icon>
+            <span i18n>Moderators</span>
+          </ng-template>
+          <app-community-moderators
+            [moderators]="moderators"
+            [canUpdateCommunity]="communityActions.update"
+            [communityTracks]="community.newTracks"
+            (addModerator)="addModerator($event)"
+            (deleteModerator)="deleteModerator($event)"
+            (updateModerator)="updateModerator($event)"
+          />
+        </mat-tab>
+      }
+    </mat-tab-group>
+  </div>
+}
+
+<ng-template #buttonsInToolbar>
+  @if (
+    depositsTable && depositsTable.selector.selected.length > 0 && selectedTab === 'Publications'
+  ) {
+    <button mat-flat-button color="primary" type="button" (click)="bulkDepositAccept()" i18n>
+      Accept selected
+    </button>
+  }
+
+  @if (reviewTable && reviewTable.selector.selected.length > 0 && selectedTab === 'Reviews') {
+    <button mat-flat-button color="primary" type="button" (click)="bulkDOIGenerationReviews()">
+      Generate DOIs
+    </button>
+  }
+  @if (
+    depositsTable && depositsTable.selector.selected.length > 0 && selectedTab === 'Publications'
+  ) {
+    <button mat-flat-button color="primary" type="button" (click)="bulkDOIGenerationDeposits()">
+      Generate DOIs
+    </button>
+  }
+  <button mat-button type="button" (click)="downloadSubmisions()">
+    <mat-icon>file_download</mat-icon>
+    <ng-container i18n>Export publications</ng-container>
+  </button>
+  @if (selectedTab === 'Publications' || selectedTab === 'Reviews') {
+    <button
+      matTooltip="Send an email to a group of recipients by filtering the Publications or Reviews tabs. Your email will
+     be included so you receive a copy of the message."
+      mat-button
+      type="button"
+      (click)="openSendCommunityEmailDialog()"
+    >
+      <mat-icon>mail</mat-icon>
+      <ng-container i18n>Send email</ng-container>
+    </button>
+  }
+</ng-template>
+
+<ng-template #communityEmailTemplate>
+  <app-send-notifications
+    [recipients]="emailRecipients"
+    (sendEmails)="sendCommunityEmail($event)"
+  />
+</ng-template>
+
+<ng-template #buttonsAlwaysInMenu>
+  @if (communityActions.update) {
+    <button mat-button type="button" [routerLink]="['..', 'edit']">
+      <mat-icon>edit</mat-icon>
+      <ng-container i18n>Edit</ng-container>
+    </button>
+  }
+  @if (communityActions.update && community.subscription === SubscriptionType.Premium) {
+    <button mat-button type="button" [routerLink]="['..', 'templates']">
+      <mat-icon>email</mat-icon>
+      <ng-container i18n>Edit emails</ng-container>
+    </button>
+  }
+  <button mat-button type="button" (click)="createCall()">
+    <mat-icon>assignment</mat-icon>
+    <ng-container i18n>Create a Call</ng-container>
+  </button>
+</ng-template>

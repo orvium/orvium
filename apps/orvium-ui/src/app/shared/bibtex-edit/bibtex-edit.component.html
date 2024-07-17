@@ -1,0 +1,269 @@
+<div mat-dialog-content [formGroup]="bibtexReferenceForm" [appOverlayLoading]="bibtexDoiLoading">
+  <div class="flex gap-1 items-center">
+    <mat-form-field appearance="outline">
+      <mat-label>Id</mat-label>
+      <input
+        matInput
+        placeholder="Id to reference"
+        data-test="reference-id"
+        [formControl]="bibtexReferenceForm.controls.id"
+      />
+      @if (bibtexReferenceForm.controls.id.invalid) {
+        <mat-error>This field is required </mat-error>
+      }
+    </mat-form-field>
+  </div>
+  <div class="flex gap-1 items-center">
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input
+        matInput
+        placeholder="Darwin, C. & Kebler, L. (1859) On the origin of species by means of natural selection."
+        data-test="reference-title-input"
+        [formControl]="bibtexReferenceForm.controls.title"
+      />
+      @if (bibtexReferenceForm.controls.title.invalid) {
+        <mat-error>This field is required </mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Type</mat-label>
+      <mat-select
+        ngDefaultControl
+        data-test="select-type"
+        [formControl]="bibtexReferenceForm.controls.type"
+      >
+        @for (bibtex of bibtexPublicationTypes; track bibtex) {
+          <mat-option [value]="bibtex.value">
+            {{ bibtex.viewValue }}
+          </mat-option>
+        }
+      </mat-select>
+      @if (bibtexReferenceForm.controls.type.invalid) {
+        <mat-error>This field is required </mat-error>
+      }
+    </mat-form-field>
+  </div>
+
+  <div class="flex gap-1 items-center">
+    <mat-form-field appearance="outline">
+      <mat-label>Reference link</mat-label>
+      <input
+        matInput
+        placeholder="https://publication.com"
+        type="url"
+        data-test="reference-link-input"
+        [formControl]="bibtexReferenceForm.controls.url"
+      />
+      @if (bibtexReferenceForm.controls.url.errors?.['invalidHttp']) {
+        <mat-error> Replace http with https </mat-error>
+      }
+      @if (bibtexReferenceForm.controls.url.errors?.['invalidURL']) {
+        <mat-error> This link doesn't have a proper format </mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>DOI</mat-label>
+      <input
+        matInput
+        placeholder="https://doi.org/10.0000/0000"
+        data-test="reference-doi-input"
+        [formControl]="bibtexReferenceForm.controls.doi"
+        (change)="setBibtexData()"
+      />
+      @if (bibtexReferenceForm.controls.doi.invalid) {
+        <mat-error> The doi format is not correct. </mat-error>
+      }
+    </mat-form-field>
+  </div>
+
+  <div class="flex gap-1 items-center">
+    <mat-form-field appearance="outline">
+      <mat-label>Author</mat-label>
+      <input
+        matInput
+        placeholder="Darwin"
+        data-test="reference-author-input"
+        [formControl]="bibtexReferenceForm.controls.author"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Journal</mat-label>
+      <input
+        matInput
+        placeholder="Proceedings of the National Academy of Sciences"
+        data-test="reference-journal-input"
+        [formControl]="bibtexReferenceForm.controls.journal"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="flex gap-1 items-center">
+    <mat-form-field appearance="outline">
+      <mat-label>Year</mat-label>
+      <input
+        matInput
+        type="number"
+        placeholder="1998"
+        data-test="reference-year-input"
+        [formControl]="bibtexReferenceForm.controls.year"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Month</mat-label>
+      <input
+        matInput
+        placeholder="July"
+        data-test="reference-month-input"
+        [formControl]="bibtexReferenceForm.controls.month"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="flex gap-1 items-center">
+    <mat-form-field appearance="outline">
+      <mat-label>Volume</mat-label>
+      <input
+        matInput
+        type="number"
+        placeholder="15"
+        data-test="reference-volume-input"
+        [formControl]="bibtexReferenceForm.controls.volume"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Pages</mat-label>
+      <input
+        matInput
+        placeholder="15"
+        data-test="reference-pages-input"
+        [formControl]="bibtexReferenceForm.controls.pages"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="flex gap-1 items-center">
+    <mat-form-field appearance="outline">
+      <mat-label>ISSN</mat-label>
+      <input
+        matInput
+        placeholder="2049-3630"
+        data-test="reference-issn-input"
+        [formControl]="bibtexReferenceForm.controls.issn"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="flex gap-1 items-center">
+    <mat-form-field appearance="outline">
+      <mat-label>Book title</mat-label>
+      <input
+        matInput
+        placeholder="Campbell Biology"
+        data-test="reference-book-title-input"
+        [formControl]="bibtexReferenceForm.controls.bookTitle"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Series</mat-label>
+      <input
+        matInput
+        placeholder="NordiCHI"
+        data-test="reference-series-input"
+        [formControl]="bibtexReferenceForm.controls.series"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="flex gap-1 items-center">
+    <mat-form-field appearance="outline">
+      <mat-label>Publisher</mat-label>
+      <input
+        matInput
+        placeholder="Campbell"
+        data-test="reference-publisher-input"
+        [formControl]="bibtexReferenceForm.controls.publisher"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Editor</mat-label>
+      <input
+        matInput
+        placeholder="Distributed at the Stockholm Tourist Office"
+        data-test="reference-editor-input"
+        [formControl]="bibtexReferenceForm.controls.editor"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="flex gap-1 items-center">
+    <mat-form-field appearance="outline">
+      <mat-label>Copyright</mat-label>
+      <input
+        matInput
+        placeholder="All rights reserved"
+        data-test="reference-copyright-input"
+        [formControl]="bibtexReferenceForm.controls.copyright"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="flex gap-1 items-center">
+    <mat-form-field appearance="outline">
+      <mat-label>Number</mat-label>
+      <input
+        matInput
+        placeholder="DOE-SLC-6903-1"
+        data-test="reference-number-input"
+        [formControl]="bibtexReferenceForm.controls.number"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Address</mat-label>
+      <input
+        matInput
+        placeholder="New York, NY"
+        data-test="reference-address-input"
+        [formControl]="bibtexReferenceForm.controls.address"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="flex gap-1 items-center">
+    <mat-form-field appearance="outline">
+      <mat-label>School</mat-label>
+      <input
+        matInput
+        placeholder="Massachusetts Institute of Technology"
+        data-test="reference-school-input"
+        [formControl]="bibtexReferenceForm.controls.school"
+      />
+    </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Note</mat-label>
+    <textarea
+      matInput
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="3"
+      data-test="reference-note-input"
+      [formControl]="bibtexReferenceForm.controls.note"
+    ></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button
+    mat-button
+    color="primary"
+    aria-label="Save reference"
+    data-test="save-reference-button"
+    type="button"
+    [disabled]="bibtexReferenceForm.invalid"
+    (click)="save()"
+  >
+    <mat-icon>save</mat-icon>
+    Save reference
+  </button>
+</div>

@@ -1,0 +1,86 @@
+<app-info-toolbar>
+  @if (this.community) {
+    <app-description-line
+      [communityId]="this.community._id"
+      [avatar]="this.community.logoURL"
+      [title]="this.community.name"
+      [subtitle]="'Community hosting publication'"
+    />
+  }
+  <div app-info-toolbar-buttons class="flex gap-1 items-center">
+    <ng-container *ngTemplateOutlet="buttonsInToolbar" />
+  </div>
+</app-info-toolbar>
+
+@if (community) {
+  <app-search-box
+    [searchInfo]="false"
+    [community]="community"
+    [customControls]="{ newTrackTimestamp: true, query: true }"
+    (search)="filterSessions($event)"
+  />
+}
+
+@if (communityActions.moderate) {
+  <p class="mat-subtitle-1">
+    <mat-icon class="align-top">help</mat-icon>
+    Click
+    <a href="https://help.orvium.io/community/owner/#conference-program" target="_blank">here</a>
+    for useful tips about conference sessions.
+  </p>
+}
+
+@if (days.length > 0) {
+  <div class="flex flex-col items-center mb-4">
+    <a>Filter by dates</a>
+    <mat-chip-listbox #dateChips class="p-4" multiple selectable>
+      @for (day of days; track day) {
+        <mat-chip-option #chip data-test="date-chip" [value]="day" (click)="toggleSelection(chip)">
+          {{ day | date: 'd/M/yy' }}
+        </mat-chip-option>
+      }
+    </mat-chip-listbox>
+  </div>
+}
+
+@if (sessions.length > 0) {
+  <div class="grid grid-cols-1 justify-center justify-items-center">
+    <h1 class="mat-h1 primary text-center">Conference sessions</h1>
+    <div class="max-w-4xl mr-auto ml-auto">
+      @for (session of sessions; track session) {
+        <div>
+          <div class="mt-6">
+            <app-session-card [session]="session" [community]="community" />
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+}
+
+@if (sessions.length === 0 && (selectedDays.length > 0 || sessionQuery)) {
+  <div class="grid grid-cols-1 justify-center justify-items-center">
+    <h1 class="mat-h1 primary text-center">There are no sessions that match with your search</h1>
+  </div>
+}
+
+<ng-template #buttonsInToolbar>
+  @if (communityActions.moderate) {
+    <button mat-button class="grey" type="button" (click)="createSession()">
+      <mat-icon>record_voice_over</mat-icon>
+      Create a Session
+    </button>
+  }
+  @if (community) {
+    <button
+      mat-raised-button
+      color="primary"
+      aria-label="Go-back"
+      type="button"
+      [routerLink]="['/communities', community._id, 'view']"
+    >
+      <mat-icon>arrow_back</mat-icon>
+      Community
+    </button>
+  }
+</ng-template>

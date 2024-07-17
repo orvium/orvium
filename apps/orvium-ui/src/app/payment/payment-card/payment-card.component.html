@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-header class="flex place-content-between">
+    <mat-card-title>
+      <a href="communities/{{ payment.community }}/view"
+        >Payment for {{ payment.communityName | titlecase }}</a
+      >
+    </mat-card-title>
+    <mat-chip [disableRipple]="true">{{ payment.eventStatus | titlecase }} </mat-chip>
+  </mat-card-header>
+  <mat-card-content class="grey">
+    <p>Order date: {{ payment.date | date: 'MMM d, yyyy, HH:mm' }}</p>
+    <p class="black">
+      Total: <strong>{{ payment.amountTotal }} {{ payment.currency }}</strong>
+    </p>
+  </mat-card-content>
+  @if (payment.receiptUrl) {
+    <mat-card-actions>
+      <a mat-button target="_blank" color="primary" [href]="payment.receiptUrl">
+        Payment receipt
+        <mat-icon class="align-middle">receipt_long</mat-icon>
+      </a>
+    </mat-card-actions>
+  }
+</mat-card>

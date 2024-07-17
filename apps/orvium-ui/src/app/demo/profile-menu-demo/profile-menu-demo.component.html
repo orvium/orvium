@@ -1,0 +1,36 @@
+<h1 class="mat-headline-2 primary">Moderators Card</h1>
+<h3 class="mat-subtitle-1">Selector: <code>&lt;orv-moderators-card&gt;</code></h3>
+<h3 class="mat-subtitle-1">Input: <code>user: UserPublicDTO</code></h3>
+
+<div class="buttons">
+  <button mat-raised-button type="button" [matMenuTriggerFor]="profileMenu">Open Menu</button>
+</div>
+<mat-menu #profileMenu="matMenu" xPosition="before" class="orv-menu" [overlapTrigger]="false">
+  <app-profile-menu [user]="user">
+    <ng-container action-buttons>
+      <button mat-menu-item type="button" [routerLink]="[]">
+        <mat-icon>bookmark</mat-icon>
+        Saved publications
+      </button>
+      <button mat-menu-item type="button" [routerLink]="[]">
+        <mat-icon>account_box</mat-icon>
+        Profile
+      </button>
+      <button class="blockchain-button" mat-menu-item disableRipple type="button">
+        <mat-icon>info</mat-icon>
+        Blockchain
+        <mat-slide-toggle
+          color="primary"
+          class="ml-4"
+          (click)="$event.stopImmediatePropagation()"
+        />
+      </button>
+    </ng-container>
+    <ng-container last-action-button>
+      <button type="button" mat-menu-item>
+        <mat-icon>logout</mat-icon>
+        Logout
+      </button>
+    </ng-container>
+  </app-profile-menu>
+</mat-menu>

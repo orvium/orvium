@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-subtitle>
+      <div class="grey flex items-center gap-2">
+        <mat-icon>schedule</mat-icon>
+        <b>{{ session.dateStart | date: 'HH:mm dd/MM/yyyy' }}</b> until
+        <b>{{ session.dateEnd | date: 'HH:mm dd/MM/yyyy' }}</b>
+      </div>
+    </mat-card-subtitle>
+    <mat-card-title>
+      <a [routerLink]="['/session', session._id, 'view']">
+        {{ session.title }}
+      </a>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="grey">
+    @if (track) {
+      <p>TRACK: {{ track }}</p>
+    }
+    @if (session.description) {
+      <app-show-more
+        class="grey whitespace-pre-wrap"
+        [id]="session._id"
+        [truncateLength]="10"
+        [text]="session.description"
+      />
+    }
+  </mat-card-content>
+  <mat-card-actions class="flex justify-end">
+    <button
+      color="primary"
+      mat-raised-button
+      class="footer-btn"
+      type="button"
+      [routerLink]="['/session', session._id, 'view']"
+      >View
+    </button>
+  </mat-card-actions>
+</mat-card>

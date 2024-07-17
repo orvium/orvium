@@ -1,0 +1,114 @@
+<mat-sidenav-container autosize class="h-full">
+  @if (enableLeftSidenav) {
+    <mat-sidenav #sidenav [mode]="smallScreen ? 'over' : 'side'" [opened]="!smallScreen">
+      @if (smallScreen) {
+        <div class="flex justify-around mt-4">
+          <button
+            data-test="upload-sidenav"
+            mat-raised-button
+            color="primary"
+            class="orv-button"
+            type="button"
+            (click)="create()"
+          >
+            <mat-icon>upload_file</mat-icon>
+            <ng-container i18n>New Publication</ng-container>
+          </button>
+          <ng-template #createPublicationDialogTemplate>
+            <app-create-publication-dialog />
+          </ng-template>
+        </div>
+      }
+      <mat-nav-list
+        class="orv-sidenav-list overflow-hidden"
+        [ngClass]="{ 'reduce-margins': !isExpanded }"
+      >
+        <mat-list-item
+          data-test="mypublications-sidenav"
+          [routerLinkActive]="'active-link'"
+          [routerLink]="['publications']"
+        >
+          <mat-icon matListItemIcon class="grey mr-4" matTooltip="My Publications"
+            >article</mat-icon
+          >
+          @if (isExpanded) {
+            <p i18n>My Publications</p>
+          }
+        </mat-list-item>
+        <mat-list-item
+          data-test="communities-sidenav"
+          [routerLinkActive]="'active-link'"
+          [routerLink]="['communities/my-communities']"
+        >
+          <mat-icon matListItemIcon class="grey mr-4" matTooltip="Communities"
+            >bubble_chart</mat-icon
+          >
+          @if (isExpanded) {
+            <p i18n>My Communities</p>
+          }
+        </mat-list-item>
+        @if (isExpanded && sidenavService.extraNavigation) {
+          <ng-template [ngTemplateOutlet]="sidenavService.extraNavigation" />
+        }
+        <mat-list-item
+          data-test="myreviews-noreviewer-sidenav"
+          [routerLinkActive]="'active-link'"
+          [routerLink]="['reviews/myreviews']"
+        >
+          <mat-icon matListItemIcon class="grey mr-4" matTooltip="My Reviews"
+            >thumbs_up_down</mat-icon
+          >
+          @if (isExpanded) {
+            <ng-container i18n>My Reviews</ng-container>
+          }
+        </mat-list-item>
+        <mat-list-item
+          data-test="myinvitations-sidenav"
+          [routerLinkActive]="'active-link'"
+          [routerLink]="['reviews/invitations']"
+        >
+          <mat-icon matListItemIcon class="grey mr-4" matTooltip="My Reviews"
+            >insert_invitation</mat-icon
+          >
+          @if (isExpanded) {
+            <ng-container i18n>My Invitations</ng-container>
+          }
+        </mat-list-item>
+        @if (isAdmin) {
+          <mat-list-item
+            data-test="admin-dashboard-sidenav"
+            [routerLinkActive]="'active-link'"
+            [routerLink]="['admin-dashboard']"
+          >
+            <mat-icon matListItemIcon class="grey mr-4" matTooltip="Admin Dashboard"
+              >dashboard</mat-icon
+            >
+            @if (isExpanded) {
+              <ng-container i18n>Admin Dashboard</ng-container>
+            }
+          </mat-list-item>
+        }
+      </mat-nav-list>
+      @if (isExpanded) {
+        <mat-divider />
+      }
+      <div class="flex justify-around mt-8">
+        @if (isExpanded) {
+          <button mat-stroked-button color="primary" type="button" (click)="openInviteDialog()" i18n
+            >Invite
+          </button>
+        }
+      </div>
+    </mat-sidenav>
+  }
+
+  <mat-sidenav #rightSidenav position="end" mode="over">
+    @if (sidenavService.rightSideComponent) {
+      <ng-template [ngTemplateOutlet]="sidenavService.rightSideComponent" />
+    }
+  </mat-sidenav>
+
+  <mat-sidenav-content #sidenavContent id="sidenav-content" class="p-4 md:p-12 box-border">
+    <router-outlet (activate)="onActivate($event)" />
+  </mat-sidenav-content>
+</mat-sidenav-container>

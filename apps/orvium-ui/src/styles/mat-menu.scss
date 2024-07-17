@@ -1,0 +1,39 @@
+@use 'variables';
+
+.notifications-wrapper .mat-mdc-text-field-wrapper {
+  padding-bottom: 0;
+
+  .mat-select-arrow {
+    opacity: 0%;
+    padding-top: 5px;
+  }
+
+  .mat-select-arrow-wrapper::after {
+    font-size: 24px;
+    content: 'expand_more';
+    display: inline;
+    color: variables.$grey;
+    transform: scale(1);
+    font-feature-settings: 'liga'; /* Support for IE. From material-icons.css. */
+  }
+
+  .mat-form-field-outline-start {
+    border: none;
+  }
+
+  .mat-form-field-outline-end {
+    border: none;
+  }
+
+  .mat-form-field-flex {
+    width: 6rem;
+  }
+
+  .mat-form-field-infix {
+    padding: 0;
+  }
+
+  .mat-select-value {
+    padding-top: 8px;
+  }
+}

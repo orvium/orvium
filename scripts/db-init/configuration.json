@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "6206603c3e833f53ba1ecda4"
+  },
+  "allowedEmails": [],
+  "allowedEmailDomains": [
+    "orvium.io",
+    "labs.orvium.io"
+  ],
+  "createdAt": {
+    "$date": "2022-02-11T13:10:20.537Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-11T13:25:40.886Z"
+  },
+  "__v": 3
+}]

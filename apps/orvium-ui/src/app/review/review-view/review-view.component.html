@@ -1,0 +1,169 @@
+<ng-template #displayPayReviewerDialogTemplate>
+  <mat-form-field class="flex flex-col">
+    <input
+      #numberPayReviewer
+      matInput
+      type="number"
+      min="1"
+      max="100"
+      placeholder="Number of tokens"
+      [formControl]="numberPayReviewerControl"
+    />
+    @if (numberPayReviewerControl.invalid) {
+      <mat-error i18n>Set value between 1 and 100</mat-error>
+    }
+  </mat-form-field>
+  <br />
+  <div class="flex justify-end">
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      (click)="!numberPayReviewerControl.invalid && payReviewer(numberPayReviewer.value)"
+      i18n
+    >
+      Confirm
+    </button>
+    <button mat-button type="button" (click)="dialogService.closeAll()" i18n> Cancel</button>
+  </div>
+</ng-template>
+
+<ng-template #buttonsInToolbar>
+  @if (deposit?.creator === profile?._id) {
+    <div>
+      <button
+        mat-button
+        color="accent"
+        class="grey"
+        type="button"
+        aria-label="Reward reviewer"
+        [disabled]="!peerReview?.transactions"
+        [appOverlayLoading]="rewardFlag"
+        (click)="showPayReviewer()"
+      >
+        <mat-icon>monetization_on</mat-icon>
+        <ng-container i18n>Reward</ng-container>
+      </button>
+    </div>
+  }
+  @if (peerReview?.showReviewToEveryone) {
+    <button mat-button class="grey" type="button" (click)="openShare()">
+      <mat-icon>share</mat-icon>
+      <ng-container i18n>Share</ng-container>
+    </button>
+  }
+  @if (reviewActions.edit) {
+    <button
+      class="grey"
+      mat-button
+      target="_blank"
+      type="button"
+      [routerLink]="['/reviews', peerReview?._id, 'edit']"
+    >
+      <mat-icon>edit</mat-icon>
+      <ng-container i18n>Edit</ng-container>
+    </button>
+  }
+</ng-template>
+
+<ng-template #shareDialogTemplate>
+  <app-share-media [shareSubject]="'this review'" [shareText]="shareText" />
+</ng-template>
+
+<ng-template #buttonsAlwaysInMenu>
+  <button
+    mat-button
+    class="grey"
+    appFeedback
+    type="button"
+    [matTooltip]="'Report ' + deposit?.title"
+    (send)="reportReview($event)"
+  >
+    <mat-icon>report</mat-icon>
+    <ng-container i18n>Report</ng-container>
+  </button>
+</ng-template>
+
+<app-info-toolbar>
+  @if (deposit) {
+    <div class="grid">
+      <a
+        class="mat-subtitle-2 text-ellipsis overflow-hidden"
+        [routerLink]="['/deposits', deposit._id, 'view']"
+        >{{ deposit.title }}</a
+      >
+      <div class="flex gap-1 items-center">
+        <mat-icon class="!w-6" inline>article</mat-icon>
+        <span class="grey mat-caption" i18n>Publication hosting review</span>
+      </div>
+    </div>
+  }
+  @if (peerReview && deposit) {
+    <div app-info-toolbar-buttons class="flex gap-1 items-center">
+      <app-buttons-menu
+        [buttonsInToolbar]="buttonsInToolbar"
+        [buttonsAlwaysInMenu]="buttonsAlwaysInMenu"
+        [isMobile]="isMobile"
+      />
+    </div>
+  }
+</app-info-toolbar>
+
+@if (peerReview && deposit) {
+  <div class="flex gap-10">
+    <div class="w-full">
+      <div class="mb-8">
+        <app-review-card [review]="peerReview" [showReadButton]="false" [expanded]="true" />
+      </div>
+      @if (
+        !peerReview.depositPopulated.isLatestVersion &&
+        (peerReview.depositPopulated.status === depositStatus.Published ||
+          peerReview.depositPopulated.status === depositStatus.Preprint)
+      ) {
+        <div class="mb-8">
+          <app-alert type="info" i18n>There is a newer version for this publication.</app-alert>
+        </div>
+      }
+      <mat-tab-group class="mb-8">
+        @if (peerReview.html) {
+          <mat-tab label="REVIEW REPORT">
+            <div class="flex flex-col items-center mt-4 mb-8 w-full">
+              <app-alert class="w-full" [icon]="'info'"
+                ><ng-container i18n
+                  >Preview automatically generated from the review file.</ng-container
+                >
+              </app-alert>
+              <div class="preview-html w-full" [innerHTML]="peerReview.html"></div>
+              @if (images && images.length > 0) {
+                <h2 class="mat-h2 primary">Figures ({{ images.length }})</h2>
+              }
+              @if (images && images.length > 0) {
+                <div class="flex flex-wrap justify-around">
+                  @for (image of images; track image) {
+                    <a target="_blank" href="{{ image.src }}">
+                      <img class="m-1 w-40 h-40" alt="Publication Image" [src]="image.src" />
+                    </a>
+                  }
+                </div>
+              }
+            </div>
+          </mat-tab>
+        }
+        <mat-tab label="FILES ({{ this.files.length }})">
+          @for (file of this.files; track file) {
+            <app-file-card [file]="file" [canDelete]="false" />
+          }
+        </mat-tab>
+        <mat-tab label="RESPONSES">
+          <app-review-comments [review]="peerReview" />
+        </mat-tab>
+
+        @if (peerReview.history.length > 0) {
+          <mat-tab label="HISTORY">
+            <app-history-log [historyLogLines]="peerReview.history" />
+          </mat-tab>
+        }
+      </mat-tab-group>
+    </div>
+  </div>
+}

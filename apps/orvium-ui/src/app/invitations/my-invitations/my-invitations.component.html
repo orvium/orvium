@@ -1,0 +1,32 @@
+<h1 class="mat-h1 primary" i18n>My Invitations</h1>
+<h3 class="mat-body-2" i18n
+  >From here you will have access to the status of all your invitations. It is important to remember
+  to promptly accept or reject each invitation in order to effectively communicate your decision to
+  the requester.
+</h3>
+
+<mat-tab-group (selectedTabChange)="onTabChanged($event)">
+  <mat-tab label="Received Invitations">
+    <app-invitations-list
+      [appOverlayLoading]="loadingReceivedInvites"
+      [(invitations)]="receivedInvitations.invites"
+    />
+    <mat-paginator
+      [pageSizeOptions]="[10, 25]"
+      [length]="receivedInvitations.count"
+      (page)="receivedInvitationsPagination($event)"
+    />
+  </mat-tab>
+  <mat-tab label="Sent Invitations">
+    <app-deposit-invitation-list
+      [invites]="sentInvitations.invites"
+      [appOverlayLoading]="loadingSentInvites"
+      [requestedBy]="false"
+    />
+    <mat-paginator
+      [pageSizeOptions]="[10, 25]"
+      [length]="sentInvitations.count"
+      (page)="sentInvitationsPagination($event)"
+    />
+  </mat-tab>
+</mat-tab-group>

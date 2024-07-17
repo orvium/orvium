@@ -1,0 +1,112 @@
+<app-info-toolbar [appOverlayLoading]="loadingProducts">
+  @if (this.community) {
+    <app-description-line
+      [communityId]="this.community._id"
+      [avatar]="this.community.logoURL"
+      [title]="this.community.name"
+    />
+  }
+  <div app-info-toolbar-buttons class="flex gap-1 items-center">
+    <ng-container *ngTemplateOutlet="buttonsInToolbar" />
+  </div>
+</app-info-toolbar>
+@if (community && !community.productsVisible) {
+  <div>
+    <h1 class="mat-h1 primary text-center">Products of {{ community.name }}</h1>
+    <p class="text-center"> There are no products made available yet by the community owners. </p>
+  </div>
+}
+
+@if (community && community.productsVisible) {
+  <div class="mb-4">
+    <app-alert class="mat-subtitle-1" [icon]="'help'">
+      <p>
+        Discover and purchase various products from <strong>{{ community.name }}</strong
+        >. Refer to our <a href="https://help.orvium.io/products-buy/intro/">user guide </a> for
+        information on the purchasing process. Access your payment history by clicking "My Payments"
+        on the top toolbar.
+      </p>
+    </app-alert>
+    <form id="productsFormElement" [formGroup]="buyProductsForm" (ngSubmit)="buyProducts()">
+      @for (productsForm of buyProductsForm.controls.products.controls; track productsForm) {
+        <div [formGroup]="productsForm">
+          <div
+            class="grid grid-cols-[1fr_max-content_max-content] gap-4 p-4 items-center justify-center justify-items-start"
+          >
+            <div class="flex items-center">
+              <img
+                class="rounded m-3"
+                alt="Stripe Product Image"
+                width="90"
+                height="90"
+                [src]="productsForm.controls.image.value || community.logoURL"
+              />
+              <div>
+                <div class="primary mat-h1">{{ productsForm.controls.title.value }}</div>
+                <p>{{ productsForm.controls.description.value }}</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <mat-form-field class="w-20" subscriptSizing="dynamic">
+                <mat-label>Price ({{ productsForm.controls.currency.value }})</mat-label>
+                <input
+                  matInput
+                  placeholder="Product price"
+                  readonly
+                  [formControl]="productsForm.controls.price"
+                />
+              </mat-form-field>
+              @if (profile) {
+                <mat-form-field appearance="outline" class="w-20" subscriptSizing="dynamic">
+                  <mat-label>Quantity</mat-label>
+                  <input
+                    matInput
+                    type="number"
+                    placeholder="Quantity"
+                    value="0"
+                    min="0"
+                    max="100"
+                    data-test="input-quantity"
+                    [formControl]="productsForm.controls.quantity"
+                  />
+                </mat-form-field>
+              }
+            </div>
+          </div>
+          <mat-divider />
+        </div>
+      }
+    </form>
+  </div>
+}
+@if (!loadingProducts && stripeProducts.length === 0) {
+  <p class="mat-subtitle-1 text-center mb-12">
+    There are no products made available yet by the community owners.
+  </p>
+}
+<ng-template #buttonsInToolbar>
+  @if (profile) {
+    <button class="nav-button" mat-button type="button" [routerLink]="['/payments']">
+      <mat-icon>shopping_cart</mat-icon>
+      My payments
+    </button>
+  }
+  <button
+    mat-raised-button
+    color="primary"
+    aria-label="Buy Products"
+    type="submit"
+    form="productsFormElement"
+    data-test="button-buy-products"
+    [disabled]="buyProductsForm.invalid || !profile || stripeProducts.length === 0"
+  >
+    <mat-icon>shopping_cart</mat-icon>
+    Buy Products
+  </button>
+</ng-template>
+
+@if (!profile) {
+  <app-alert type="info" [icon]="'info'">
+    You need to log in to be able to buy products.
+  </app-alert>
+}

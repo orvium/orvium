@@ -1,0 +1,143 @@
+@if (!isAdmin) {
+  <app-access-denied />
+}
+@if (isAdmin) {
+  <div>
+    <h1 class="primary">Administration Dashboard</h1>
+    <mat-tab-group>
+      <mat-tab label="Communities Pending Approval">
+        <br />
+        @if (communitiesPendingApproval.length === 0) {
+          <div>
+            <span class="primary">At the moment there are no communities in pending approval</span>
+          </div>
+        }
+        <app-communities-list [communities]="communitiesPendingApproval" />
+      </mat-tab>
+      <mat-tab label="Publications Pending Approval">
+        <br />
+        @if (depositsPendingApproval.length === 0 && !publicationsLoading) {
+          <span class="primary">At the moment there are no deposits in pending approval</span>
+        }
+        @if (publicationsLoading) {
+          <div class="h-32" [appOverlayLoading]="publicationsLoading"> </div>
+        }
+        <app-deposits-list [deposits]="depositsPendingApproval" />
+      </mat-tab>
+      <mat-tab label="General Customization">
+        <br />
+        <mat-expansion-panel class="!mb-8" [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3 class="mat-headline-6 mb-0">Application Logos</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div data-test="avatar-container" class="flex flex-col mt-8">
+            <div class="flex items-center gap-4">
+              <app-fileupload
+                #platformLogoFileUpload
+                name="file"
+                chooseLabel="Main Logo"
+                [maxFileSize]="defaultLogoMaxFileSize"
+                [accept]="ACCEPT_TYPES.PLATFORM_EXTENSIONS_ALLOWED"
+                (fileUpload)="filesUploaded($event, plaftformImageType.Logo)"
+                (fileSelectedToUpload)="
+                  generateSignedUrl($event, false, platformLogoFileUpload, plaftformImageType.Logo)
+                "
+              />
+              <div class="flex gap-4 items-center">
+                <img
+                  alt="Platform logo"
+                  class="w-auto h-10"
+                  [src]="
+                    this.environment.publicS3 +
+                    '/platform/media/logo' +
+                    '?lastmod=' +
+                    actualTimeStamp
+                  "
+                />
+                <p class="grey">
+                  (Max size {{ defaultLogoMaxFileSize / 1024 }}KB. and recommended 370x115
+                  pixels)<br />
+                </p>
+              </div>
+            </div>
+          </div>
+          <div data-test="avatar-container" class="flex flex-col mt-8">
+            <div class="flex items-center gap-4">
+              <div class="flex items-center gap-4">
+                <app-fileupload
+                  #platformLogoIconFileUpload
+                  name="file"
+                  chooseLabel="Tool Bar Logo"
+                  [maxFileSize]="defaultLogoMaxFileSize"
+                  [accept]="ACCEPT_TYPES.PLATFORM_EXTENSIONS_ALLOWED"
+                  (fileUpload)="filesUploaded($event, plaftformImageType.LogoIcon)"
+                  (fileSelectedToUpload)="
+                    generateSignedUrl(
+                      $event,
+                      false,
+                      platformLogoIconFileUpload,
+                      plaftformImageType.LogoIcon
+                    )
+                  "
+                />
+                <img
+                  alt="Platform logo"
+                  class="w-9 h-9"
+                  [src]="
+                    this.environment.publicS3 +
+                    '/platform/media/logo-icon' +
+                    '?lastmod=' +
+                    actualTimeStamp
+                  "
+                />
+                <p class="grey">
+                  (Max size {{ defaultLogoMaxFileSize / 1024 }}KB. and recommended 100x100
+                  pixels)<br />
+                </p>
+              </div>
+            </div>
+          </div>
+          <div data-test="avatar-container" class="flex flex-col mt-8">
+            <div class="flex items-center gap-4">
+              <div class="flex items-center gap-4">
+                <app-fileupload
+                  #platformLogoIconFileUpload
+                  name="file"
+                  chooseLabel="Favicon image"
+                  [maxFileSize]="defaultLogoMaxFileSize"
+                  [accept]="ACCEPT_TYPES.PLATFORM_EXTENSIONS_ALLOWED"
+                  (fileUpload)="filesUploaded($event, plaftformImageType.Favicon)"
+                  (fileSelectedToUpload)="
+                    generateSignedUrl(
+                      $event,
+                      false,
+                      platformLogoIconFileUpload,
+                      plaftformImageType.Favicon
+                    )
+                  "
+                />
+                <img
+                  alt="Platform logo"
+                  class="w-9 h-9"
+                  [src]="
+                    this.environment.publicS3 +
+                    '/platform/media/favicon' +
+                    '?lastmod=' +
+                    actualTimeStamp
+                  "
+                />
+                <p class="grey">
+                  (Max size {{ defaultLogoMaxFileSize / 1024 }}KB. and recommended 32x32 pixels)<br />
+                </p>
+              </div>
+            </div>
+          </div>
+          <br />
+          <p class="grey"> Once the image is uploaded, will take some time to take effect. </p>
+        </mat-expansion-panel>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+}

@@ -1,0 +1,41 @@
+<div class="flex justify-center flex-wrap">
+  <div>
+    <h1 class="mat-headline-4 primary">404</h1>
+    <h2>Oops, the page you're looking for does not exist.</h2>
+
+    <hr class="bg-slate-400" />
+
+    <div>
+      <p
+        >You can try to fix it with our help
+        <a href="https://help.orvium.io/troubleshooting/troubleshooting/" target="_blank">
+          <button mat-raised-button type="button">
+            <mat-icon>help</mat-icon>
+            Go to Help
+          </button>
+        </a>
+      </p>
+
+      <p
+        >You may want to head back to the homepage
+        <button mat-raised-button color="primary" type="button" [routerLink]="['']">
+          <mat-icon>home</mat-icon>
+          Go to Homepage
+        </button>
+      </p>
+
+      <p
+        >If you think something is broken, report a problem
+        <button mat-raised-button appFeedback color="warn" type="button" (send)="onSend($event)">
+          <mat-icon>bug_report</mat-icon>
+          Report a problem
+        </button>
+      </p>
+    </div>
+  </div>
+  <img
+    src="https://assets.orvium.io/get-answered.svg"
+    class="hidden md:block w-2/5 max-w-xl"
+    alt="Get answered"
+  />
+</div>

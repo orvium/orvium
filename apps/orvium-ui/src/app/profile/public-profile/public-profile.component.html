@@ -1,0 +1,130 @@
+<div [appOverlayLoading]="loadingProfile"></div>
+
+<ng-template #buttonsAlwaysInMenu>
+  <button
+    class="grey"
+    appFeedback
+    matTooltip="Report"
+    mat-button
+    type="button"
+    (send)="report($event)"
+  >
+    <mat-icon>report</mat-icon>
+    <ng-container i18n>Report</ng-container>
+  </button>
+</ng-template>
+<ng-template #menuButtons>
+  @if (
+    publicProfile && profile && conversationLink && publicProfile.nickname !== profile.nickname
+  ) {
+    <a
+      mat-raised-button
+      color="primary"
+      type="button"
+      [routerLink]="[conversationLink.routerLink]"
+      [queryParams]="conversationLink.queryParam"
+    >
+      <mat-icon>chat</mat-icon>
+      <ng-container i18n>Message</ng-container>
+    </a>
+  }
+  <button mat-button class="grey" type="button" (click)="openShare()">
+    <mat-icon>share</mat-icon>
+    <ng-container i18n>Share</ng-container>
+  </button>
+  @if (canUpdateUser) {
+    <button mat-button class="grey" type="button" [routerLink]="['..']">
+      <mat-icon>edit</mat-icon>
+      <ng-container i18n>Edit</ng-container>
+    </button>
+  }
+</ng-template>
+@if (publicProfile) {
+  <div>
+    <app-header
+      [bannerURL]="publicProfile.bannerURL"
+      [linkedinURl]="publicProfile.linkedin || ''"
+      [orcidURL]="publicProfile.orcid || ''"
+    />
+    <div class="flex pt-8 gap-6">
+      <img
+        appAvatar
+        alt="Profile Avatar"
+        class="!w-24 !h-24"
+        [src]="publicProfile.avatar"
+        [gravatar]="publicProfile.gravatar"
+      />
+      <div>
+        <div class="mat-headline-6">
+          {{ publicProfile.firstName }} {{ publicProfile.lastName }}
+        </div>
+        <div>
+          {{ publicProfile.institutions | separator: ';' }}
+        </div>
+        <p>
+          {{ publicProfile.aboutMe }}
+        </p>
+        @if (publicProfile.blog) {
+          <a target="_blank" class="mat-body-1" [href]="publicProfile.blog">{{
+            publicProfile.blog
+          }}</a>
+        }
+      </div>
+    </div>
+  </div>
+}
+@if (!loadingProfile) {
+  <div class="relative">
+    <div class="flex justify-end items-center">
+      <app-buttons-menu
+        [buttonsInToolbar]="menuButtons"
+        [buttonsAlwaysInMenu]="buttonsAlwaysInMenu"
+        [isMobile]="isMobile"
+      />
+    </div>
+    <mat-tab-group>
+      <mat-tab label="PUBLICATIONS ({{ deposits.length }})">
+        <div class="flex gap-4 flex-col md:flex-row">
+          <div class="w-full md:w-9/12">
+            <mat-divider />
+            <div class="p-4">
+              @if (deposits.length === 0) {
+                <div>
+                  <h1 class="mat-subheading-2 grey"
+                    >{{ name }}
+                    <ng-container i18n>has not uploaded any publication yet</ng-container>
+                  </h1>
+                </div>
+              }
+              @if (deposits.length > 0) {
+                <app-deposits-list [deposits]="deposits" />
+              }
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="REVIEWS ({{ reviews.length }})">
+        <div class="flex gap-4 flex-col md:flex-row">
+          <div class="w-full md:w-9/12">
+            <div class="p-4">
+              @if (reviews.length === 0) {
+                <div>
+                  <h1 class="mat-subheading-2 grey"
+                    >{{ name }}
+                    <ng-container i18n>has not reviewed any publication yet</ng-container>
+                  </h1>
+                </div>
+              }
+              @for (review of reviews; track review) {
+                <app-review-card class="mb-4 block" [review]="review" />
+              }
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+}
+<ng-template #shareDialogTemplate>
+  <app-share-media [shareSubject]="'this profile'" [shareText]="shareText" />
+</ng-template>

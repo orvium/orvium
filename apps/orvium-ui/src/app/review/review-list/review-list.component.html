@@ -1,0 +1,66 @@
+@for (review of this.reviews; track review; let index = $index) {
+  <app-list-wrapper>
+    <div class="flex flex-row"
+      ><a data-test="review-view" [routerLink]="['/deposits', review.deposit, 'view']">{{
+        review.depositPopulated.title
+      }}</a>
+    </div>
+    <div class="flex gap-4 items-center grey flex-wrap">
+      <span
+        >Submitted: <b>{{ review.creationDate | date: 'dd/MM/yyyy' }}</b></span
+      >
+      <span class="flex items-center"
+        >Requested by:
+        <app-contributor-line [user]="review.ownerProfile" />
+      </span>
+      <div class="flex items-center gap-1">
+        <mat-icon>{{ review | reviewIcon }}</mat-icon>
+        <span>{{
+          review.status === ReviewStatus.Draft ? 'In progress' : (review.decision | titlecase)
+        }}</span>
+      </div>
+    </div>
+    <div list-end-section class="flex flex-1 flex-col items-end gap-1">
+      <mat-chip-set class="orv-mat-chip-set-justify-content-end flex">
+        @if (review.doi) {
+          <mat-chip class="orv-chip-outlined flex flex-row" [disableRipple]="true">
+            <mat-icon
+              class="cursor-pointer align-middle"
+              [appCopyToClipboard]="'https://doi.org/' + review.doi"
+              >content_copy
+            </mat-icon>
+            <a
+              target="_blank"
+              class="ml-1 overflow-ellipsis"
+              [matTooltip]="'doi.org/' + review.doi"
+              href="https://doi.org/{{ review.doi }}"
+              >DOI</a
+            >
+          </mat-chip>
+        }
+        <mat-chip class="orv-chip-{{ review.status.replace(' ', '-') }}" [disableRipple]="true">
+          {{ review.status | titlecase }}
+        </mat-chip>
+        <mat-chip class="orv-chip" [disableRipple]="true">
+          {{ review.kind | titlecase }}
+        </mat-chip>
+        <app-review-visibility [visibilities]="review" />
+      </mat-chip-set>
+      <div class="flex gap-1 items-center">
+        <button
+          mat-raised-button
+          type="button"
+          color="primary"
+          [routerLink]="['/reviews', review._id, 'view']"
+          ><strong>View</strong></button
+        >
+        @if (review.status === ReviewStatus.Draft) {
+          <button type="button" mat-stroked-button [routerLink]="['/reviews', review._id, 'edit']"
+            ><strong>Edit</strong></button
+          >
+        }
+      </div>
+    </div>
+  </app-list-wrapper>
+  <mat-divider />
+}

@@ -1,0 +1,51 @@
+@if (callForPapers) {
+  <mat-card>
+    <mat-card-content>
+      @if (!callForPapers.visible) {
+        <mat-chip class="mb-2">Draft</mat-chip>
+      }
+      @if (callForPapers.deadline) {
+        <div class="mat-subtitle-1 mb-2">
+          <span class="grey">Submission deadline: </span>
+          <span class="mat-subtitle-2 text-base">{{
+            callForPapers.deadline | date: 'longDate'
+          }}</span>
+        </div>
+      }
+      <div class="mat-subtitle-1 mb-2">
+        <span class="grey">Call type: </span>
+        <span class="mat-subtitle-2 text-base">{{ callForPapers.callType }}</span>
+      </div>
+      <div class="mat-headline-4 mb-2">
+        {{ callForPapers.title }}
+      </div>
+      <div class="mb-4">
+        <mat-chip-set>
+          @for (discipline of callForPapers.disciplines; track discipline) {
+            <mat-chip class="orv-chip-outlined orv-chip-grey" [disableRipple]="true">{{
+              discipline | titlecase
+            }}</mat-chip>
+          }
+        </mat-chip-set>
+      </div>
+      <div class="mb-4 whitespace-pre-line grey mat-subtitle-1">
+        {{ callForPapers.description }}
+      </div>
+      <div class="mb-4 whitespace-pre-line grey mat-subtitle-1">
+        @if (callForPapers.scope) {
+          <app-show-more [text]="callForPapers.scope" />
+        }
+      </div>
+      <mat-divider />
+      <div class="flex items-center justify-between">
+        <div class="flex items-center">
+          <mat-icon class="primary mr-2">email</mat-icon>
+          <span> {{ callForPapers.contactEmail }} </span>
+        </div>
+        <div class="inline-flex flex-wrap gap-3 mt-4">
+          <ng-content select="[action]" />
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+}

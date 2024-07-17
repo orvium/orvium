@@ -1,0 +1,17 @@
+<div class="mt-4 p-2">
+  <div class="flex mb-2 text-xs">
+    <div class="w-1/5">Date</div>
+    <div class="w-3/12">User</div>
+    <div class="w-6/12">Description</div>
+  </div>
+  <mat-divider />
+  <div class="mt-4">
+    @for (logLine of historyLogLines; track logLine) {
+      <div class="flex mb-2">
+        <div class="w-1/5">{{ logLine.createdAt | date: 'dd/MM/yyyy' }}</div>
+        <div class="w-3/12">{{ logLine.username }}</div>
+        <div class="w-6/12">{{ logLine.description }}</div>
+      </div>
+    }
+  </div>
+</div>

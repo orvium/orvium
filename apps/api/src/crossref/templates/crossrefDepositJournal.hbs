@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd"
+           xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1"
+           version="5.3.0">
+  <head>
+    {{>head_content}}
+  </head>
+  <body>
+  <journal>
+    <journal_metadata>
+      <full_title>{{deposit.journal_title}}</full_title>
+      {{#if deposit.issn}}
+        <issn>{{deposit.issn}}</issn>
+      {{/if}}
+    </journal_metadata>
+    <journal_article publication_type="full_text">
+      <titles>
+        <title>
+          {{deposit.title}}
+        </title>
+      </titles>
+      <contributors>
+        {{> contributors_content authors=deposit.authors}}
+      </contributors>
+      <jats:abstract>
+        <jats:p>{{deposit.abstract}}</jats:p>
+      </jats:abstract>
+      {{#if deposit.publicationDate}}
+        <publication_date>
+          <month>{{deposit.publicationDate.month}}</month>
+          <day>{{deposit.publicationDate.day}}</day>
+          <year>{{deposit.publicationDate.year}}</year>
+        </publication_date>
+      {{/if}}
+      {{#if deposit.firstpage }}
+        <pages>
+          <first_page>{{deposit.firstpage}}</first_page>
+          {{#if deposit.lastpage }}
+            <last_page>{{deposit.firstpage}}</last_page>
+          {{/if}}
+        </pages>
+      {{/if}}
+      <doi_data>
+        <doi>{{deposit.doi}}</doi>
+        <resource>
+          {{deposit.resource}}
+        </resource>
+      </doi_data>
+      {{#if deposit.references}}
+        <citation_list>
+          {{#each deposit.references}}
+            <citation key="ref{{@index}}">
+              <unstructured_citation>
+                {{this.reference}}({{this.url}})
+              </unstructured_citation>
+            </citation>
+          {{/each}}
+        </citation_list>
+      {{/if}}
+    </journal_article>
+  </journal>
+  </body>
+</doi_batch>

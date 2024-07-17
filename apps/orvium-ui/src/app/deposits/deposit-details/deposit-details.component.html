@@ -1,0 +1,1454 @@
+@if (!canManageDeposit && !canUpdateDeposit && !loadingDeposit) {
+  <app-access-denied />
+}
+<div [appOverlayLoading]="loadingDeposit"></div>
+
+<ng-template #buttonsInToolbar>
+  <mat-slide-toggle
+    color="primary"
+    class="ml-4"
+    [(ngModel)]="showOptionalFields"
+    (change)="optionalFields($event)"
+  >
+    Optional Fields
+  </mat-slide-toggle>
+  <button mat-button type="button" [routerLink]="['..', 'view']">
+    <mat-icon>visibility</mat-icon>
+    Preview
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    type="button"
+    [disabled]="depositForm.pristine || !depositForm.valid"
+    (click)="save()"
+  >
+    <mat-icon>save</mat-icon>
+    Save
+  </button>
+  @if (deposit && deposit.reviewType === ReviewType.OpenReview) {
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      [disabled]="deposit.status !== DepositStatus.Draft"
+      (click)="openAcknowledgementModal()"
+    >
+      <mat-icon>file_upload</mat-icon>
+      Submit
+    </button>
+  }
+</ng-template>
+
+@if (deposit && (canManageDeposit || canUpdateDeposit)) {
+  <app-info-toolbar>
+    @if (selectedCommunity) {
+      <app-description-line
+        [communityId]="selectedCommunity._id"
+        [avatar]="selectedCommunity.logoURL"
+        [title]="selectedCommunity.name"
+        [subtitle]="'Community hosting publication'"
+      />
+    }
+    <div app-info-toolbar-buttons class="flex gap-1 items-center">
+      <app-buttons-menu [buttonsInToolbar]="buttonsInToolbar" [isMobile]="isMobile" />
+    </div>
+  </app-info-toolbar>
+}
+
+<div class="grid grid-cols-1 md:grid-cols-5">
+  @if (deposit && (canManageDeposit || canUpdateDeposit)) {
+    <div class="md:w-9/12 mx-auto md:col-span-4">
+      <h1 class="mat-headline-4 mb-2 primary" i18n>Edit Publication</h1>
+      <h4 class="mat-subtitle-1" i18n
+        >Please complete the following form to submit your work. Before clicking the "Submit"
+        button, please ensure your submission is ready as you will not be able to make any further
+        changes. If you have any questions or concerns, please refer to our
+        <a
+          href="https://help.orvium.io/publication/edit-a-publication/#publication-details"
+          target="_blank"
+          >user guide</a
+        >
+        for assistance.
+      </h4>
+      @if (deposit.status === DepositStatus.Draft) {
+        <app-alert type="info" [icon]="'info'">
+          <ng-container i18n
+            >Remember to press the submit button when you finish your article to send it to the
+            community editorial board.
+          </ng-container>
+        </app-alert>
+      }
+      <div #component [formGroup]="depositForm">
+        <div>
+          @if (!canUpdateDeposit) {
+            <app-alert [icon]="'info'">
+              <ng-container i18n>This article state does not allow changes.</ng-container>
+            </app-alert>
+          }
+          <mat-expansion-panel class="!mb-8" [(expanded)]="detailsExpanded">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="flex items-center gap-2 justify-between">
+                <h3 id="publication-details" class="mat-headline-6 mb-0" i18n
+                  >Publication Details</h3
+                >
+                <mat-chip class="orv-chip-{{ deposit.status.replace(' ', '-') }}">
+                  {{ deposit.status | titlecase }}
+                </mat-chip>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-form-field appearance="outline">
+              <mat-label>Title</mat-label>
+              <input matInput placeholder="Title" [formControl]="depositForm.controls.title" />
+            </mat-form-field>
+            @if (selectedCommunity && selectedCommunity.newTracks.length > 0) {
+              <mat-form-field appearance="outline">
+                <mat-label i18n>Select a track</mat-label>
+                <mat-select
+                  ngDefaultControl
+                  data-test="select-track"
+                  [formControl]="depositForm.controls.newTrackTimestamp"
+                >
+                  @for (track of selectedCommunity.newTracks; track track) {
+                    <mat-option [value]="track.timestamp">
+                      {{ track.title }}
+                    </mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+            }
+            <mat-form-field appearance="outline">
+              <mat-label i18n>Abstract</mat-label>
+              <textarea
+                matInput
+                cdkTextareaAutosize
+                data-test="abstract-textarea"
+                [formControl]="depositForm.controls.abstract"
+              ></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+              <mat-label i18n>Publication keywords</mat-label>
+              <app-input-with-chips
+                ngDefaultControl
+                data-test="keywords-input"
+                [formControl]="depositForm.controls.keywords"
+              />
+              <mat-hint class="primary mb-4" i18n
+                >Separate your keywords using "enter", "comma", and "semicolon"
+              </mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label i18n>Disciplines</mat-label>
+              <app-input-with-chips
+                #inputComponent
+                ngDefaultControl
+                data-test="disciplines-input"
+                [formControl]="depositForm.controls.disciplines"
+                [matAutocomplete]="autoCompleteDisciplines"
+                [disableManualValueChange]="true"
+                (inputValueChange)="onInputValueChange($event)"
+              />
+              <mat-autocomplete #autoCompleteDisciplines="matAutocomplete">
+                @for (discipline of filteredDisciplines$ | async; track discipline) {
+                  <mat-option [value]="discipline.name">
+                    {{ discipline.name }}
+                  </mat-option>
+                }
+              </mat-autocomplete>
+            </mat-form-field>
+            <div class="flex flex-col md:flex-row gap-1 items-center">
+              <mat-form-field appearance="outline">
+                <mat-label i18n>DOI</mat-label>
+                <input
+                  matInput
+                  placeholder="10.1016/j.cub.2016.10.008"
+                  type="url"
+                  data-test="deposit-doi"
+                  [formControl]="depositForm.controls.doi"
+                />
+              </mat-form-field>
+              @if (canModerateDeposit) {
+                <div class="flex flex-nowrap gap-2">
+                  <button
+                    color="primary"
+                    mat-flat-button
+                    type="button"
+                    class="mb-5"
+                    (click)="previewDOI()"
+                    i18n
+                  >
+                    Preview DOI
+                  </button>
+                  <button
+                    color="primary"
+                    mat-flat-button
+                    type="button"
+                    class="mb-5"
+                    [disabled]="!depositForm.pristine || depositForm.controls.doi.value !== ''"
+                    (click)="registerDOI()"
+                    i18n
+                  >
+                    Register DOI
+                  </button>
+                  <button
+                    color="primary"
+                    mat-flat-button
+                    type="button"
+                    class="mb-5"
+                    [disabled]="!depositForm.pristine || depositForm.controls.doi.value === ''"
+                    (click)="getRegisteredDOIMetadata()"
+                    i18n
+                  >
+                    Get DOI
+                  </button>
+                  @if (deposit.doiStatus && deposit.doi) {
+                    <app-doi-status
+                      [resourceId]="deposit._id"
+                      [doi]="deposit.doi"
+                      [doiStatus]="deposit.doiStatus"
+                    />
+                  }
+                </div>
+              }
+            </div>
+            <div class="flex flex-col gap-1 items-center md:flex-row">
+              <mat-form-field appearance="outline">
+                <mat-label i18n>Publication type</mat-label>
+                <mat-select
+                  ngDefaultControl
+                  id="typeInput"
+                  [formControl]="depositForm.controls.publicationType"
+                >
+                  @for (option of PUBLICATION_TYPE_LOV; track option) {
+                    <mat-option [value]="option.value">
+                      {{ option.viewValue }}
+                    </mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field class="license-input" appearance="outline">
+                <mat-label i18n
+                  >Licence
+                  <a
+                    class="primary whitespace-nowrap"
+                    href="https://help.orvium.io/licenses/"
+                    target="_blank"
+                    >(What's this?)</a
+                  >
+                </mat-label>
+                <mat-select
+                  ngDefaultControl
+                  data-test="accessRightInput"
+                  [formControl]="depositForm.controls.accessRight"
+                >
+                  @for (option of availableAccessRights; track option) {
+                    <mat-option [value]="option.value">
+                      {{ option.viewValue }}
+                    </mat-option>
+                  }
+                </mat-select>
+                @if (depositForm.controls.accessRight.invalid) {
+                  <mat-error i18n>You have to choose a license type </mat-error>
+                }
+              </mat-form-field>
+            </div>
+          </mat-expansion-panel>
+          @if (canModerateDeposit && showOptionalFields) {
+            <mat-expansion-panel class="!mb-8">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <h3 id="publication-status" class="mat-headline-6 mb-0" i18n
+                    >Publication status</h3
+                  >
+                </mat-panel-title>
+                <mat-panel-description>
+                  <p i18n>Change publication status</p>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <mat-form-field appearance="outline">
+                <mat-label i18n>Status</mat-label>
+                <mat-select
+                  ngDefaultControl
+                  [formControl]="depositForm.controls.status"
+                  [value]="deposit.status"
+                >
+                  @for (option of DEPOSIT_STATUS_LOV; track option) {
+                    <mat-option data-test="select-status" [value]="option.value">
+                      {{ option.viewValue }}
+                    </mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+            </mat-expansion-panel>
+          }
+          @if (canModerateDeposit && privateCommunity && iThenticateActive && showOptionalFields) {
+            <mat-expansion-panel class="!mb-8">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <h3 id="publication-ithenticate" class="mat-headline-6 mb-0" i18n>iThenticate</h3>
+                </mat-panel-title>
+                <mat-panel-description>
+                  <p i18n>Generation of similarity Reports</p>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              @if (!iThenticateEULAAccepted) {
+                <div>
+                  <div>
+                    <span i18n>You need to accept iThenticate EULA before using this feature.</span>
+                  </div>
+                  <button
+                    mat-raised-button
+                    color="primary"
+                    type="button"
+                    (click)="getIThenticateEULA()"
+                    i18n
+                  >
+                    iThenticate EULA
+                  </button>
+                </div>
+              }
+              @if (
+                iThenticateWrongFile &&
+                ((iThenticateEULAAccepted && privateCommunity.iThenticateEULANeeded) ||
+                  !privateCommunity.iThenticateEULANeeded)
+              ) {
+                <div>
+                  <div>
+                    <span i18n>
+                      File extension is not supported by iThenticate. Accepted extensions are: docx,
+                      doc, xml, pdf, tex, html, rtf and wpd.
+                    </span>
+                  </div>
+                </div>
+              }
+              @if (
+                !iThenticateWrongFile &&
+                ((iThenticateEULAAccepted && privateCommunity.iThenticateEULANeeded) ||
+                  !privateCommunity.iThenticateEULANeeded)
+              ) {
+                <div>
+                  @if (iThenticateSubmission?.status === SubmissionStatusEnum.Processing) {
+                    <span i18n
+                      >File is being processed. Please click Refresh if it does not update
+                      automatically.</span
+                    >
+                  }
+                  @if (iThenticateSubmission?.status?.toString() === 'ERROR') {
+                    <span i18n
+                      >There was an error processing the file. Error code:
+                      {{ iThenticateSubmission?.error_code }}. Please contact us.</span
+                    >
+                  }
+                  @if (iThenticateReport?.status === 'PENDING') {
+                    <span i18n
+                      >Similarity Report is being processed. Please click Refresh if it does not
+                      update automatically.</span
+                    >
+                  }
+                  <button
+                    color="primary"
+                    type="button"
+                    mat-flat-button
+                    [disabled]="!!iThenticateSubmission || !deposit.publicationFile"
+                    (click)="createIThenticateSubmission()"
+                    i18n
+                  >
+                    Create Submission
+                  </button>
+                  <button
+                    color="primary"
+                    mat-flat-button
+                    type="button"
+                    [disabled]="iThenticateSubmission?.status !== SubmissionStatusEnum.Created"
+                    (click)="uploadFileToSubmission()"
+                    i18n
+                  >
+                    Upload file
+                  </button>
+                  <button
+                    color="primary"
+                    mat-flat-button
+                    type="button"
+                    [disabled]="
+                      iThenticateSubmission?.status !== SubmissionStatusEnum.Completed ||
+                      !!iThenticateReport?.status
+                    "
+                    (click)="generateSimilarityReport()"
+                    i18n
+                  >
+                    Generate Report
+                  </button>
+                  <button
+                    color="primary"
+                    mat-flat-button
+                    type="button"
+                    [disabled]="iThenticateReport?.status !== 'COMPLETE'"
+                    (click)="getSimilarityReportURL()"
+                    i18n
+                  >
+                    URL
+                  </button>
+                  <button
+                    color="primary"
+                    type="button"
+                    mat-flat-button
+                    (click)="refreshIThenticate()"
+                    i18n
+                  >
+                    Refresh
+                  </button>
+                </div>
+              }
+            </mat-expansion-panel>
+          }
+          @if (!canUpdateDeposit) {
+            <app-alert [icon]="'info'">
+              <ng-container i18n>This article state does not allow changes.</ng-container>
+            </app-alert>
+          }
+          @if (deposit.authors.length === 0) {
+            <app-alert [icon]="'info'">
+              <ng-container i18n>No authors have been added yet.</ng-container>
+            </app-alert>
+          }
+          <mat-expansion-panel class="!mb-8" [(expanded)]="authorsExpanded">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h3 id="publication-authors" class="mat-headline-6 mb-0" i18n>Authors</h3>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="mb-4">
+              <mat-chip-listbox
+                #authorsChips
+                cdkDropList
+                cdkDropListOrientation="horizontal"
+                (cdkDropListDropped)="drop($event)"
+              >
+                @for (author of deposit.authors; track author; let indexOfelement = $index) {
+                  <mat-chip-option
+                    cdkDrag
+                    data-test="author-chip"
+                    [matTooltip]="author.credit.join(', ') | titlecase"
+                    (selectionChange)="selectAuthor($event, indexOfelement)"
+                  >
+                    <img
+                      matChipAvatar
+                      appAvatar
+                      alt="Author Avatar"
+                      [applyStyle]="false"
+                      [src]="author.avatar"
+                      [gravatar]="author.gravatar"
+                    />
+                    <span
+                      >{{ indexOfelement + 1 }}. {{ author.firstName }} {{ author.lastName }}</span
+                    >
+                  </mat-chip-option>
+                }
+              </mat-chip-listbox>
+            </div>
+            @if (showAuthorEdit) {
+              <div class="mb-4" [formGroup]="authorsForm" [appOverlayLoading]="orcidLoading">
+                <mat-form-field appearance="outline" class="mb-4">
+                  <mat-label i18n>ORCID</mat-label>
+                  <input
+                    matInput
+                    placeholder="https://orcid.org/0000-0000-0000-0000"
+                    type="url"
+                    data-test="orcid-author-input"
+                    [formControl]="authorsForm.controls.orcid"
+                    (change)="setOrcidData()"
+                  />
+                  <mat-hint class="primary" i18n
+                    >Entering a valid ORCID will try to populate missing fields
+                  </mat-hint>
+                  @if (authorsForm.controls.orcid.invalid) {
+                    <mat-error i18n>
+                      ORCID has to be like this: https://orcid.org/0000-0000-0000-0000
+                    </mat-error>
+                  }
+                </mat-form-field>
+                <div class="flex gap-1 items-center">
+                  <mat-form-field appearance="outline">
+                    <mat-label i18n>First Name</mat-label>
+                    <input
+                      matInput
+                      placeholder="John"
+                      data-test="name-author-input"
+                      [formControl]="authorsForm.controls.firstName"
+                    />
+                    @if (authorsForm.controls.firstName.invalid) {
+                      <mat-error i18n> Name is missing </mat-error>
+                    }
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label i18n>Last Name</mat-label>
+                    <input
+                      matInput
+                      placeholder="Doe"
+                      data-test="surname-author-input"
+                      [formControl]="authorsForm.controls.lastName"
+                    />
+                    @if (authorsForm.controls.lastName.invalid) {
+                      <mat-error i18n> Last name is missing </mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+                <mat-form-field appearance="outline">
+                  <mat-label i18n>Email</mat-label>
+                  <input
+                    matInput
+                    placeholder="johndoe@email.com"
+                    type="email"
+                    data-test="email-author-input"
+                    [formControl]="authorsForm.controls.email"
+                  />
+                  @if (authorsForm.controls.email.invalid) {
+                    <mat-error i18n> Not valid email format </mat-error>
+                  }
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="mb-4">
+                  <mat-label i18n>Institutions</mat-label>
+                  <app-input-with-chips
+                    ngDefaultControl
+                    data-test="institution-author-input"
+                    [formControl]="authorsForm.controls.institutions"
+                    [separatorKeysCodes]="institutionSeparators"
+                  />
+                  <mat-hint class="primary" i18n
+                    >Separate your keywords using "enter" and "semicolon"
+                  </mat-hint>
+                </mat-form-field>
+                <div class="flex gap-1 items-center">
+                  <mat-form-field appearance="outline">
+                    <mat-label i18n
+                      >CRediT roles
+                      <a
+                        class="primary whitespace-nowrap"
+                        href="https://credit.niso.org/"
+                        target="_blank"
+                        >(What's this?)</a
+                      >
+                    </mat-label>
+                    <mat-select multiple [formControl]="authorsForm.controls.credit">
+                      @for (statement of CREDIT_LOV; track statement) {
+                        <mat-option [value]="statement.value"
+                          >{{ statement.viewValue }}
+                        </mat-option>
+                      }
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <input
+                  type="number"
+                  hidden
+                  data-test="index-author-input"
+                  [formControl]="authorsForm.controls.index"
+                />
+              </div>
+            }
+            <mat-action-row>
+              <div class="flex justify-end">
+                @if (!showAuthorEdit) {
+                  <button
+                    mat-button
+                    color="primary"
+                    type="button"
+                    aria-label="Add me"
+                    data-test="add-me-button"
+                    [disabled]="!canUpdateDeposit"
+                    (click)="addMe()"
+                    i18n
+                  >
+                    Add me
+                  </button>
+                }
+                @if (!showAuthorEdit) {
+                  <button
+                    mat-button
+                    color="primary"
+                    aria-label="Add author"
+                    data-test="add-author-button"
+                    type="button"
+                    [disabled]="!canUpdateDeposit"
+                    (click)="editAuthor()"
+                  >
+                    <mat-icon>add</mat-icon>
+                    <ng-container i18n>Add author</ng-container>
+                  </button>
+                }
+                @if (authorsForm.controls.index.value >= 0 && showAuthorEdit) {
+                  <button
+                    mat-button
+                    color="warn"
+                    aria-label="Delete author"
+                    data-test="delete-author-button"
+                    type="button"
+                    [disabled]="!canUpdateDeposit"
+                    (click)="removeAuthor()"
+                  >
+                    <mat-icon>delete</mat-icon>
+                    <ng-container i18n>Delete author</ng-container>
+                  </button>
+                }
+                @if (showAuthorEdit) {
+                  <button
+                    mat-button
+                    color="primary"
+                    aria-label="Save author"
+                    data-test="save-author-button"
+                    type="button"
+                    [disabled]="!canUpdateDeposit || authorsForm.invalid"
+                    (click)="addAuthor()"
+                  >
+                    <mat-icon>save</mat-icon>
+                    <ng-container i18n>Save author</ng-container>
+                  </button>
+                }
+                @if (showAuthorEdit) {
+                  <button
+                    id="cancelUpdateButton"
+                    mat-button
+                    color="primary"
+                    aria-label="Cancel update"
+                    type="button"
+                    data-test="cancel-author-button"
+                    [disabled]="!canUpdateDeposit"
+                    (click)="cancelAuthorEdit(authorsChips)"
+                  >
+                    <mat-icon>cancel</mat-icon>
+                    <ng-container i18n>Cancel</ng-container>
+                  </button>
+                }
+              </div>
+            </mat-action-row>
+          </mat-expansion-panel>
+          @if (!canUpdateDeposit) {
+            <app-alert [icon]="'info'">
+              <ng-container i18n>This article state does not allow changes.</ng-container>
+            </app-alert>
+          }
+          @if (canModerateDeposit && showOptionalFields) {
+            <mat-expansion-panel class="!mb-8" [expanded]="true">
+              <section aria-label="Author options for inviting reviewers">
+                <h3 id="publication-invite-reviewers" i18n
+                  >Can authors invite reviewers to their publications?</h3
+                >
+                <div class="flex gap-4">
+                  <mat-radio-group
+                    class="flex flex-col"
+                    color="primary"
+                    data-test="can-author-invite-reviewers"
+                    [formControl]="depositForm.controls.canAuthorInviteReviewers"
+                  >
+                    <mat-radio-button [value]="false" i18n
+                      >Authors cannot invite reviewers to their publications
+                    </mat-radio-button>
+                    <mat-radio-button [value]="true" i18n
+                      >Authors can invite reviewers to their publications
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              </section>
+            </mat-expansion-panel>
+          }
+          @if (deposit.references.length === 0) {
+            <app-alert [icon]="'info'">
+              <ng-container i18n>No references have been added yet.</ng-container>
+            </app-alert>
+          }
+          <mat-expansion-panel class="!mb-8" [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h3 id="publication-references" class="mat-headline-6 mb-0" i18n>References</h3>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ng-container i18n
+              >To edit a reference click on the one you want to modify and scroll down until you
+              reach the text area where you can add your changes. Finally click the "Save Reference"
+              button.
+            </ng-container>
+            <div class="mb-4 mt-4">
+              <mat-chip-listbox #referencesChips>
+                @for (
+                  reference of deposit.references;
+                  track reference;
+                  let indexOfelement = $index
+                ) {
+                  <mat-chip-option
+                    data-test="reference-chip"
+                    (selectionChange)="selectReference($event, indexOfelement)"
+                  >
+                    {{ indexOfelement + 1 }}. {{ reference.reference }}
+                    @if (reference.url) {
+                      <a mat-icon-button target="_blank" href="{{ reference.url }}">
+                        <mat-icon class="grey">open_in_new</mat-icon>
+                      </a>
+                    }
+                  </mat-chip-option>
+                }
+              </mat-chip-listbox>
+            </div>
+            @if (showReferenceEdit) {
+              <div class="mb-4" [formGroup]="referencesForm">
+                <mat-form-field appearance="outline">
+                  <mat-label>Reference</mat-label>
+                  <textarea
+                    matInput
+                    placeholder="Darwin, C. & Kebler, L. (1859) On the origin of species by means of natural selection."
+                    cdkTextareaAutosize
+                    data-test="reference-input"
+                    [formControl]="referencesForm.controls.reference"
+                  ></textarea>
+                  @if (referencesForm.controls.reference.invalid) {
+                    <mat-error i18n>This field is required </mat-error>
+                  }
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label i18n>Reference link</mat-label>
+                  <input
+                    matInput
+                    placeholder="https://publication.com"
+                    type="url"
+                    data-test="reference-link-input"
+                    [formControl]="referencesForm.controls.url"
+                  />
+                  @if (referencesForm.controls.url.errors?.['invalidHttp']) {
+                    <mat-error i18n> Replace http with https </mat-error>
+                  }
+                  @if (referencesForm.controls.url.errors?.['invalidURL']) {
+                    <mat-error i18n> This link doesn't have a proper format </mat-error>
+                  }
+                </mat-form-field>
+                <input
+                  type="number"
+                  hidden
+                  data-test="index-reference-input"
+                  [formControl]="referencesForm.controls.index"
+                />
+              </div>
+            }
+            <mat-action-row>
+              <div class="flex justify-end">
+                @if (!showReferenceEdit) {
+                  <button
+                    mat-button
+                    color="primary"
+                    aria-label="Add reference"
+                    data-test="add-reference-button"
+                    type="button"
+                    [disabled]="!canUpdateDeposit"
+                    (click)="editReference()"
+                  >
+                    <mat-icon>add</mat-icon>
+                    <ng-container i18n>Add reference</ng-container>
+                  </button>
+                }
+                @if (showReferenceEdit) {
+                  <button
+                    mat-button
+                    color="primary"
+                    aria-label="Save reference"
+                    data-test="save-reference-button"
+                    type="button"
+                    [disabled]="!canUpdateDeposit || referencesForm.invalid"
+                    (click)="addReference()"
+                  >
+                    <mat-icon>save</mat-icon>
+                    <ng-container i18n>Save reference</ng-container>
+                  </button>
+                }
+                @if (referencesForm.controls.index.value >= 0 && showReferenceEdit) {
+                  <button
+                    mat-button
+                    color="warn"
+                    aria-label="Delete reference"
+                    data-test="delete-reference-button"
+                    type="button"
+                    [disabled]="!canUpdateDeposit"
+                    (click)="removeReference()"
+                  >
+                    <mat-icon>delete</mat-icon>
+                    <ng-container i18n>Delete reference</ng-container>
+                  </button>
+                }
+                @if (showReferenceEdit) {
+                  <button
+                    mat-button
+                    color="primary"
+                    aria-label="Cancel reference edition"
+                    data-test="cancel-reference-button"
+                    type="button"
+                    [disabled]="!canUpdateDeposit"
+                    (click)="cancelReferenceDelete(referencesChips)"
+                  >
+                    <mat-icon>cancel</mat-icon>
+                    <ng-container i18n>Cancel</ng-container>
+                  </button>
+                }
+              </div>
+            </mat-action-row>
+          </mat-expansion-panel>
+          @if (environment.experimentalFeatures) {
+            <div class="!mb-8">
+              @if (deposit.bibtexReferences.length === 0) {
+                <app-alert [icon]="'info'">
+                  <ng-container i18n>No references have been added yet,</ng-container>
+                </app-alert>
+              }
+              @if (deposit) {
+                <mat-expansion-panel [expanded]="true">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <h3 id="publication-bibtex" class="mat-headline-6 mb-0" i18n
+                        >Bibtex References</h3
+                      >
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <ng-container i18n
+                    >To edit a reference click on the one you want to modify and scroll down until
+                    you reach the text area where you can add your changes. Finally click the "Save
+                    Reference" button. Once you have all your references click the "Save publication
+                    references" button.
+                  </ng-container>
+                  <div class="mb-4 mt-4">
+                    <mat-chip-listbox>
+                      @for (
+                        reference of depositForm.controls.bibtexReferences.value;
+                        track reference;
+                        let index = $index
+                      ) {
+                        <mat-chip-option
+                          data-test="bibtex-reference-chip"
+                          [selectable]="false"
+                          (click)="selectBibtexReference($event, reference, index)"
+                          (removed)="removeBibtexReference(index)"
+                        >
+                          {{ index + 1 }}. {{ reference.title }}
+                          <button
+                            matChipRemove
+                            aria-label="remove reference"
+                            type="button"
+                            data-test="remove-bibtex-reference-button"
+                          >
+                            <mat-icon>cancel</mat-icon>
+                          </button>
+                        </mat-chip-option>
+                      }
+                    </mat-chip-listbox>
+                  </div>
+                  <mat-action-row>
+                    <div class="flex items-start gap-2">
+                      <button
+                        mat-button
+                        color="primary"
+                        aria-label="Import citations to bibtex"
+                        data-test="import-citations-button"
+                        type="button"
+                        [disabled]="!canUpdateDeposit"
+                        (click)="openImportCitationToBibtexDialog()"
+                        i18n
+                      >
+                        Import citations
+                      </button>
+                      <button
+                        mat-button
+                        color="primary"
+                        aria-label="Add reference"
+                        data-test="add-bibtex-reference-button"
+                        type="button"
+                        [disabled]="!canUpdateDeposit"
+                        (click)="addBibtexReference()"
+                        i18n
+                      >
+                        Add reference
+                      </button>
+                      <app-fileupload
+                        #bibtexFiles
+                        data-test="bibtex-file"
+                        chooseLabel="Add bibtex file"
+                        [maxFileSize]="defaultMaxFileSize"
+                        [disableLoading]="true"
+                        [accept]="ACCEPT_TYPES.BIBTEX_EXTENSIONS_ALLOWED"
+                        (fileSelectedToUpload)="selectBibtexFileToImport($event, bibtexFiles)"
+                      />
+                    </div>
+                  </mat-action-row>
+                </mat-expansion-panel>
+              }
+            </div>
+          }
+          @if (!canUpdateDeposit) {
+            <app-alert [icon]="'info'">
+              <ng-container i18n
+                >This article cannot be edit. You may not upload new files but you can download the
+                existing ones.
+              </ng-container>
+            </app-alert>
+          }
+          @if (canUpdateDeposit && !deposit.isLatestVersion) {
+            <app-alert [icon]="'info'">
+              {{ messageUseLastVersion }}
+            </app-alert>
+          }
+          @if (!isPreferredFileExtension && deposit.publicationFile) {
+            <app-alert type="error" [icon]="'error'">
+              Please be aware that you uploaded a publication file with extension
+              {{ uploadedExtension }} but the expected file format is one of:
+              {{ fileExtensionsAllowed }}
+              . This means your article might not be accepted.
+            </app-alert>
+          }
+          <mat-expansion-panel class="!mb-8" [(expanded)]="fileExpanded">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h3 id="publication-file" class="mat-headline-6 mb-0" i18n>Publication File</h3>
+              </mat-panel-title>
+              <mat-panel-description>
+                <p i18n>This document is mandatory</p>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="mb-4">
+              <span class="mat-body-2">
+                Accepted file (max. 20MB): {{ fileExtensionsAllowed }}
+              </span>
+            </div>
+            @if (canUpdateDeposit) {
+              <div class="mb-4">
+                <div class="flex justify-center gap-4">
+                  <app-fileupload
+                    #mainFileUpload
+                    name="file"
+                    chooseLabel="Add publication"
+                    [maxFileSize]="defaultMaxFileSize"
+                    [accept]="ACCEPT_TYPES.PUBLICATIONS_EXTENSIONS_ALLOWED"
+                    (fileUpload)="filesUploaded($event)"
+                    (fileSelectedToUpload)="generateSignedUrl($event, true, false, mainFileUpload)"
+                    (click)="beforeUpload($event)"
+                  />
+                  @if (canModerateDeposit) {
+                    <app-fileupload
+                      #mainFileUploadPdf
+                      name="file"
+                      chooseLabel="Replace PDF"
+                      [maxFileSize]="defaultMaxFileSize"
+                      [accept]="'.pdf'"
+                      (fileUpload)="filesUploaded($event, true)"
+                      (fileSelectedToUpload)="
+                        generateSignedUrl($event, true, true, mainFileUploadPdf)
+                      "
+                      (click)="beforeUpload($event)"
+                    />
+                  }
+                </div>
+              </div>
+            }
+            @if (deposit.publicationFile) {
+              <app-file-card [canDelete]="false" [file]="deposit.publicationFile" />
+            }
+          </mat-expansion-panel>
+          @if (showOptionalFields) {
+            <mat-expansion-panel class="!mb-8">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <h3 id="publication-extra-files" class="mat-headline-6 mb-0" i18n>Extra files</h3>
+                </mat-panel-title>
+                <mat-panel-description>
+                  <p i18n>This documents are optional</p>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div class="mb-4">
+                <span class="mat-body-2">
+                  Accepted files (max. 20MB each): {{ ACCEPT_TYPES.OTHER_FILE_EXTENSIONS_ALLOWED }}
+                </span>
+              </div>
+              @if (canUpdateDeposit) {
+                <div>
+                  <div class="flex justify-center gap-4">
+                    <app-fileupload
+                      #extraFilesUpload
+                      name="file"
+                      chooseLabel="Add extra files"
+                      [maxFileSize]="defaultMaxFileSize"
+                      [accept]="ACCEPT_TYPES.OTHER_FILE_EXTENSIONS_ALLOWED"
+                      (fileUpload)="filesUploaded($event)"
+                      (fileSelectedToUpload)="
+                        generateSignedUrl($event, false, false, extraFilesUpload)
+                      "
+                      (click)="beforeUpload($event)"
+                    />
+                  </div>
+                </div>
+              }
+              @for (file of deposit.files; track file) {
+                <div class="deposit-file mt-4">
+                  <app-file-card [file]="file" (fileDeleted)="deleteFile($event.filename)" />
+                </div>
+              }
+            </mat-expansion-panel>
+          }
+          @if (showOptionalFields) {
+            <mat-expansion-panel class="!mb-8" [(expanded)]="journalExpanded">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <h3 id="publication-conference-journal" class="mat-headline-6 mb-0" i18n
+                    >Conference and Journal Details
+                  </h3>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div [formGroup]="extraMetadataForm">
+                <mat-form-field appearance="outline">
+                  <mat-label>Conference Title</mat-label>
+                  <input
+                    matInput
+                    appTrim
+                    placeholder="Conference title"
+                    [formControl]="extraMetadataForm.controls.conferenceTitle"
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label i18n>ISBN</mat-label>
+                  <input matInput [formControl]="extraMetadataForm.controls.isbn" />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label i18n>ISSN</mat-label>
+                  <input matInput appTrim [formControl]="extraMetadataForm.controls.issn" />
+                  @if (extraMetadataForm.controls.issn.invalid) {
+                    <mat-error i18n> This is not a valid ISSN format </mat-error>
+                  }
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Volume</mat-label>
+                  <input matInput type="number" [formControl]="extraMetadataForm.controls.volume" />
+                  @if (extraMetadataForm.controls.volume.invalid) {
+                    <mat-error i18n>
+                      This is not a valid format, positive number expected
+                    </mat-error>
+                  }
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label i18n>Issue</mat-label>
+                  <input matInput type="number" [formControl]="extraMetadataForm.controls.issue" />
+                  @if (extraMetadataForm.controls.issue.invalid) {
+                    <mat-error i18n>
+                      This is not a valid format, positive number expected
+                    </mat-error>
+                  }
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label i18n>First page</mat-label>
+                  <input
+                    matInput
+                    type="number"
+                    [formControl]="extraMetadataForm.controls.firstpage"
+                  />
+                  @if (extraMetadataForm.controls.firstpage.invalid) {
+                    <mat-error i18n>
+                      This is not a valid format, positive number expected
+                    </mat-error>
+                  }
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label i18n>Last page</mat-label>
+                  <input
+                    matInput
+                    type="number"
+                    [formControl]="extraMetadataForm.controls.lastpage"
+                  />
+                  @if (extraMetadataForm.controls.lastpage.invalid) {
+                    <mat-error i18n>
+                      This is not a valid format, positive number expected
+                    </mat-error>
+                  }
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label i18n>Dissertation institution</mat-label>
+                  <input
+                    matInput
+                    appTrim
+                    [formControl]="extraMetadataForm.controls.dissertationInstitution"
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label i18n>Technical report institution</mat-label>
+                  <input
+                    matInput
+                    appTrim
+                    [formControl]="extraMetadataForm.controls.technicalReportInstitution"
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label i18n>Publisher</mat-label>
+                  <input matInput appTrim [formControl]="extraMetadataForm.controls.publisher" />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label i18n>Journal Title</mat-label>
+                  <input matInput appTrim [formControl]="extraMetadataForm.controls.journalTitle" />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label i18n>Dissertation Name</mat-label>
+                  <textarea
+                    matInput
+                    appTrim
+                    cdkTextareaAutosize
+                    [formControl]="extraMetadataForm.controls.dissertationName"
+                  ></textarea>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label i18n>Inbook Title</mat-label>
+                  <textarea
+                    matInput
+                    appTrim
+                    cdkTextareaAutosize
+                    [formControl]="extraMetadataForm.controls.inbookTitle"
+                  ></textarea>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label i18n>Language</mat-label>
+                  <input
+                    matInput
+                    appTrim
+                    placeholder="en"
+                    [formControl]="extraMetadataForm.controls.language"
+                  />
+                  @if (extraMetadataForm.controls.language.invalid) {
+                    <mat-error i18n> This is not a valid language format </mat-error>
+                  }
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label i18n>Canonical Url</mat-label>
+                  <input
+                    matInput
+                    appTrim
+                    placeholder="https://my.canonical.url"
+                    [formControl]="extraMetadataForm.controls.canonical"
+                  />
+                  @if (extraMetadataForm.controls.canonical.errors?.['invalidHttp']) {
+                    <mat-error i18n> Replace http with https </mat-error>
+                  }
+                  @if (extraMetadataForm.controls.canonical.errors?.['invalidURL']) {
+                    <mat-error i18n> This link doesn't have a proper format </mat-error>
+                  }
+                </mat-form-field>
+              </div>
+            </mat-expansion-panel>
+          }
+          @if (showOptionalFields) {
+            <mat-expansion-panel class="!mb-8">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="flex items-center gap-2">
+                  <fa-icon size="lg" [icon]="['fab', 'github']" />
+                  <h3 id="publication-github" class="mat-headline-6 mb-0" i18n
+                    >GitHub Repository</h3
+                  >
+                </mat-panel-title>
+                <mat-panel-description>
+                  <p i18n>Optional settings to link github repositories</p>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <span class="mat-body-2" i18n>
+                Turn a GitHub repo into a collection of interactive notebooks. We use
+                <a href="https://mybinder.org/" target="_blank" class="primary">Binder</a> to open
+                those notebooks in an executable environment, making your code immediately
+                reproducible by anyone, anywhere.
+              </span>
+              @if (!canUpdateDeposit) {
+                <app-alert [icon]="'info'">
+                  <ng-container i18n>This article state does not allow changes.</ng-container>
+                </app-alert>
+              }
+              <mat-form-field appearance="outline">
+                <mat-label i18n>GitHub repository URL</mat-label>
+                <input
+                  matInput
+                  id="gitRepository"
+                  placeholder="GitHub repository URL"
+                  [formControl]="depositForm.controls.gitRepository"
+                />
+                @if (deposit.gitRepository) {
+                  <a target="_blank" matSuffix href="{{ deposit.gitRepository }}">
+                    <mat-icon class="grey">open_in_new</mat-icon>
+                  </a>
+                }
+              </mat-form-field>
+              <div class="flex justify-end">
+                @if (deposit.gitRepository) {
+                  <a mat-button target="_blank" href="{{ deposit.gitRepository }}">
+                    <a
+                      target="_blank"
+                      class="grey"
+                      href="{{ getBinderURL(deposit.gitRepository) }}"
+                      i18n
+                    >
+                      Open in Binder</a
+                    >
+                  </a>
+                }
+              </div>
+            </mat-expansion-panel>
+          }
+          @if (canModerateDeposit && showOptionalFields) {
+            <mat-expansion-panel class="!mb-8">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <h3 id="publication-html" class="mat-headline-6 mb-0" i18n>Edit publication</h3>
+                </mat-panel-title>
+                <mat-panel-description>
+                  <p i18n>Optional edit the publication HTML</p>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p i18n
+                >You can edit the preview of your publication directly here, the changes will
+                reflect immediately after saving, and if a new publication file is uploaded this
+                content will be refreshed.
+              </p>
+              <div class="mb-4">
+                <editor
+                  ngDefaultControl
+                  [formControl]="depositForm.controls.html"
+                  [apiKey]="environment.tinymceKey"
+                  [init]="{
+                    plugins: 'lists link image table code help wordcount fullscreen media',
+                  }"
+                />
+              </div>
+            </mat-expansion-panel>
+          }
+          @if (showOptionalFields) {
+            <mat-expansion-panel class="!mb-8">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="flex items-end gap-2">
+                  <fa-icon size="lg" [icon]="['fab', 'ethereum']" />
+                  <h3 id="publication-blockchain" class="mat-headline-6 mb-0" i18n>Blockchain</h3>
+                </mat-panel-title>
+                <mat-panel-description>
+                  <p i18n>Optional settings for this publication in the Blochchain</p>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              @if (!ethereumService.isReady()) {
+                <app-alert class="mb-4" [type]="'info'"
+                  >Activate Blockchain functionality to use these features
+                </app-alert>
+              }
+              <div [ngClass]="!ethereumService.isReady() ? 'disabled' : ''">
+                <p class="mat-body-2" i18n>
+                  Use the blockchain to access extra features such as proving of the ownership of
+                  your work and get rewards for the peer reviews you make.
+                </p>
+                <h5 class="mat-headline-5" i18n>Ownership</h5>
+                <p class="mat-body" i18n>
+                  Save the Ownership of your publication storing your authorship in the blockchain
+                </p>
+                <div class="mb-4">
+                  <button
+                    mat-raised-button
+                    color="primary"
+                    type="button"
+                    [appOverlayLoading]="saveOwnershipFlag"
+                    (click)="proofOwnership()"
+                  >
+                    <mat-icon>verified_user</mat-icon>
+                    <ng-container i18n>Save Ownership</ng-container>
+                  </button>
+                  @for (transaction of deposit.transactions ?? [] | keyvalue; track transaction) {
+                    <a
+                      mat-button
+                      class="green"
+                      target="_blank"
+                      href="{{
+                        this.blockchainService.getNetworkByName(transaction.key.toString())
+                          ?.explorerUrl +
+                          'tx/' +
+                          $any(transaction.value).transactionHash
+                      }}"
+                    >
+                      <mat-icon aria-hidden="false" aria-label="Published icon"
+                        >verified_user</mat-icon
+                      >
+                      Ownership proved in
+                      {{
+                        this.blockchainService.getNetworkByName(transaction.key.toString())
+                          ?.displayName
+                      }}
+                    </a>
+                  }
+                </div>
+                <h5 class="mat-headline-5" i18n>ORV Tokens</h5>
+                <p class="mat-body" i18n
+                  >Unlock and deposit your ORVs, so reviewers can see how much you're willing to
+                  reward:</p
+                >
+                <div class="mb-4">
+                  <button
+                    color="primary"
+                    mat-stroked-button
+                    type="button"
+                    [appOverlayLoading]="unlockTokensFlag"
+                    (click)="showApproveDepositTokensDialog()"
+                  >
+                    <mat-icon>lock_open</mat-icon>
+                    <ng-container i18n>Unlock ORVs</ng-container>
+                  </button>
+                  <span class="mat-body-2" i18n
+                    >You have
+                    <button
+                      mat-mini-fab
+                      type="button"
+                      matTooltip="Number of ORV tokens you can transfer to ORV platform for peer reviews"
+                      color="primary"
+                      >{{ allowanceTokens.slice(0, -18) || 0 }}</button
+                    >
+                    ORVs unlocked and ready for deposit.</span
+                  >
+                </div>
+                <div>
+                  <button
+                    color="primary"
+                    type="button"
+                    mat-raised-button
+                    [disabled]="!(allowanceTokens > '0')"
+                    [appOverlayLoading]="depositTokensFlag"
+                    (click)="showDepositTokensDialog()"
+                  >
+                    <mat-icon>move_to_inbox</mat-icon>
+                    <ng-container i18n>Deposit ORVs</ng-container>
+                  </button>
+                  <span class="mat-body-2" i18n>
+                    The author has deposited
+                    <button
+                      mat-mini-fab
+                      matTooltip="Number of ORV tokens the author has stacked"
+                      color="primary"
+                      type="button"
+                      >{{ balanceTokens.slice(0, -18) || 0 }}
+                      i18n
+                    </button>
+                    ORV tokens for peer review rewards.
+                  </span>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          }
+          @if (!canUpdateDeposit) {
+            <app-alert [icon]="'info'">
+              <ng-container i18n>This article state does not allow changes.</ng-container>
+            </app-alert>
+          }
+          @if (showOptionalFields) {
+            <mat-expansion-panel class="!mb-8">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <h3 id="publication-settings" class="mat-headline-6 mb-0" i18n
+                    >Advanced Settings</h3
+                  >
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-action-row>
+                <button
+                  color="warn"
+                  mat-flat-button
+                  type="button"
+                  [disabled]="!canDeleteDeposit"
+                  (click)="deleteDeposit()"
+                >
+                  <mat-icon>delete</mat-icon>
+                  <ng-container i18n>Delete publication</ng-container>
+                </button>
+              </mat-action-row>
+            </mat-expansion-panel>
+          }
+        </div>
+      </div>
+    </div>
+  }
+
+  <app-table-of-contents
+    #toc
+    class="col-span-1 w-full self-start"
+    container=".mat-drawer-content"
+    [scrollPaddingTop]="'5rem'"
+  />
+</div>
+<ng-template #acknowledgementDialogTemplate>
+  <p class="black" i18n
+    >Please read and acknowledge the following requirements before submitting:</p
+  >
+  @if (deposit) {
+    <app-acknowledgement [acknowledgementHTML]="deposit.communityPopulated.acknowledgement" />
+  }
+</ng-template>
+
+<ng-template #ithenticateEULATemplate>
+  <iframe class="w-96 h-96" title="Inline Frame Example" [src]="iThenticateEULA_URL"></iframe>
+</ng-template>
+
+<ng-template #approveORVtokensDialogTemplate>
+  <mat-form-field class="flex flex-col">
+    <input
+      #numberApproveTokens
+      matInput
+      max="100"
+      min="1"
+      placeholder="Number of tokens"
+      type="number"
+      [formControl]="numberApproveTokensControl"
+    />
+    @if (numberApproveTokensControl.invalid) {
+      <mat-error i18n>Set value between 1 and 100 </mat-error>
+    }
+  </mat-form-field>
+  <a i18n
+    >If you are not sure about this action, you can read more details at
+    <a class="primary" href=" https://eips.ethereum.org/EIPS/eip-20#approve">here</a>.
+  </a>
+  <button
+    color="primary"
+    mat-raised-button
+    type="button"
+    (click)="!numberApproveTokensControl.invalid && approveDepositTokens(numberApproveTokens.value)"
+    >Confirm
+  </button>
+  <button mat-button type="button" (click)="this.dialogService.closeAll()" i18n>Cancel</button>
+</ng-template>
+
+<ng-template #depositORVtokensDialogTemplate>
+  <mat-form-field class="flex flex-col">
+    <input
+      #numberDepositTokens
+      matInput
+      max="100"
+      min="1"
+      placeholder="Number of tokens"
+      type="number"
+      [formControl]="numberDepositTokensControl"
+    />
+    @if (numberDepositTokensControl.invalid) {
+      <mat-error i18n>Set value between 1 and 100 </mat-error>
+    }
+  </mat-form-field>
+  <a i18n>
+    When you confirm this transaction, the Orvium smart contract will take ORV tokens from your
+    wallet executing the ERC20 method "transferFrom".
+  </a>
+  <br />
+  <a i18n
+    >If you are not sure about this action, you can read more details at
+    <a class="primary" href="https://eips.ethereum.org/EIPS/eip-20#transferfrom">here</a>.
+  </a>
+  <button
+    color="primary"
+    mat-raised-button
+    type="button"
+    (click)="!numberDepositTokensControl.invalid && depositTokens(numberDepositTokens.value)"
+    i18n
+    >Confirm
+  </button>
+  <button mat-button type="button" (click)="dialogService.closeAll()" i18n>Cancel</button>
+</ng-template>
+
+<ng-template #doiMetadataTextTemplate>
+  <pre><div>{{doiMetadataText}}</div></pre>
+</ng-template>
+
+<ng-template #doiMetadataJSONTemplate>
+  <pre><div>{{doiMetadataJson | json}}</div></pre>
+</ng-template>

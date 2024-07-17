@@ -1,0 +1,33 @@
+<h2 class="mat-headline-3 primary"><strong>Blockchain Information</strong></h2>
+@for (network of networks; track network) {
+  <mat-card>
+    <mat-card-content>
+      <h3 class="mat-headline-4 grey"
+        ><strong
+          ><span class="primary">{{ network.displayName }}</span> network details</strong
+        ></h3
+      >
+      <h2 class="grey">App Address:</h2>
+      <div>
+        <span class="grey">{{ network.appAddress }}</span>
+        <a href="{{ network.explorerUrl }}address/{{ network.appAddress }}">
+          <mat-icon inline class="ml-1">launch</mat-icon>
+        </a>
+      </div>
+      <h2 class="grey">Escrow Adress:</h2>
+      <div>
+        <span class="grey">{{ network.escrowAddress }}</span>
+        <a href="{{ network.explorerUrl }}address/{{ network.escrowAddress }}">
+          <mat-icon inline class="ml-1">launch</mat-icon>
+        </a>
+      </div>
+      <h2 class="grey">Token Adress:</h2>
+      <div>
+        <span class="grey">{{ network.tokenAddress }}</span>
+        <a href="{{ network.explorerUrl }}address/{{ network.tokenAddress }}">
+          <mat-icon inline class="ml-1">launch</mat-icon>
+        </a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+}

@@ -1,0 +1,28 @@
+.container {
+  display: grid;
+  grid-template:
+    'recent communities' auto
+    'recent invite' 1fr / 70% 25%;
+}
+
+.recent {
+  grid-area: recent;
+}
+
+.communities {
+  grid-area: communities;
+}
+
+.invite {
+  grid-area: invite;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      'communities'
+      'recent'
+      'invite';
+  }
+}

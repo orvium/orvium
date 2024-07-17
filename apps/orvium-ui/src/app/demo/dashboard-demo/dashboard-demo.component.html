@@ -1,0 +1,4 @@
+<h4>Orvium Demo Dashboard</h4>
+@for (link of links; track link) {
+  <a mat-button [routerLink]="[link.link]">{{ link.name }}</a>
+}

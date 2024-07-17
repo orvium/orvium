@@ -1,0 +1,20 @@
+@if (title) {
+  <h2 mat-dialog-title>{{ title }}</h2>
+}
+<div mat-dialog-content>
+  @if (content) {
+    <p class="mat-body">{{ content }}</p>
+  }
+  <ng-container [ngTemplateOutlet]="template" />
+  @if (showActionButtons) {
+    <div class="flex justify-end">
+      <button mat-raised-button color="primary" type="button" (click)="confirm()">
+        @if (icon) {
+          <mat-icon>{{ icon }}</mat-icon>
+        }
+        {{ acceptMessage }}
+      </button>
+      <button mat-button type="button" (click)="cancel()">{{ cancelMessage }}</button>
+    </div>
+  }
+</div>

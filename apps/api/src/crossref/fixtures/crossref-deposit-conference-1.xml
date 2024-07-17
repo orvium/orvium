@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" version="5.3.0">
+    <head>
+        <doi_batch_id>
+            1683889940309
+        </doi_batch_id>
+        <timestamp>
+            1683889940309
+        </timestamp>
+        <depositor>
+            <depositor_name>
+                Orvium
+            </depositor_name>
+            <email_address>
+                support@orvium.io
+            </email_address>
+        </depositor>
+        <registrant>
+            Orvium
+        </registrant>
+    </head>
+    <body>
+        <conference>
+            <event_metadata>
+                <conference_name>
+                    Orvium Community
+                </conference_name>
+                <conference_theme>
+                    Orvium Community
+                </conference_theme>
+            </event_metadata>
+            <proceedings_metadata language="en">
+                <proceedings_title>
+                    Orvium Community
+                </proceedings_title>
+                <publisher>
+                    <publisher_name>
+                        Test
+                    </publisher_name>
+                </publisher>
+                <publication_date>
+                    <month>
+                        5
+                    </month>
+                    <day>
+                        12
+                    </day>
+                    <year>
+                        2023
+                    </year>
+                </publication_date>
+                <noisbn reason="simple_series"></noisbn>
+            </proceedings_metadata>
+            <conference_paper publication_type="full_text">
+                <contributors>
+                    <person_name sequence="first" contributor_role="author">
+                        <given_name>
+                            John
+                        </given_name>
+                        <surname>
+                            Doe
+                        </surname>
+                        <affiliations>
+                            <institution>
+                                <institution_name>
+                                    University
+                                </institution_name>
+                            </institution>
+                        </affiliations>
+                    </person_name>
+                </contributors>
+                <titles>
+                    <title>
+                        Big data analytics as a service infrastructure: challenges, desired properties and solutions
+                    </title>
+                </titles>
+                <jats:abstract>
+                    <jats:p>
+                        CERN’s accelerator complex generates a very large amount of data. A large volumen of heterogeneous data is constantly generated from control equipment and monitoring agents. These data must be stored and analysed. Over the decades, CERN’s researching and engineering teams have applied different approaches, techniques and technologies for this purpose. This situation has minimised the necessary collaboration and, more relevantly, the cross data analytics over different domains. These two factors are essential to unlock hidden insights and correlations between the underlying processes, which enable better and more efficient daily-based accelerator operations and more informed decisions.
+                    </jats:p>
+                </jats:abstract>
+                <publication_date>
+                    <month>
+                        5
+                    </month>
+                    <day>
+                        12
+                    </day>
+                    <year>
+                        2023
+                    </year>
+                </publication_date>
+                <doi_data>
+                    <doi>
+                        10.51875/645e1f14fed384d667fec6cf
+                    </doi>
+                    <resource>
+                        http://localhost:4200/deposits/645e1f14fed384d667fec6cf/view
+                    </resource>
+                </doi_data>
+            </conference_paper>
+        </conference>
+    </body>
+</doi_batch>

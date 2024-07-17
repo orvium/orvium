@@ -1,0 +1,792 @@
+@if (unauthorized) {
+  <app-access-denied />
+}
+<ng-template #buttonsInToolbar>
+  @if (menu._allItems && menu._allItems.length > 0 && canModerateDeposit) {
+    <button type="button" mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>badge</mat-icon>
+      Moderation actions
+    </button>
+  }
+  <mat-menu #menu="matMenu">
+    @if (deposit.status === DepositStatus.PendingApproval) {
+      <button mat-menu-item type="button" (click)="openAcceptModal()" i18n> Accept </button>
+    }
+    @if (deposit.status === DepositStatus.Preprint) {
+      <button mat-menu-item type="button" (click)="publishDeposit()" i18n> Publish </button>
+    }
+    @if (deposit.status === DepositStatus.PendingApproval) {
+      <button mat-menu-item type="button" (click)="openDraftModal()" i18n> Request Changes </button>
+    }
+    @if (deposit.status === DepositStatus.Published || deposit.status === DepositStatus.Preprint) {
+      <button
+        mat-menu-item
+        type="button"
+        class="mx-auto"
+        (click)="openBackToPendingApprovalDialog()"
+        i18n
+      >
+        Back to pending approval
+      </button>
+    }
+    @if (deposit.status === DepositStatus.PendingApproval) {
+      <button mat-menu-item type="button" (click)="openRejectModal()" i18n> Reject </button>
+    }
+    @if (deposit.status === DepositStatus.PendingApproval && deposit.version > 1) {
+      <button mat-menu-item type="button" (click)="openMergeModal()" i18n> Merge </button>
+    }
+  </mat-menu>
+  @if (profile && profile._id !== deposit.creator) {
+    <button
+      mat-button
+      class="grey"
+      type="button"
+      appFeedback
+      matTooltip="Claim authorsip of this article"
+      [user]="this.profile"
+      (send)="claimArticle($event)"
+    >
+      <mat-icon>military_tech</mat-icon>
+      <ng-container i18n>Claim Article</ng-container>
+    </button>
+  }
+  <button
+    mat-button
+    class="grey"
+    type="button"
+    matTooltip="Share '{{ deposit.title }}'"
+    (click)="openShare()"
+  >
+    <mat-icon>share</mat-icon>
+    <ng-container i18n>Share</ng-container>
+  </button>
+  <button
+    mat-button
+    class="grey"
+    type="button"
+    matTooltip="Bookmark '{{ deposit.title }}'"
+    (click)="star()"
+  >
+    @if (isStarred) {
+      <mat-icon class="primary" aria-hidden="false">bookmark</mat-icon>
+    }
+    @if (!isStarred) {
+      <mat-icon aria-hidden="false" aria-label="Unsave icon"> bookmark_border </mat-icon>
+    }
+    <ng-container i18n>Bookmark</ng-container>
+  </button>
+  @if (canCreateVersion && !draftDeposit && !pendingApprovalDeposit) {
+    <button mat-button class="grey" type="button" (click)="createRevision()">
+      <mat-icon>import_contacts</mat-icon>
+      <ng-container i18n>Create revision</ng-container>
+    </button>
+  }
+  @if (deposit && canCreateVersion && draftDeposit && draftDeposit._id !== deposit._id) {
+    <button
+      class="grey"
+      type="button"
+      mat-button
+      [routerLink]="['/deposits', draftDeposit._id, 'edit']"
+    >
+      <mat-icon>import_contacts</mat-icon>
+      <ng-container i18n>Edit revision</ng-container>
+    </button>
+  }
+  @if (deposit && canManageDeposit) {
+    <button class="grey" mat-button type="button" [routerLink]="['/deposits', deposit._id, 'edit']">
+      <mat-icon>edit</mat-icon>
+      <ng-container i18n>Edit</ng-container>
+    </button>
+  }
+</ng-template>
+
+@if (deposit) {
+  <app-info-toolbar>
+    <app-description-line
+      [communityId]="deposit.communityPopulated._id"
+      [avatar]="deposit.communityPopulated.logoURL"
+      [title]="deposit.communityPopulated.name"
+      [subtitle]="'Community hosting publication'"
+    />
+    @if (!deposit.community) {
+      <div class="submit-by">
+        <div class="text-base grey mat-caption" i18n>Submitted by</div>
+        <div class="submitter">
+          <app-contributor-line [user]="deposit.ownerProfile" />
+        </div>
+      </div>
+    }
+    <div app-info-toolbar-buttons class="flex gap-1 items-center">
+      <app-buttons-menu
+        [isMobile]="isMobile"
+        [buttonsAlwaysInMenu]="buttonsAlwaysInMenu"
+        [buttonsInToolbar]="buttonsInToolbar"
+      />
+    </div>
+  </app-info-toolbar>
+}
+
+<ng-template #buttonsAlwaysInMenu>
+  @if (deposit) {
+    <button
+      class="icon-wrapper grey"
+      appFeedback
+      mat-button
+      type="button"
+      matTooltip="Report '{{ deposit.title }}'"
+      (send)="reportDeposit($event)"
+    >
+      <mat-icon>report</mat-icon>
+      <ng-container i18n>Report</ng-container>
+    </button>
+  }
+</ng-template>
+
+<ng-template #shareDialogTemplate>
+  <app-share-media [shareSubject]="'this publication'" [shareText]="shareText" />
+</ng-template>
+
+@if (!deposit) {
+  <div [appOverlayLoading]="depositViewLoading"></div>
+}
+
+@if (deposit) {
+  <div class="flex gap-4 flex-col content-between xl:flex-row">
+    <div class="w-full order-2 xl:w-9/12 xl:order-1">
+      @if (latestVersion) {
+        @if (deposit._id === latestVersion._id) {
+          <app-alert [icon]="'info'"
+            >You are watching the latest version of this publication, Version
+            {{ this.deposit.version }}.
+          </app-alert>
+        }
+        @if (deposit._id !== latestVersion._id) {
+          <app-alert [icon]="'info'"
+            >There is an updated version of this publication, open
+            <a href="{{ this.environment.publicUrl }}/deposits/{{ latestVersion._id }}/view"
+              >Version {{ latestVersion.version }}</a
+            >.
+          </app-alert>
+        }
+      }
+      <div data-test="deposit-details" [appOverlayLoading]="depositViewLoading">
+        <strong class="font-semibold uppercase mat-body-1 grey">{{
+          deposit.publicationType
+        }}</strong>
+        <h1>{{ deposit.title }}</h1>
+        <div class="flex gap-1 items-center grey">
+          <span>{{ deposit.submissionDate | date: 'dd/MM/yyyy' }}</span>
+          <span>| By</span>
+          @if (deposit.authors) {
+            <div>
+              @if (deposit.authors) {
+                <app-author-avatar-list [authors]="deposit.authors" />
+              }
+            </div>
+          }
+        </div>
+        <div
+          aria-label="Article views, comments and authors"
+          class="flex flex-wrap gap-4 mb-4 grey"
+        >
+          <div class="flex items-center gap-1">
+            <mat-icon inline>visibility</mat-icon>
+            <span>{{ deposit.views }} Views</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <mat-icon inline>mode_comment</mat-icon>
+            <span>{{ deposit.socialComments }} Comments</span>
+          </div>
+          <div class="flex items-center">
+            <mat-chip-listbox>
+              @for (version of depositVersions; track version; let i = $index) {
+                <mat-chip-option
+                  [selected]="version._id === this.deposit._id"
+                  [routerLink]="['/deposits', version._id, 'view']"
+                  [selectable]="version._id !== this.deposit._id"
+                >
+                  <div class="flex items-center gap-1">
+                    <span>Version {{ version.version }} </span>
+                    @for (peerReview of version.peerReviewsPopulated; track peerReview) {
+                      <mat-icon>
+                        {{ peerReview | reviewIcon }}
+                      </mat-icon>
+                    }
+                  </div>
+                </mat-chip-option>
+              }
+            </mat-chip-listbox>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-4 content-between mb-4 grey">
+          <div aria-label="Article disciplines" class="grow-1">
+            <div class="text-sm mb-0 uppercase font-semibold mat-body-1" i18n>Disciplines</div>
+            <mat-chip-set>
+              @for (discipline of deposit.disciplines; track discipline) {
+                <mat-chip class="orv-chip-primary" [disableRipple]="true"
+                  >{{ discipline }}
+                </mat-chip>
+              }
+            </mat-chip-set>
+          </div>
+          <div aria-label="Article keywords" class="grow-1">
+            <div class="text-sm mb-0 uppercase font-semibold mat-body-1" i18n>Keywords</div>
+            <mat-chip-set>
+              @for (keyword of deposit.keywords; track keyword) {
+                <mat-chip class="orv-chip-outlined" [disableRipple]="true">{{
+                  keyword | titlecase
+                }}</mat-chip>
+              }
+            </mat-chip-set>
+          </div>
+        </div>
+        @if (track) {
+          <div>
+            <div class="text-sm mb-0 uppercase font-bold mat-body-1 grey" i18n>Track</div>
+            <span class="grey">{{ track }}</span>
+          </div>
+        }
+        <div class="text-sm mb-0 uppercase font-semibold mat-body-1 mt-4 grey" i18n>Abstract</div>
+        <div class="grey">
+          @if (deposit.abstract) {
+            <app-show-more
+              class="grey"
+              [expanded]="isPlatformServer || !isMobileWhenPageStarts"
+              [id]="deposit._id"
+              [text]="deposit.abstract"
+              [truncateLength]="150"
+            />
+          }
+        </div>
+      </div>
+      <mat-tab-group class="mb-8">
+        @if (deposit.html || sanitizedPDFFileUrl) {
+          <mat-tab label="ARTICLE">
+            <div class="flex flex-col items-center mt-4 mb-8 w-full">
+              @if (deposit.html) {
+                <app-alert class="w-full" [icon]="'info'">
+                  <ng-container i18n
+                    >Preview automatically generated form the publication file.
+                  </ng-container>
+                </app-alert>
+                <div class="preview-html w-full" [innerHTML]="deposit.html"></div>
+                @if (images && images.length > 0) {
+                  <h2 class="mat-h2 primary">Figures ({{ images.length }})</h2>
+                }
+                @if (images && images.length > 0) {
+                  <div class="flex flex-wrap justify-around">
+                    @for (image of images; track image) {
+                      <a target="_blank" [href]="image.src">
+                        <img class="m-1 w-36 h-36" alt="Publication Image" [src]="image.src" />
+                      </a>
+                    }
+                  </div>
+                }
+              }
+              @if (!deposit.html && sanitizedPDFFileUrl) {
+                <embed height="800" width="98%" loading="lazy" [src]="sanitizedPDFFileUrl" />
+              }
+            </div>
+          </mat-tab>
+        }
+        @if (
+          deposit.bibtexReferences &&
+          deposit.bibtexReferences.length > 0 &&
+          environment.experimentalFeatures
+        ) {
+          <mat-tab label="BIBTEX REFERENCES">
+            <ol>
+              @for (reference of deposit.bibtexReferences; track reference) {
+                <li class="mat-subtitle-2">
+                  @if (reference.url) {
+                    <a target="_blank" class="click-link primary" [href]="reference.url">{{
+                      reference.title
+                    }}</a>
+                  }
+                  @if (!reference.url) {
+                    <p>{{ reference.title }}</p>
+                  }
+                </li>
+              }
+            </ol>
+          </mat-tab>
+        }
+        @if (deposit.references && deposit.references.length > 0) {
+          <mat-tab label="REFERENCES">
+            <ol>
+              @for (reference of deposit.references; track reference) {
+                <li class="mat-subtitle-2">
+                  @if (reference.url) {
+                    <a target="_blank" class="click-link primary" [href]="reference.url">{{
+                      reference.reference
+                    }}</a>
+                  }
+                  @if (!reference.url) {
+                    <p>{{ reference.reference }}</p>
+                  }
+                </li>
+              }
+            </ol>
+          </mat-tab>
+        }
+        <mat-tab label="FILES">
+          @for (file of files; track file) {
+            <app-file-card [file]="file" [canDelete]="false" />
+          }
+          @if (deposit.gitRepository) {
+            <a mat-icon-button class="git" target="_blank" [href]="deposit.gitRepository">
+              <fa-icon size="lg" [icon]="['fab', 'github']" />
+              <a target="_blank" href="{{ getBinderURL(deposit.gitRepository) }}" i18n>
+                Open in Binder</a
+              >
+            </a>
+          }
+        </mat-tab>
+        <mat-tab
+          label="REVIEWS {{
+            deposit.peerReviewsPopulated.length > 0
+              ? '(' + deposit.peerReviewsPopulated.length + ')'
+              : ''
+          }}"
+        >
+          @if (deposit.peerReviewsPopulated.length === 0 && profile) {
+            <app-alert [icon]="'info'">
+              <ng-container i18n>No reviews to show.</ng-container>
+            </app-alert>
+          }
+          @if (deposit.peerReviewsPopulated.length === 0 && !profile) {
+            <app-alert [icon]="'info'">
+              <ng-container i18n>
+                No reviews to show. Please remember to LOG IN as some reviews may be only visible to
+                specific users.
+              </ng-container>
+            </app-alert>
+          }
+          @for (review of this.peerReviews; track review) {
+            <div class="mb-4">
+              @if (review) {
+                <app-review-card [review]="review" />
+              }
+            </div>
+          }
+        </mat-tab>
+        @if (deposit.history.length > 0) {
+          <mat-tab label="HISTORY">
+            <app-history-log [historyLogLines]="deposit.history" />
+          </mat-tab>
+        }
+        <mat-tab [label]="'COMMENTS ' + '(' + deposit.socialComments + ')'">
+          <div class="mb-4 p-6 mt-8">
+            @if (canCreateComment) {
+              <div class="flex flex-row gap-2">
+                <mat-icon
+                  [matTooltip]="
+                    'These comments are visible to everyone and will show your identity.'
+                  "
+                  >help
+                </mat-icon>
+                <h1 class="mat-h1 primary" i18n>Public Comments</h1>
+              </div>
+            }
+            <app-comment-section
+              [canCreateComment]="canCreateComment"
+              [resource]="deposit._id"
+              [resourceModel]="ResourceModelEnum.Deposit"
+            />
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+      <mat-divider />
+    </div>
+    <div class="w-full order-1 xl:w-3/12 xl:order-2">
+      <div class="mr-0 ml-auto border border-solid border-gray-600 border-opacity-50">
+        @if (deposit.doi) {
+          <div class="p-4 text-xs">
+            <a target="_blank" class="mr-1" href="https://doi.org/{{ deposit.doi }}"
+              >doi.org/{{ deposit.doi }}</a
+            >
+            <mat-icon
+              inline
+              class="cursor-pointer align-middle"
+              [appCopyToClipboard]="'https://doi.org/' + deposit.doi"
+              >content_copy
+            </mat-icon>
+          </div>
+        }
+        <mat-divider />
+        <div class="p-4 flex justify-between">
+          <mat-chip-set>
+            <mat-chip
+              class="orv-chip-{{ deposit.status.replace(' ', '-') }}"
+              [disableRipple]="true"
+            >
+              {{ deposit.status | titlecase }}
+            </mat-chip>
+            @if (
+              deposit.acceptedFor !== AcceptedFor.None &&
+              (deposit.status === DepositStatus.Preprint ||
+                deposit.status === DepositStatus.Published)
+            ) {
+              <mat-chip class="orv-chip-primary" [disableRipple]="true">
+                {{ deposit.acceptedFor | titlecase }}
+              </mat-chip>
+            }
+          </mat-chip-set>
+          @if (deposit.openAireIdentifier) {
+            <div class="flex items-center">
+              <mat-icon>add_link</mat-icon>
+              <a
+                target="_blank"
+                href="https://explore.openaire.eu/search/publication?articleId={{
+                  deposit.openAireIdentifier
+                }}"
+                i18n
+              >
+                Indexed by<br />OpenAIRE
+              </a>
+            </div>
+          }
+        </div>
+        @if (deposit.transactions && deposit.transactions['length'] !== 0) {
+          <div class="p-4">
+            <div>
+              @for (transaction of deposit.transactions || [] | keyvalue; track transaction) {
+                <a
+                  mat-button
+                  target="_blank"
+                  href="{{
+                    this.blockchainService.getNetworkByName(transaction.key.toString())
+                      ?.explorerUrl +
+                      'tx/' +
+                      $any(transaction.value).transactionHash
+                  }}"
+                >
+                  <mat-icon aria-hidden="false" aria-label="Published icon">verified_user</mat-icon>
+                  <ng-container i18n>Ownership proved in</ng-container>
+                  {{
+                    this.blockchainService.getNetworkByName(transaction.key.toString())?.displayName
+                  }}
+                </a>
+              }
+            </div>
+            <div>
+              <a href="https://help.orvium.io/tech/blockchain/" i18n>what’s this?</a>
+            </div>
+          </div>
+        }
+        @if (deposit.transactions && deposit.transactions['length'] !== 0) {
+          <mat-divider />
+        }
+        <mat-divider />
+        <div class="p-4">
+          <div class="flex justify-between mb-2">
+            <span class="grey" i18n>Submitted by</span>
+            <span class="grey">{{ deposit.submissionDate | date: 'd MMM yyyy' }}</span>
+          </div>
+          <div class="flex flex-row justify-between">
+            <app-contributor-line [user]="deposit.ownerProfile" />
+            @if (
+              deposit.ownerProfile.nickname &&
+              profile?.nickname &&
+              profile?.nickname !== deposit.ownerProfile.nickname
+            ) {
+              <a
+                mat-raised-button
+                type="button"
+                [routerLink]="[conversationLink?.routerLink]"
+                [queryParams]="conversationLink?.queryParam"
+              >
+                <mat-icon>chat</mat-icon>
+                <ng-container i18n>Message</ng-container>
+              </a>
+            }
+          </div>
+        </div>
+        <mat-divider />
+        @if (deposit.pdfUrl || deposit.publicationFile) {
+          <div class="flex justify-between align-middle p-4">
+            <span class="inline-flex items-center font-semibold grey" i18n
+              >Download Publication</span
+            >
+            @if (deposit.publicationFile) {
+              <div class="flex gap-1">
+                @if (deposit.pdfUrl) {
+                  <a mat-raised-button color="primary" target="_blank" [href]="deposit.pdfUrl" i18n>
+                    PDF
+                  </a>
+                }
+                @if (deposit.publicationFile.url && publicationFileExtension !== 'PDF') {
+                  <a mat-raised-button color="primary" [href]="deposit.publicationFile.url">
+                    {{ publicationFileExtension }}
+                  </a>
+                }
+                @if (deposit.publicationFile.url && canUseOverleaf) {
+                  <a
+                    mat-raised-button
+                    color="primary"
+                    target="_blank"
+                    matTooltip="Open in Overleaf"
+                    href="https://www.overleaf.com/docs?snip_uri={{
+                      deposit.publicationFile.url | encodeURIComponent
+                    }}"
+                  >
+                    <div class="flex flex-nowrap gap-1 items-center">
+                      <fa-icon icon="leaf" size="lg" />
+                      <span i18n>Overleaf</span>
+                    </div>
+                  </a>
+                }
+              </div>
+            }
+          </div>
+        }
+        <mat-divider />
+        <mat-expansion-panel class="orv-expansion-panel bg-transparent shadow-none !rounded-none">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h2 class="m-0 text-base grey" i18n>More details</h2>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <ul class="mat-body-2">
+            <li
+              >License:
+              <span>
+                <a
+                  class="primary click-link"
+                  href="https://help.orvium.io/licenses/"
+                  target="_blank"
+                  >{{ deposit.accessRight | uppercase }}
+                  <mat-icon class="black h-0 text-base">help</mat-icon>
+                </a></span
+              >
+            </li>
+            @if (deposit.canBeReviewed) {
+              <li i18n
+                >Review type:
+                <span class="primary">{{ deposit.reviewType | titlecase }}</span>
+              </li>
+            }
+            <li i18n
+              >Publication type:
+              <span class="primary">{{ deposit.publicationType | titlecase }}</span>
+            </li>
+            @if (deposit.submissionDate) {
+              <li i18n
+                >Submission date:
+                <span class="primary">{{ deposit.submissionDate | date: 'd MMMM yyyy' }}</span>
+              </li>
+            }
+            @if (deposit.publicationDate) {
+              <li i18n
+                >Publication date:
+                <span class="primary">{{ deposit.publicationDate | date: 'd MMMM yyyy' }}</span>
+              </li>
+            }
+            @if (deposit.extraMetadata.conferenceTitle) {
+              <li i18n
+                >Conference:
+                <span class="primary">{{ deposit.extraMetadata.conferenceTitle }}</span>
+              </li>
+            }
+            @if (deposit.extraMetadata.isbn) {
+              <li i18n
+                >ISBN:
+                <span class="primary">{{ deposit.extraMetadata.isbn }}</span>
+              </li>
+            }
+            @if (deposit.extraMetadata.issn) {
+              <li i18n
+                >ISSN:
+                <span class="primary">{{ deposit.extraMetadata.issn }}</span>
+              </li>
+            }
+            @if (deposit.extraMetadata.volume) {
+              <li i18n
+                >Volume:
+                <span class="primary">{{ deposit.extraMetadata.volume }}</span>
+              </li>
+            }
+            @if (deposit.extraMetadata.issue) {
+              <li i18n
+                >Issue:
+                <span class="primary">{{ deposit.extraMetadata.issue }}</span>
+              </li>
+            }
+            @if (deposit.extraMetadata.firstpage) {
+              <li i18n
+                >First page:
+                <span class="primary">{{ deposit.extraMetadata.firstpage }}</span>
+              </li>
+            }
+            @if (deposit.extraMetadata.lastpage) {
+              <li i18n
+                >Last page:
+                <span class="primary">{{ deposit.extraMetadata.lastpage }}</span>
+              </li>
+            }
+            @if (deposit.extraMetadata.dissertationInstitution) {
+              <li i18n
+                >Dissertation institution:
+                <span class="primary">{{ deposit.extraMetadata.dissertationInstitution }}</span>
+              </li>
+            }
+            @if (deposit.extraMetadata.technicalReportInstitution) {
+              <li i18n
+                >Technical report institution:
+                <span class="primary">{{ deposit.extraMetadata.technicalReportInstitution }}</span>
+              </li>
+            }
+            @if (deposit.extraMetadata.publisher) {
+              <li i18n
+                >Publisher:
+                <span class="primary">{{ deposit.extraMetadata.publisher }}</span>
+              </li>
+            }
+            @if (deposit.extraMetadata.journalTitle) {
+              <li i18n
+                >Journal title:
+                <span class="primary">{{ deposit.extraMetadata.journalTitle }}</span>
+              </li>
+            }
+            @if (deposit.extraMetadata.dissertationName) {
+              <li i18n
+                >Dissertation name:
+                <span class="primary">{{ deposit.extraMetadata.dissertationName }}</span>
+              </li>
+            }
+            @if (deposit.extraMetadata.inbookTitle) {
+              <li i18n
+                >Inbook title:
+                <span class="primary">{{ deposit.extraMetadata.inbookTitle }}</span>
+              </li>
+            }
+            @if (deposit.extraMetadata.language) {
+              <li i18n
+                >Language:
+                <span class="primary">{{ deposit.extraMetadata.language }}</span>
+              </li>
+            }
+          </ul>
+          <div class="flex justify-center">
+            <a href="https://creativecommons.org/licenses/" target="_blank">
+              <fa-icon size="lg" [icon]="['fab', 'creative-commons']" />
+              @if (deposit.accessRight === AccessRight.Cc0) {
+                <fa-icon
+                  size="lg"
+                  [icon]="['fab', 'creative-commons-zero']"
+                  [matTooltip]="AccessRight.Cc0 | uppercase"
+                />
+              }
+              @if (deposit.accessRight === AccessRight.CcBy) {
+                <fa-icon
+                  size="lg"
+                  [icon]="['fab', 'creative-commons-by']"
+                  [matTooltip]="AccessRight.CcBy | uppercase"
+                />
+              }
+              @if (deposit.accessRight === AccessRight.CcByNd) {
+                <fa-icon
+                  size="lg"
+                  [icon]="['fab', 'creative-commons-nd']"
+                  [matTooltip]="AccessRight.CcByNd | uppercase"
+                />
+              }
+            </a>
+          </div>
+        </mat-expansion-panel>
+        <mat-divider />
+        @if (citation) {
+          <mat-expansion-panel class="orv-expansion-panel bg-transparent shadow-none !rounded-none">
+            <mat-expansion-panel-header class="pt">
+              <mat-panel-title>
+                <h2 class="m-0 text-base grey" i18n>Citation</h2>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="flex content-between p-4">
+              <span class="flex flex-col">
+                <p class="wrap-anywhere">{{ citation.apa }}</p>
+                <div>
+                  <a
+                    class="primary"
+                    target="_blank"
+                    href="{{ environment.apiEndpoint }}/deposits/{{ deposit._id }}/bibtex"
+                    >BibTeX</a
+                  >
+                </div>
+              </span>
+              <span class="flex items-center text-sm">
+                <button
+                  mat-icon-button
+                  matSuffix
+                  aria-label="Copy"
+                  type="button"
+                  [appCopyToClipboard]="citation.apa"
+                >
+                  <mat-icon>content_copy</mat-icon>
+                </button>
+              </span>
+            </div>
+          </mat-expansion-panel>
+        }
+        @if (citation) {
+          <mat-divider />
+        }
+        <div [appOverlayLoading]="depositViewLoading">
+          @if (deposit) {
+            <app-deposit-versions-accordion
+              [profile]="profile"
+              [versions]="depositVersions"
+              [fullVersion]="true"
+              [selectedVersionId]="deposit._id"
+            />
+          }
+        </div>
+        <mat-divider />
+        @if (deposit.canBeReviewed && (canReview || canInviteReviewers || hasBeenInvitedToReview)) {
+          <div class="actions-block p-4">
+            @if (depositVersions.length > 1) {
+              <p class="mat-card-subtitle mt-4" i18n>
+                Select the version first, then click "Invite Reviewers" or "Create Review" to
+                proceed.
+              </p>
+            }
+            <div class="flex gap-1 items-center justify-center">
+              @if (canInviteReviewers) {
+                <button mat-button class="grey" type="button" [routerLink]="['..', 'invite']">
+                  <mat-icon>email</mat-icon>
+                  <ng-container i18n>Invite Reviewers</ng-container>
+                </button>
+              }
+              @if (canReview) {
+                @if (!hasBeenInvitedToReview) {
+                  <button mat-raised-button color="primary" type="button" (click)="createReview()">
+                    <mat-icon>rate_review</mat-icon>
+                    <ng-container i18n>Create Review</ng-container>
+                  </button>
+                }
+                @if (hasBeenInvitedToReview) {
+                  <button
+                    mat-raised-button
+                    color="primary"
+                    type="button"
+                    [routerLink]="['/reviews', 'myreviews']"
+                  >
+                    <mat-icon>rate_review</mat-icon>
+                    <ng-container i18n>My Reviews</ng-container>
+                  </button>
+                }
+              }
+            </div>
+            @if (canReview && hasBeenInvitedToReview) {
+              <p class="mat-card-subtitle mt-4" i18n>
+                * You have been invited to review this publication. Go to
+                <a class="primary" [routerLink]="['/reviews', 'myreviews']">My Reviews</a> to manage
+                the invitation.
+              </p>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+}

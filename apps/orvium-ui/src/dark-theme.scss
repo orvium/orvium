@@ -1,0 +1,49 @@
+@use '@angular/material' as mat;
+@use 'styles/variables';
+@use 'styles';
+@use 'styles/common';
+@use 'sass:map';
+
+$orv-primary: mat.m2-define-palette(variables.$primary-shades);
+$orv-accent: mat.m2-define-palette(mat.$m2-orange-palette);
+$orv-warn: mat.m2-define-palette(mat.$m2-red-palette);
+$orv-theme: mat.m2-define-dark-theme(
+  (
+    color: (
+      primary: $orv-primary,
+      accent: $orv-accent,
+      warn: $orv-warn,
+    ),
+    typography: styles.$custom-typography,
+  )
+);
+
+@include common.create-theme($orv-theme);
+@include common.elevations(rgba(0, 0, 0, 0.25));
+
+.alert-container-color-info {
+  background-color: variables.$dark-grey;
+
+  .decorate-as-link {
+    color: rgba(255, 255, 255, 60%);
+  }
+}
+
+.alert-container-color-error {
+  background-color: rgb(map.get(variables.$warn-palette, 900), 70%);
+}
+
+.mat-menu-content {
+  color: white;
+}
+
+/* stylelint-disable */
+.NgxEditor__MenuItem:hover {
+  background-color: #676666 !important;
+}
+
+.NgxEditor__Popup--Label {
+  color: black;
+}
+
+/* stylelint-enable */

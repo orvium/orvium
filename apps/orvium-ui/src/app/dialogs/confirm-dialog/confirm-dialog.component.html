@@ -1,0 +1,13 @@
+<div mat-dialog-content>
+  <h2 class="primary mat-headline-6">{{ title }}</h2>
+  <p class="mat-body">{{ content }}</p>
+  <div class="flex justify-end">
+    <button mat-raised-button color="primary" type="button" (click)="confirm()">
+      @if (icon) {
+        <mat-icon>{{ icon }}</mat-icon>
+      }
+      {{ acceptMessage }}
+    </button>
+    <button mat-button type="button" (click)="cancel()">{{ cancelMessage }}</button>
+  </div>
+</div>

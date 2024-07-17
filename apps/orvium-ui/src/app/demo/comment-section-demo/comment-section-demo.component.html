@@ -1,0 +1,34 @@
+<h1 class="mat-headline-2 primary">Comment Section</h1>
+<h1 class="mat-headline-2">Comment with responses</h1>
+<h2>Selector: <code>&lt;app-comment-with-response-card&gt;</code></h2>
+<h2>Input: <code>comment: any</code></h2>
+<app-comment-card
+  [comment]="mainComment"
+  [showReplyInput]="showReplyInput"
+  (isRepliesOpened)="toggleReplies()"
+  (replyContent)="send($event)"
+>
+  <ng-container actions>
+    <div class="comment-controls">
+      @if (mainComment.actions.includes('reply')) {
+        <mat-icon class="grey icon mr" (click)="toggleReplyInput()">add_comment </mat-icon>
+      }
+      <mat-icon class="grey icon">more_horiz</mat-icon>
+    </div>
+  </ng-container>
+</app-comment-card>
+@if (showReplies) {
+  <div class="responses">
+    @for (response of repliesComment; track response) {
+      <div class="response">
+        <app-comment-card [comment]="response" [showReplyInput]="false">
+          <ng-container actions>
+            <div>
+              <mat-icon class="grey icon">more_horiz</mat-icon>
+            </div>
+          </ng-container>
+        </app-comment-card>
+      </div>
+    }
+  </div>
+}

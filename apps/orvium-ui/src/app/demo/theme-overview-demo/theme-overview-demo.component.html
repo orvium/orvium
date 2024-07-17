@@ -1,0 +1,147 @@
+<h1 class="mat-headline-2 primary">Theme Specifications</h1>
+<div class="mb-4">
+  <h2 class="mat-headline-5 primary">Colors</h2>
+  @for (color of dataColors; track color) {
+    <app-list-wrapper>
+      <button type="button" class="w-20" disableRipple mat-raised-button [color]="color.class">{{
+        color.class | uppercase
+      }}</button>
+      <div list-middle-section>
+        <code>{{ color.class }}</code>
+      </div>
+      <div list-end-section>
+        {{ isDark() ? color.HEX[1] : color.HEX[0] }}
+      </div>
+    </app-list-wrapper>
+  }
+
+  <div class="mb-10 mt-10">
+    <h2 class="mat-headline-5 primary">Typography</h2>
+    @for (typo of dataSource; track typo) {
+      <app-list-wrapper>
+        <span class="text" [ngClass]="typo.class">{{ typo.text }}</span>
+        <div list-middle-section>
+          <code>{{ typo.class }}</code>
+        </div>
+        <div list-end-section>
+          <span>{{ typo.description }}</span>
+        </div>
+      </app-list-wrapper>
+    }
+  </div>
+
+  <div class="mb-4">
+    <h2 class="mat-headline-5 primary">ORV Style Classes</h2>
+    <p class="mat-body-2"
+      >Pre-defined styles for some of the components used in the platform (elevations, shadows,
+      colors...)</p
+    >
+    <h3 class="mat-subtitle-1 primary">Card</h3>
+    <mat-card class="p-4">
+      <mat-card-title>ORV Card</mat-card-title>
+      <mat-card-content>
+        <p class="mat-body-2"
+          >This card is the Orvium card, with different elevation and shadow. This is Orvium's
+          standard card. Its use is applicable to the entire platform, for any card used.
+        </p>
+      </mat-card-content>
+    </mat-card>
+    <h3 class="mat-subtitle-1 primary">Expansion Panel</h3>
+    <p class="mat-body-2"
+      >Add <strong>orv-expansion-panel</strong> class to mat-expansion-panel element. This is
+      Orvium's standard expansion panel. Its use is applicable to the entire platform, for any card
+      used.</p
+    >
+    <mat-expansion-panel class="orv-expansion-panel">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h2>ORV Expansion panel</h2>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <span class="mat-body-2">Content</span>
+    </mat-expansion-panel>
+    <h3 class="mat-subtitle-1 primary">Chips</h3>
+    <p class="mat-body-2"
+      >Add <strong>orv-chip</strong> class to mat-chip element. Default font style and opacity would
+      be applied. Afterwards, add any desired color or style class. The classes are located in
+      lib/styles/_chips.scss</p
+    >
+    <ul>
+      <li> orv-chip-primary (theme primary color)</li>
+      <li> orv-chip-secondary (theme secondary color)</li>
+      <li> orv-chip-yellow</li>
+      <li> orv-chip-pink</li>
+      <li> orv-chip-blue</li>
+      <li> orv-chip-outlined</li>
+      <li>
+        (disables color change when mouse is on the chip). [disableRipple]="true" is also needed in
+        the chip.
+      </li>
+    </ul>
+    <mat-chip-set class="chips">
+      <mat-chip class="orv-chip-primary" [disableRipple]="true">Primary (not clickable)</mat-chip>
+      <mat-chip class="orv-chip-secondary">Secondary</mat-chip>
+      <mat-chip class="orv-chip-yellow">Yellow</mat-chip>
+      <mat-chip class="orv-chip-pink">Pink</mat-chip>
+      <mat-chip class="orv-chip-blue">Blue</mat-chip>
+      <mat-chip class="orv-chip-published orv-chip-outlined">Outlined</mat-chip>
+      <mat-chip class="orv-chip-selected orv-chip-blue">Outlined</mat-chip>
+    </mat-chip-set>
+
+    <p class="mat-body-2"
+      >If the chips are used to indicate the <strong>publication status, </strong>the following
+      classes should be used</p
+    >
+    <ul>
+      <li> orv-chip-published</li>
+      <li> orv-chip-preprint</li>
+      <li> orv-chip-pending-approval</li>
+    </ul>
+
+    <mat-chip-set class="chips">
+      <mat-chip class="orv-chip-published" [disableRipple]="true">Published</mat-chip>
+      <mat-chip class="orv-chip-preprint" [disableRipple]="true">Preprint</mat-chip>
+      <mat-chip class="orv-chip-pending-approval" [disableRipple]="true">Pending Approval</mat-chip>
+      <mat-chip [disableRipple]="true">Draft</mat-chip>
+    </mat-chip-set>
+
+    <h3 class="mat-subtitle-1 primary">Slide toggle</h3>
+    <p class="mat-body-2"
+      >Add <strong>orv-slide-toggle</strong> div wrapper to mat-slide-toggle element. This is
+      Orvium's standard slide toggle.</p
+    >
+
+    <div class="orv-slide-toggle">
+      <mat-slide-toggle color="primary">Orvium Slide Toggle</mat-slide-toggle>
+    </div>
+
+    <h3 class="mat-subtitle-1 primary">Tab groups</h3>
+
+    <mat-tab-group>
+      <mat-tab label="Invitations"> Hello</mat-tab>
+      <mat-tab label="In Progress"> How are you?</mat-tab>
+      <mat-tab label="Resolved"> Bye</mat-tab>
+    </mat-tab-group>
+  </div>
+
+  <div class="mb-4">
+    <h2 class="mat-headline-5 primary">Buttons</h2>
+    <p class="mat-body-2">Predefined material styles are modified.</p>
+    <button mat-stroked-button type="button">ORV Stroked</button>
+  </div>
+
+  <div class="mb-4">
+    <h2 class="mat-headline-5 primary">Logos and assets</h2>
+    @for (logo of dataLogo; track logo) {
+      <app-list-wrapper>
+        <img alt="Orvium Logo" height="40rem" width="50rem" [src]="logo.url" />
+        <div list-middle-section>
+          <span class="mat-caption">{{ logo.extension }}</span>
+        </div>
+        <div list-end-section>
+          <a class="primary" target="_blank" [href]="logo.url">View</a>
+        </div>
+      </app-list-wrapper>
+    }
+  </div>
+</div>

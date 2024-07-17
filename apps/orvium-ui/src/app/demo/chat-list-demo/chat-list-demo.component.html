@@ -1,0 +1,20 @@
+<h1 class="mat-headline-2 primary">Chat list</h1>
+<h3 class="mat-subtitle-1">Selector: <code>&lt;app-chat-card&gt;</code></h3>
+<h3 class="mat-subtitle-1"
+  >Input: <code> chat!: conversation: ConversationPopulatedDTO; header: UserSummaryDTO; </code></h3
+>
+<h3 class="mat-subtitle-1">Input: <code> selected: boolean = false </code></h3>
+<h3 class="primary text-2xl">Chat list without scroll</h3>
+
+<div class="overflow-auto flex flex-col gap-1 h-40 w-72">
+  @for (chat of chatsWithScroll; track chat; let index = $index) {
+    <app-chat-card [chat]="chat" [selected]="!!(index % 2)" />
+  }
+</div>
+<h3 class="primary text-2xl">Chat list with scroll</h3>
+
+<div class="overflow-auto flex flex-col gap-1 h-40 w-72">
+  @for (chat of chatsWithoutScroll; track chat; let index = $index) {
+    <app-chat-card [chat]="chat" [selected]="!!(index % 2)" />
+  }
+</div>

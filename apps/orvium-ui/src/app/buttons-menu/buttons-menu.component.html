@@ -1,0 +1,21 @@
+<mat-menu #matMenu>
+  <div #menuButtons class="grid">
+    @if (isMobile) {
+      <ng-container *ngTemplateOutlet="buttonsInToolbar" />
+    }
+    @if (buttonsAlwaysInMenu) {
+      <ng-container *ngTemplateOutlet="buttonsAlwaysInMenu" />
+    }
+  </div>
+</mat-menu>
+
+<div #container class="flex gap-1 items-center">
+  @if (!isMobile) {
+    <ng-container *ngTemplateOutlet="buttonsInToolbar" />
+  }
+  @if (menuButtons.children.length > 0) {
+    <button mat-icon-button type="button" [matMenuTriggerFor]="matMenu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  }
+</div>

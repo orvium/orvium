@@ -1,0 +1,430 @@
+@if (!reviewActions.edit && !loadingReview) {
+  <app-access-denied />
+}
+<div [appOverlayLoading]="loadingReview"></div>
+
+<ng-template #buttonsInToolbar>
+  <mat-slide-toggle
+    color="primary"
+    class="ml-4"
+    [(ngModel)]="showOptionalFields"
+    (change)="optionalFields($event)"
+    i18n
+    >Optional Fields
+  </mat-slide-toggle>
+  <button mat-button type="button" [routerLink]="['..', 'view']">
+    <mat-icon>visibility</mat-icon>
+    <ng-container i18n>Preview</ng-container>
+  </button>
+  <button
+    color="primary"
+    type="button"
+    mat-raised-button
+    [disabled]="reviewForm.pristine || !reviewActions.update || !reviewForm.valid"
+    (click)="save()"
+  >
+    <mat-icon>save</mat-icon>
+    <ng-container i18n>Save</ng-container>
+  </button>
+  @if (review?.status === ReviewStatus.Draft) {
+    <button
+      type="button"
+      color="primary"
+      mat-raised-button
+      [disabled]="!reviewActions.update"
+      (click)="submitReview()"
+    >
+      <mat-icon>publish</mat-icon>
+      <ng-container i18n>Submit</ng-container>
+    </button>
+  }
+</ng-template>
+
+@if (reviewActions.edit) {
+  <app-info-toolbar>
+    @if (deposit) {
+      <div class="grid">
+        <a
+          class="mat-subtitle-2 text-ellipsis overflow-hidden"
+          [routerLink]="['/deposits', deposit._id, 'view']"
+          >{{ deposit.title }}</a
+        >
+        <span class="grey mat-caption" i18n>Publication hosting review</span>
+      </div>
+    }
+    <div app-info-toolbar-buttons class="flex gap-1 items-center">
+      <app-buttons-menu [buttonsInToolbar]="buttonsInToolbar" [isMobile]="isMobile" />
+    </div>
+  </app-info-toolbar>
+}
+@if (review && reviewActions.edit) {
+  <div class="w-11/12 md:w-9/12 mr-auto ml-auto">
+    <h1 class="mb-2 mat-headline-4 primary" i18n>Edit Review</h1>
+    <h4 class="mat-subtitle-1">
+      <ng-container i18n>Edit, manage and share your</ng-container>
+      "{{ deposit?.title }}"
+      <ng-container i18n> review.</ng-container>
+    </h4>
+    <div [formGroup]="reviewForm">
+      <div>
+        @if (depositVersions.length > 0 && this.deposit?._id !== latestVersion?._id) {
+          <app-alert type="info" class="mb-4" [icon]="'info'" i18n>
+            You're about to create a review of a non-latest version of the publication. Please
+            double-check your selection before proceeding.
+          </app-alert>
+        }
+        @if (this.review.status === ReviewStatus.Draft) {
+          <app-alert type="info" [icon]="'info'" i18n>
+            Remember to press the submit button when you finish your review to send it to the
+            community editorial board.
+          </app-alert>
+        }
+        <mat-expansion-panel class="!mb-8" [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="flex items-center gap-2 justify-between">
+              <h3 class="mat-headline-6 mb-0" i18n>Review Details</h3>
+              @if (this.review) {
+                <mat-chip class="orv-chip-{{ this.review.status.replace(' ', '-') }}">
+                  {{ this.review.status | titlecase }}
+                </mat-chip>
+              }
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <ng-container i18n>
+            The "Decision" field allows reviewers to provide a recommendation regarding the
+            submission's improvement level. This decision helps editors identify which submissions
+            may require more or less revision. It does not necessarily prevents final publication
+            but helps guide the review process and prompt authors to provide updated versions if
+            necessary.
+          </ng-container>
+          <div class="flex items-center gap-1 mt-4">
+            <mat-form-field appearance="outline" class="grow-1">
+              <mat-label i18n>Decision</mat-label>
+              <mat-select id="reviewDecisionInput" [formControl]="reviewForm.controls.decision">
+                <mat-select-trigger
+                  >{{ reviewForm.controls.decision.value | titlecase }}
+                </mat-select-trigger>
+                @for (decision of reviewDecisionLov; track decision) {
+                  <mat-option [value]="decision.value">
+                    <div [matTooltip]="decision.description">
+                      <mat-icon>{{ decision.icon }}</mat-icon>
+                      {{ decision.viewValue }}
+                    </div>
+                  </mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+            <a
+              href="https://help.orvium.io/reviews/reviewers-code/#decision-types"
+              target="_blank"
+              class="mb-4"
+              i18n
+            >
+              What's&nbsp;this?
+            </a>
+          </div>
+          <div class="flex flex-col gap-1 items-center md:flex-row">
+            @if (reviewActions.moderate) {
+              <mat-form-field appearance="outline">
+                <mat-label i18n>DOI</mat-label>
+                <input
+                  matInput
+                  placeholder="10.1016/j.cub.2016.10.008"
+                  type="url"
+                  [formControl]="reviewForm.controls.doi"
+                />
+                @if (reviewForm.controls.doi.invalid) {
+                  <mat-error i18n>Please, put a valid doi </mat-error>
+                }
+              </mat-form-field>
+            }
+            @if (reviewActions.moderate) {
+              <div class="flex flex-nowrap gap-2">
+                <button
+                  color="primary"
+                  mat-flat-button
+                  type="button"
+                  class="mb-5"
+                  (click)="previewDOI()"
+                  i18n
+                >
+                  Preview DOI
+                </button>
+                <button
+                  color="primary"
+                  mat-flat-button
+                  type="button"
+                  class="mb-5"
+                  [disabled]="!reviewForm.pristine || reviewForm.controls.doi.value !== ''"
+                  (click)="registerDOI()"
+                  i18n
+                >
+                  Register DOI
+                </button>
+                <button
+                  color="primary"
+                  mat-flat-button
+                  type="button"
+                  class="mb-5"
+                  [disabled]="!reviewForm.pristine || reviewForm.controls.doi.value === ''"
+                  (click)="getRegisteredDOIMetadata()"
+                  i18n
+                >
+                  Get DOI
+                </button>
+                @if (review.doiStatus && review.doi) {
+                  <app-doi-status
+                    [resourceId]="review._id"
+                    [doi]="review.doi"
+                    [doiStatus]="review.doiStatus"
+                  />
+                }
+              </div>
+            }
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel class="!mb-8" [(expanded)]="fileExpanded">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="flex items-center gap-2">
+              <h3 class="mat-headline-6 mb-0" i18n>Review Files</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="mb-4">
+            <span class="mat-body-2">
+              <ng-container i18n> Accepted file (max. 20MB): </ng-container>
+              {{ ACCEPT_TYPES.REVIEWS_EXTENSIONS_ALLOWED }}
+            </span>
+          </div>
+          <div class="flex">
+            @if (reviewActions.update) {
+              <app-fileupload
+                #mainReviewFileUpload
+                name="file"
+                chooseLabel="Upload review"
+                [maxFileSize]="MAX_FILE_SIZE.TWENTY_MB"
+                [accept]="ACCEPT_TYPES.REVIEWS_EXTENSIONS_ALLOWED"
+                (fileUpload)="filesUploaded($event)"
+                (fileSelectedToUpload)="generateSignedUrl($event, true, mainReviewFileUpload)"
+                (click)="beforeUpload($event)"
+              />
+            }
+          </div>
+          @if (review.file) {
+            <div class="mt-4">
+              <app-file-card [file]="review.file" [canDelete]="false" />
+            </div>
+          }
+        </mat-expansion-panel>
+      </div>
+      @if (showOptionalFields) {
+        <mat-expansion-panel class="!mb-8" [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="flex items-center gap-2">
+              <h3 class="mat-headline-6 mb-0" i18n>General Comments</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <ng-container i18n>
+            The "General Comments" field provides a space for reviewers to leave their overall
+            feedback, suggestions, or any important information they would like to convey to the
+            author or editor. It serves as a concise platform for reviewers to summarize their
+            conclusions or highlight specific points of interest.
+          </ng-container>
+          <div class="flex items-center gap-1 mt-4">
+            <mat-form-field appearance="outline">
+              <mat-label i18n>General Comments</mat-label>
+              <textarea
+                cdkTextareaAutosize
+                matInput
+                data-test="comments-input"
+                [formControl]="reviewForm.controls.comments"
+              ></textarea>
+            </mat-form-field>
+          </div>
+        </mat-expansion-panel>
+      }
+      @if (reviewActions.moderate && showOptionalFields) {
+        <mat-expansion-panel class="!mb-8" [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="flex items-center gap-2">
+              <h3 class="mat-headline-6 mb-0" i18n>Peer Review Visibility</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <section aria-label="Reviewer identity visibility options">
+            <h4 i18n>Who can see the reviewer identity?</h4>
+            <div class="flex gap-4">
+              <mat-radio-group
+                aria-label="Review identity options"
+                class="flex flex-col"
+                color="primary"
+                data-test="show-identity-to-everyone"
+                [formControl]="reviewForm.controls.showIdentity"
+              >
+                <mat-radio-button [value]="this.showReviewIdentityEnum.everyone">
+                  <mat-label i18n
+                    >Show reviewer identity to everyone (Full Open-Peer-Review)
+                  </mat-label>
+                </mat-radio-button>
+                <mat-radio-button [value]="this.showReviewIdentityEnum.author">
+                  <mat-label i18n
+                    >Show reviewer identity to the author (Open-Peer-Review)</mat-label
+                  >
+                </mat-radio-button>
+                <mat-radio-button [value]="this.showReviewIdentityEnum.NoOne">
+                  <mat-label i18n>Hide reviewer identity (Single-Blind)</mat-label>
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </section>
+          <section aria-label="Review visibility options">
+            <h4 i18n>Who can see the review?</h4>
+            <div class="flex gap-4">
+              <mat-radio-group
+                aria-label="Review visibility options"
+                class="flex flex-col"
+                color="primary"
+                data-test="show-review-to-everyone"
+                [formControl]="reviewForm.controls.showReview"
+              >
+                <mat-radio-button [value]="this.showReviewEnum.everyone">
+                  <mat-label i18n>Show review to everyone</mat-label>
+                </mat-radio-button>
+                <mat-radio-button [value]="this.showReviewEnum.author">
+                  <mat-label i18n>Show review only to publication author and editors</mat-label>
+                </mat-radio-button>
+                <mat-radio-button [value]="this.showReviewEnum.NoOne">
+                  <mat-label i18n>Show review only to editors</mat-label>
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </section>
+        </mat-expansion-panel>
+      }
+      @if (showOptionalFields) {
+        <mat-expansion-panel class="!mb-8">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="flex items-center gap-2">
+              <h3 class="mat-headline-6 mb-0">Extra files</h3>
+            </mat-panel-title>
+            <mat-panel-description>
+              <p i18n>This documents are optional</p>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="mb-8">
+            <div class="mb-4">
+              <span class="mat-body-2" i18n>
+                Accepted files (max. 20MB each): {{ ACCEPT_TYPES.OTHER_FILE_EXTENSIONS_ALLOWED }}
+              </span>
+            </div>
+            @if (reviewActions.update) {
+              <div>
+                <div class="flex">
+                  @if (reviewActions.update) {
+                    <app-fileupload
+                      #extraFilesUpload
+                      chooseLabel="Upload review files (max. 20Mb)"
+                      [maxFileSize]="MAX_FILE_SIZE.TWENTY_MB"
+                      [accept]="ACCEPT_TYPES.REVIEWS_EXTENSIONS_ALLOWED"
+                      (fileUpload)="filesUploaded($event)"
+                      (fileSelectedToUpload)="generateSignedUrl($event, false, extraFilesUpload)"
+                      (click)="beforeUpload($event)"
+                    />
+                  }
+                </div>
+              </div>
+            }
+            @if (review.extraFiles) {
+              @for (file of review.extraFiles; track file) {
+                <div class="mt-4">
+                  <app-file-card [file]="file" (fileDeleted)="deleteFile($event.filename)" />
+                </div>
+              }
+            }
+          </div>
+        </mat-expansion-panel>
+      }
+      @if (showOptionalFields) {
+        <mat-expansion-panel class="!mb-8">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="flex items-center gap-2">
+              <h3 class="mat-headline-6 mb-0" i18n>Blockchain</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p i18n
+            >Use the blockchain to access extra features such as proving of the ownership of your
+            work and get rewards for the peer reviews you make.</p
+          >
+          <div [ngClass]="!ethereumService.isReady() ? 'disabled' : ''">
+            <span i18n>Activate Blockchain functionality to use these features</span>
+            <div>
+              <span class="mat-body" i18n>
+                Save the Ownership of your review storing your authorship in the blockchain
+              </span>
+              <div class="mt-4">
+                <button
+                  color="primary"
+                  mat-raised-button
+                  type="button"
+                  [appOverlayLoading]="saveOwnershipFlag"
+                  (click)="proofOwnership()"
+                >
+                  <mat-icon>verified_user</mat-icon>
+                  <ng-container i18n>Save Ownerships</ng-container>
+                </button>
+                @for (transaction of review.transactions || [] | keyvalue; track transaction) {
+                  <a
+                    class="green"
+                    mat-button
+                    target="_blank"
+                    href="{{
+                      this.blockchainService.getNetworkByName(transaction.key.toString())
+                        ?.explorerUrl +
+                        'tx/' +
+                        $any(transaction.value).transactionHash
+                    }}"
+                  >
+                    <mat-icon aria-hidden="false" aria-label="Published icon"
+                      >verified_user</mat-icon
+                    >
+                    Proof of Ownership in
+                    {{
+                      this.blockchainService.getNetworkByName(transaction.key.toString())
+                        ?.displayName
+                    }}</a
+                  >
+                }
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      }
+      @if (showOptionalFields) {
+        <mat-expansion-panel class="!mb-8">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="flex items-center gap-2">
+              <h3 class="mat-headline-6 mb-0" i18n>Advanced Settings</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-action-row>
+            <button
+              color="warn"
+              mat-flat-button
+              type="button"
+              [disabled]="!reviewActions.delete"
+              (click)="deleteReview()"
+            >
+              <mat-icon>delete</mat-icon>
+              Delete review
+            </button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      }
+    </div>
+  </div>
+}
+<ng-template #doiMetadataTextTemplate>
+  <pre><div>{{doiMetadataText}}</div></pre>
+</ng-template>
+
+<ng-template #doiMetadataJSONTemplate>
+  <pre><div>{{doiMetadataJson | json}}</div></pre>
+</ng-template>

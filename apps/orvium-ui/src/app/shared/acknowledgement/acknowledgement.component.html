@@ -1,0 +1,29 @@
+@if (acknowledgementHTML) {
+  <div class="preview-html" [innerHTML]="acknowledgementHTML"></div>
+}
+@if (!acknowledgementHTML) {
+  <ol>
+    <li
+      >If the work has been published on a preprint or repository server, reference is made in the
+      current submission.
+    </li>
+    <li>Where available, URLs for the references have been provided.</li>
+    <li
+      >The submitting author has received permission from the co-authors to submit their work to our
+      platform.</li
+    >
+    <li
+      >You have obtained permission from the original owners to reuse their photographs,
+      illustrations or drawings.
+    </li>
+    <li>You agree to follow our code of conduct.</li>
+    <li
+      >You agree to publish your work Open Access and to have your work undergoing an Open
+      Peer-Review process.
+    </li>
+    <li
+      >In case the work is uploaded to a community, you agree to format your work according to the
+      community guidelines.
+    </li>
+  </ol>
+}

@@ -1,0 +1,27 @@
+<mat-card
+  class="w-64 max-h-24 cursor-pointer transition-all hover:transition-all hover:opacity-70"
+  [ngClass]="{ 'card-selected': selected }"
+>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <img
+        appAvatar
+        alt="Author Avatar"
+        [src]="this.chat.header.avatar"
+        [gravatar]="this.chat.header.gravatar"
+      />
+    </div>
+    @if (this.chatRecipient) {
+      <mat-card-title>
+        <span class="text-sm line-clamp-2">{{ this.chatRecipient }}</span>
+      </mat-card-title>
+    }
+    @if (!this.selected && !isAllRead) {
+      <mat-card-subtitle>
+        <mat-icon inline matTooltip="You have messages pending to read in this conversation"
+          >notification_important</mat-icon
+        >
+      </mat-card-subtitle>
+    }
+  </mat-card-header>
+</mat-card>

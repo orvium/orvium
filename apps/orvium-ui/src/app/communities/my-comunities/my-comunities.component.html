@@ -1,0 +1,30 @@
+<div class="flex flex-col items-center">
+  <h1 class="mat-headline-3 primary font-bold text-center mb-0" i18n>My Communities</h1>
+  <p class="text-center"> Communities that you have contributed to </p>
+  @if (this.myCommunities.length > 0) {
+    <div [appOverlayLoading]="loadingCommunities"></div>
+    <div class="w-full md:w-4/5 mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        @for (community of this.myCommunities; track community) {
+          <app-community-card
+            class="card"
+            [community]="community"
+            [routerLink]="['/communities', community._id, 'view']"
+          />
+        }
+      </div>
+    </div>
+  }
+
+  @if (this.myCommunities.length === 0) {
+    <div [appOverlayLoading]="loadingCommunities"></div>
+    <h1 class="mat-h1 primary text-center" i18n>
+      You have not yet contributed to any community yet.
+    </h1>
+    <p>Visit our communities and start contributing with other researchers like you</p>
+    <button mat-raised-button color="primary" type="button" [routerLink]="['..']">
+      <mat-icon>arrow_back</mat-icon>
+      Communities
+    </button>
+  }
+</div>

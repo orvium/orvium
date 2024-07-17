@@ -1,0 +1,30 @@
+<mat-chip class="orv-chip-outlined" [disableRipple]="true">
+  @if (doiStatus) {
+    <button
+      type="button"
+      class="inline-block h-4 w-4 ring-2 ring-white ring-inset rounded-full align-middle border-none"
+      [ngClass]="{
+        'bg-green-500': doiStatus === DoiStatus.Published,
+        'bg-yellow-500': doiStatus === DoiStatus.Processing,
+        'bg-red-500 cursor-pointer': doiStatus === DoiStatus.Failed,
+      }"
+      [matTooltip]="doiStatus"
+      (click)="doiStatus === DoiStatus.Failed ? openErrorInfo() : null"
+    >
+    </button>
+  }
+
+  <a class="mx-1" target="_blank" [matTooltip]="'doi.org/' + doi" href="https://doi.org/{{ doi }}"
+    >DOI</a
+  >
+  <mat-icon
+    inline
+    class="cursor-pointer align-middle"
+    [appCopyToClipboard]="'https://doi.org/' + doi"
+    >content_copy
+  </mat-icon>
+</mat-chip>
+
+<ng-template #doiMetadataTextTemplate>
+  <pre><div class='min-w-[24rem] min-h-[24rem]' [appOverlayLoading]='loading'>{{doiMetadataText}}</div></pre>
+</ng-template>

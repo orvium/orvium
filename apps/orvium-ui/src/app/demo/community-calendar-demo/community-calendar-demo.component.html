@@ -1,0 +1,27 @@
+<h1 class="mat-headline-2 primary">Calendar</h1>
+
+<div class="section">
+  <h2 class="mat-headline-5 primary">Calendar dialog</h2>
+  <h4>Selector: <code>&lt;app-calendar&gt;</code></h4>
+  <h4>Input: <code>calendarEvents: CalendarEvents[]</code></h4>
+
+  <div class="mat-h3"
+    >Next community event:
+    <button mat-button type="button">22 Dec 2021: Papers peer reviewed</button>
+    <button mat-stroked-button type="button" color="primary" (click)="openCalendar()"
+      >Open Calendar</button
+    >
+  </div>
+
+  <ng-template #calendarDialogTemplate>
+    <app-calendar [calendarEvents]="calendarEvents" />
+  </ng-template>
+</div>
+
+<div class="section">
+  <h2 class="mat-headline-5 primary">Calendar list</h2>
+  <h4>Selector: <code>&lt;app-calendar&gt;</code></h4>
+  <h4>Input: <code>calendarEvents: CalendarEvents[]</code></h4>
+
+  <app-calendar [calendarEvents]="calendarEvents" />
+</div>

@@ -1,0 +1,384 @@
+@if (profile) {
+  <app-info-toolbar [appOverlayLoading]="loading">
+    <div app-info-toolbar-buttons class="flex gap-1 items-center ml-auto">
+      <button mat-button type="button" [routerLink]="['/profile', profile.nickname]">
+        <mat-icon>visibility</mat-icon>
+        Preview
+      </button>
+      <button
+        id="save"
+        mat-raised-button
+        color="primary"
+        type="button"
+        [disabled]="!profileFormGroup.valid || profileFormGroup.pristine"
+        (click)="save()"
+      >
+        <mat-icon>save</mat-icon>
+        Save
+      </button>
+    </div>
+  </app-info-toolbar>
+}
+
+@if (profile) {
+  <div class="ml-auto mr-auto w-11/12 md:w-9/12">
+    <h1 class="mb-2 mat-headline-4 primary">Edit Profile</h1>
+    <h4 class="mat-subtitle-1">Edit and manage the information displayed in your profile</h4>
+    <div class="container" [formGroup]="profileFormGroup">
+      <mat-expansion-panel class="!mb-8" [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="flex items-center gap-2">
+            <h3 class="mat-headline-6 mb-0">Personal Details</h3>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div data-test="avatar-container" class="flex flex-col items-center">
+          <div class="flex items-center gap-4">
+            <img
+              appAvatar
+              alt="User Avatar"
+              class="!w-32 !h-32"
+              [src]="profile.avatar"
+              [gravatar]="profile.gravatar"
+            />
+            <div>
+              <p><b>Upload new avatar</b></p>
+              @if (profile) {
+                <app-fileupload
+                  #avatarFileUpload
+                  name="file"
+                  chooseLabel="Upload File"
+                  data-test="profile-avatar"
+                  [maxFileSize]="defaultAvatarMaxFileSize"
+                  [accept]="ACCEPT_TYPES.COMMUNITY_EXTENSIONS_ALLOWED"
+                  (fileUpload)="filesUploaded($event, profileImageType.Avatar)"
+                  (fileSelectedToUpload)="
+                    generateSignedUrl($event, false, avatarFileUpload, profileImageType.Avatar)
+                  "
+                  (click)="beforeUpload($event)"
+                />
+              }
+              <p class="grey">
+                The maximum file size allowed is {{ defaultAvatarMaxFileSize / 1024 }}KB. <br />
+                The recommended resolution is 200x200.
+              </p>
+            </div>
+          </div>
+          <p>
+            You can resize your image to fit the resolution on this
+            <a href="https://www.iloveimg.com/photo-editor" target="_blank">page</a>
+          </p>
+        </div>
+        <div class="flex gap-1 items-center mt-4">
+          <mat-form-field appearance="outline">
+            <mat-label>First name</mat-label>
+            <input
+              matInput
+              id="firstNameInput"
+              placeholder="John"
+              data-lpignore="true"
+              data-test="profile-firstName"
+              [formControl]="profileFormGroup.controls.firstName"
+              (focus)="focusFirstName = true"
+              (focusout)="focusFirstName = false"
+            />
+            @if (focusFirstName) {
+              <mat-hint>Your profile URL may change</mat-hint>
+            }
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Last name</mat-label>
+            <input
+              matInput
+              id="lastNameInput"
+              placeholder="Doe"
+              data-lpignore="true"
+              data-test="profile-lastName"
+              [formControl]="profileFormGroup.controls.lastName"
+              (focus)="focusLastName = true"
+              (focusout)="focusLastName = false"
+            />
+            @if (focusLastName) {
+              <mat-hint>Your profile URL may change</mat-hint>
+            }
+          </mat-form-field>
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            readonly
+            matInput
+            id="emailConfirmedInput"
+            placeholder="Email"
+            type="email"
+            data-test="profile-email"
+            [value]="email"
+          />
+          <a mat-icon-button matSuffix matTooltip="Change email" [routerLink]="['onboarding']">
+            <mat-icon>edit</mat-icon>
+          </a>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Personal site</mat-label>
+          <input
+            matInput
+            id="siteInput"
+            placeholder="https://myblog.com"
+            data-lpignore="true"
+            type="url"
+            data-test="profile-site"
+            [formControl]="profileFormGroup.controls.blog"
+          />
+          @if (profileFormGroup.controls.blog.invalid) {
+            <mat-error> Invalid Blog Address </mat-error>
+          }
+        </mat-form-field>
+        <div class="flex items-center mb-4" [formGroup]="bannerFormGroup">
+          @if (profile) {
+            <app-fileupload
+              #bannerFileUpload
+              name="file"
+              class="p-4"
+              chooseLabel="Add banner image"
+              [maxFileSize]="defaultBannerMaxFileSize"
+              [accept]="ACCEPT_TYPES.COMMUNITY_EXTENSIONS_ALLOWED"
+              (fileUpload)="filesUploaded($event, profileImageType.Banner)"
+              (fileSelectedToUpload)="
+                generateSignedUrl($event, false, bannerFileUpload, profileImageType.Banner)
+              "
+              (click)="beforeUpload($event)"
+            />
+          }
+          <mat-form-field appearance="outline" [subscriptSizing]="'dynamic'">
+            <mat-label>Banner image URL</mat-label>
+            <input
+              matInput
+              readonly
+              id="bannerInput"
+              placeholder="https://upload.wikimedia.org/wikipedia/commons/6/6e/Bode_Galaxy.jpg"
+              data-lpignore="true"
+              type="url"
+              data-test="profile-banner"
+              [formControl]="bannerFormGroup.controls.bannerURL"
+            />
+          </mat-form-field>
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>About me</mat-label>
+          <textarea
+            matInput
+            id="aboutInput"
+            placeholder="Tell us about yourself"
+            cdkTextareaAutosize
+            data-test="profile-about"
+            [formControl]="profileFormGroup.controls.aboutMe"
+          ></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>User type</mat-label>
+          <mat-select
+            ngDefaultControl
+            data-test="type-input"
+            [formControl]="profileFormGroup.controls.userType"
+          >
+            @for (option of userType; track option) {
+              <mat-option [value]="option.value">
+                {{ option.viewValue }}
+              </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </mat-expansion-panel>
+      <app-alert [icon]="'info'"
+        >Your profile is {{ profile.userType }} so this information is recommended.
+      </app-alert>
+      <mat-expansion-panel class="!mb-8" [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="flex items-center gap-2">
+            <h3 class="mat-headline-6 mb-0">Professional Details</h3>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="flex gap-1 items-center">
+          <mat-form-field appearance="outline">
+            <mat-label>Institutions</mat-label>
+            <app-input-with-chips
+              ngDefaultControl
+              [formControl]="profileFormGroup.controls.institutions"
+              [separatorKeysCodes]="institutionSeparators"
+            />
+            <mat-hint class="primary"
+              >Separate your institutions using "enter" or "semicolon".
+            </mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="flex gap-1 items-center">
+          <mat-form-field appearance="outline" class="mt-4">
+            <mat-label>Current role</mat-label>
+            <input
+              matInput
+              id="roleInput"
+              placeholder="Lecturer, Researcher & Tutor"
+              data-lpignore="true"
+              data-test="profile-role"
+              [formControl]="profileFormGroup.controls.role"
+            />
+          </mat-form-field>
+        </div>
+        <div class="flex gap-1 items-center">
+          <mat-form-field appearance="outline">
+            <mat-label>ORCID iD</mat-label>
+            <input
+              matInput
+              id="orcidInput"
+              placeholder="https://orcid.org/0000-0000-0000-0000"
+              data-lpignore="true"
+              type="url"
+              data-test="profile-orcid"
+              [formControl]="profileFormGroup.controls.orcid"
+            />
+            @if (profileFormGroup.controls.orcid.invalid) {
+              <mat-error>
+                ORCID has to be like this: https://orcid.org/0000-0000-0000-0000
+              </mat-error>
+            }
+          </mat-form-field>
+          <div class="mb-4">
+            <a
+              class="primary mat-subtitle-2 mt-4 whitespace-nowrap"
+              href="https://orcid.org/"
+              target="_blank"
+              matSuffix
+            >
+              What's this?
+            </a>
+          </div>
+        </div>
+        <mat-form-field appearance="outline" class="mt-4">
+          <mat-label>LinkedIn url</mat-label>
+          <input
+            matInput
+            id="linkedinInput"
+            placeholder="https://www.linkedin.com/in/john-doe/"
+            data-lpignore="true"
+            type="url"
+            data-test="profile-linkedin"
+            [formControl]="profileFormGroup.controls.linkedin"
+          />
+          @if (profileFormGroup.controls.linkedin.invalid) {
+            <mat-error>
+              LinkedIn has to be like this: https://www.linkedin.com/in/john-doe/
+            </mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="mt-4">
+          <mat-label>Disciplines</mat-label>
+          <app-input-with-chips
+            ngDefaultControl
+            [formControl]="profileFormGroup.controls.disciplines"
+            [matAutocomplete]="autoCompleteDisciplines"
+            [disableManualValueChange]="true"
+            (inputValueChange)="onInputValueChange($event)"
+          />
+          <mat-autocomplete #autoCompleteDisciplines="matAutocomplete">
+            @for (discipline of filteredDisciplines$ | async; track discipline) {
+              <mat-option [value]="discipline.name">
+                {{ discipline.name }}
+              </mat-option>
+            }
+          </mat-autocomplete>
+        </mat-form-field>
+      </mat-expansion-panel>
+      <mat-expansion-panel class="!mb-8" [expanded]="false">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="flex items-center gap-2">
+            <h3 class="mat-headline-6 mb-0">Browser Notifications</h3>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="mb-8">
+          <h5 class="mat-headline-5"> Notifications</h5>
+          <span class="mat-body">
+            You can be aware of changes in your posts, reviews, communities, chats... to do so, you
+            only need to activate notifications in your trusted browser. Click
+            <a target="_blank" href="https://help.orvium.io/getting-started/notifications/">here</a>
+            to learn about how to enable this notifications.
+          </span>
+          @if (hasNotificationsEnabled) {
+            <mat-chip class="orv-chip-blue" [disableRipple]="true">
+              Push notifications enabled!
+            </mat-chip>
+          }
+          @if (!hasNotificationsEnabled) {
+            <mat-chip class="orv-chip-rejected" [disableRipple]="true">
+              Push notifications disabled!
+            </mat-chip>
+          }
+          <div class="mt-4">
+            @if (hasNotificationsEnabled) {
+              <button mat-stroked-button color="primary" type="button" (click)="testNotification()"
+                >Try notifications
+              </button>
+            }
+          </div>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel class="!mb-8" [expanded]="false">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="flex items-center gap-2">
+            <h3 class="mat-headline-6 mb-0">Advanced Settings</h3>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="mb-8">
+          <h5 class="mat-headline-5"> Stored Data</h5>
+          <span class="mat-body">
+            You are able to download all the information that we know about you. This stored data is
+            only used for the good functioning of the system. If you wish to obtain this
+            information, click the following button to e-mail us. It will be sent as soon as
+            possible.
+          </span>
+          <div class="mt-4">
+            <a
+              mat-stroked-button
+              color="primary"
+              href="mailto:support@orvium.io?subject=Obtain%20personal%20data&body={{
+                requestInformationBody
+              }}"
+              >Request personal data
+            </a>
+            @if (environment.experimentalFeatures) {
+              <button type="button" color="primary" mat-raised-button (click)="requestData()">
+                Request personal data (New)
+              </button>
+            }
+          </div>
+        </div>
+        <div class="mb-8">
+          <h5 class="mat-headline-5"> Delete your account</h5>
+          <span class="mat-body">
+            If you choose to delete your account, all your data will be removed from our database.
+            This is a permanent action and it can not be undone.
+          </span>
+          <div class="mt-1">
+            <button type="button" mat-stroked-button color="warn" (click)="deleteAccount()"
+              >Delete Account
+            </button>
+            @if (accountUndeletable) {
+              <div>
+                <p
+                  >Your account cannot be deleted. If you wish to continue with this process, click
+                  the following button to e-mail us. You will be notified as soon as possible.</p
+                >
+                <a
+                  mat-stroked-button
+                  color="warn"
+                  href="mailto:support@orvium.io?subject=Delete%20Account&body={{
+                    deleteAccountBody
+                  }}"
+                  >Contact Us
+                </a>
+              </div>
+            }
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </div>
+  </div>
+}

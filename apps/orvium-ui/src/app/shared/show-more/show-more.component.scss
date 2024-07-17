@@ -1,0 +1,15 @@
+p {
+  display: inline;
+}
+
+.button-show-more {
+  padding: 0.1rem 0.8rem;
+  font-size: 80%;
+  font-weight: 400;
+  line-height: 2;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

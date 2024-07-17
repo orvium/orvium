@@ -1,0 +1,20 @@
+<h1 class="mat-headline-2 primary">Avatar Lists</h1>
+
+<div class="mb-4">
+  <h2 class="mat-headline-5 primary">Authors avatar list</h2>
+  <h4>Selector: <code>&lt;app-author-avatar-list&gt;</code></h4>
+  <h4>Input: <code>authors: AuthorDTO[], previewLimit: number (if there is enough space)</code></h4>
+
+  <app-author-avatar-list [authors]="authors" [previewLimit]="5" />
+</div>
+
+<div class="mb-4">
+  <h2 class="mat-headline-5 primary">Authors list</h2>
+  <h4>Selector: <code>&lt;app-authors-list&gt;</code></h4>
+  <h4>Input: <code>authors: AuthorDTO[]</code></h4>
+  <mat-card>
+    <mat-card-content>
+      <app-authors-list [authors]="authors" [showInvite]="true" />
+    </mat-card-content>
+  </mat-card>
+</div>
