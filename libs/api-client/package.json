@@ -12,6 +12,6 @@
     "remove-tags": "jq 'del(.paths[][].tags)' openapi.json > openapilib.json",
     "build": "ng-packagr -p ng-package.json",
     "copy-custom-files": "cp ../../apps/api/src/template/model.ts src/custom.ts",
-    "gen-sdk": "rimraf libs/api-client/src/model/ src/api/ && npm run remove-tags && openapi-generator generate -c .openapiconfig.json -o src && npm run copy-custom-files"
+    "gen-sdk": "rimraf src/model/ src/api/ && npm run remove-tags && openapi-generator generate -c .openapiconfig.json -o src && npm run copy-custom-files"
   }
 }
