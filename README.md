@@ -37,7 +37,7 @@
 
 ### 1.2. Key Features of Orvium:
 
-**Seamless Review Process:** The platform implements a seamless peer-review process supporting several models such as open peer-review wher reviews are transparent and incentivized, helping to improve the quality and credibility of published research.
+**Seamless Review Process:** The platform implements a seamless peer-review process supporting several models such as open peer-review where reviews are transparent and incentivized, helping to improve the quality and credibility of published research.
 
 **Real-Time Publishing**: Orvium embraces traditional publication models but also goes much beyong than that. Orvium support new models that unlike traditional academic publishing that can take months or years, Orvium allows for immediate publication followed by an open peer-review process, significantly speeding up the dissemination of knowledge.
 
