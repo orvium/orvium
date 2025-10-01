@@ -26,11 +26,17 @@ ARG NG_APP_VAPID_KEY
 ARG NG_APP_AUTH_CLIENT_ID
 ARG NG_APP_AUTH_AUDIENCE
 ARG NG_APP_AUTH_REDIRECT
+ARG NG_APP_AUTH_CLIENT_DOMAIN
+ARG NG_APP_AUTH_ISSUER
+ARG NG_APP_AUTH_LOGOUT_URL
 ARG NG_APP_SENTRY_DSN
 ARG NG_APP_SENTRY_SAMPLE
 ARG NG_APP_LOG_LEVEL
 ARG NG_APP_TINYMCE_KEY
 ARG NG_APP_S3_BUCKET
+ARG NG_APP_SHOW_FEATURED_COMMUNITIES
+
+
 
 # Establece las variables de entorno en el contenedor
 ENV NG_APP_NAME=$NG_APP_NAME \
@@ -43,11 +49,15 @@ ENV NG_APP_NAME=$NG_APP_NAME \
     NG_APP_AUTH_CLIENT_ID=$NG_APP_AUTH_CLIENT_ID \
     NG_APP_AUTH_AUDIENCE=$NG_APP_AUTH_AUDIENCE \
     NG_APP_AUTH_REDIRECT=$NG_APP_AUTH_REDIRECT \
+    NG_APP_AUTH_CLIENT_DOMAIN=$NG_APP_AUTH_CLIENT_DOMAIN \
+    NG_APP_AUTH_ISSUER=$NG_APP_AUTH_ISSUER \
+    NG_APP_AUTH_LOGOUT_URL=$NG_APP_AUTH_LOGOUT_URL \
     NG_APP_SENTRY_DSN=$NG_APP_SENTRY_DSN \
     NG_APP_SENTRY_SAMPLE=$NG_APP_SENTRY_SAMPLE \
     NG_APP_LOG_LEVEL=$NG_APP_LOG_LEVEL \
     NG_APP_TINYMCE_KEY=$NG_APP_TINYMCE_KEY \
-    NG_APP_S3_BUCKET=$NG_APP_S3_BUCKET
+    NG_APP_S3_BUCKET=$NG_APP_S3_BUCKET \
+    NG_APP_SHOW_FEATURED_COMMUNITIES=$NG_APP_SHOW_FEATURED_COMMUNITIES
 
 # Construye la aplicación para producción
 RUN npx nx reset && npx nx run orvium-ui:build:development
@@ -55,9 +65,11 @@ RUN npx nx reset && npx nx run orvium-ui:build:development
 # Usa una imagen de nginx para servir la aplicación
 FROM nginx:alpine
 
-# Copia los archivos construidos de la etapa anterior
-COPY --from=build /app/dist/apps/orvium-ui/browser/browser /usr/share/nginx/html
+COPY default.conf.angular /etc/nginx/conf.d/default.conf
 
+# Copia los archivos construidos de la etapa anterior
+COPY --from=build /app/dist/apps/orvium-ui/browser /usr/share/nginx/html
+RUN mv /usr/share/nginx/html/index.csr.html /usr/share/nginx/html/index.html
 # Expone el puerto 80
 EXPOSE 80
 

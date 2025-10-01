@@ -57,6 +57,7 @@ export class AwsStorageService implements IStorageService {
     const configuration: S3ClientConfig = {
       endpoint: environment.aws.endpoint,
       region: environment.aws.region,
+      forcePathStyle: true
     };
 
     Logger.debug('Starting S3Client with config', configuration);

@@ -1,4 +1,4 @@
-FROM pandoc/core:3.1.1-ubuntu
+FROM pandoc/core:3.2.1-ubuntu
 
 # Install basic tooling
 RUN apt-get update -y
@@ -9,7 +9,7 @@ RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula selec
 
 # Install latex and dependencies
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get install -qy texlive-full=2021.20220204-1
+RUN apt-get install -qy texlive-full=2023.20240207-1
 
 ## Install AWS cli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" &&  \
@@ -17,17 +17,17 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
     && ./aws/install
 
 # Install libreoffice for doc processing
-RUN curl -SL "https://download.documentfoundation.org/libreoffice/stable/7.6.6/deb/x86_64/LibreOffice_7.6.6_Linux_x86-64_deb.tar.gz" -o "libreoffice.tar.gz"
+RUN curl -SL "https://download.documentfoundation.org/libreoffice/stable/25.8.1/deb/x86_64/LibreOffice_25.8.1_Linux_x86-64_deb.tar.gz" -o "libreoffice.tar.gz"
 RUN tar zxvpf "libreoffice.tar.gz" && \
     rm "libreoffice.tar.gz" && \
-    cd LibreOffice_7.6.6.3_Linux_x86-64_deb/DEBS/ && \
+    cd LibreOffice_25.8.1.1_Linux_x86-64_deb/DEBS/ && \
     dpkg -i *.deb && \
     apt-get install -y default-jre
 
 ## Install node
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - &&  \
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - &&  \
     apt-get install -y nodejs && \
-    npm install -g npm@9.3.1
+    npm install -g npm@10.8.2
 
 # Install tool to optimize images
 RUN add-apt-repository ppa:inkscape.dev/stable && apt-get update &&  \
