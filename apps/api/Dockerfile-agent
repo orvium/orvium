@@ -1,17 +1,27 @@
 FROM orvium-agent-base:latest
+USER root
 
-RUN mkdir app
+# Directorio de trabajo
+WORKDIR /home/nestuser/app
 
-# Establece el directorio de trabajo
-WORKDIR /app
 
-# Copia el package.json y package-lock.json desde el directorio raíz del monorepo
-COPY ../../package*.json ./
+# Copia solo package.json y package-lock.json
+COPY package*.json ./
 
-# Instala todas las dependencias
-RUN npm ci
+RUN chown -R nestuser:nestuser . 
 
-# Copia los archivos compilados de la API
-COPY ./dist/apps/api-agent ./
+USER nestuser
 
-ENTRYPOINT ["node", "main.js"]
+# Instala dependencias (como usuario nestuser)
+RUN npm install
+
+# Copia el resto del código
+COPY . .
+
+USER root
+
+# Construye la app
+RUN npx nx reset && npx nx run api:build:agent --configuration=production
+
+# Entrypoint
+ENTRYPOINT ["node", "dist/apps/api-agent/main.js"]
